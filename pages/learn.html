@@ -1,0 +1,236 @@
+<!doctype html>
+<!-- 
+  DEVELOPER NOTE (Roman Urdu):
+  =========================================
+  Yeh SafePK ka "Learn" Page hai (learn.html).
+  Is page me learning topics aur scam prevention guides list kiye jate hain.
+  
+  Developer Guide:
+  - Is page ka data dynamically `/js/learn.js` file se load hota hai.
+  - Agar aapko naya scam topic add ya remove karna ho, to aap `/js/learn.js` array ko update karenge, automatic integration ho jayegi.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+    </script>
+    <title>Threats & Scam Guides Learning Center | SafePK Pakistan</title>
+    <meta name="description" content="Master cyber hygiene in Pakistan. Learn how online scammers operate, hack accounts, compromise WhatsApp, and drain mobile wallets like Easypaisa and JazzCash." />
+    <meta name="keywords" content="SafePK, online fraud Pakistan, avoid scams, WhatsApp protection, mobile wallet safety, Easypaisa scam, JazzCash scam, OTP theft, cyber safety guides" />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/pages/learn.html" />
+    
+    <!-- Open Graph / Facebook meta systems -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Threats & Scam Guides Learning Center | SafePK Pakistan" />
+    <meta property="og:description" content="Master cyber hygiene in Pakistan. Learn how online scammers operate, hack accounts, compromise WhatsApp, and drain mobile wallets." />
+    <meta property="og:url" content="https://safepk.net/pages/learn.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+    
+    <!-- Twitter cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Threats & Scam Guides Learning Center | SafePK" />
+    <meta name="twitter:description" content="Master cyber hygiene in Pakistan. Learn to spot and avoid digital threats, WhatsApp codes scams, and phishing." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+
+    <!-- Structured Data JSON-LD for Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.net",
+      "@type": "CollectionPage",
+      "name": "Threats & Scam Guides Learning Center",
+      "url": "https://safepk.net/pages/learn.html",
+      "description": "Educational platform teaching Pakistani digital consumers how to detect and avoid online scams, account takeovers, and financial fraud.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "SafePK",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg"
+        }
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="manifest" href="../manifest.json" />
+    <meta name="theme-color" content="#58a6ff" />
+  </head>
+  <body>
+    <!-- Navigation bar controls -->
+    <header>
+      <div class="container navbar-container">
+        <a href="../index.html" class="logo-block">
+          <img src="../assets/images/safepk_cyber_logo_1782237163960.jpg" alt="SafePK Logo" class="logo-img" referrerPolicy="no-referrer" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+        
+        <nav class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="learn.html" class="nav-link active">Learn</a>
+          <a href="tools.html" class="nav-link">Tools</a>
+          <a href="directory.html" class="nav-link">Directory</a>
+          <a href="help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Learning Center Container -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Content section header -->
+        <div class="sec-title-container animate-fade-in">
+          <h1 class="sec-title">Threat & Scams Learning Center</h1>
+          <p class="sec-desc">Master the anatomy of active digital scams in Pakistan. Learn exactly how threat actors target accounts and discover verified steps to stay secure.</p>
+        </div>
+
+        <!-- All cyber threats and scam guides listed below -->
+
+        <!-- Loading indicator or dynamic grid cards wrapper -->
+        <div class="items-grid animate-fade-in" id="scams-grid" style="margin-top: 1rem;">
+          <!-- JS is injected here safely -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer block -->
+    <footer>
+      <div class="container">
+        <div class="footer-columns">
+          <div class="footer-col">
+            <span class="footer-col-title">Join Our Community</span>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; max-width: 220px; margin-top: 0.25rem;">
+              <a href="https://whatsapp.com/channel/0029Vb883mn2P59bKiesEp3v" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link-whatsapp">
+                <img src="../assets/icons/whatsapp.png" alt="WhatsApp" style="width: 1.15rem; height: 1.15rem; border-radius: 4px;" referrerPolicy="no-referrer" />
+                <span>WhatsApp Channel</span>
+              </a>
+              <a href="https://www.facebook.com/share/1HMUFnf3dx/" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link-facebook">
+                <img src="../assets/icons/facebook.png" alt="Facebook" style="width: 1.15rem; height: 1.15rem; border-radius: 4px;" referrerPolicy="no-referrer" />
+                <span>Facebook Page</span>
+              </a>
+            </div>
+          </div>
+          
+          <div class="footer-col">
+            <span class="footer-col-title">Resources</span>
+            <div class="footer-links">
+              <a href="learn.html" class="footer-link">Scam Guides</a>
+              <a href="tools.html" class="footer-link">Safety Tools</a>
+              <a href="directory.html" class="footer-link">Cyber Directory</a>
+              <a href="pages/ai.html" class="footer-link">AI Assistant</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <span class="footer-col-title">Legal & Info</span>
+            <div class="footer-links">
+              <a href="about.html" class="footer-link">About SafePK</a>
+              <a href="contact.html" class="footer-link">Contact</a>
+              <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+              <a href="terms-of-use.html" class="footer-link">Terms & Conditions</a>
+              <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom-bar">
+          <span class="footer-copyright">
+            &copy; 2026 SafePK. All rights reserved.
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Universal portal modal overlay element -->
+    <div id="univ-modal" class="modal-overlay">
+      <div class="modal-window">
+        <div class="modal-header">
+          <div class="modal-header-title">
+            <span id="univ-modal-icon" class="text-primary"></span>
+            <h3 id="univ-modal-title"></h3>
+          </div>
+          <button class="modal-close-btn" onclick="window.closeUnivModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="univ-modal-body"></div>
+        <div class="modal-footer" id="univ-modal-footer"></div>
+      </div>
+    </div>
+
+    <!-- Script loading indices -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/learn.js"></script>
+    <script src="../js/directory.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+      // Initialize systems
+      if (typeof initTheme !== 'undefined') initTheme();
+      
+      // Render learning topics dynamic cards (All threats rendering directly without filters)
+      function renderScamsGrid() {
+        const grid = document.getElementById('scams-grid');
+        if (!grid || typeof learningTopics === 'undefined') return;
+        
+        if (learningTopics.length === 0) {
+          grid.innerHTML = '<div class="no-results" style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted); font-size: 0.9rem;">No scam guides found...</div>';
+          return;
+        }
+        
+        grid.innerHTML = learningTopics.map(t => {
+          return `
+            <div class="status-stat-card animate-fade-in" style="text-align: left; display: flex; flex-direction: column; gap: 1rem; padding: 1.5rem; transition: transform var(--transition-medium); border: 1px solid var(--border-color);" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+              <div class="scam-icon-box" style="width: 3rem; height: 3rem; border-radius: 1rem; background-color: rgba(56, 189, 248, 0.08); color: var(--color-primary); display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="${t.iconName || 'shield-alert'}" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span style="font-size: 0.65rem; font-family: var(--font-mono); font-weight: 700; text-transform: uppercase; color: var(--color-primary); background-color: rgba(56, 189, 248, 0.06); padding: 0.25rem 0.5rem; border-radius: 4px; display: inline-block; margin-bottom: 0.5rem;">${t.category}</span>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary); line-height: 1.3;">${t.title}</h3>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1rem;">${t.overview.substring(0, 110)}...</p>
+              <button onclick="window.openScamModal('${t.id}')" class="btn btn-secondary" style="font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 0.25rem; margin-top: auto; padding: 0.5rem 1rem; width: fit-content; cursor: pointer;">
+                Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          `;
+        }).join('');
+        
+        // Refresh icons
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      }
+
+      // Run on load
+      if (typeof learningTopics !== 'undefined') {
+        renderScamsGrid();
+      }
+      
+      // Render icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      // Automatically open scam guide modal if specified in query parameter (e.g. ?id=whatsapp-scams)
+      window.addEventListener('load', () => {
+        try {
+          const urlParams = new URLSearchParams(window.location.search);
+          const autoOpenId = urlParams.get('id') || urlParams.get('scam');
+          if (autoOpenId && typeof window.openScamModal === 'function') {
+            setTimeout(() => {
+              window.openScamModal(autoOpenId);
+            }, 300);
+          }
+        } catch (err) {
+          console.warn('[SafePK] URL parameters auto-open skipped:', err);
+        }
+      });
+    </script>
+  </body>
+</html>

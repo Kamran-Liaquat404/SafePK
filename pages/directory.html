@@ -1,0 +1,311 @@
+<!doctype html>
+<!-- 
+  DEVELOPER NOTE (Roman Urdu):
+  =========================================
+  Yeh SafePK ka "Directory" Page hai (directory.html).
+  Is page me verified commercial banks, national safety systems, aur cell networks ke contact directory lines hain.
+  
+  Developer Guide:
+  - Is page ka data dynamically `/js/directory.js` file se render hota hai.
+  - Agar aapko bank ya agency list update karni ho, to aap `/js/directory.js` array ko edit karenge, automatic integration ho jayegi.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+    </script>
+    <title>Pakistan Cybersecurity & Banking Helpline Directory | SafePK</title>
+    <meta name="description" content="Access official, verified helpline contacts of Pakistan's safety organizations, cellular operators, FIA Cybercrime Wing, SBP, and commercial banks in one secure place." />
+    <meta name="keywords" content="SafePK, FIA cybercrime helpline, PTA SIM blocks, SBP helpline Pakistan, banking contact directory, fraud support line Pakistan" />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/pages/directory.html" />
+    
+    <!-- Open Graph / Facebook meta systems -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pakistan Cybersecurity & Banking Helpline Directory | SafePK" />
+    <meta property="og:description" content="Quick access to official helplines, bank block numbers, PTA DIRBS verification, cellular services, and FIA cybercrime contacts in Pakistan." />
+    <meta property="og:url" content="https://safepk.net/pages/directory.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+    
+    <!-- Twitter cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Pakistan Cybersecurity & Banking Helpline Directory | SafePK" />
+    <meta name="twitter:description" content="Verified database of active hotlines, bank card block numbers, and digital safety contact points." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+
+    <!-- Structured Data JSON-LD ContactPage schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.net",
+      "@type": "ContactPage",
+      "name": "Pakistan Cybersecurity & Banking Helpline Directory",
+      "url": "https://safepk.net/pages/directory.html",
+      "description": "A curated directory of official government helplines, telecom assistance centers, and commercial bank blocking hotlines for digital protection in Pakistan.",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "FIA Cyber Crime Wing",
+            "telephone": "1799"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "PTA Consumer Helpline",
+            "telephone": "1603"
+          }
+        ]
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="manifest" href="../manifest.json" />
+    <meta name="theme-color" content="#58a6ff" />
+  </head>
+  <body>
+    <!-- Header with nav anchors -->
+    <header>
+      <div class="container navbar-container">
+        <a href="../index.html" class="logo-block">
+          <img src="../assets/images/safepk_cyber_logo_1782237163960.jpg" alt="SafePK Logo" class="logo-img" referrerPolicy="no-referrer" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+        
+        <nav class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="learn.html" class="nav-link">Learn</a>
+          <a href="tools.html" class="nav-link">Tools</a>
+          <a href="directory.html" class="nav-link active">Directory</a>
+          <a href="help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main dynamic body content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="sec-title-container animate-fade-in">
+          <h1 class="sec-title">Pakistan Cybersecurity Directory</h1>
+          <p class="sec-desc">A consolidated index of official helpline coordinates for Pakistani regulatory authorities, telecom operators, and financial institutions. Note: SafePK is an independent initiative and is not affiliated with these entities.</p>
+        </div>
+
+        <!-- Directory lists wrapper -->
+        <div class="items-grid animate-fade-in" id="directory-grid">
+          <!-- JS injected cards -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer block -->
+    <footer>
+      <div class="container">
+        <div class="footer-columns">
+          <div class="footer-col">
+            <span class="footer-col-title">Join Our Community</span>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; max-width: 220px; margin-top: 0.25rem;">
+              <a href="https://whatsapp.com/channel/0029Vb883mn2P59bKiesEp3v" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link-whatsapp">
+                <img src="/assets/icons/whatsapp.png" alt="WhatsApp" style="width: 1.15rem; height: 1.15rem; border-radius: 4px;" referrerPolicy="no-referrer" />
+                <span>WhatsApp Channel</span>
+              </a>
+              <a href="https://www.facebook.com/share/1HMUFnf3dx/" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link-facebook">
+                <img src="../assets/icons/facebook.png" alt="Facebook" style="width: 1.15rem; height: 1.15rem; border-radius: 4px;" referrerPolicy="no-referrer" />
+                <span>Facebook Page</span>
+              </a>
+            </div>
+          </div>
+          
+          <div class="footer-col">
+            <span class="footer-col-title">Resources</span>
+            <div class="footer-links">
+              <a href="learn.html" class="footer-link">Scam Guides</a>
+              <a href="tools.html" class="footer-link">Safety Tools</a>
+              <a href="directory.html" class="footer-link">Cyber Directory</a>
+              <a href="pages/ai.html" class="footer-link">AI Assistant</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <span class="footer-col-title">Legal & Info</span>
+            <div class="footer-links">
+              <a href="about.html" class="footer-link">About SafePK</a>
+              <a href="contact.html" class="footer-link">Contact</a>
+              <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+              <a href="terms-of-use.html" class="footer-link">Terms & Conditions</a>
+              <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom-bar">
+          <span class="footer-copyright">
+            &copy; 2026 SafePK. All rights reserved.
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script assets inclusions -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/learn.js"></script>
+    <script src="../js/directory.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+      // Initialize systems
+      if (typeof initTheme !== 'undefined') initTheme();
+      
+      function getLogoHtml(id) {
+  const wallets = [
+    "easypaisa","jazzcash","nayapay","sadapay","upaisa","keenu",
+    "finja","konnect","alfa","paymax","oneload","careempay","yappakistan"
+  ];
+
+  const operators = [
+    "jazz","telenor","zong","ufone"
+  ];
+
+  const agencies = [
+    "nccia","fia","pta","nadra","sbp","ombudsman",
+    "secp","bisp","pakpost","consumercourt","banking-safety"
+  ];
+
+  let fallbackEmoji = "🏦";
+  let fallbackBg = "linear-gradient(135deg,#047857,#064e3b)";
+  let fallbackBorder = "1px solid rgba(46,160,67,.3)";
+  let fallbackShadow = "rgba(4,120,87,.25)";
+
+  if (wallets.includes(id)) {
+    fallbackEmoji = "👛";
+    fallbackBg = "linear-gradient(135deg,#8b5cf6,#4f46e5)";
+    fallbackBorder = "1px solid rgba(139,92,246,.3)";
+    fallbackShadow = "rgba(79,70,229,.25)";
+  } else if (operators.includes(id)) {
+    fallbackEmoji = "📶";
+    fallbackBg = "linear-gradient(135deg,#0ea5e9,#0369a1)";
+    fallbackBorder = "1px solid rgba(14,165,233,.3)";
+    fallbackShadow = "rgba(2,132,199,.25)";
+  } else if (agencies.includes(id)) {
+    fallbackEmoji = "🛡️";
+    fallbackBg = "linear-gradient(135deg,#1e293b,#0f172a)";
+    fallbackBorder = "1px solid rgba(56,139,253,.3)";
+    fallbackShadow = "rgba(15,23,42,.35)";
+  }
+
+  return `
+    <div style="display:inline-flex;width:3rem;height:3rem;position:relative;flex-shrink:0;">
+      <img
+        src="../assets/icons/${id}.png"
+        alt="${id}"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+        style="width:100%;height:100%;object-fit:contain;border-radius:12px;background:#fff;padding:4px;"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+      >
+
+      <div
+        style="display:none;width:100%;height:100%;background:${fallbackBg};border:${fallbackBorder};border-radius:12px;align-items:center;justify-content:center;box-shadow:0 4px 12px ${fallbackShadow};"
+      >
+        <span style="font-size:1.5rem">${fallbackEmoji}</span>
+      </div>
+    </div>
+  `;
+}
+
+      // Render official cybersecurity and regulatory organizations directory
+      function renderDirectory() {
+        const grid = document.getElementById('directory-grid');
+        if (!grid || typeof pakistanDirectory === 'undefined') return;
+        
+        grid.innerHTML = pakistanDirectory.map(item => {
+          let contactInfo = '';
+          if (item.phone) {
+            contactInfo += `
+              <div style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; margin-top: 0.35rem; color: var(--text-primary);">
+                <i data-lucide="phone" class="w-3.5 h-3.5 text-primary" style="color: var(--color-primary); width: 14px; height: 14px;"></i>
+                <span>Helpline: <strong style="font-family: var(--font-mono);">${item.phone}</strong></span>
+              </div>
+            `;
+          }
+          if (item.email) {
+            contactInfo += `
+              <div style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; margin-top: 0.25rem; color: var(--text-secondary);">
+                <i data-lucide="mail" class="w-3.5 h-3.5" style="width: 14px; height: 14px;"></i>
+                <span>Email: <a href="mailto:${item.email}" style="color: var(--color-primary); text-decoration: underline;">${item.email}</a></span>
+              </div>
+            `;
+          }
+          if (item.complaintPortal) {
+            contactInfo += `
+              <div style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; margin-top: 0.25rem; color: var(--text-secondary);">
+                <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-warning" style="color: var(--color-warning); width: 14px; height: 14px;"></i>
+                <span>Portal: <a href="${item.complaintPortal}" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: underline;">Open Complaint Portal</a></span>
+              </div>
+            `;
+          }
+          
+          let pointsHtml = '';
+          if (item.points) {
+            pointsHtml = `
+              <ul style="padding-left: 1.15rem; font-size: 0.73rem; color: var(--text-secondary); margin-top: 0.4rem; list-style-type: disc; display: flex; flex-direction: column; gap: 0.2rem;">
+                ${item.points.map(pt => `<li>${pt}</li>`).join('')}
+              </ul>
+            `;
+          }
+
+          let actionBtn = '';
+          if (item.website && item.website !== '#') {
+            actionBtn = `
+              <a href="${item.website}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.72rem; font-weight: 700; display: inline-flex; align-items: center; gap: 0.2rem; margin-top: 0.5rem; padding: 0.4rem 0.85rem; width: fit-content; border-radius: 4px;">
+                Visit Website <i data-lucide="external-link" class="w-3 h-3" style="width: 12px; height: 12px;"></i>
+              </a>
+            `;
+          }
+          
+          return `
+            <div class="status-stat-card animate-fade-in" style="text-align: left; display: flex; flex-direction: column; gap: 0.75rem; padding: 1.15rem; border: 1px solid var(--border-color); background: var(--bg-secondary); border-radius: 0.5rem; min-height: auto; box-shadow: var(--shadow-sm);">
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                ${getLogoHtml(item.id)}
+                <div style="display: flex; flex-direction: column; gap: 0.2rem; flex-grow: 1;">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.4rem; flex-wrap: wrap;">
+                    <h3 style="font-size: 0.98rem; font-weight: 500; color: var(--text-primary); line-height: 1.3; margin: 0; display: inline-flex; align-items: center; gap: 0.3rem; flex-wrap: wrap;">
+                      <span>${item.name}</span>
+                      <span style="display: inline-flex; align-items: center; color: #2ea043; background: rgba(56, 139, 253, 0.05); border: 1px solid rgba(46, 160, 67, 0.25); border-radius: 12px; padding: 1px 5px; font-size: 0.6rem; font-family: var(--font-sans); font-weight: 600; white-space: nowrap;">
+                        <i data-lucide="check-circle" class="w-3 h-3" style="width: 10px; height: 10px; color: #2ea043; fill: rgba(46, 160, 67, 0.1);"></i>
+                        <span style="margin-left: 0.15rem; text-transform: uppercase; letter-spacing: 0.02em;">Verified</span>
+                      </span>
+                    </h3>
+                    ${item.abbreviation ? `<span style="background: rgba(88, 166, 255, 0.08); color: var(--color-primary); font-size: 0.62rem; font-family: var(--font-mono); font-weight: 700; padding: 0.15rem 0.4rem; border-radius: 4px; flex-shrink: 0; white-space: nowrap;">${item.abbreviation}</span>` : ''}
+                  </div>
+                </div>
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45; margin: 0;">${item.description}</p>
+              
+              <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.15rem;">
+                ${contactInfo}
+              </div>
+              
+              ${pointsHtml}
+              ${actionBtn}
+            </div>
+          `;
+        }).join('');
+        
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      }
+
+      renderDirectory();
+    </script>
+  </body>
+</html>

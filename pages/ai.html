@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SafePK AI Assistant Guide</title>
+  <meta name="description" content="SafePK AI Assistant - Pakistan-focused cybersecurity assistant for scam detection, fraud prevention, and digital safety guidance." />
+  <meta name="theme-color" content="#58a6ff" />
+
+  <!-- Core SafePK Styles -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+
+  <!-- AI Specific Styles -->
+  <link rel="stylesheet" href="../css/ai.css" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body>
+
+  <!-- =========================
+       SAFE PK HEADER (EXISTING STYLE)
+  ========================== -->
+  <header>
+    <div class="container navbar-container">
+
+      <a href="../index.html" class="logo-block">
+        <img src="../assets/images/safepk_cyber_logo_1782237163960.jpg" class="logo-img" />
+        <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="learn.html" class="nav-link">Learn</a>
+        <a href="tools.html" class="nav-link">Tools</a>
+        <a href="directory.html" class="nav-link">Directory</a>
+        <a href="ai.html" class="nav-link active">AI Assistant</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       AI HERO SECTION
+  ========================== -->
+  <section class="ai-hero">
+    <div class="container">
+
+
+      <h1 class="ai-title">
+        Pakistan Cybersecurity<br />
+        <span class="highlight">AI Assistant</span>
+      </h1>
+
+      <p class="ai-subtitle">
+        Scam detection, fraud prevention, WhatsApp security, banking safety & digital awareness assistant for Pakistan.
+      </p>
+
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       AI MAIN LAYOUT WRAPPER
+  ========================== -->
+  <main class="ai-layout">
+
+    <div class="container ai-grid">
+
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="ai-sidebar">
+
+        <button class="new-chat-btn">
+          + New Chat
+        </button>
+
+        <div class="sidebar-section">
+          <h3>Suggested Topics</h3>
+          <ul>
+            <li>WhatsApp OTP Scam</li>
+            <li>Easypaisa Fraud</li>
+            <li>Fake Bank Calls</li>
+            <li>SIM Swap Protection</li>
+            <li>OTP Safety</li>
+          </ul>
+        </div>
+
+        
+        <div class="sidebar-warning">
+          ⚠ This AI does NOT give hacking, illegal or non-cybersecurity advice.
+        </div>
+
+      </aside>
+
+
+      <!-- ================= CHAT AREA ================= -->
+      <section class="ai-chat">
+
+        <!-- Chat Header -->
+        <div class="chat-header">
+          <div class="ai-avatar"></div>
+          <div>
+            <h2>SafePK AI Assistant</h2>
+            <span>Cybersecurity Support for Pakistan</span>
+          </div>
+        </div>
+
+
+        <!-- Welcome Screen -->
+        <div class="welcome-box">
+          <h3>How can I help you stay safe?</h3>
+          <p>Ask about scams, frauds, phishing, OTP protection, or digital security.</p>
+
+          <div class="quick-questions">
+            <button>What is WhatsApp OTP scam?</button>
+            <button>How to stop Easypaisa fraud?</button>
+            <button>How SIM swap attacks work?</button>
+          </div>
+        </div>
+
+
+        <!-- Messages Container -->
+        <div id="chat-messages" class="chat-messages">
+          <!-- AI responses will appear here -->
+        </div>
+
+                <!-- Typing Indicator -->
+        <div id="typing-indicator" class="typing-indicator" style="display:none;">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <!-- Chat Input Composer -->
+        <div class="chat-composer">
+
+          <div class="composer-box">
+
+            <textarea 
+              id="user-input"
+              placeholder="Ask about scams, frauds, OTP security..."
+              rows="1"
+            ></textarea>
+
+            <button id="send-btn" class="send-btn">
+              <i data-lucide="send"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- AI Disclaimer -->
+        <div class="ai-disclaimer">
+          ⚠ SafePK AI Assistant may provide awareness-based guidance only. It does not replace official FIA or bank security systems.
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+
+  <!-- =========================
+       FOOTER (EXISTING SAFE PK)
+  ========================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-bottom-bar">
+        <span>&copy; 2026 SafePK. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- =========================
+       UNIVERSAL MODAL (EXISTING)
+  ========================== -->
+  <div id="univ-modal" class="modal-overlay">
+    <div class="modal-window">
+
+      <div class="modal-header">
+        <h3 id="univ-modal-title"></h3>
+        <button onclick="window.closeUnivModal()">&times;</button>
+      </div>
+
+      <div class="modal-body" id="univ-modal-body"></div>
+
+    </div>
+  </div>
+  
+
+
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+  <script src="../js/theme.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/ai.js"></script>
+
+  <script>
+    // Initialize icons
+    if (window.lucide) lucide.createIcons();
+
+    // Auto-resize textarea
+    const textarea = document.getElementById("user-input");
+    textarea.addEventListener("input", function () {
+      this.style.height = "auto";
+      this.style.height = this.scrollHeight + "px";
+    });
+
+    // Enter to send (Shift+Enter = new line)
+    textarea.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        document.getElementById("send-btn").click();
+      }
+    });
+  </script>
+
+</body>
+</html>
