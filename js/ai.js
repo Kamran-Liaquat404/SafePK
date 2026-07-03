@@ -6,19 +6,18 @@ const sendBtn = document.getElementById("send-btn");
 const typingIndicator = document.getElementById("typing-indicator");
 
 /* =========================
-   ADD MESSAGE TO UI
+   ADD MESSAGE
 ========================= */
 function addMessage(role, text) {
-  const msg = document.createElement("div");
-  msg.className = role === "user" ? "msg-user" : "msg-ai";
-  msg.textContent = text;
-
-  chatMessages.appendChild(msg);
+  const div = document.createElement("div");
+  div.className = role === "user" ? "msg-user" : "msg-ai";
+  div.textContent = text;
+  chatMessages.appendChild(div);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
 /* =========================
-   TYPING INDICATOR
+   TYPING
 ========================= */
 function showTyping() {
   typingIndicator.style.display = "flex";
@@ -29,84 +28,64 @@ function hideTyping() {
 }
 
 /* =========================
-   FRONTEND SAFETY FILTER
+   SEND MESSAGE
 ========================= */
-function isObviouslyInvalidTopic(text) {
-  const blockedKeywords = [
-    "code", "programming", "math", "physics",
-    "politics", "religion", "movie", "song",
-    "game", "sports", "crack", "hack",
-    "earn money", "investment", "stock"
-  ];
+async function sendMessage() {
+  const message = userInput.value.trim();
+  if (!message) return;
 
-  const lower = text.toLowerCase();
-  return blockedKeywords.some(word => lower.includes(word));
-}
+  addMessage("user", message);
 
-/* =========================
-   SEND MESSAGE (CORE)
-========================= */
-async function sendMessage(message) {
+  userInput.value = "";
+  userInput.style.height = "auto";
+
+  showTyping();
+
   try {
-    showTyping();
-
     const res = await fetch(API_ENDPOINT, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ message }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message })
     });
 
     const data = await res.json();
 
     hideTyping();
 
-    if (data?.reply) {
-      addMessage("ai", data.reply);
-    } else {
-      addMessage("ai", "Sorry, something went wrong. Please try again.");
-    }
+    addMessage("ai", data.reply || "No response received.");
 
-  } catch (error) {
+  } catch (err) {
     hideTyping();
-    addMessage("ai", "Network error. Please check your connection.");
+    addMessage("ai", "Network error. Try again.");
   }
 }
 
 /* =========================
-   SAFE WRAPPER (ONLY ONE FLOW)
+   SAFE WRAPPER (optional)
 ========================= */
-function safeSend() {
+function isBlocked(text) {
+  const blocked = ["movie","song","game","hack","crack","sports","politics"];
+  return blocked.some(k => text.toLowerCase().includes(k));
+}
+
+async function safeSend() {
   const message = userInput.value.trim();
   if (!message) return;
 
-  // user message show
-  addMessage("user", message);
-
-  userInput.value = "";
-  userInput.style.height = "auto";
-
-  // safety check
-  if (isObviouslyInvalidTopic(message)) {
-    addMessage(
-      "ai",
-      "SafePK AI only helps with cybersecurity awareness in Pakistan (scams, fraud, phishing, OTP safety, etc)."
-    );
+  if (isBlocked(message)) {
+    addMessage("ai", "SafePK AI sirf cybersecurity topics cover karta hai.");
+    userInput.value = "";
     return;
   }
 
-  sendMessage(message);
+  await sendMessage();
 }
 
 /* =========================
-   EVENTS (FIXED - NO DUPLICATES)
+   EVENTS (FIXED)
 ========================= */
-
-// send button
 sendBtn.addEventListener("click", safeSend);
 
-// enter key send
 userInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && !e.shiftKey) {
     e.preventDefault();
@@ -114,19 +93,7 @@ userInput.addEventListener("keydown", (e) => {
   }
 });
 
-/* =========================
-   QUICK QUESTIONS
-========================= */
-document.querySelectorAll(".quick-questions button").forEach(btn => {
-  btn.addEventListener("click", () => {
-    userInput.value = btn.textContent.trim();
-    userInput.focus();
-  });
-});
-
-/* =========================
-   AUTO FOCUS
-========================= */
+/* AUTO FOCUS */
 window.addEventListener("load", () => {
-  userInput?.focus();
+  userInput.focus();
 });
