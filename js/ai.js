@@ -10,21 +10,15 @@ const typingIndicator = document.getElementById("typing-indicator");
 ========================= */
 function addMessage(role, text) {
   const msg = document.createElement("div");
-
-  if (role === "user") {
-    msg.className = "msg-user";
-  } else {
-    msg.className = "msg-ai";
-  }
-
+  msg.className = role === "user" ? "msg-user" : "msg-ai";
   msg.textContent = text;
-  chatMessages.appendChild(msg);
 
+  chatMessages.appendChild(msg);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
 /* =========================
-   SHOW / HIDE TYPING
+   TYPING INDICATOR
 ========================= */
 function showTyping() {
   typingIndicator.style.display = "flex";
@@ -35,37 +29,40 @@ function hideTyping() {
 }
 
 /* =========================
-   SEND MESSAGE TO BACKEND
+   FRONTEND SAFETY FILTER
 ========================= */
-async function sendMessage() {
-  const message = userInput.value.trim();
+function isObviouslyInvalidTopic(text) {
+  const blockedKeywords = [
+    "code", "programming", "math", "physics",
+    "politics", "religion", "movie", "song",
+    "game", "sports", "crack", "hack",
+    "earn money", "investment", "stock"
+  ];
 
-  if (!message) return;
+  const lower = text.toLowerCase();
+  return blockedKeywords.some(word => lower.includes(word));
+}
 
-  // Add user message
-  addMessage("user", message);
-
-  userInput.value = "";
-  userInput.style.height = "auto";
-
-  showTyping();
-
+/* =========================
+   SEND MESSAGE (CORE)
+========================= */
+async function sendMessage(message) {
   try {
+    showTyping();
+
     const res = await fetch(API_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        message: message
-      }),
+      body: JSON.stringify({ message }),
     });
 
     const data = await res.json();
 
     hideTyping();
 
-    if (data && data.reply) {
+    if (data?.reply) {
       addMessage("ai", data.reply);
     } else {
       addMessage("ai", "Sorry, something went wrong. Please try again.");
@@ -78,62 +75,38 @@ async function sendMessage() {
 }
 
 /* =========================
-   EVENT LISTENERS
+   SAFE WRAPPER (ONLY ONE FLOW)
 ========================= */
-sendBtn.addEventListener("click", sendMessage);
-
-userInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && !e.shiftKey) {
-    e.preventDefault();
-    sendMessage();
-  }
-});
-
-/* =========================
-   FRONTEND SAFETY FILTER (LIGHT LAYER)
-   (Backend will enforce real rules)
-========================= */
-
-function isObviouslyInvalidTopic(text) {
-  const blockedKeywords = [
-    "code", "programming", "math", "physics",
-    "politics", "religion", "movie", "song",
-    "game", "sports", "crack", "hack",
-    "earn money", "investment", "stock"
-  ];
-
-  const lower = text.toLowerCase();
-
-  return blockedKeywords.some(word => lower.includes(word));
-}
-
-/* =========================
-   SAFE SEND WRAPPER
-========================= */
-async function safeSend() {
+function safeSend() {
   const message = userInput.value.trim();
-
   if (!message) return;
 
-  // Frontend quick block (UX only)
+  // user message show
+  addMessage("user", message);
+
+  userInput.value = "";
+  userInput.style.height = "auto";
+
+  // safety check
   if (isObviouslyInvalidTopic(message)) {
     addMessage(
       "ai",
       "SafePK AI only helps with cybersecurity awareness in Pakistan (scams, fraud, phishing, OTP safety, etc)."
     );
-    userInput.value = "";
     return;
   }
 
-  await sendMessage();
+  sendMessage(message);
 }
 
 /* =========================
-   OVERRIDE EVENTS (SAFE FLOW)
+   EVENTS (FIXED - NO DUPLICATES)
 ========================= */
-sendBtn.removeEventListener("click", sendMessage);
+
+// send button
 sendBtn.addEventListener("click", safeSend);
 
+// enter key send
 userInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && !e.shiftKey) {
     e.preventDefault();
@@ -142,19 +115,18 @@ userInput.addEventListener("keydown", (e) => {
 });
 
 /* =========================
-   QUICK QUESTIONS HANDLER
+   QUICK QUESTIONS
 ========================= */
 document.querySelectorAll(".quick-questions button").forEach(btn => {
   btn.addEventListener("click", () => {
-    const text = btn.textContent.trim();
-    userInput.value = text;
+    userInput.value = btn.textContent.trim();
     userInput.focus();
   });
 });
 
 /* =========================
-   AUTO FOCUS ON LOAD
+   AUTO FOCUS
 ========================= */
 window.addEventListener("load", () => {
-  userInput.focus();
+  userInput?.focus();
 });
