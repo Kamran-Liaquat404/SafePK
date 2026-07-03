@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>SafePK AI Assistant Guide</title>
+  <title>SafePK AI Assistant</title>
   <meta name="description" content="SafePK AI Assistant - Pakistan-focused cybersecurity assistant for scam detection, fraud prevention, and digital safety guidance." />
   <meta name="theme-color" content="#58a6ff" />
 
@@ -15,111 +15,179 @@
   <!-- AI Specific Styles -->
   <link rel="stylesheet" href="../css/ai.css" />
 
-  <!-- MOBILE UI FIX - NO DATA CHANGED -->
+  <!-- CHATGPT STYLE FULLSCREEN UI - NO JS CHANGED -->
   <style>
-    /* Mobile Layout Only - Desktop untouched */
+    body {
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+      overflow: hidden;
+    }
+
+    /* Hide hero and footer completely for fullscreen chat */
+    .ai-hero, footer { 
+      display: none !important; 
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.8);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .ai-layout {
+      height: calc(100vh - 65px);
+      padding: 0;
+      margin: 0;
+    }
+
+    .ai-grid {
+      grid-template-columns: 1fr; /* Single column only */
+      height: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      gap: 0;
+    }
+
+    .ai-sidebar {
+      display: none !important; /* Sidebar fully removed */
+    }
+
+    .ai-chat {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+
+    .chat-header {
+      padding: 16px 20px;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .chat-header h2 { font-size: 1.1rem; font-weight: 600; }
+    .chat-header span { font-size: 0.85rem; color: #6b7280; }
+
+    .welcome-box {
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 10vh;
+    }
+    .welcome-box h3 { font-size: 1.5rem; margin-bottom: 8px; }
+    .quick-questions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 16px;
+    }
+    .quick-questions button {
+      border: 1px solid #d1d5db;
+      background: #fff;
+      border-radius: 18px;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .quick-questions button:hover {
+      background: #f3f4f6;
+      border-color: #9ca3af;
+    }
+
+    .chat-messages {
+      flex: 1 1 auto;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Chat bubble style like ChatGPT */
+    .chat-messages .message {
+      max-width: 75%;
+      padding: 12px 16px;
+      border-radius: 18px;
+      line-height: 1.5;
+    }
+    .chat-messages .message.user {
+      background: #2563eb;
+      color: #fff;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+    .chat-messages .message.ai {
+      background: #fff;
+      color: #111827;
+      align-self: flex-start;
+      border: 1px solid #e5e7eb;
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-composer {
+      position: sticky;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      border-top: 1px solid #e5e7eb;
+      flex-shrink: 0;
+    }
+
+    .composer-box {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      background: #fff;
+      border: 1px solid #d1d5db;
+      border-radius: 24px;
+      padding: 8px 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    #user-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      line-height: 1.5;
+      max-height: 200px;
+      background: transparent;
+    }
+
+    .send-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .send-btn:hover { background: #1d4ed8; }
+
+    .ai-disclaimer {
+      font-size: 11px;
+      padding: 8px 16px;
+      text-align: center;
+      color: #6b7280;
+    }
+
     @media (max-width: 768px) {
-      body {
-        overflow: hidden; /* Prevent body scroll */
-      }
-
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-
-      .ai-hero {
-        display: none; /* Hero section hides on mobile for more chat space */
-      }
-
-      .ai-layout {
-        height: calc(100vh - 64px); /* Full height minus header */
-        padding: 0;
-        margin: 0;
-      }
-
-      .ai-grid {
-        grid-template-columns: 1fr; /* Remove sidebar column */
-        height: 100%;
-        padding: 0;
-        gap: 0;
-      }
-
-      .ai-sidebar {
-        display: none; /* Hide sidebar on mobile */
-      }
-
-      .ai-chat {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        border: none;
-        border-radius: 0;
-        padding: 0;
-      }
-
-      .chat-header {
-        padding: 12px 16px;
-        flex-shrink: 0;
-      }
-
-      .chat-header h2 {
-        font-size: 1rem;
-      }
-
-      .welcome-box {
-        padding: 16px;
-      }
-
-      .quick-questions {
-        grid-template-columns: 1fr; /* Stack buttons */
-      }
-
-      .chat-messages {
-        flex: 1 1 auto;
-        overflow-y: auto; /* Only messages scroll */
-        padding: 16px;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .typing-indicator {
-        padding: 0 16px;
-      }
-
-      .chat-composer {
-        position: sticky;
-        bottom: 0;
-        background: var(--bg-color, #fff);
-        padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
-        border-top: 1px solid var(--border-color, #e5e7eb);
-        flex-shrink: 0;
-      }
-
-      .composer-box {
-        border-radius: 24px;
-      }
-
-      #user-input {
-        font-size: 16px; /* Prevents iOS zoom */
-        max-height: 120px;
-      }
-
-      .send-btn {
-        width: 40px;
-        height: 40px;
-        flex-shrink: 0;
-      }
-
-      .ai-disclaimer {
-        font-size: 11px;
-        padding: 8px 16px;
-        text-align: center;
-      }
-
-      footer {
-        display: none; /* Hide footer on chat screen for max space */
-      }
+      .chat-messages .message { max-width: 85%; }
+      .welcome-box { margin-top: 5vh; }
     }
   </style>
 
@@ -158,16 +226,13 @@
   ========================== -->
   <section class="ai-hero">
     <div class="container">
-
       <h1 class="ai-title">
         Pakistan Cybersecurity<br />
         <span class="highlight">AI Assistant</span>
       </h1>
-
       <p class="ai-subtitle">
         Scam detection, fraud prevention, WhatsApp security, banking safety & digital awareness assistant for Pakistan.
       </p>
-
     </div>
   </section>
 
@@ -180,11 +245,9 @@
 
       <!-- ================= SIDEBAR ================= -->
       <aside class="ai-sidebar">
-
         <button class="new-chat-btn">
           + New Chat
         </button>
-
         <div class="sidebar-section">
           <h3>Suggested Topics</h3>
           <ul>
@@ -195,12 +258,9 @@
             <li>OTP Safety</li>
           </ul>
         </div>
-
-        
         <div class="sidebar-warning">
           ⚠ This AI does NOT give hacking, illegal or non-cybersecurity advice.
         </div>
-
       </aside>
 
       <!-- ================= CHAT AREA ================= -->
@@ -232,7 +292,7 @@
           <!-- AI responses will appear here -->
         </div>
 
-                <!-- Typing Indicator -->
+        <!-- Typing Indicator -->
         <div id="typing-indicator" class="typing-indicator" style="display:none;">
           <span></span>
           <span></span>
@@ -241,21 +301,16 @@
 
         <!-- Chat Input Composer -->
         <div class="chat-composer">
-
           <div class="composer-box">
-
             <textarea 
               id="user-input"
               placeholder="Ask about scams, frauds, OTP security..."
               rows="1"
             ></textarea>
-
             <button id="send-btn" class="send-btn">
               <i data-lucide="send"></i>
             </button>
-
           </div>
-
         </div>
 
         <!-- AI Disclaimer -->
@@ -323,14 +378,11 @@
   ========================== -->
   <div id="univ-modal" class="modal-overlay">
     <div class="modal-window">
-
       <div class="modal-header">
         <h3 id="univ-modal-title"></h3>
         <button onclick="window.closeUnivModal()">&times;</button>
       </div>
-
       <div class="modal-body" id="univ-modal-body"></div>
-
     </div>
   </div>
   
