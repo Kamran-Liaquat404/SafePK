@@ -1,256 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SafePK AI Assistant</title>
-  <meta name="description" content="SafePK AI Assistant - Pakistan-focused cybersecurity assistant." />
-  <meta name="theme-color" content="#0D0D0D" />
+    <title>SafePK AI Assistant</title>
 
-  <!-- AI Specific Styles -->
-  <link rel="stylesheet" href="../css/ai.css" />
+    <meta name="description" content="SafePK AI Assistant for cybersecurity awareness and scam protection in Pakistan.">
 
-  <!-- CLEAN CHATGPT STYLE UI - ONLY AI ASSISTANT -->
-  <style>
-    :root {
-      --bg-dark: #0D0D0D;
-      --bg-card: #1A1A1A;
-      --border-dark: #2A2A2A;
-      --text-white: #FFFFFF;
-      --text-grey: #A3A3A3;
-    }
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/ai.css">
 
-    body {
-      background: var(--bg-dark);
-      color: var(--text-white);
-      font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      margin: 0;
-      overflow: hidden;
-    }
-
-    /* Only Header + Chat. Nothing else */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(13, 13, 13, 0.8);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-dark);
-      padding: 12px 20px;
-    }
-    .logo-block { 
-      display: flex; 
-      align-items: center; 
-      gap: 8px;
-      color: var(--text-white);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-    .logo-img { width: 28px; height: 28px; }
-
-    .ai-layout {
-      height: calc(100vh - 53px);
-      padding: 0;
-      margin: 0;
-    }
-
-    .ai-grid {
-      grid-template-columns: 1fr;
-      height: 100%;
-      max-width: 768px; /* ChatGPT jaisa */
-      margin: 0 auto;
-      padding: 0;
-    }
-
-    .ai-sidebar, .ai-hero, footer { 
-      display: none !important; 
-    }
-
-    .ai-chat {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      background: transparent;
-      border: none;
-      padding: 0;
-    }
-
-    .chat-header {
-      padding: 16px 20px;
-      flex-shrink: 0;
-      background: var(--bg-dark);
-      border-bottom: 1px solid var(--border-dark);
-    }
-    .chat-header h2 { font-size: 1.1rem; font-weight: 600; margin: 0; }
-    .chat-header span { font-size: 0.85rem; color: var(--text-grey); }
-
-    .welcome-box {
-      text-align: center;
-      padding: 40px 20px;
-      margin-top: 10vh;
-      color: var(--text-grey);
-    }
-    .welcome-box h3 { font-size: 1.5rem; margin-bottom: 8px; color: var(--text-white); }
-    .quick-questions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-      margin-top: 16px;
-    }
-    .quick-questions button {
-      border: 1px solid var(--border-dark);
-      background: var(--bg-card);
-      color: var(--text-white);
-      border-radius: 18px;
-      padding: 8px 14px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    .chat-messages {
-      flex: 1 1 auto;
-      overflow-y: auto;
-      padding: 24px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .chat-composer {
-      position: sticky;
-      bottom: 0;
-      background: var(--bg-dark);
-      padding: 12px 16px calc(16px + env(safe-area-inset-bottom));
-      border-top: 1px solid var(--border-dark);
-      flex-shrink: 0;
-    }
-
-    .composer-box {
-      display: flex;
-      align-items: flex-end;
-      gap: 8px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-dark);
-      border-radius: 12px;
-      padding: 8px 12px;
-    }
-
-    #user-input {
-      flex: 1;
-      border: none;
-      outline: none;
-      font-size: 16px;
-      background: transparent;
-      color: var(--text-white);
-      font-family: inherit;
-    }
-    #user-input::placeholder { color: var(--text-grey); }
-
-    .send-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: var(--text-white);
-      color: var(--bg-dark);
-      border: none;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-    }
-
-    .ai-disclaimer {
-      font-size: 12px;
-      padding: 8px 16px;
-      text-align: center;
-      color: var(--text-grey);
-    }
-  </style>
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
 
-  <!-- ====== ONLY LOGO HEADER ====== -->
-  <header>
-    <a href="#" class="logo-block">
-      <img src="../assets/icons/safepk_cyber_logo_1782237163960.png" alt="SafePK Logo" class="logo-img" referrerPolicy="no-referrer" />
-      <span>SafePK AI</span>
+<!-- ================= HEADER (SAME AS INDEX) ================= -->
+<header>
+  <div class="container navbar-container">
+
+    <a href="../index.html" class="logo-block">
+      <img src="../assets/images/safepk_cyber_logo_1782237163960.jpg" class="logo-img" />
+      <span>Safe<span style="color: var(--color-primary)">PK</span></span>
     </a>
-  </header>
 
-  <!-- ====== ONLY CHAT LAYOUT ====== -->
-  <main class="ai-layout">
-    <div class="container ai-grid">
+    <nav class="nav-links">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="learn.html" class="nav-link">Learn</a>
+      <a href="tools.html" class="nav-link">Tools</a>
+      <a href="directory.html" class="nav-link">Directory</a>
+      <a href="ai.html" class="nav-link active">AI Assistant</a>
+    </nav>
 
-      <!-- ====== CHAT AREA ONLY ====== -->
-      <section class="ai-chat">
+  </div>
+</header>
 
-        <div class="chat-header">
-          <div>
-            <h2>SafePK AI Assistant</h2>
-            <span>Cybersecurity Support for Pakistan</span>
-          </div>
+<!-- ================= CHAT AREA ================= -->
+<main class="chat-container">
+
+    <section class="chat-box">
+
+        <!-- Welcome -->
+        <div id="welcome" class="welcome">
+
+            <h1>How can I help you today?</h1>
+            <p>Ask about scams, frauds, WhatsApp hacking, banking safety & cyber threats.</p>
+
+            <div class="quick">
+                <button onclick="sendQuick('WhatsApp OTP scam kya hai?')">
+                    WhatsApp OTP Scam
+                </button>
+
+                <button onclick="sendQuick('Easypaisa fraud kaise hota hai?')">
+                    Easypaisa Fraud
+                </button>
+
+                <button onclick="sendQuick('SIM swap attack kya hota hai?')">
+                    SIM Swap Attack
+                </button>
+            </div>
+
         </div>
 
-        <div class="welcome-box">
-          <h3>How can I help you stay safe?</h3>
-          <p>Ask about scams, frauds, phishing, OTP protection.</p>
-          <div class="quick-questions">
-            <button>WhatsApp OTP scam?</button>
-            <button>Easypaisa fraud?</button>
-            <button>SIM swap attacks?</button>
-          </div>
+        <!-- Messages -->
+        <div id="messages" class="messages"></div>
+
+        <!-- Typing -->
+        <div id="typing" class="typing">
+            <span></span><span></span><span></span>
         </div>
 
-        <div id="chat-messages" class="chat-messages"></div>
+    </section>
 
-        <div id="typing-indicator" class="typing-indicator" style="display:none;">
-          <span></span><span></span><span></span>
-        </div>
+</main>
 
-        <div class="chat-composer">
-          <div class="composer-box">
-            <textarea id="user-input" placeholder="Message SafePK AI..." rows="1"></textarea>
-            <button id="send-btn" class="send-btn">
-              <i data-lucide="send"></i>
-            </button>
-          </div>
-        </div>
+<!-- ================= INPUT ================= -->
+<footer class="input-area">
 
-        <div class="ai-disclaimer">
-          ⚠ AI provides awareness-based guidance only. Not a replacement for FIA or banks.
-        </div>
+    <div class="input-box">
 
-      </section>
+        <textarea id="input" placeholder="Message SafePK AI..."></textarea>
+
+        <button id="send">
+            <i data-lucide="send"></i>
+        </button>
+
     </div>
-  </main>
 
-  <!-- SCRIPTS - SAME AS BEFORE -->
-  <script src="../js/theme.js"></script>
-  <script src="../js/script.js"></script>
-  <script src="../js/ai.js"></script>
+    <small class="hint">
+        SafePK AI may provide incorrect information. Always verify critical security steps.
+    </small>
 
-  <script>
-    if (window.lucide) lucide.createIcons();
-    const textarea = document.getElementById("user-input");
-    textarea.addEventListener("input", function () {
-      this.style.height = "auto";
-      this.style.height = this.scrollHeight + "px";
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+<script src="../js/ai.js"></script>
+
+<script>
+    lucide.createIcons();
+
+    const input = document.getElementById("input");
+
+    input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            document.getElementById("send").click();
+        }
     });
-    textarea.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" && !e.shiftKey) {
-        e.preventDefault();
-        document.getElementById("send-btn").click();
-      }
+
+    input.addEventListener("input", () => {
+        input.style.height = "auto";
+        input.style.height = input.scrollHeight + "px";
     });
-  </script>
+</script>
 
 </body>
-  </html>
+</html>
