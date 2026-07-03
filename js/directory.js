@@ -148,7 +148,6 @@ const pakistanDirectory = [
   abbreviation: 'Jazz Network',
   description: 'Pakistan\'s largest digital telecommunications operator, providing nationwide mobile voice, data, and digital services. Jazz offers dedicated customer support for SIM management, lost or stolen SIM blocking, biometric verification, and mobile security assistance.',
   website: 'https://jazz.com.pk/',
-  phone: '111 (Jazz SIM) or 021-111-300-300',
   points: [
     'Immediately report and block your SIM if you lose service unexpectedly or suspect a SIM swap.',
     'Never share OTPs received from banks or digital wallets with anyone.',
@@ -161,7 +160,6 @@ const pakistanDirectory = [
   abbreviation: 'Telenor Network',
   description: 'A leading mobile telecommunications operator providing nationwide voice, data, and digital connectivity services. Telenor Pakistan offers customer support for SIM security, biometric verification, lost SIM replacement, and telecom-related assistance.',
   website: 'https://www.telenor.com.pk/',
-  phone: '345 (Telenor SIM) or 042-111-345-345',
   points: [
     'Block a lost or stolen SIM immediately to prevent unauthorized access to OTPs and banking services.',
     'Verify all SIMs registered against your CNIC through PTA official services.',
@@ -174,7 +172,6 @@ const pakistanDirectory = [
   abbreviation: 'Zong Network',
   description: 'A leading telecommunications provider offering nationwide mobile voice, 4G data, and digital connectivity services. Zong provides customer support for SIM security, biometric verification, lost SIM replacement, and mobile account protection.',
   website: 'https://www.zong.com.pk/',
-  phone: '310 (Zong SIM) or 051-111-222-111',
   points: [
     'Visit official Zong Customer Service Centers for biometric verification and SIM replacement.',
     'Immediately report lost or stolen SIM cards to prevent unauthorized access.',
@@ -187,7 +184,6 @@ const pakistanDirectory = [
   abbreviation: 'Ufone Network',
   description: 'A PTCL Group telecommunications company providing nationwide mobile voice, data, and digital communication services. Ufone offers customer support for SIM security, biometric verification, lost SIM replacement, and account protection.',
   website: 'https://www.ufone.com/',
-  phone: '333 (Ufone SIM) or 033-111-333-100',
   points: [
     'Report lost or stolen SIM cards immediately through official Ufone Customer Support.',
     'Regularly verify the number of SIMs registered against your CNIC using PTA services.',
