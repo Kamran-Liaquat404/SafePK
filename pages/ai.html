@@ -2,22 +2,20 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SafePK AI Assistant</title>
+  <title>SafePK AI Assistant</title>
 
-    <meta name="description" content="SafePK AI Assistant for cybersecurity awareness and scam protection in Pakistan.">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/ai.css">
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/ai.css">
-
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
 
-<!-- ================= HEADER (SAME AS INDEX) ================= -->
+<!-- ================= HEADER ================= -->
 <header>
   <div class="container navbar-container">
 
@@ -30,50 +28,52 @@
       <a href="../index.html" class="nav-link">Home</a>
       <a href="learn.html" class="nav-link">Learn</a>
       <a href="tools.html" class="nav-link">Tools</a>
+      <a href="directory.html" class="nav-link">Directory</a>
+      <a href="ai.html" class="nav-link active">AI</a>
     </nav>
 
   </div>
 </header>
 
-<!-- ================= CHAT AREA ================= -->
+<!-- ================= CHAT WRAPPER ================= -->
 <main class="chat-container">
 
-    <section class="chat-box">
+  <section class="chat-box">
 
-        <!-- Welcome -->
-        <div id="welcome" class="welcome">
+    <!-- WELCOME -->
+    <div id="welcome" class="welcome">
+      <h1>How can I help you today?</h1>
+      <p>Ask about scams, frauds, WhatsApp hacking, banking safety & cyber threats.</p>
+    </div>
 
-            <h1>How can I help you today?</h1>
-            <p>Ask about scams, frauds, WhatsApp hacking, banking safety & cyber threats.</p>
+    <!-- MESSAGES (FIXED ID) -->
+    <div id="chat-messages" class="messages"></div>
 
-        <!-- Messages -->
-        <div id="messages" class="messages"></div>
+    <!-- TYPING -->
+    <div id="typing-indicator" class="typing" style="display:none;">
+      <span></span><span></span><span></span>
+    </div>
 
-        <!-- Typing -->
-        <div id="typing" class="typing">
-            <span></span><span></span><span></span>
-        </div>
-
-    </section>
+  </section>
 
 </main>
 
 <!-- ================= INPUT ================= -->
 <footer class="input-area">
 
-    <div class="input-box">
+  <div class="input-box">
 
-        <textarea id="input" placeholder="Message SafePK AI..."></textarea>
+    <textarea id="user-input" placeholder="Message SafePK AI..."></textarea>
 
-        <button id="send">
-            <i data-lucide="send"></i>
-        </button>
+    <button id="send-btn">
+      <i data-lucide="send"></i>
+    </button>
 
-    </div>
+  </div>
 
-    <small class="hint">
-        SafePK AI may provide incorrect information. Always verify critical security steps.
-    </small>
+  <small class="hint">
+    SafePK AI is for cybersecurity awareness only.
+  </small>
 
 </footer>
 
@@ -81,21 +81,21 @@
 <script src="../js/ai.js"></script>
 
 <script>
-    lucide.createIcons();
+  lucide.createIcons();
 
-    const input = document.getElementById("input");
+  const input = document.getElementById("user-input");
 
-    input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault();
-            document.getElementById("send").click();
-        }
-    });
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      document.getElementById("send-btn").click();
+    }
+  });
 
-    input.addEventListener("input", () => {
-        input.style.height = "auto";
-        input.style.height = input.scrollHeight + "px";
-    });
+  input.addEventListener("input", () => {
+    input.style.height = "auto";
+    input.style.height = input.scrollHeight + "px";
+  });
 </script>
 
 </body>
