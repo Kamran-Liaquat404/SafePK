@@ -15,7 +15,7 @@ const pakistanDirectory = [
     id: 'nccia',
     name: 'National Cyber Crime Investigation Agency (NCCIA)',
     abbreviation: 'NCCIA',
-    description: 'Pakistan\'s premier federal authority dedicated to cyber crime investigations, forensic analysis, and safeguarding digital spaces. NCCIA accepts and processes public complaints regarding online harassment, hacking, and financial fraud with utmost security.',
+    description: 'Pakistan's specialized federal cybercrime investigation agency operating under the Ministry of Interior and Narcotics Control. NCCIA investigates cybercrime, online fraud, digital harassment, hacking, identity theft, and other offences under applicable cyber laws while providing secure complaint registration, digital forensic support, and public cyber safety awarenes.',
     website: 'https://complaint.nccia.gov.pk/',
     email: 'helpdesk@nccia.gov.pk',
     complaintPortal: 'https://complaint.nccia.gov.pk/',
@@ -25,7 +25,7 @@ const pakistanDirectory = [
     id: 'fia',
     name: 'Federal Investigation Agency (FIA)',
     abbreviation: 'FIA',
-    description: 'The premier national law enforcement agency responsible for combating high-level financial crimes, immigration fraud, and legacy cybercrimes. Operates in close coordination with specialized digital wings to protect citizens.',
+    description: 'Pakistan's premier federal law enforcement agency responsible for investigating federal offences, financial crimes, immigration violations, human trafficking, corruption-related offences within its mandate, and other organized crimes. FIA delivers professional investigative services while protecting the public through lawful enforcement and national coordination.',
     website: 'https://fia.gov.pk/',
     email: 'complaints@fia.gov.pk',
     complaintPortal: 'https://complaint.fia.gov.pk/',
@@ -35,7 +35,7 @@ const pakistanDirectory = [
     id: 'pta',
     name: 'Pakistan Telecommunication Authority (PTA)',
     abbreviation: 'PTA',
-    description: 'The apex telecom regulator of Pakistan, overseeing telecommunication systems, digital access, and network compliance. PTA actively assists consumers with SIM card verifications, mobile device blocks (DIRBS), and filtering malicious digital content.',
+    description: 'Pakistan's national telecommunications regulator responsible for regulating telecom services, protecting consumer interests, managing spectrum resources, promoting secure digital connectivity, facilitating complaint resolution, mobile device registration (DIRBS), SIM verification services, and ensuring compliance across the telecommunications sector.',
     website: 'https://pta.gov.pk/',
     complaintPortal: 'https://complaint.pta.gov.pk/',
     phone: '0800-25625'
@@ -44,14 +44,14 @@ const pakistanDirectory = [
     id: 'nadra',
     name: 'National Database and Registration Authority (NADRA)',
     abbreviation: 'NADRA',
-    description: 'The official state identity registry of Pakistan, providing world-class biometric verifications, digital identification certificates, and secure national identity databases to prevent digital identity theft.',
+    description: 'Pakistan's national identity management authority responsible for citizen registration, secure identity verification, biometric authentication, and issuance of identity documents including CNIC, NICOP, POC, CRC, and related services. NADRA operates the national identity database to support secure governance, public service delivery, and digital identity infrastructure.',
     website: 'https://www.nadra.gov.pk/'
   },
   {
     id: 'sbp',
     name: 'State Bank of Pakistan (SBP) CPD',
     abbreviation: 'SBP',
-    description: 'The central bank of Pakistan\'s Consumer Protection Department. SBP regulates commercial banking, microfinance institutions, and digital wallets, ensuring fair dispute resolution and strong protection for customer deposits.',
+    description: 'The Consumer Protection Department of the State Bank of Pakistan promotes fair banking practices, oversees consumer protection frameworks, facilitates complaint resolution related to regulated financial institutions, and supports a secure, transparent, and trusted financial system for banking and digital payment services.',
     website: 'https://cpd.sbp.org.pk/',
     points: [
       'Escalate complaints here if your commercial bank fails to resolve fraud disputes within 45 days.',
