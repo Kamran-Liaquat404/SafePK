@@ -789,74 +789,108 @@
 
         // Hide results when clicking outside
         document.addEventListener('click', (e) => {
-          if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+          if (
+            !searchInput.contains(e.target) &&
+            !searchResults.contains(e.target)
+          ) {
             searchResults.style.display = 'none';
           }
         });
 
         // Re-show results on focus if there is input
         searchInput.addEventListener('focus', () => {
-          if (searchInput.value.trim()) {
+          if (searchInput.value.trim() !== '') {
             searchResults.style.display = 'block';
           }
         });
 
-        // Global keydown keyboard shortcut trigger
+        // Global keyboard shortcuts
         document.addEventListener('keydown', (e) => {
-          // Focus search on '/' keypress if user is not in an input/textarea
-          if (e.key === '/' && document.activeElement !== searchInput && 
-              document.activeElement.tagName !== 'INPUT' && 
-              document.activeElement.tagName !== 'TEXTAREA') {
+
+          // Focus search with "/"
+          if (
+            e.key === '/' &&
+            document.activeElement !== searchInput &&
+            document.activeElement.tagName !== 'INPUT' &&
+            document.activeElement.tagName !== 'TEXTAREA'
+          ) {
             e.preventDefault();
             searchInput.focus();
             searchInput.select();
           }
-          // Close on escape key
+
+          // Hide search with Escape
           if (e.key === 'Escape') {
             searchResults.style.display = 'none';
             searchInput.blur();
           }
         });
-      });
+
+      }); // <-- DOMContentLoaded ends here
+</script>
+
 <script>
-  // Dynamically load statistics metrics on window load
-  window.addEventListener('load', () => {
-    try {
-      if (typeof learningTopics !== 'undefined' && document.getElementById('stat-guides')) {
-        document.getElementById('stat-guides').textContent = learningTopics.length;
-      }
-      if (typeof pakistanDirectory !== 'undefined' && document.getElementById('stat-directory')) {
-        document.getElementById('stat-directory').textContent = pakistanDirectory.length;
-      }
+window.addEventListener('load', () => {
 
-      // Load Adsterra Banner
-      const adContainer = document.getElementById('adsterra-banner');
+  try {
 
-      if (adContainer) {
-        window.atOptions = {
-          key: 'fa59f8c8a04bf191f0e1465d7d0741b9',
-          format: 'iframe',
-          height: 50,
-          width: 320,
-          params: {}
-        };
+    const guides = document.getElementById('stat-guides');
+    const directory = document.getElementById('stat-directory');
 
-        const script = document.createElement('script');
-        script.src = 'https://www.highperformanceformat.com/fa59f8c8a04bf191f0e1465d7d0741b9/invoke.js';
-        script.async = true;
-
-        adContainer.appendChild(script);
-      }
-
-    } catch (err) {
-      console.warn('[SafePK] Dynamic statistics loading skipped:', err);
+    if (
+      typeof learningTopics !== 'undefined' &&
+      Array.isArray(learningTopics) &&
+      guides
+    ) {
+      guides.textContent = learningTopics.length;
     }
-  });
+
+    if (
+      typeof pakistanDirectory !== 'undefined' &&
+      Array.isArray(pakistanDirectory) &&
+      directory
+    ) {
+      directory.textContent = pakistanDirectory.length;
+    }
+
+  } catch (err) {
+    console.warn('[SafePK] Dynamic statistics loading skipped:', err);
+  }
+
+  // Adsterra Banner
+  try {
+
+    const adContainer = document.getElementById('adsterra-banner');
+
+    if (adContainer && !adContainer.dataset.loaded) {
+
+      window.atOptions = {
+        key: 'fa59f8c8a04bf191f0e1465d7d0741b9',
+        format: 'iframe',
+        height: 50,
+        width: 320,
+        params: {}
+      };
+
+      const adScript = document.createElement('script');
+      adScript.src =
+        'https://www.highperformanceformat.com/fa59f8c8a04bf191f0e1465d7d0741b9/invoke.js';
+      adScript.async = true;
+
+      adContainer.dataset.loaded = 'true';
+      adContainer.appendChild(adScript);
+    }
+
+  } catch (err) {
+    console.warn('[SafePK] Adsterra failed:', err);
+  }
+
+});
 </script>
 
 <!-- Adsterra Banner -->
 <div id="adsterra-banner"
-     style="display:flex;justify-content:center;align-items:center;margin:20px auto;">
+     style="display:flex;justify-content:center;align-items:center;margin:20px auto;min-height:50px;">
 </div>
 
 </body>
