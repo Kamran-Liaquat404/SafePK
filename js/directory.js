@@ -38,7 +38,7 @@ const pakistanDirectory = [
     description: "Pakistan's national telecommunications regulator responsible for regulating telecom services, protecting consumer interests, managing spectrum resources, promoting secure digital connectivity, facilitating complaint resolution, mobile device registration (DIRBS), SIM verification services, and ensuring compliance across the telecommunications sector.",
     website: 'https://pta.gov.pk/',
     complaintPortal: 'https://complaint.pta.gov.pk/',
-    phone: '0800-25625'
+    phone: '0800-55055'
   },
   {
     id: 'nadra',
