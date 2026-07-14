@@ -1,0 +1,1135 @@
+<!doctype html>
+<!-- 
+  DEVELOPER NOTE (Roman Urdu):
+  =========================================
+  Yeh SafePK ka Main Landing/Home Page hai (index.html).
+  Is page me general overview, security metrics highlights aur navigation layout links hain.
+  
+  Developer Guide:
+  - Navbar, Hero Banner, Dynamic highlights aur footer elements isi file me structure hain.
+  - Script imports aur theme initializers head section me load ho rahe hain.
+  - Interactive models aur dynamic helpers components humne global script files me handle kiye hain.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+      if ('serviceWorker' in navigator) {
+        const isDev = window.location.hostname === 'localhost' || 
+                      window.location.hostname === '127.0.0.1';
+        if (isDev) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            let unregistered = false;
+            for (const registration of registrations) {
+              registration.unregister();
+              unregistered = true;
+            }
+            if (unregistered) {
+              console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+              if (window.caches) {
+                caches.keys().then((names) => {
+                  return Promise.all(names.map(name => caches.delete(name)));
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                window.location.reload();
+              }
+            }
+          });
+        }
+      }
+    </script>
+    
+    <!-- SEO Meta Tags simplified and optimized -->
+    <title>SafePK - Learn to Spot and Avoid Online Scams in Pakistan</title>
+    <meta name="description" content="SafePK helps you stay safe from online fraud, fake SMS, WhatsApp hacking, Easypaisa scam, and identity theft in Pakistan. Read simple guides and safety tips." />
+    <meta name="keywords" content="SafePK, Pakistan cyber safety, FIA cyber crime, PTA complaints, online fraud Pakistan, Easypaisa scam, WhatsApp code fraud, password helper" />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/" />
+    
+    <!-- Structured Data JSON-LD for Google SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SafePK",
+      "url": "https://safepk.net",
+      "description": "Learn to detect, check and avoid digital online scams in Pakistan. Protect your WhatsApp, Easypaisa, JazzCash, and bank savings.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://safepk.net/pages/tools.html?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SafePK",
+      "url": "https://safepk.net",
+      "logo": "https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "1603",
+        "contactType": "emergency support",
+        "areaServed": "PK"
+      }
+    }
+    </script>
+    
+    <!-- Open Graph / Facebook meta systems -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SafePK - Learn to Spot and Avoid Online Scams in Pakistan" />
+    <meta property="og:description" content="Understand online scams, run password helpers, test your safety knowledge, and write FIA cybercrime complaints simply." />
+    <meta property="og:url" content="https://safepk.net/" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+    
+    <!-- Twitter meta cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="SafePK - Pakistan Cyber Safety" />
+    <meta name="twitter:description" content="Keep your WhatsApp and mobile wallet accounts safe in Pakistan. Read simple safety guides." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+
+    <!-- Style metrics stylesheets -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#58a6ff" />
+    
+
+
+  </head>
+  <body>
+
+    <!-- Top sticky navigation Header controls -->
+    <header>
+      <div class="container navbar-container">
+        <a href="index.html" class="logo-block">
+          <img src="assets/images/safepk_cyber_logo_1782237163960.jpg" alt="SafePK Logo" class="logo-img" referrerPolicy="no-referrer" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+        
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="pages/learn.html" class="nav-link">Learn</a>
+          <a href="pages/tools.html" class="nav-link">Tools</a>
+          <a href="pages/directory.html" class="nav-link">Directory</a>
+          <a href="pages/help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+    
+
+<!-- Main dynamic landing section wrapper -->
+<main class="main-content">
+  <div class="container">
+    <div class="hero-wrapper animate-fade-in" style="position: relative; z-index: 100;">
+
+      <h1 class="hero-title">
+        Pakistan's <br />
+        <span style="color: var(--color-primary);">
+          Trusted Cyber Safety Platform
+        </span>
+      </h1>
+
+<p class="hero-desc">
+  Stay safe from scams, fraud, and cyber threats with trusted guides, security tools, and official resources for Pakistan.
+</p>
+
+
+
+          <!-- Real-Time Search Bar Component -->
+          <style>
+            .search-result-item:hover {
+              background-color: var(--bg-tertiary) !important;
+            }
+            .search-result-item:last-child {
+              border-bottom: none !important;
+            }
+            .search-result-item.active-item {
+              background-color: var(--bg-tertiary) !important;
+              border-left: 4px solid var(--color-primary) !important;
+              padding-left: calc(1.25rem - 4px) !important;
+            }
+            #homepage-search-input:focus {
+              border-color: var(--color-primary) !important;
+              box-shadow: 0 0 0 4px rgba(var(--color-primary-rgb), 0.25) !important;
+            }
+            .search-pill-btn {
+              background: var(--bg-secondary);
+              border: 1px solid var(--border-color);
+              color: var(--text-secondary);
+              padding: 0.4rem 0.85rem;
+              border-radius: 1.5rem;
+              font-size: 0.75rem;
+              font-weight: 500;
+              cursor: pointer;
+              transition: all var(--transition-fast);
+              display: inline-flex;
+              align-items: center;
+              gap: 0.25rem;
+            }
+            .search-pill-btn:hover {
+              background: var(--bg-tertiary);
+              border-color: var(--color-primary);
+              color: var(--text-primary);
+              transform: translateY(-1px);
+              box-shadow: var(--shadow-sm);
+            }
+          </style>
+          <div class="search-container" style="max-width: 650px; margin: 1.5rem auto 3.5rem; position: relative; z-index: 50;">
+            <div style="position: relative; display: flex; align-items: center; box-shadow: var(--shadow-md); border-radius: 2rem;">
+              <i data-lucide="search" style="position: absolute; left: 1.25rem; color: var(--text-secondary); width: 1.25rem; height: 1.25rem; pointer-events: none;"></i>
+              <input type="text" id="homepage-search-input" placeholder="Search scams or safety tips (e.g. WhatsApp, Easypaisa, OTP)..." style="width: 100%; padding: 1.1rem 3.5rem 1.1rem 3.25rem; border-radius: 2rem; border: 1.5px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary); font-size: 1rem; outline: none; transition: border-color var(--transition-medium), box-shadow var(--transition-medium);" autocomplete="off" />
+              
+              <!-- Keyboard Shortcut Hint Badge -->
+              <kbd id="search-kbd-hint" style="position: absolute; right: 1.25rem; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); background: var(--bg-tertiary); border: 1px solid var(--border-color); padding: 0.15rem 0.45rem; border-radius: 4px; pointer-events: none; user-select: none; transition: opacity var(--transition-fast);">/</kbd>
+              
+              <!-- Circular Clear Button -->
+              <button id="homepage-search-clear" style="position: absolute; right: 1.1rem; display: none; background: rgba(240,246,252,0.1); border: none; color: var(--text-secondary); cursor: pointer; font-size: 1rem; padding: 0.25rem; border-radius: 50%; width: 1.5rem; height: 1.5rem; display: none; align-items: center; justify-content: center; line-height: 1; transition: all var(--transition-fast);" aria-label="Clear Search" onmouseover="this.style.background='rgba(240,246,252,0.2)'" onmouseout="this.style.background='rgba(240,246,252,0.1)'">&times;</button>
+            </div>
+            
+            <!-- Real-Time Dynamic Search Results Box -->
+            <div id="homepage-search-results" style="position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 1rem; margin-top: 0.5rem; max-height: 400px; overflow-y: auto; z-index: 1000; box-shadow: var(--shadow-lg); display: none; padding: 0.5rem 0;">
+              <!-- Content will be generated by JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Emergency Helpline and Live Recovery Guide -->
+        <section id="emergency-help" style="margin-top: 1rem; margin-bottom: 4rem;" class="animate-fade-in">
+          <div class="sec-title-container" style="text-align: left; margin-bottom: 2rem;">
+            <h2 class="sec-title" style="color: var(--color-danger); font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem; margin: 0 0 0.5rem 0;">
+              <i data-lucide="shield-alert" class="w-6 h-6"></i> Emergency Response Center
+            </h2>
+            <p class="sec-desc" style="margin: 0; font-size: 0.85rem;">Follow verified recovery steps to secure your accounts, respond to scams, and protect your finances during cyber incidents.</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+            
+            <!-- Mobile Wallet / Bank Fraud -->
+            <div style="background: var(--bg-secondary); border: 1px solid rgba(248, 81, 73, 0.15); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--color-danger); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i data-lucide="landmark" class="w-5 h-5"></i> Mobile Wallet Fraud
+                </h3>
+                <ul style="font-size: 0.75rem; color: var(--text-secondary); padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; line-height: 1.5; margin-bottom: 1.5rem;">
+                  <li>Contact your bank's helpline <strong>immediately</strong> (within 2 hours) to freeze the transaction routing.</li>
+                  <li>Call <strong>3737</strong> (Easypaisa) or <strong>4444</strong> (JazzCash) to block the fraudster's wallet number immediately.</li>
+                  <li>Draft and download an official complaint statement using our Incident Builder.</li>
+                </ul>
+              </div>
+              <a href="pages/learn.html?id=easypaisa-fraud" class="btn btn-secondary" style="font-size: 0.75rem; font-weight: 700; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem;">
+                Learn More <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+
+            <!-- WhatsApp Hacked -->
+            <div style="background: var(--bg-secondary); border: 1px solid rgba(245, 158, 11, 0.15); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--color-warning); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i data-lucide="message-square" class="w-5 h-5"></i> WhatsApp Hacked
+                </h3>
+                <ul style="font-size: 0.75rem; color: var(--text-secondary); padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; line-height: 1.5; margin-bottom: 1.5rem;">
+                  <li>Reinstall or re-register WhatsApp on your phone and request a new SMS verification code.</li>
+                  <li>Entering the new verification code will <strong>automatically sign out the hacker</strong>.</li>
+                  <li>Immediately alert your family/friends via calls or SMS to ignore messages from your hacked profile.</li>
+                </ul>
+              </div>
+              <a href="pages/learn.html?id=whatsapp-scams" class="btn btn-secondary" style="font-size: 0.75rem; font-weight: 700; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem;">
+                Learn More <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+
+            <!-- Fake Bank Calls -->
+            <div style="background: var(--bg-secondary); border: 1px solid rgba(121, 192, 255, 0.15); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--color-indigo); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i data-lucide="phone-off" class="w-5 h-5"></i> Fake Bank Calls
+                </h3>
+                <ul style="font-size: 0.75rem; color: var(--text-secondary); padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; line-height: 1.5; margin-bottom: 1.5rem;">
+                  <li><strong>Hang up immediately.</strong> No legitimate bank will ask for your card PIN, password, or OTP.</li>
+                  <li>Do not type codes on your dialer screen or click links sent by the caller.</li>
+                  <li>SMS the caller's phone number and scam details to the official PTA shortcode <strong>9000</strong>.</li>
+                </ul>
+              </div>
+              <a href="pages/learn.html?id=fake-banking-calls" class="btn btn-secondary" style="font-size: 0.75rem; font-weight: 700; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem;">
+                Learn More <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- Common Scams in Pakistan Section -->
+        <section style="margin-top: 5rem; margin-bottom: 5rem;" class="animate-fade-in">
+
+          <div class="sec-title-container" style="text-align: left; margin-bottom: 2rem;">
+            <h2 class="sec-title" style="margin: 0 0 0.5rem 0;">
+              Common Scams in Pakistan
+            </h2>
+
+            <p class="sec-desc" style="margin: 0; font-size: 0.85rem;">
+              Learn how the most common online scams work, recognize warning signs, and follow practical steps to protect your accounts, finances, and personal information.
+            </p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2.5rem;">
+
+
+            <!-- Scam 1 -->
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 1rem; padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem; justify-content: space-between;">
+              <div>
+                <div style="color: var(--color-indigo); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                  <i data-lucide="smartphone" class="w-5 h-5"></i>
+                  <span style="font-size: 0.75rem; font-family: var(--font-mono); font-weight: 700; text-transform: uppercase;">Easypaisa Fake Receipt</span>
+                </div>
+                <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin: 0.25rem 0;">Easypaisa Fake Screenshot</h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                  Fraudsters use digitally simulated "Successful Transaction" receipt apps to trick shopkeepers into releasing physical goods without real bank transfer.
+                </p>
+              </div>
+              <a href="pages/learn.html?id=easypaisa-fake-screenshots" class="btn btn-secondary" style="font-size: 0.75rem; font-weight: 700; width: fit-content; margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+                Learn More <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+
+            <!-- Scam 2 -->
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 1rem; padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem; justify-content: space-between;">
+              <div>
+                <div style="color: var(--color-danger); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                  <i data-lucide="landmark" class="w-5 h-5"></i>
+                  <span style="font-size: 0.75rem; font-family: var(--font-mono); font-weight: 700; text-transform: uppercase;">FBR Phishing Scheme</span>
+                </div>
+                <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin: 0.25rem 0;">FBR Tax Refund Scam</h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                  Phony SMS notifications alleging approved FBR tax refunds, pushing you to visit spoofed government websites designed to steal bank credentials.
+                </p>
+              </div>
+              <a href="pages/learn.html?id=fbr-fake-tax-emails" class="btn btn-secondary" style="font-size: 0.75rem; font-weight: 700; width: fit-content; margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+                Learn More <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+
+            <!-- Scam 3 -->
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 1rem; padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem; justify-content: space-between;">
+              <div>
+                <div style="color: var(--color-warning); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                  <i data-lucide="zap" class="w-5 h-5"></i>
+                  <span style="font-size: 0.75rem; font-family: var(--font-mono); font-weight: 700; text-transform: uppercase;">Utility Bill Scare</span>
+                </div>
+                <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin: 0.25rem 0;">Electricity Disconnection</h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                  Urgent SMS alerts warning that your power will be disconnected in 2 hours unless you install a malicious app (.APK) or pay via a spoofed website.
+                </p>
+              </div>
+              <a href="pages/learn.html?id=electricity-bill-payment-scams" class="btn btn-secondary" style="font-size: 0.75rem; font-weight: 700; width: fit-content; margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+                Learn More <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+
+            <!-- Scam 4 -->
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 1rem; padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem; justify-content: space-between;">
+              <div>
+                <div style="color: var(--color-primary); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                  <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                  <span style="font-size: 0.75rem; font-family: var(--font-mono); font-weight: 700; text-transform: uppercase;">PTA Blockage Scam</span>
+                </div>
+                <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin: 0.25rem 0;">PTA Device Blocking</h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                  Impersonating authorities to demand customs duties via mobile wallet, threatening permanent CNIC block or mobile IMEI ban.
+                </p>
+              </div>
+              <a href="pages/learn.html?id=pta-fake-device-blockage" class="btn btn-secondary" style="font-size: 0.75rem; font-weight: 700; width: fit-content; margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+                Learn More <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+
+            <!-- Scam 5 -->
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 1rem; padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem; justify-content: space-between;">
+              <div>
+                <div style="color: var(--color-success); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                  <i data-lucide="banknote" class="w-5 h-5"></i>
+                  <span style="font-size: 0.75rem; font-family: var(--font-mono); font-weight: 700; text-transform: uppercase;">Online Earning Apps</span>
+                </div>
+                <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin: 0.25rem 0;">Malicious Earning APKs</h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                  Promises of daily cash payouts for liking YouTube videos or completing trivial tasks, leading to spyware installation on Android devices.
+                </p>
+              </div>
+              <a href="pages/learn.html?id=unverified-apk-earning-apps" class="btn btn-secondary" style="font-size: 0.75rem; font-weight: 700; width: fit-content; margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+                Learn More <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+
+            <!-- Scam 6 -->
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 1rem; padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem; justify-content: space-between;">
+              <div>
+                <div style="color: var(--color-primary); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                  <i data-lucide="gift" class="w-5 h-5"></i>
+                  <span style="font-size: 0.75rem; font-family: var(--font-mono); font-weight: 700; text-transform: uppercase;">Welfare Scheme Frauds</span>
+                </div>
+                <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin: 0.25rem 0;">BISP & Ehsaas Scam</h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                  Spoofed messages or robocalls claiming government grants are approved, demanding upfront registration fees to release funds.
+                </p>
+              </div>
+              <a href="pages/learn.html?id=bisp-fake-portals" class="btn btn-secondary" style="font-size: 0.75rem; font-weight: 700; width: fit-content; margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+                Learn More <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </section>
+
+
+
+        <!-- Quick Access Section -->
+        <section style="margin-top: 4rem; margin-bottom: 4rem;" class="animate-fade-in">
+          <div class="sec-title-container" style="text-align: left; margin-bottom: 1.5rem;">
+            <h2 class="sec-title" style="font-size: 1.4rem;">Quick Access & Interactive Tools</h2>
+            <p class="sec-desc" style="margin: 0; font-size: 0.85rem;">Run diagnostic checks, design strong keys, prepare formal cybercrime reports, encrypt payloads, or contact national help directories instantly.</p>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+            
+            <!-- Quick Link 1: Password Guard -->
+            <a href="pages/tools.html?tab=password" style="text-decoration: none; color: inherit;" class="status-stat-card">
+              <div style="display: flex; align-items: flex-start; gap: 1rem; text-align: left;">
+                <div style="display: inline-flex; width: 2.25rem; height: 2.25rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border-radius: 50%; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(56, 189, 248, 0.2);">
+                  <i data-lucide="shield-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.25rem;">Password Guard <i data-lucide="arrow-right" class="w-3 h-3"></i></h4>
+                  <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; margin: 0;">Analyze passphrases or build highly secure keys localized offline.</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Quick Link 2: Cyber Diagnostic -->
+            <a href="pages/tools.html?tab=checklist" style="text-decoration: none; color: inherit;" class="status-stat-card">
+              <div style="display: flex; align-items: flex-start; gap: 1rem; text-align: left;">
+                <div style="display: inline-flex; width: 2.25rem; height: 2.25rem; background: rgba(16, 185, 129, 0.08); color: #10b981; border-radius: 50%; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(16, 185, 129, 0.2);">
+                  <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.25rem;">Cyber Health Diagnostic <i data-lucide="arrow-right" class="w-3 h-3"></i></h4>
+                  <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; margin: 0;">Complete an interactive 10-point audit to obtain your security score.</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Quick Link 3: Incident Report Builder -->
+            <a href="pages/tools.html?tab=fia" style="text-decoration: none; color: inherit;" class="status-stat-card">
+              <div style="display: flex; align-items: flex-start; gap: 1rem; text-align: left;">
+                <div style="display: inline-flex; width: 2.25rem; height: 2.25rem; background: rgba(239, 68, 68, 0.08); color: #ef4444; border-radius: 50%; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(239, 68, 68, 0.2);">
+                  <i data-lucide="file-text" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.25rem;">Incident Builder <i data-lucide="arrow-right" class="w-3 h-3"></i></h4>
+                  <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; margin: 0;">Generate FIA-compliant cybercrime complaint drafts privately.</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Quick Link 4: Cryptographic Encryptor -->
+            <a href="pages/tools.html?tab=encryptor" style="text-decoration: none; color: inherit;" class="status-stat-card">
+              <div style="display: flex; align-items: flex-start; gap: 1rem; text-align: left;">
+                <div style="display: inline-flex; width: 2.25rem; height: 2.25rem; background: rgba(129, 140, 248, 0.08); color: #818cf8; border-radius: 50%; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(129, 140, 248, 0.2);">
+                  <i data-lucide="key" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.25rem;">Secure Encryptor <i data-lucide="arrow-right" class="w-3 h-3"></i></h4>
+                  <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; margin: 0;">Convert sensitive texts into encrypted safe-strings instantly.</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Quick Link 5: Official Directory -->
+            <a href="pages/directory.html" style="text-decoration: none; color: inherit;" class="status-stat-card">
+              <div style="display: flex; align-items: flex-start; gap: 1rem; text-align: left;">
+                <div style="display: inline-flex; width: 2.25rem; height: 2.25rem; background: rgba(245, 158, 11, 0.08); color: #f59e0b; border-radius: 50%; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(245, 158, 11, 0.2);">
+                  <i data-lucide="phone" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.25rem;">Official Directory <i data-lucide="arrow-right" class="w-3 h-3"></i></h4>
+                  <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; margin: 0;">Access contact information for banks, PTA, wallets, and FIA.</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Quick Link 6: Help & FAQs -->
+            <a href="pages/help.html" style="text-decoration: none; color: inherit;" class="status-stat-card">
+              <div style="display: flex; align-items: flex-start; gap: 1rem; text-align: left;">
+                <div style="display: inline-flex; width: 2.25rem; height: 2.25rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border-radius: 50%; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(56, 189, 248, 0.2);">
+                  <i data-lucide="help-circle" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.25rem;">Help & FAQ Center <i data-lucide="arrow-right" class="w-3 h-3"></i></h4>
+                  <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; margin: 0;">Troubleshoot accounts, recover profiles, and read step-by-step FAQs.</p>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </section>
+
+        <!-- Frequently Asked Questions (FAQ) Section -->
+        <section id="faq" style="margin-top: 5rem; margin-bottom: 5rem;" class="animate-fade-in">
+          <style>
+            .faq-accordion {
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              margin-top: 2.5rem;
+            }
+            .faq-card {
+              background: var(--bg-secondary);
+              border: 1px solid var(--border-color);
+              border-radius: 1rem;
+              overflow: hidden;
+              transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+              position: relative;
+            }
+            .faq-card::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 0;
+              bottom: 0;
+              width: 4px;
+              background-color: var(--color-primary);
+              transform: scaleY(0);
+              transform-origin: center;
+              transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+              z-index: 10;
+            }
+            .faq-card:hover {
+              border-color: rgba(var(--color-primary-rgb), 0.3);
+              box-shadow: var(--shadow-sm);
+            }
+            .faq-card.active {
+              border-color: var(--color-primary);
+              background: linear-gradient(135deg, var(--bg-tertiary), rgba(var(--color-primary-rgb), 0.06));
+              box-shadow: 0 8px 30px -10px rgba(var(--color-primary-rgb), 0.15);
+            }
+            .faq-card.active::before {
+              transform: scaleY(1);
+            }
+            .faq-header {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding: 1.5rem;
+              background: none;
+              border: none;
+              text-align: left;
+              cursor: pointer;
+              color: var(--text-primary);
+              font-family: var(--font-sans);
+              font-size: 1.05rem;
+              font-weight: 700;
+              outline: none;
+              gap: 1.5rem;
+              transition: color 0.3s ease;
+            }
+            .faq-card.active .faq-header {
+              color: var(--color-primary);
+            }
+            .faq-icon-wrapper {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              width: 2rem;
+              height: 2rem;
+              border-radius: 50%;
+              background: rgba(var(--color-primary-rgb), 0.05);
+              color: var(--text-secondary);
+              transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+              flex-shrink: 0;
+            }
+            .faq-card.active .faq-icon-wrapper {
+              background: rgba(var(--color-primary-rgb), 0.15);
+              color: var(--color-primary);
+              transform: rotate(180deg);
+            }
+            .faq-body {
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), padding 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+              padding: 0 1.5rem;
+            }
+            .faq-card.active .faq-body {
+              padding-bottom: 1.5rem;
+            }
+            .faq-body-content {
+              font-size: 0.9rem;
+              color: var(--text-secondary);
+              line-height: 1.6;
+            }
+            .faq-body-content strong {
+              color: var(--text-primary);
+            }
+          </style>
+
+          <div class="sec-title-container" style="text-align: left; margin-bottom: 2rem;">
+            <h2 class="sec-title" style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+              <i data-lucide="help-circle" class="w-6 h-6" style="color: var(--color-primary);"></i> Frequently Asked Questions
+            </h2>
+            <p class="sec-desc" style="margin: 0; font-size: 0.85rem;">
+              Quick answers to the most common concerns regarding cybersecurity, financial wallet protection, and digital safety in Pakistan.
+            </p>
+          </div>
+
+          <div class="faq-accordion">
+            <!-- FAQ 1 -->
+            <div class="faq-card">
+              <button class="faq-header" aria-expanded="false">
+                <span>How do I report an online scam to the National Cyber Crime Investigation Agency (NCCIA)?</span>
+                <span class="faq-icon-wrapper">
+                  <i data-lucide="chevron-down" style="width: 1.15rem; height: 1.15rem;"></i>
+                </span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-content">
+                  In Pakistan, digital crime is officially investigated and controlled by the <strong>National Cyber Crime Investigation Agency (NCCIA)</strong>, which has taken over cybercrime operations. You can file an official complaint online at their designated portal, call the national helpline, or visit an NCCIA office in person. Be sure to carry printed copies of all digital evidence, including WhatsApp chats, phone call logs, transaction SMS, or bank receipts.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-card">
+              <button class="faq-header" aria-expanded="false">
+                <span>My WhatsApp account has been hacked or hijacked. How do I recover it?</span>
+                <span class="faq-icon-wrapper">
+                  <i data-lucide="chevron-down" style="width: 1.15rem; height: 1.15rem;"></i>
+                </span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-content">
+                  Uninstall and reinstall WhatsApp on your phone, then enter your phone number to sign in. Request the 6-digit verification code via SMS. As soon as you enter this code, <strong>the hacker will be automatically logged out</strong> of your account. To prevent future hijacks, immediately enable <strong>Two-Step Verification</strong> (Settings > Account > Two-Step Verification) and set a secure 6-digit PIN.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-card">
+              <button class="faq-header" aria-expanded="false">
+                <span>Can I recover funds stolen from my Easypaisa or JazzCash wallet?</span>
+                <span class="faq-icon-wrapper">
+                  <i data-lucide="chevron-down" style="width: 1.15rem; height: 1.15rem;"></i>
+                </span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-content">
+                  Yes, but you must act immediately. Contact your mobile wallet helpline (<strong>3737</strong> for Easypaisa, <strong>4444</strong> for JazzCash) or bank support within 2 hours of the fraudulent transaction to freeze the transit route and block the attacker's wallet. Once reported, secure a complaint ID or incident log, and file an official complaint with the NCCIA and PTA.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-card">
+              <button class="faq-header" aria-expanded="false">
+                <span>How can I distinguish a legitimate bank call from a scam call?</span>
+                <span class="faq-icon-wrapper">
+                  <i data-lucide="chevron-down" style="width: 1.15rem; height: 1.15rem;"></i>
+                </span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-content">
+                  A legitimate bank representative <strong>will never ask for your account password, ATM PIN, or SMS OTP</strong> over a telephone call. Scammers often spoof official bank helpline numbers (using internet calling applications) to trick you. If a caller asks for verification codes, hang up instantly and call your bank's official number listed on the back of your debit card.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-card">
+              <button class="faq-header" aria-expanded="false">
+                <span>Is SafePK affiliated with NCCIA, PTA, or any Pakistani government body?</span>
+                <span class="faq-icon-wrapper">
+                  <i data-lucide="chevron-down" style="width: 1.15rem; height: 1.15rem;"></i>
+                </span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-content">
+                  No, <strong>SafePK is an independent, non-profit community initiative founded by Kamran Liaquat</strong> aimed at raising cyber safety awareness in Pakistan. We do not store, track, or collect your personal data. All safety utility resources (like the Password Strength Helper, Diagnostics Checklist, and the Incident Statement Draft Builder) run 100% client-side inside your local browser to guarantee full privacy.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              const faqCards = document.querySelectorAll('.faq-card');
+              faqCards.forEach(card => {
+                const header = card.querySelector('.faq-header');
+                const body = card.querySelector('.faq-body');
+                
+                header.addEventListener('click', () => {
+                  const isActive = card.classList.contains('active');
+                  
+                  // Close other open FAQ cards
+                  faqCards.forEach(otherCard => {
+                    if (otherCard !== card && otherCard.classList.contains('active')) {
+                      otherCard.classList.remove('active');
+                      otherCard.querySelector('.faq-body').style.maxHeight = null;
+                      otherCard.querySelector('.faq-header').setAttribute('aria-expanded', 'false');
+                    }
+                  });
+                  
+                  if (isActive) {
+                    card.classList.remove('active');
+                    body.style.maxHeight = null;
+                    header.setAttribute('aria-expanded', 'false');
+                  } else {
+                    card.classList.add('active');
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                    header.setAttribute('aria-expanded', 'true');
+                  }
+                });
+              });
+            });
+          </script>
+        </section>
+      </div>
+    </main>
+
+ <!-- Global standard Footer elements -->
+<footer>
+  <div class="container">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <span class="footer-col-title">Join Our Community</span>
+
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; max-width: 220px; margin-top: 0.25rem;">
+          <a href="https://whatsapp.com/channel/0029Vb883mn2P59bKiesEp3v" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link-whatsapp">
+            <img src="./assets/icons/whatsapp.png" alt="WhatsApp" style="width: 1.15rem; height: 1.15rem; border-radius: 4px;">
+            <span>WhatsApp Channel</span>
+          </a>
+
+          <a href="https://www.facebook.com/share/1HMUFnf3dx/" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link-facebook">
+            <img src="./assets/icons/facebook.png" alt="Facebook" style="width: 1.15rem; height: 1.15rem; border-radius: 4px;">
+            <span>Facebook Page</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-title">Resources</span>
+        <div class="footer-links">
+          <a href="pages/learn.html" class="footer-link">Scam Guides</a>
+          <a href="pages/tools.html" class="footer-link">Safety Tools</a>
+          <a href="pages/directory.html" class="footer-link">Cyber Directory</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-title">Legal & Info</span>
+        <div class="footer-links">
+          <a href="pages/about.html" class="footer-link">About SafePK</a>
+          <a href="pages/privacy-policy.html" class="footer-link">Privacy Policy</a>
+          <a href="pages/terms-of-use.html" class="footer-link">Terms & Conditions</a>
+          <a href="pages/disclaimer.html" class="footer-link">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <span class="footer-copyright">
+        &copy; 2026 SafePK. All rights reserved.
+      </span>
+    </div>
+  </div>
+</footer>
+
+    <!-- Universal portal modal overlay element -->
+    <div id="univ-modal" class="modal-overlay">
+      <div class="modal-window">
+        <div class="modal-header">
+          <div class="modal-header-title">
+            <span id="univ-modal-icon" class="text-primary"></span>
+            <h3 id="univ-modal-title"></h3>
+          </div>
+          <button class="modal-close-btn" onclick="window.closeUnivModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="univ-modal-body"></div>
+        <div class="modal-footer" id="univ-modal-footer"></div>
+      </div>
+    </div>
+
+
+
+    <!-- Lucide feather icons and script configurations -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/learn.js"></script>
+    <script src="js/directory.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      // Initialize systems
+      if (typeof initTheme !== 'undefined') initTheme();
+      
+      // Render icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      // Real-Time Search Functionality with Advanced UI and UX
+      document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('homepage-search-input');
+        const searchClear = document.getElementById('homepage-search-clear');
+        const searchResults = document.getElementById('homepage-search-results');
+        const kbdHint = document.getElementById('search-kbd-hint');
+
+        if (!searchInput || !searchClear || !searchResults) return;
+
+        let activeIndex = -1; // -1 means none
+        let currentFiltered = [];
+
+        // Clear button and kbd badge visibility helper
+        const updateSearchControls = (hasValue) => {
+          if (hasValue) {
+            searchClear.style.display = 'inline-flex';
+            if (kbdHint) kbdHint.style.opacity = '0';
+          } else {
+            searchClear.style.display = 'none';
+            if (kbdHint) kbdHint.style.opacity = '1';
+          }
+        };
+
+        // Open modal and clean up search
+        window.openScamResult = (id) => {
+          if (typeof openScamModal === 'function') {
+            openScamModal(id);
+          }
+          searchResults.style.display = 'none';
+          searchInput.value = '';
+          updateSearchControls(false);
+          searchInput.blur();
+        };
+
+        // Helper function to safely highlight matching keywords
+        const highlightText = (text, keywords) => {
+          if (!text || !keywords || keywords.length === 0) return text;
+          let highlighted = text;
+          // Sort keywords by length descending to prevent shorter matches inside longer tags
+          const sortedKeywords = [...keywords].sort((a, b) => b.length - a.length);
+          
+          sortedKeywords.forEach(kw => {
+            if (!kw || kw.length < 1) return; // Allow matching even single characters
+            const escaped = kw.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+            // Safe replacement regex avoiding matching inside HTML tag parameters
+            const regex = new RegExp(`(${escaped})(?![^<>]*>)`, 'gi');
+            highlighted = highlighted.replace(regex, '<mark style="background: rgba(245, 158, 11, 0.25); color: var(--text-bright); font-weight: 700; padding: 0.1rem 0.2rem; border-radius: 3px;">$1</mark>');
+          });
+          return highlighted;
+        };
+
+        // Helper to get Category Styling and Icon Mapping
+        const getCategoryMeta = (category) => {
+          const lower = (category || '').toLowerCase();
+          if (lower.includes('financial') || lower.includes('money') || lower.includes('wallet')) {
+            return {
+              bg: 'rgba(239, 68, 68, 0.1)',
+              color: '#ef4444',
+              icon: 'credit-card'
+            };
+          } else if (lower.includes('social') || lower.includes('engineering') || lower.includes('phishing')) {
+            return {
+              bg: 'rgba(245, 158, 11, 0.1)',
+              color: '#f59e0b',
+              icon: 'users'
+            };
+          } else if (lower.includes('identity') || lower.includes('account') || lower.includes('hijack')) {
+            return {
+              bg: 'rgba(168, 85, 247, 0.1)',
+              color: '#a855f7',
+              icon: 'user-check'
+            };
+          } else if (lower.includes('technical') || lower.includes('attack') || lower.includes('malware')) {
+            return {
+              bg: 'rgba(59, 130, 246, 0.1)',
+              color: '#3b82f6',
+              icon: 'terminal'
+            };
+          }
+          return {
+            bg: 'rgba(16, 185, 129, 0.1)',
+            color: '#10b981',
+            icon: 'shield-alert'
+          };
+        };
+
+        // Core search execution function
+        const executeSearch = () => {
+          const query = searchInput.value.trim().toLowerCase();
+          
+          if (!query) {
+            searchResults.style.display = 'none';
+            updateSearchControls(false);
+            activeIndex = -1;
+            currentFiltered = [];
+            return;
+          }
+
+          updateSearchControls(true);
+
+          // Split query into keywords/terms to allow multi-word and partial matching (ek ek word se suggestion)
+          const keywords = query.split(/\s+/).filter(Boolean);
+
+          if (keywords.length === 0) {
+            searchResults.style.display = 'none';
+            activeIndex = -1;
+            currentFiltered = [];
+            return;
+          }
+
+          // Advanced Pro-level scored matching & ranking
+          const scoredTopics = learningTopics.map(topic => {
+            const titleLower = (topic.title || '').toLowerCase();
+            const overviewLower = (topic.overview || '').toLowerCase();
+            
+            // Join deep text fields
+            const warningSignsText = (topic.warningSigns || []).join(' ').toLowerCase();
+            const examplesText = (topic.examples || []).join(' ').toLowerCase();
+            const preventionTipsText = (topic.preventionTips || []).join(' ').toLowerCase();
+            const reportingText = (topic.reportingGuidance || '').toLowerCase();
+
+            let score = 0;
+
+            // 1. Full raw query matches
+            if (titleLower === query) {
+              score += 1500;
+            } else if (titleLower.startsWith(query)) {
+              score += 800;
+            } else if (titleLower.includes(query)) {
+              score += 400;
+            } else if (overviewLower.includes(query)) {
+              score += 150;
+            }
+
+            // 2. Individual keyword matching (ek ek word matching)
+            keywords.forEach(kw => {
+              if (titleLower.includes(kw)) {
+                if (titleLower.startsWith(kw)) {
+                  score += 250;
+                } else {
+                  score += 120;
+                }
+                // Extra score for word boundaries
+                const titleWords = titleLower.split(/[\s-]+/);
+                if (titleWords.some(word => word.startsWith(kw))) {
+                  score += 80;
+                }
+              }
+
+              if (overviewLower.includes(kw)) {
+                score += 50;
+              }
+
+              // Deeper text field scoring
+              if (warningSignsText.includes(kw)) score += 10;
+              if (examplesText.includes(kw)) score += 10;
+              if (preventionTipsText.includes(kw)) score += 10;
+              if (reportingText.includes(kw)) score += 10;
+            });
+
+            return { topic, score };
+          });
+
+          // Filter topics with any match (score > 0) and sort descending, then slice to exactly 4 items
+          const matchedScored = scoredTopics
+            .filter(item => item.score > 0)
+            .sort((a, b) => b.score - a.score);
+
+          currentFiltered = matchedScored.map(item => item.topic).slice(0, 4);
+
+          activeIndex = -1; // Reset active list navigation item index
+
+          if (currentFiltered.length > 0) {
+            let html = '';
+            currentFiltered.forEach((item, index) => {
+              const meta = getCategoryMeta(item.category);
+              const highlightedTitle = highlightText(item.title, keywords);
+              const highlightedOverview = highlightText(item.overview, keywords);
+
+              // Category tag is completely removed to keep suggestions clean and pro (dont add categorys)
+              html += `
+                <div class="search-result-item" id="search-item-${index}" onclick="openScamResult('${item.id}')" style="display: flex; align-items: flex-start; gap: 1rem; padding: 0.95rem 1.25rem; cursor: pointer; transition: all var(--transition-fast); border-bottom: 1px solid var(--border-color); text-align: left;">
+                  <div style="display: inline-flex; width: 2.25rem; height: 2.25rem; background: ${meta.bg}; color: ${meta.color}; border-radius: 50%; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.15rem;">
+                    <i data-lucide="${item.iconName || meta.icon}" style="width: 1.15rem; height: 1.15rem;"></i>
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.25rem;">
+                      <h4 style="font-size: 0.92rem; font-weight: 700; color: var(--text-primary); margin: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">${highlightedTitle}</h4>
+                    </div>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; margin: 0; text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${highlightedOverview}</p>
+                  </div>
+                </div>
+              `;
+            });
+            searchResults.innerHTML = html;
+            searchResults.style.display = 'block';
+          } else {
+            searchResults.innerHTML = `
+              <div style="padding: 2.5rem 1.5rem; text-align: center; color: var(--text-secondary);">
+                <div style="display: inline-flex; width: 3.5rem; height: 3.5rem; background: rgba(248, 81, 73, 0.08); color: var(--color-danger); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                  <i data-lucide="alert-circle" style="width: 1.75rem; height: 1.75rem;"></i>
+                </div>
+                <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-bright); margin: 0 0 0.35rem 0;">No Matching Guides Found</h4>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0 0 1.25rem 0; max-width: 320px; margin-left: auto; margin-right: auto; line-height: 1.4;">We couldn't find matches for "${searchInput.value}". Try checking the spelling or use broader keywords.</p>
+                <a href="pages/learn.html" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.45rem 1rem; border-radius: 1.5rem; display: inline-flex; align-items: center; gap: 0.35rem;">
+                  <i data-lucide="book-open" style="width: 0.95rem; height: 0.95rem;"></i> Browse All Scam Guides
+                </a>
+              </div>
+            `;
+            searchResults.style.display = 'block';
+          }
+
+          // Create Lucide Icons inside the results container
+          if (window.lucide) {
+            window.lucide.createIcons();
+          }
+        };
+
+        // Global Pill Application Trigger
+        window.applySearchQuery = (text) => {
+          searchInput.value = text;
+          searchInput.focus();
+          executeSearch();
+        };
+
+        // Listen for user typing
+        searchInput.addEventListener('input', executeSearch);
+
+        // Keyboard navigation and special buttons
+        searchInput.addEventListener('keydown', (e) => {
+          if (!currentFiltered.length) return;
+
+          const updateActiveVisuals = () => {
+            // Remove active-item class from all
+            document.querySelectorAll('.search-result-item').forEach(el => {
+              el.classList.remove('active-item');
+            });
+            if (activeIndex >= 0) {
+              const activeEl = document.getElementById(`search-item-${activeIndex}`);
+              if (activeEl) {
+                activeEl.classList.add('active-item');
+                // Scroll into view if out of bounding box of results box
+                activeEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+              }
+            }
+          };
+
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            activeIndex = (activeIndex + 1) % currentFiltered.length;
+            updateActiveVisuals();
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            activeIndex = (activeIndex - 1 + currentFiltered.length) % currentFiltered.length;
+            updateActiveVisuals();
+          } else if (e.key === 'Enter') {
+            if (activeIndex >= 0 && activeIndex < currentFiltered.length) {
+              e.preventDefault();
+              openScamResult(currentFiltered[activeIndex].id);
+            }
+          }
+        });
+
+        // Clear button event listener
+        searchClear.addEventListener('click', () => {
+          searchInput.value = '';
+          searchResults.style.display = 'none';
+          updateSearchControls(false);
+          searchInput.focus();
+          activeIndex = -1;
+          currentFiltered = [];
+        });
+
+        // Hide results when clicking outside
+        document.addEventListener('click', (e) => {
+          if (
+            !searchInput.contains(e.target) &&
+            !searchResults.contains(e.target)
+          ) {
+            searchResults.style.display = 'none';
+          }
+        });
+
+        // Re-show results on focus if there is input
+        searchInput.addEventListener('focus', () => {
+          if (searchInput.value.trim() !== '') {
+            searchResults.style.display = 'block';
+          }
+        });
+
+        // Global keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+
+          // Focus search with "/"
+          if (
+            e.key === '/' &&
+            document.activeElement !== searchInput &&
+            document.activeElement.tagName !== 'INPUT' &&
+            document.activeElement.tagName !== 'TEXTAREA'
+          ) {
+            e.preventDefault();
+            searchInput.focus();
+            searchInput.select();
+          }
+
+          // Hide search with Escape
+          if (e.key === 'Escape') {
+            searchResults.style.display = 'none';
+            searchInput.blur();
+          }
+        });
+
+      }); // <-- DOMContentLoaded ends here
+</script>
+
+<script>
+window.addEventListener('load', () => {
+
+  try {
+
+    const guides = document.getElementById('stat-guides');
+    const directory = document.getElementById('stat-directory');
+
+    if (
+      typeof learningTopics !== 'undefined' &&
+      Array.isArray(learningTopics) &&
+      guides
+    ) {
+      guides.textContent = learningTopics.length;
+    }
+
+    if (
+      typeof pakistanDirectory !== 'undefined' &&
+      Array.isArray(pakistanDirectory) &&
+      directory
+    ) {
+      directory.textContent = pakistanDirectory.length;
+    }
+
+  } catch (err) {
+    console.warn('[SafePK] Dynamic statistics loading skipped:', err);
+  }
+
+});
+</script>
+
+</body>
+</html>
