@@ -1,0 +1,791 @@
+<!doctype html>
+<!-- 
+  DEVELOPER NOTE (Roman Urdu):
+  =========================================
+  Yeh SafePK ka "Tools" Page hai (tools.html).
+  Is page me Password strength checkers, dynamic Password generators, cyber safety quizzes, aur FIA complaint arzi templates active hain.
+  
+  Developer Guide:
+  - Is page par pure interactive calculations aur forms validations `/js/script.js` ke andar dynamic functions se chalte hain.
+  - Tabs swapping aur score evaluation logic `/js/script.js` me `initSecurityTools()` function me define kiya gaya hai.
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+  <script>
+    var __DEFINES__ = window.__DEFINES__ || {};
+    window.__DEFINES__ = __DEFINES__;
+    if ('serviceWorker' in navigator) {
+      const isDev = window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1';
+      if (isDev) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          let unregistered = false;
+          for (const registration of registrations) {
+            registration.unregister();
+            unregistered = true;
+          }
+          if (unregistered) {
+            console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+            if (window.caches) {
+              caches.keys().then((names) => {
+                return Promise.all(names.map(name => caches.delete(name)));
+              }).then(() => {
+                window.location.reload();
+              });
+            } else {
+              window.location.reload();
+            }
+          }
+        });
+      }
+    }
+  </script>
+  <title>Interactive Cybersecurity Tools & Utility Suite | SafePK</title>
+  <meta name="description"
+    content="Access offline-first privacy tools: evaluate password strength safely, test your scam awareness with the Interactive Quiz, audit digital habits, and draft FIA cybercrime complaint statements." />
+  <meta name="keywords"
+    content="SafePK, security tools, password check Pakistan, cybersecurity quiz, FIA complaint generator, digital threat analyzer, cyber hygiene check" />
+  <meta name="author" content="SafePK" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://safepk.net/pages/tools.html" />
+
+  <!-- Open Graph / Facebook meta systems -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Interactive Cybersecurity Tools & Utility Suite | SafePK" />
+  <meta property="og:description"
+    content="Run offline-first tools: check passwords securely, take safety quizzes, audit your digital security, and auto-generate FIA complaints." />
+  <meta property="og:url" content="https://safepk.net/pages/tools.html" />
+  <meta property="og:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+  <meta property="og:site_name" content="SafePK" />
+  <meta property="og:locale" content="en_PK" />
+
+  <!-- Twitter cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Interactive Cybersecurity Tools & Utility Suite | SafePK" />
+  <meta name="twitter:description"
+    content="Run offline-first tools: check passwords, take safety quizzes, and generate FIA complaint statements." />
+  <meta name="twitter:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+
+  <!-- Structured Data JSON-LD WebApplication schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SafePK Cyber Safety Tools Suite",
+      "url": "https://safepk.net/pages/tools.html",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "All",
+      "description": "An offline-first browser-based utility suite offering a local password strength estimator, an educational cybersecurity quiz, and an automated incident draft writer.",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "PKR"
+      }
+    }
+    </script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="manifest" href="../manifest.json" />
+  <meta name="theme-color" content="#58a6ff" />
+  <style>
+    /* Additional tool-specific layouts */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 992px) {
+      .tools-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+
+      .fia-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .tool-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tool-card-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 850;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tool-card-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      color: var(--text-secondary);
+      user-select: none;
+    }
+
+    .checkbox-label input {
+      accent-color: var(--color-primary);
+      cursor: pointer;
+    }
+
+    .action-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    pre.draft-preview {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 500px;
+      overflow-y: auto;
+      color: var(--text-primary);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation bar controls -->
+  <header>
+    <div class="container navbar-container">
+      <a href="../index.html" class="logo-block">
+        <img src="../assets/images/safepk_cyber_logo_1782237163960.jpg" alt="SafePK Logo" class="logo-img"
+          referrerPolicy="no-referrer" />
+        <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="learn.html" class="nav-link">Learn</a>
+        <a href="tools.html" class="nav-link active">Tools</a>
+        <a href="directory.html" class="nav-link">Directory</a>
+        <a href="help.html" class="nav-link">Help Center</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="main-content">
+    <div class="container animate-fade-in">
+      <!-- Section header -->
+      <div class="sec-title-container">
+        <h1 class="sec-title">Cyber Security Tools</h1>
+        <p class="sec-desc">Easy-to-use tools that help you check password strength, improve your ability to spot scams, and create simple reports for cyber incidents — all right in your browser.</p>
+      </div>
+
+      <!-- Tabs Rail Switcher -->
+      <div class="tools-tab-rail" id="tools-tab-headers">
+        <button class="tool-tab-btn active" data-tab="password">
+          <i data-lucide="shield-check" class="w-4 h-4"></i> Password Guard
+        </button>
+
+        <button class="tool-tab-btn" data-tab="social-auditor">
+          <i data-lucide="user-cog" class="w-4 h-4"></i> Privacy Auditor
+        </button>
+
+        <button class="tool-tab-btn" data-tab="checklist">
+          <i data-lucide="list-checks" class="w-4 h-4"></i> Diagnostics Checklist
+        </button>
+
+        <button class="tool-tab-btn" data-tab="fia">
+          <i data-lucide="file-text" class="w-4 h-4"></i> Incident Report Builder
+        </button>
+
+        <button class="tool-tab-btn" data-tab="encryptor">
+          <i data-lucide="key-round" class="w-4 h-4"></i> Secure Crypt Cipher
+        </button>
+      </div>
+
+      <!-- -------------------- TAB 1: PASSWORD GUARD -------------------- -->
+      <div class="tool-panel" id="panel-password">
+        <div class="tools-grid">
+          <!-- Left Side: Evaluator -->
+          <div class="tool-card">
+            <h2 class="tool-card-title">
+              <i data-lucide="key" class="text-primary w-5 h-5"></i> Real-Time Strength Evaluator
+            </h2>
+            <p class="tool-card-desc">Type a password below to test its relative strength, entropy level, and detect
+              vulnerability issues completely offline inside your browser.</p>
+
+            <div class="form-group" style="position: relative;">
+              <label for="pwd-test-input" class="form-label">Test Password String</label>
+              <input type="password" id="pwd-test-input" class="form-control"
+                placeholder="Type a security password here..." style="padding-right: 2.5rem;" />
+              <button type="button" onclick="window.togglePasswordVisibility('pwd-test-input', this)"
+                style="position: absolute; right: 0.75rem; bottom: 0.65rem; background: none; border: none; color: var(--text-muted); cursor: pointer;">
+                <i data-lucide="eye" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <div
+              style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.25rem; margin-top: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Strength
+                  Assessment:</span>
+                <span id="pwd-status-txt"
+                  style="font-weight: 800; font-size: 0.85rem; font-family: var(--font-sans);">Empty</span>
+              </div>
+              <div
+                style="background-color: var(--bg-tertiary); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 0.75rem;">
+                <div id="pwd-progress-fill"
+                  style="width: 0%; height: 100%; transition: all var(--transition-medium); background-color: transparent;">
+                </div>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Information Entropy:</span>
+                <span id="pwd-entropy-txt"
+                  style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--text-secondary);">0 bits entropy</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.4rem; border-top: 1px dashed rgba(255,255,255,0.05); padding-top: 0.4rem;">
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Est. Brute-Force Crack Time:</span>
+                <span id="pwd-crack-time"
+                  style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--text-secondary);">Instant</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <span class="form-label">Habits & Optimization Log</span>
+              <div id="pwd-alerts-container" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <!-- Alerts dynamically written by JS -->
+                <div
+                  style="font-size: 0.75rem; color: var(--text-muted); font-style: italic; text-align: center; padding: 1rem 0;">
+                  Type a password above to generate security logs.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side: Generator -->
+          <div class="tool-card">
+            <h2 class="tool-card-title">
+              <i data-lucide="lock" class="text-indigo w-5 h-5" style="color: var(--color-indigo);"></i> Offline
+              Password Generator
+            </h2>
+            <p class="tool-card-desc">Instantly create random, highly secure passwords that satisfy all standard
+              regulatory security checks.</p>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label class="form-label" style="display: flex; justify-content: space-between; align-items: center;">
+                <span>Password Length</span>
+                <span
+                  style="font-weight: 800; font-family: var(--font-mono); font-size: 0.9rem; color: var(--color-primary);"><span
+                    id="pwd-len-val">16</span> characters</span>
+              </label>
+              <input type="range" id="pwd-len-slider" min="8" max="32" value="16"
+                style="width: 100%; accent-color: var(--color-primary); margin-top: 0.5rem;" />
+            </div>
+
+            <div class="checkbox-grid">
+              <label class="checkbox-label">
+                <input type="checkbox" id="g-upper" checked />
+                <span>Uppercase (A-Z)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="g-lower" checked />
+                <span>Lowercase (a-z)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="g-digits" checked />
+                <span>Numbers (0-9)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="g-symbols" checked />
+                <span>Symbols (!@#$)</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <span class="form-label">Generated Password</span>
+              <div id="gen-pwd-output"
+                style="font-family: var(--font-mono); font-weight: 700; font-size: 1.15rem; background-color: var(--bg-primary); border: 1px dashed var(--border-color); border-radius: 0.5rem; padding: 1rem; text-align: center; word-break: break-all; min-height: 3.5rem; display: flex; align-items: center; justify-content: center; color: var(--color-primary); margin-top: 0.5rem;">
+                Loading...
+              </div>
+            </div>
+
+            <div class="action-row">
+              <button type="button" id="btn-regenerate" class="btn btn-primary"
+                style="flex: 1.2; justify-content: center;">
+                <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Regenerate
+              </button>
+              <button type="button" id="btn-copy-gen-pwd" class="btn btn-secondary"
+                style="flex: 1; justify-content: center;">
+                <i data-lucide="copy" class="w-4 h-4"></i> Copy Code
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <!-- -------------------- TAB: PRIVACY AUDITOR -------------------- -->
+      <div class="tool-panel hidden" id="panel-social-auditor">
+        <div style="max-width: 650px; margin: 0 auto;">
+          <!-- Active Auditor Card -->
+          <div class="tool-card animate-fade-in" id="social-auditor-active-container">
+            <h2 class="tool-card-title">
+              <i data-lucide="user-cog" class="text-primary w-5 h-5"></i> Social Security Hardening Auditor
+            </h2>
+            <p class="tool-card-desc">Select an active account platform to run an on-screen audit. Select all settings that you currently have enabled on your real account, then calculate your security score.</p>
+
+            <!-- Platform selectors -->
+            <div class="platform-selectors-group" style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+              <button type="button" class="btn btn-secondary platform-btn active" onclick="window.switchAuditPlatform('whatsapp')" id="btn-audit-whatsapp" style="flex: 1; justify-content: center; gap: 0.4rem; padding: 0.6rem; font-size: 0.8rem;">
+                <img src="../assets/icons/whatsapp.png" style="width: 1rem; height: 1rem; border-radius: 2px;" /> WhatsApp Security
+              </button>
+              <button type="button" class="btn btn-secondary platform-btn" onclick="window.switchAuditPlatform('facebook')" id="btn-audit-facebook" style="flex: 1; justify-content: center; gap: 0.4rem; padding: 0.6rem; font-size: 0.8rem;">
+                <img src="../assets/icons/facebook.png" style="width: 1rem; height: 1rem; border-radius: 2px;" /> Facebook Privacy
+              </button>
+              <button type="button" class="btn btn-secondary platform-btn" onclick="window.switchAuditPlatform('instagram')" id="btn-audit-instagram" style="flex: 1; justify-content: center; gap: 0.4rem; padding: 0.6rem; font-size: 0.8rem;">
+                <i data-lucide="instagram" class="w-4 h-4 text-pink-500"></i> Instagram Safeguards
+              </button>
+            </div>
+
+            <!-- List items -->
+            <div id="audit-items-container" style="display: flex; flex-direction: column; gap: 1rem; background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 1.5rem;">
+              <!-- Populated dynamically via JS -->
+            </div>
+
+            <!-- Action Row -->
+            <div>
+              <button type="button" onclick="window.calculateSocialAuditResult()" class="btn btn-primary" style="width: 100%; justify-content: center; height: 3.5rem; font-size: 1rem; font-weight: 700;">
+                <i data-lucide="shield-check" class="w-5 h-5"></i> Calculate Social Security Score
+              </button>
+            </div>
+          </div>
+
+          <!-- Auditor Result Card (hidden initially) -->
+          <div class="tool-card hidden animate-fade-in" id="social-auditor-result-container">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------- TAB 3: CYBER SECURITY DIAGNOSTICS CHECKLIST -------------------- -->
+      <div class="tool-panel hidden" id="panel-checklist">
+        <div style="max-width: 650px; margin: 0 auto;">
+          
+          <!-- Checklist active state -->
+          <div class="tool-card animate-fade-in" id="checklist-setup-container">
+            <h2 class="tool-card-title">
+              <i data-lucide="shield-alert" class="text-primary w-5 h-5"></i> Cyber Hygiene Diagnostics
+            </h2>
+            <p class="tool-card-desc">An interactive 10-question safety audit to identify habits that put you at risk of online fraud, WhatsApp hacking, or digital wallet theft.</p>
+
+            <!-- Progress Meter -->
+            <div style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Audit Progress:</span>
+                <span style="font-weight: 800; font-size: 0.85rem; font-family: var(--font-sans); color: var(--color-primary);">
+                  Question <span id="diag-idx">1</span> of 10 (<span id="diag-percent">10%</span>)
+                </span>
+              </div>
+              <div style="background-color: var(--bg-tertiary); height: 8px; border-radius: 4px; overflow: hidden;">
+                <div id="diag-progress-fill" style="width: 10%; height: 100%; transition: all var(--transition-medium); background-color: var(--color-primary);"></div>
+              </div>
+            </div>
+
+            <!-- Question Area -->
+            <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 1rem; padding: 2rem; min-height: 8rem; display: flex; align-items: center; justify-content: center; text-align: center; margin-bottom: 2rem; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);">
+              <h3 id="diag-question-text" style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; line-height: 1.5; color: var(--text-primary); margin: 0;">
+                Loading audit questions...
+              </h3>
+            </div>
+
+            <!-- Choices Grid -->
+            <div class="diagnostic-choices" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+              <button type="button" class="btn btn-primary diag-choice-btn" data-val="yes" style="flex: 1; justify-content: center; height: 3.5rem; font-size: 1rem; font-weight: 700; background-color: var(--color-danger); border-color: var(--color-danger);">
+                <i data-lucide="alert-triangle" class="w-5 h-5"></i> YES, I do
+              </button>
+              <button type="button" class="btn btn-primary diag-choice-btn" data-val="no" style="flex: 1; justify-content: center; height: 3.5rem; font-size: 1rem; font-weight: 700; background-color: var(--color-success); border-color: var(--color-success);">
+                <i data-lucide="check-circle" class="w-5 h-5"></i> NO, I don't
+              </button>
+            </div>
+          </div>
+
+          <!-- Results state (hidden initially) -->
+          <div class="tool-card hidden animate-fade-in" id="checklist-result-container">
+            <!-- Dynamically populated by JS -->
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- -------------------- TAB 4: INCIDENT REPORT BUILDER -------------------- -->
+      <div class="tool-panel hidden" id="panel-fia">
+        <div class="tools-grid fia-grid" style="grid-template-columns: 1fr;">
+          <!-- Left: Builder form -->
+          <div class="tool-card">
+            <h2 class="tool-card-title">
+              <i data-lucide="edit-3" class="text-primary w-5 h-5"></i> Incident Report Builder
+            </h2>
+            <p class="tool-card-desc">Provide the incident details below to compile a structured, ready-to-copy summary
+              of your incident, processed entirely on-device.</p>
+
+            <!-- Privacy Notice -->
+            <div
+              style="background: rgba(88, 166, 255, 0.03); border: 1px dashed var(--border-color); border-radius: 0.5rem; padding: 1rem; margin-bottom: 1.5rem; font-size: 0.85rem; line-height: 1.5; color: var(--text-secondary); text-align: center;">
+              <span
+                style="font-weight: 700; color: var(--color-primary); display: flex; align-items: center; justify-content: center; gap: 0.35rem; margin-bottom: 0.35rem;">
+                <i data-lucide="shield" class="w-4 h-4"></i> Privacy-First Notice
+              </span>
+              Your report is generated entirely on your device. SafePK never receives, stores, or modifies your personal
+              information.
+            </div>
+
+            <form id="fia-builder-form">
+              <div class="form-group">
+                <label for="fia-fullname" class="form-label">Complainant Full Name</label>
+                <input type="text" id="fia-fullname" class="form-control" placeholder="E.g. Muhammad Ahmad" required />
+              </div>
+              <div class="form-group">
+                <label for="fia-phone" class="form-label">Contact Mobile Phone Number</label>
+                <input type="tel" id="fia-phone" class="form-control" placeholder="E.g. 0300-1234567" required />
+              </div>
+              <div class="form-group">
+                <label for="fia-scam-type" class="form-label">Cyber Crime Scam Nature</label>
+                <select id="fia-scam-type" class="form-control" required
+                  style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                  <!-- Dynamically populated -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="fia-offender" class="form-label">Accused Offender's Phone/Link/Profile</label>
+                <input type="text" id="fia-offender" class="form-control"
+                  placeholder="E.g. Call from 0309-XXXXXXX or Facebook profile ID" required />
+              </div>
+              <div class="form-group">
+                <label for="fia-timeline" class="form-label">Estimated Date & Timeline of Occurrence</label>
+                <input type="text" id="fia-timeline" class="form-control" placeholder="E.g. 24th June 2026, at 2:30 PM"
+                  required />
+              </div>
+              <div class="form-group">
+                <label for="fia-narrative" class="form-label">Statement Narrative (Explain exactly what
+                  happened)</label>
+                <textarea id="fia-narrative" class="form-control" rows="5"
+                  placeholder="E.g. I received a phone call from an unknown number claiming to be from SBP. They asked for my OTP to block my account. When I shared the code, Rs. 45,000 was deducted from my account."
+                  required style="font-size: 0.8rem; line-height: 1.5; resize: vertical; padding: 0.75rem;"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary"
+                style="width: 100%; justify-content: center; padding: 0.75rem; margin-top: 1rem; font-weight: 700;">
+                <i data-lucide="file-text" class="w-4 h-4"></i> Compile Statement Draft
+              </button>
+            </form>
+          </div>
+
+          <!-- Right: Compiled preview & export actions -->
+          <div class="tool-card" style="display: flex; flex-direction: column;">
+            <h2 class="tool-card-title">
+              <i data-lucide="eye" class="text-success w-5 h-5" style="color: var(--color-success);"></i> Compiled
+              Report Preview
+            </h2>
+            <p class="tool-card-desc">The generated complaint report details are formatted for standard submission. You
+              can click inside the box below to edit the draft in-place before exporting.</p>
+
+            <div
+              style="flex: 1; min-height: 300px; display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="position: relative; flex: 1;">
+                <textarea id="fia-draft-pre" class="draft-preview"
+                  style="width: 100%; min-height: 400px; font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.5; padding: 1rem; border-radius: 0.5rem; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); resize: vertical; outline: none; transition: border-color 0.2s;"
+                  placeholder="Your compiled complaint report will display here after you submit the form on the left.">Your compiled complaint report will display here after you submit the form on the left.</textarea>
+                <div
+                  style="position: absolute; right: 0.75rem; top: 0.75rem; pointer-events: none; opacity: 0.5; font-size: 0.65rem; font-family: var(--font-mono); text-transform: uppercase;">
+                  Editable Area</div>
+              </div>
+
+              <div class="report-actions-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.5rem;">
+                <button type="button" onclick="window.copyArziDraft()" class="btn btn-primary"
+                  style="justify-content: center; gap: 0.35rem;">
+                  <i data-lucide="copy" class="w-4 h-4"></i> Copy Report
+                </button>
+                <button type="button" onclick="window.printArziDraft()" class="btn btn-secondary"
+                  style="justify-content: center; border-color: var(--color-success); color: var(--color-success); gap: 0.35rem;">
+                  <i data-lucide="download" class="w-4 h-4"></i> Download PDF
+                </button>
+                <button type="button" onclick="window.toggleEditReport()" class="btn btn-secondary" id="btn-toggle-edit"
+                  style="justify-content: center; gap: 0.35rem;">
+                  <i data-lucide="edit-2" class="w-4 h-4"></i> Edit Report
+                </button>
+                <button type="button" onclick="window.clearReportForm()" class="btn btn-secondary"
+                  style="justify-content: center; border-color: var(--color-danger); color: var(--color-danger); gap: 0.35rem;">
+                  <i data-lucide="trash-2" class="w-4 h-4"></i> Clear Form
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------- TAB 5: SECURE TEXT CIPHER -------------------- -->
+      <div class="tool-panel hidden" id="panel-encryptor">
+        <div class="tools-grid">
+          <!-- Left: Input settings -->
+          <div class="tool-card">
+            <h2 class="tool-card-title">
+              <i data-lucide="key-round" class="text-primary w-5 h-5"></i> Secure Offline Crypt Cipher
+            </h2>
+            <p class="tool-card-desc">Encrypt sensitive messages, PIN codes, account details, or transaction parameters using a secure password key before sharing over WhatsApp, SMS, or Messenger.</p>
+
+            <!-- Privacy Notice -->
+            <div
+              style="background: rgba(88, 166, 255, 0.03); border: 1px dashed var(--border-color); border-radius: 0.5rem; padding: 1rem; margin-bottom: 1.5rem; font-size: 0.85rem; line-height: 1.5; color: var(--text-secondary); text-align: center;">
+              <span
+                style="font-weight: 700; color: var(--color-primary); display: flex; align-items: center; justify-content: center; gap: 0.35rem; margin-bottom: 0.35rem;">
+                <i data-lucide="shield" class="w-4 h-4"></i> Local-Only Cryptography
+              </span>
+              Your data is encrypted and decrypted completely offline on your device using browser Web Crypto APIs. SafePK never transmits, reads, or stores your input or passwords.
+            </div>
+
+            <form id="cipher-form" onsubmit="event.preventDefault();">
+              <div class="form-group">
+                <label for="cipher-text-input" class="form-label">Input Text (Message to Encrypt or Decrypt)</label>
+                <textarea id="cipher-text-input" class="form-control" style="min-height: 120px; resize: vertical;" placeholder="Type or paste your confidential text here..." required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="cipher-key" class="form-label">Secret Key / Passphrase</label>
+                <div style="position: relative; display: flex; gap: 0.5rem; width: 100%;">
+                  <input type="password" id="cipher-key" class="form-control" style="padding-right: 2.5rem;" placeholder="Enter secure key (minimum 6 characters)..." required />
+                  <button type="button" onclick="window.togglePasswordVisibility('cipher-key', this)" class="btn btn-secondary" style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); width: 2rem; height: 2rem; padding: 0; min-height: unset; justify-content: center; border: none; background: none; color: var(--text-secondary);">
+                    <i data-lucide="eye" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="cipher-actions-row" style="display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                <button type="button" onclick="window.generateRandomKey()" class="btn btn-secondary" style="gap: 0.35rem; font-size: 0.85rem; padding: 0.5rem 1rem;">
+                  <i data-lucide="sparkles" class="w-4 h-4"></i> Generate Random Key
+                </button>
+                <button type="button" onclick="window.clearCipherForm()" class="btn btn-secondary" style="border-color: var(--color-danger); color: var(--color-danger); gap: 0.35rem; font-size: 0.85rem; padding: 0.5rem 1rem; margin-left: auto;">
+                  <i data-lucide="trash-2" class="w-4 h-4"></i> Reset Form
+                </button>
+              </div>
+
+              <div class="cipher-submit-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.5rem;">
+                <button type="button" onclick="window.processEncryption()" class="btn btn-primary" style="justify-content: center; gap: 0.35rem; height: 3.5rem; font-size: 1rem; font-weight: 700; background-color: var(--color-danger); border-color: var(--color-danger);">
+                  <i data-lucide="lock" class="w-5 h-5"></i> Encrypt Text
+                </button>
+                <button type="button" onclick="window.processDecryption()" class="btn btn-primary" style="justify-content: center; gap: 0.35rem; height: 3.5rem; font-size: 1rem; font-weight: 700; background-color: var(--color-success); border-color: var(--color-success);">
+                  <i data-lucide="unlock" class="w-5 h-5"></i> Decrypt Text
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right: Output preview -->
+          <div class="tool-card">
+            <h2 class="tool-card-title">
+              <i data-lucide="binary" class="text-primary w-5 h-5"></i> Cryptographic Output
+            </h2>
+            <p class="tool-card-desc">The result of your offline cryptographic operation will appear here instantly.</p>
+
+            <div style="position: relative;">
+              <textarea id="cipher-output" class="draft-preview" readonly style="width: 100%; min-height: 250px; font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.5; padding: 1rem; border-radius: 0.5rem; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); resize: vertical; outline: none;" placeholder="Cryptographic result will display here..."></textarea>
+              <div style="position: absolute; right: 0.75rem; top: 0.75rem; pointer-events: none; opacity: 0.5; font-size: 0.65rem; font-family: var(--font-mono); text-transform: uppercase;">Output Preview</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-top: 1.5rem;">
+              <button type="button" onclick="window.copyCipherOutput()" class="btn btn-primary" style="justify-content: center; gap: 0.5rem; height: 3rem;">
+                <i data-lucide="copy" class="w-4 h-4"></i> Copy Output Text
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer block -->
+  <footer>
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-col">
+          <span class="footer-col-title">Join Our Community</span>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; max-width: 220px; margin-top: 0.25rem;">
+            <a href="https://whatsapp.com/channel/0029Vb883mn2P59bKiesEp3v" target="_blank" rel="noopener noreferrer"
+              class="footer-social-link footer-social-link-whatsapp">
+              <img src="../assets/icons/whatsapp.png" alt="WhatsApp"
+                style="width: 1.15rem; height: 1.15rem; border-radius: 4px;" referrerPolicy="no-referrer" />
+              <span>WhatsApp Channel</span>
+            </a>
+            <a href="https://www.facebook.com/share/1HMUFnf3dx/" target="_blank" rel="noopener noreferrer"
+              class="footer-social-link footer-social-link-facebook">
+              <img src="../assets/icons/facebook.png" alt="Facebook"
+                style="width: 1.15rem; height: 1.15rem; border-radius: 4px;" referrerPolicy="no-referrer" />
+              <span>Facebook Page</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Resources</span>
+          <div class="footer-links">
+            <a href="learn.html" class="footer-link">Scam Guides</a>
+            <a href="tools.html" class="footer-link">Safety Tools</a>
+            <a href="directory.html" class="footer-link">Cyber Directory</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Legal & Info</span>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About SafePK</a>
+            <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="terms-of-use.html" class="footer-link">Terms & Conditions</a>
+            <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span class="footer-copyright">
+          &copy; 2026 SafePK. All rights reserved.
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script loading indices -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../js/learn.js"></script>
+  <script src="../js/directory.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/script.js"></script>
+  <script>
+    // Initialize systems
+    if (typeof initTheme !== 'undefined') initTheme();
+    if (typeof initSecurityTools !== 'undefined') initSecurityTools();
+
+    // Inline helper to toggle password field visibility
+    window.togglePasswordVisibility = function (inputId, btn) {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.innerHTML = `<i data-lucide="eye-off" class="w-4 h-4"></i>`;
+      } else {
+        input.type = 'password';
+        btn.innerHTML = `<i data-lucide="eye" class="w-4 h-4"></i>`;
+      }
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    };
+
+    // Helper to copy compiled statement draft
+    window.copyArziDraft = function () {
+      const pre = document.getElementById('fia-draft-pre');
+      if (!pre) return;
+      const text = pre.value || pre.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        if (window.showToast) {
+          window.showToast("Incident statement copied to clipboard successfully!", "success");
+        } else {
+          alert("Incident Statement Draft Copied to Clipboard!");
+        }
+      }).catch(err => {
+        console.error("Failed to copy statement:", err);
+        if (window.showToast) {
+          window.showToast("Could not copy statement. Please select the text and copy manually.", "danger");
+        }
+      });
+    };
+
+    // Helper to print compiled statement draft (Download as PDF)
+    window.printArziDraft = function () {
+      const pre = document.getElementById('fia-draft-pre');
+      if (!pre) return;
+      const text = pre.value || pre.textContent;
+      const printWindow = window.open('', '_blank');
+      if (!printWindow) {
+        if (window.showToast) {
+          window.showToast("Popup blocker blocked download! Please allow popups for this site.", "warning");
+        } else {
+          alert("Popup blocker blocked the print action! Please allow popups to save/download the PDF.");
+        }
+        return;
+      }
+      printWindow.document.write('<html><head><title>Print Complaint Statement - SafePK</title>');
+      printWindow.document.write('<style>body{font-family:"Courier New", Courier, monospace, "Noto Nastaliq Urdu", sans-serif;white-space:pre-wrap;padding:3rem;line-height:1.6;font-size:14px;color:#000;max-width:800px;margin:0 auto;} h1{text-align:center;font-size:18px;margin-bottom:2rem;} .no-print-btn{display:block;margin:2rem auto;padding:0.75rem 1.5rem;background:#0052cc;color:#fff;border:none;border-radius:4px;font-weight:700;cursor:pointer;} @media print{.no-print-btn{display:none;}}</style>');
+      printWindow.document.write('</head><body>');
+      printWindow.document.write('<button class="no-print-btn" onclick="window.print()">Click to Save / Print PDF</button>');
+      printWindow.document.write('<div style="border: 1px solid #ccc; padding: 2rem; border-radius: 8px; background: #fff;">');
+      printWindow.document.write(text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+      printWindow.document.write('</div>');
+      printWindow.document.write('</body></html>');
+      printWindow.document.close();
+    };
+
+    // Helper to toggle focus on the draft textarea
+    window.toggleEditReport = function () {
+      const textarea = document.getElementById('fia-draft-pre');
+      if (!textarea) return;
+      textarea.focus();
+      // Place cursor at the end of the text
+      const val = textarea.value;
+      textarea.value = '';
+      textarea.value = val;
+      // Scroll nicely to it
+      textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+
+    // Helper to clear the builder form and reset preview
+    window.clearReportForm = function () {
+      const form = document.getElementById('fia-builder-form');
+      if (form) {
+        form.reset();
+      }
+      const textarea = document.getElementById('fia-draft-pre');
+      if (textarea) {
+        textarea.value = `Your compiled complaint report will display here after you submit the form on the left.`;
+      }
+      if (window.showToast) {
+        window.showToast("Form and draft cleared successfully. Ready for a new entry.", "info");
+      } else {
+        alert("Form cleared! You can now compose a new statement.");
+      }
+    };
+  </script>
+</body>
+
+</html>
