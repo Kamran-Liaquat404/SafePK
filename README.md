@@ -74,28 +74,6 @@ SafePK is built using:
 
 ---
 
-## Run Locally
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-Then open the local URL shown by Vite, usually:
-
-```text
-http://localhost:3000
-```
-
----
-
 ## Build for Production
 
 To generate a production-ready static build:
