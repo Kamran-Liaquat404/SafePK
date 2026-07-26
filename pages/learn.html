@@ -1,0 +1,898 @@
+<!doctype html>
+<!-- 
+  DEVELOPER NOTE (Roman Urdu):
+  =========================================
+  Yeh SafePK ka Redesigned "Learn" Knowledge Center Page hai (learn.html).
+  Is page me dynamic search, category filtering, level badges, knowledge paths,
+  aur dedicated SEO-friendly article pages load hote hain.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+    </script>
+    <title>Pakistan Cyber Crime & Scam Prevention Guides | SafePK Learn</title>
+    <meta id="meta-description" name="description" content="Detailed cybersecurity guides for Pakistan: how to recover hacked WhatsApp accounts, stop Easypaisa & JazzCash fake payment scams, defend bank accounts from OTP theft, and report cybercrime to NCCIA 1799." />
+    <meta id="meta-keywords" name="keywords" content="cyber security guides pakistan, whatsapp hacked recovery, easypaisa scam, jazzcash fraud, bank account hacking pakistan, otp theft, phishing link check, job scam pakistan, online fraud prevention, nccia complaint guide, fake call scam, instagram hack recovery pakistan" />
+    <meta name="author" content="SafePK Team" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="geo.region" content="PK" />
+    <meta name="geo.placename" content="Pakistan" />
+    <link id="meta-canonical" rel="canonical" href="https://safepk.net/pages/learn.html" />
+    
+    <!-- Open Graph / Facebook meta systems -->
+    <meta property="og:type" content="article" />
+    <meta id="og-title" property="og:title" content="Pakistan Cyber Crime & Scam Protection Guides | SafePK" />
+    <meta id="og-description" property="og:description" content="Step-by-step guides on recovering from bank hacking, WhatsApp takeover, Easypaisa/JazzCash fraud, and filing NCCIA complaints in Pakistan." />
+    <meta id="og-url" property="og:url" content="https://safepk.net/pages/learn.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+    <meta property="og:site_name" content="SafePK Cyber Knowledge Center" />
+    <meta property="og:locale" content="en_PK" />
+    
+    <!-- Twitter cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta id="tw-title" name="twitter:title" content="Pakistan Cyber Crime & Scam Protection Guides | SafePK" />
+    <meta id="tw-description" name="twitter:description" content="Step-by-step guides on recovering from bank hacking, WhatsApp takeover, and filing NCCIA complaints." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+
+    <!-- Structured Data JSON-LD for Search Engines -->
+    <script id="jsonld-schema" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "KnowledgeBase",
+      "name": "SafePK Cyber Knowledge Center",
+      "url": "https://safepk.net/pages/learn.html",
+      "description": "Educational cybersecurity platform teaching Pakistani digital consumers how to detect and prevent online scams, account takeovers, and financial fraud.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "SafePK Team",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg"
+        }
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="manifest" href="../manifest.json" />
+    <meta name="theme-color" content="#38bdf8" />
+  </head>
+  <body>
+    <!-- Reading Progress Top Bar -->
+    <div id="reading-progress-bar" class="reading-progress-bar"></div>
+
+    <!-- Navigation bar controls -->
+    <header>
+      <div class="container navbar-container">
+        <a href="../index.html" class="logo-block">
+          <img src="../assets/images/safepk_cyber_logo_1782237163960.jpg" alt="SafePK Logo" class="logo-img" referrerPolicy="no-referrer" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+        
+        <nav class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="learn.html" class="nav-link active">Learn</a>
+          <a href="report.html" class="nav-link">Report</a>
+          <a href="tools.html" class="nav-link">Tools</a>
+          <a href="directory.html" class="nav-link">Directory</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+      <div class="container">
+
+        <!-- ===================================================================
+             A. LEARN KNOWLEDGE CENTER HOMEPAGE VIEW
+             =================================================================== -->
+        <div id="learn-home-view" class="animate-fade-in">
+          
+          <!-- Hero Section -->
+          <div class="learn-hero-container">
+            <h1 class="learn-hero-title">
+              SafePK Cyber Knowledge Center
+            </h1>
+            <p class="learn-hero-subtitle">
+              Comprehensive, publication-grade cybersecurity guides, threat breakdowns, and step-by-step defense blueprints tailored specifically for citizens and businesses in Pakistan.
+            </p>
+          </div>
+
+          <div class="learn-articles-grid" id="scams-grid" style="margin-top: 1.5rem;">
+            <!-- Dynamic Cards Injected via JS -->
+          </div>
+
+        </div>
+
+        <!-- ===================================================================
+             B. DEDICATED FULL-PAGE ARTICLE VIEW CONTAINER
+             =================================================================== -->
+        <div id="learn-article-view" class="dedicated-article-view hidden animate-fade-in">
+          
+          <!-- Navigation & Breadcrumbs Bar -->
+          <div class="article-top-nav-bar" style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <button onclick="window.showHomeView()" class="tool-back-btn" aria-label="Back to Guides" style="margin: 0;">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span>Back to Guides</span>
+              </button>
+
+              <button id="art-btn-copylink" onclick="window.copyArticleLink()" class="btn btn-secondary" style="font-size: 0.825rem; padding: 0.45rem 0.85rem; display: inline-flex; align-items: center; gap: 0.4rem; border-radius: 6px; cursor: pointer; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary); transition: all 0.2s;">
+                <i data-lucide="copy" style="width: 0.9rem; height: 0.9rem; color: var(--color-primary);"></i>
+                <span>Copy Link</span>
+              </button>
+            </div>
+
+            <nav class="article-breadcrumbs" aria-label="Breadcrumb">
+              <a href="../index.html">Home</a>
+              <span class="article-breadcrumbs-sep">/</span>
+              <a href="javascript:void(0)" onclick="window.showHomeView()">Knowledge Center</a>
+              <span class="article-breadcrumbs-sep">/</span>
+              <span id="art-breadcrumb-cat" class="art-breadcrumb-cat">Category</span>
+              <span class="article-breadcrumbs-sep">/</span>
+              <span id="art-breadcrumb-title" class="art-breadcrumb-title">Article Title</span>
+            </nav>
+          </div>
+
+          <!-- Article Header Hero Box -->
+          <div class="article-header-wrapper" id="art-header-wrapper">
+            <div class="article-header-meta-pills">
+              <span id="art-category-badge" class="article-category-badge">Category</span>
+              <span id="art-read-time" class="article-read-time-badge">
+                <i data-lucide="clock" style="width: 0.85rem; height: 0.85rem;"></i> 5 min read
+              </span>
+            </div>
+
+            <h1 id="art-hero-title" class="article-hero-title">
+              Article Display Title
+            </h1>
+
+            <div class="article-author-date-bar">
+              <div class="article-author-block">
+                <div class="article-author-avatar">SP</div>
+                <span>SafePK Team</span>
+              </div>
+              <div class="article-meta-item">
+                <i data-lucide="calendar" style="width: 0.85rem; height: 0.85rem;"></i>
+                <span id="art-updated-date">Updated July 2026</span>
+              </div>
+              <div class="article-meta-verified">
+                <i data-lucide="check-circle" style="width: 0.85rem; height: 0.85rem;"></i>
+                <span>Verified Threat Intelligence</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Two-Column Layout (Content + Sticky TOC) -->
+          <div class="article-layout-grid">
+            
+            <!-- Main Content Area -->
+            <article class="article-main-content">
+              
+              <!-- Overview Banner Box -->
+              <div class="article-callout article-callout-info">
+                <div class="callout-title">
+                  <i data-lucide="info" style="width: 1rem; height: 1rem;"></i> Threat Overview & Key Takeaway
+                </div>
+                <div id="art-overview-box" class="callout-body">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <!-- Main Rich Text Body -->
+              <div id="art-main-body" class="article-body-text">
+                <!-- Injected via JS -->
+              </div>
+
+              <!-- Warning Signs Section -->
+              <div class="article-section-wrapper" id="art-section-warnings">
+                <h2 class="article-section-heading heading-danger">
+                  <i data-lucide="alert-triangle" style="width: 1.25rem; height: 1.25rem;"></i> Critical Warning Signs
+                </h2>
+                <div id="art-warning-signs-list" class="article-section-list">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <!-- Pakistan Local Examples Section -->
+              <div class="article-section-wrapper" id="art-section-examples">
+                <h2 class="article-section-heading heading-warning">
+                  <i data-lucide="help-circle" style="width: 1.25rem; height: 1.25rem;"></i> Local Context & Scam Scenarios
+                </h2>
+                <div id="art-examples-list" class="article-section-list">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <!-- Prevention Checklist Section -->
+              <div class="article-section-wrapper" id="art-section-prevention">
+                <h2 class="article-section-heading heading-success">
+                  <i data-lucide="shield-check" style="width: 1.25rem; height: 1.25rem;"></i> Prevention & Defense Blueprint
+                </h2>
+                <div id="art-prevention-list" class="article-section-list">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <!-- Legal & FIA Guidance Box -->
+              <div class="article-section-wrapper">
+                <h2 class="article-section-heading heading-indigo">
+                  <i data-lucide="landmark" style="width: 1.25rem; height: 1.25rem;"></i> Legal Remediation & FIA Cyber Crime Reporting
+                </h2>
+                <div class="article-callout article-callout-indigo">
+                  <div id="art-reporting-guidance" class="callout-body">
+                    <!-- Injected via JS -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Previous & Next Article Navigation -->
+              <div class="article-nav-cards-row">
+                <a href="javascript:void(0)" id="art-prev-card" class="article-nav-card nav-card-prev" style="display: none;">
+                  <span class="article-nav-card-label">← Previous Guide</span>
+                  <span id="art-prev-title" class="article-nav-card-title">Title</span>
+                </a>
+                <a href="javascript:void(0)" id="art-next-card" class="article-nav-card nav-card-next" style="display: none;">
+                  <span class="article-nav-card-label">Next Guide →</span>
+                  <span id="art-next-title" class="article-nav-card-title">Title</span>
+                </a>
+              </div>
+
+              <!-- Related Articles Grid -->
+              <div class="related-articles-wrapper">
+                <h3 class="related-articles-title">
+                  <i data-lucide="compass" style="color: var(--color-primary);"></i> Recommended Related Guides
+                </h3>
+                <div class="learn-articles-grid related-grid-responsive" id="related-articles-grid">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+            </article>
+
+            <!-- Sticky Table of Contents Sidebar -->
+            <aside class="article-toc-sidebar">
+              <div class="toc-sidebar-header">
+                <i data-lucide="list-tree" style="width: 0.9rem; height: 0.9rem; color: var(--color-primary);"></i> Table of Contents
+              </div>
+              <ul id="toc-links-container" class="toc-links-list">
+                <!-- Dynamic links injected via JS -->
+              </ul>
+            </aside>
+
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Footer block -->
+    <footer>
+      <div class="container">
+        <div class="footer-columns">
+          <div class="footer-col">
+            <span class="footer-col-title">Join Our Community</span>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; max-width: 220px; margin-top: 0.25rem;">
+              <a href="https://whatsapp.com/channel/0029Vb883mn2P59bKiesEp3v" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link-whatsapp">
+                <img src="../assets/icons/whatsapp.png" alt="WhatsApp" style="width: 1.15rem; height: 1.15rem; border-radius: 4px;" referrerPolicy="no-referrer" />
+                <span>WhatsApp Channel</span>
+              </a>
+              <a href="https://www.facebook.com/share/1HMUFnf3dx/" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link-facebook">
+                <img src="../assets/icons/facebook.png" alt="Facebook" style="width: 1.15rem; height: 1.15rem; border-radius: 4px;" referrerPolicy="no-referrer" />
+                <span>Facebook Page</span>
+              </a>
+            </div>
+          </div>
+          
+          <div class="footer-col">
+            <span class="footer-col-title">Resources</span>
+            <div class="footer-links">
+              <a href="learn.html" class="footer-link">Scam Guides</a>
+              <a href="tools.html" class="footer-link">Safety Tools</a>
+              <a href="directory.html" class="footer-link">Cyber Directory</a>
+              <a href="report.html" class="footer-link">Report Builder</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <span class="footer-col-title">Legal & Info</span>
+            <div class="footer-links">
+              <a href="about.html" class="footer-link">About SafePK</a>
+              <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+              <a href="terms-of-use.html" class="footer-link">Terms & Conditions</a>
+              <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom-bar">
+          <span class="footer-copyright">
+            &copy; 2026 SafePK. All rights reserved.
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Universal portal modal overlay element -->
+    <div id="univ-modal" class="modal-overlay">
+      <div class="modal-window">
+        <div class="modal-header">
+          <div class="modal-header-title">
+            <span id="univ-modal-icon" class="text-primary"></span>
+            <h3 id="univ-modal-title"></h3>
+          </div>
+          <button class="modal-close-btn" onclick="window.closeUnivModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="univ-modal-body"></div>
+        <div class="modal-footer" id="univ-modal-footer"></div>
+      </div>
+    </div>
+
+    <!-- Script loading indices -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/learn.js"></script>
+    <script src="../js/directory.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/script.js"></script>
+    
+    <script>
+      // =======================================================================
+      // SafePK Learn Knowledge Center Client-Side Engine (2026)
+      // =======================================================================
+
+      let currentLoadedArticleId = null;
+
+      // Initialize theme
+      if (typeof initTheme !== 'undefined') initTheme();
+
+      // Get Visited Articles from LocalStorage
+      function getVisitedArticles() {
+        try {
+          return JSON.parse(localStorage.getItem('visited_scams') || '[]');
+        } catch (e) {
+          return [];
+        }
+      }
+
+      // Mark Article as Visited
+      window.markArticleAsVisited = function(id) {
+        try {
+          const visited = getVisitedArticles();
+          if (!visited.includes(id)) {
+            visited.push(id);
+            localStorage.setItem('visited_scams', JSON.stringify(visited));
+          }
+        } catch (e) {
+          console.warn('Visited tracking failed:', e);
+        }
+      };
+
+      // Render Learn Homepage Grid
+      function renderLearnGrid() {
+        const grid = document.getElementById('scams-grid');
+        if (!grid || typeof learningTopics === 'undefined') return;
+
+        const visited = getVisitedArticles();
+
+        // Render Cards - All topics rendered cleanly
+        grid.innerHTML = learningTopics.map(t => {
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = t.overview || '';
+          const excerpt = (tempDiv.textContent || tempDiv.innerText || '').trim().substring(0, 130) + '...';
+
+          const cfg = window.getCategoryConfig(t.category);
+          const difficulty = window.getArticleDifficulty(t);
+          const readTime = window.getArticleReadingTime(t);
+          const isVisited = visited.includes(t.id);
+
+          return `
+            <div class="article-card animate-fade-in" onclick="window.showDedicatedArticle('${t.id}')" style="cursor: pointer; --cat-accent: ${cfg.accent}; --cat-bg: ${cfg.bg}; --cat-border: ${cfg.border};">
+              
+              <div class="article-card-top">
+                <div class="article-card-icon">
+                  <i data-lucide="${t.iconName || cfg.icon}" style="width: 1.4rem; height: 1.4rem;"></i>
+                </div>
+                
+                <div class="article-badges-wrapper">
+                  ${isVisited ? `
+                    <span style="font-size: 0.65rem; font-family: var(--font-mono); font-weight: 700; color: #10b981; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.15rem 0.5rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 0.25rem;">
+                      <i data-lucide="check" style="width: 0.75rem; height: 0.75rem;"></i> Read
+                    </span>
+                  ` : ''}
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem;">
+                  <span class="article-category-badge">${t.category}</span>
+                  <span class="article-read-time-badge">
+                    <i data-lucide="clock" style="width: 0.75rem; height: 0.75rem;"></i> ${readTime}
+                  </span>
+                </div>
+                
+                <h3 class="article-card-title">${t.title}</h3>
+              </div>
+
+              <p class="article-card-excerpt">${excerpt}</p>
+
+              <button onclick="event.stopPropagation(); window.showDedicatedArticle('${t.id}')" class="article-card-btn">
+                <span>Read Full Guide</span>
+                <i data-lucide="arrow-right" style="width: 0.95rem; height: 0.95rem;"></i>
+              </button>
+
+            </div>
+          `;
+        }).join('');
+
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      // =======================================================================
+      // DEDICATED ARTICLE PAGE ENGINE
+      // =======================================================================
+
+      window.showDedicatedArticle = function(query, pushState = true) {
+        const article = window.getArticleBySlugOrId(query);
+        if (!article) {
+          console.warn('Article not found for query:', query);
+          window.showHomeView();
+          return;
+        }
+
+        currentLoadedArticleId = article.id;
+
+        // Switch DOM view visibility
+        const homeView = document.getElementById('learn-home-view');
+        const articleView = document.getElementById('learn-article-view');
+        if (homeView) homeView.classList.add('hidden');
+        if (articleView) articleView.classList.remove('hidden');
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Mark as visited
+        window.markArticleAsVisited(article.id);
+
+        const canonicalUrl = `https://safepk.net/learn/${article.id}`;
+
+        // Update URL via History API
+        if (pushState) {
+          try {
+            const url = new URL(window.location.href);
+            url.searchParams.set('article', article.id);
+            window.history.pushState({ articleId: article.id }, '', url);
+          } catch (e) {
+            console.warn('History API state push prevented:', e);
+          }
+        }
+
+        // Extract clean overview text for meta description
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = article.overview || '';
+        const cleanOverview = (tempDiv.textContent || tempDiv.innerText || '').trim().replace(/\s+/g, ' ');
+        const metaDescText = cleanOverview.length > 155 ? cleanOverview.substring(0, 152) + '...' : cleanOverview;
+
+        // Update Document Title & SEO Meta Tags
+        document.title = `${article.title} | SafePK`;
+
+        const descMeta = document.getElementById('meta-description');
+        if (descMeta) descMeta.setAttribute('content', metaDescText);
+
+        const canonicalLink = document.getElementById('meta-canonical');
+        if (canonicalLink) canonicalLink.setAttribute('href', canonicalUrl);
+
+        const ogTitle = document.getElementById('og-title');
+        if (ogTitle) ogTitle.setAttribute('content', `${article.title} | SafePK`);
+
+        const ogDesc = document.getElementById('og-description');
+        if (ogDesc) ogDesc.setAttribute('content', metaDescText);
+
+        const ogUrl = document.getElementById('og-url');
+        if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
+
+        const twTitle = document.getElementById('tw-title');
+        if (twTitle) twTitle.setAttribute('content', `${article.title} | SafePK`);
+
+        const twDesc = document.getElementById('tw-description');
+        if (twDesc) twDesc.setAttribute('content', metaDescText);
+
+        // Populate Breadcrumbs
+        const catBreadcrumb = document.getElementById('art-breadcrumb-cat');
+        const titleBreadcrumb = document.getElementById('art-breadcrumb-title');
+        if (catBreadcrumb) catBreadcrumb.textContent = article.category;
+        if (titleBreadcrumb) titleBreadcrumb.textContent = article.title;
+
+        // Populate Header Meta & Pills
+        const cfg = window.getCategoryConfig(article.category);
+        const difficulty = window.getArticleDifficulty(article);
+        const readTime = window.getArticleReadingTime(article);
+
+        const wrapper = document.getElementById('art-header-wrapper');
+        if (wrapper) {
+          wrapper.style.setProperty('--cat-bg', cfg.bg);
+          wrapper.style.setProperty('--cat-accent', cfg.accent);
+        }
+
+        const catBadge = document.getElementById('art-category-badge');
+        const diffBadge = document.getElementById('art-difficulty-badge');
+        const readTimeTxt = document.getElementById('art-read-time');
+        const heroTitle = document.getElementById('art-hero-title');
+
+        if (catBadge) {
+          catBadge.textContent = article.category;
+          catBadge.style.color = cfg.accent;
+          catBadge.style.background = cfg.bg;
+          catBadge.style.borderColor = cfg.border;
+        }
+
+        if (diffBadge) {
+          diffBadge.textContent = difficulty;
+          diffBadge.className = `article-difficulty-badge ${difficulty.toLowerCase()}`;
+        }
+
+        if (readTimeTxt) {
+          readTimeTxt.innerHTML = `<i data-lucide="clock" style="width: 0.85rem; height: 0.85rem;"></i> ${readTime}`;
+        }
+
+        if (heroTitle) {
+          heroTitle.textContent = article.title;
+        }
+
+        // Populate Overview
+        const overviewBox = document.getElementById('art-overview-box');
+        if (overviewBox) {
+          overviewBox.innerHTML = article.overview || '';
+        }
+
+        // Populate Main Body
+        const mainBody = document.getElementById('art-main-body');
+        if (mainBody) {
+          mainBody.innerHTML = window.formatArticleContent(article.overview || '');
+        }
+
+        // Populate Warnings List
+        const warningsList = document.getElementById('art-warning-signs-list');
+        const warningsSec = document.getElementById('art-section-warnings');
+        if (article.warningSigns && article.warningSigns.length > 0) {
+          if (warningsSec) warningsSec.style.display = 'block';
+          if (warningsList) {
+            warningsList.innerHTML = article.warningSigns.map(sign => `
+              <div class="article-callout article-callout-warning" style="margin: 0;">
+                <div class="callout-title"><i data-lucide="x-circle" style="width: 1rem; height: 1rem;"></i> Red Flag Indicator</div>
+                <div class="callout-body">${sign}</div>
+              </div>
+            `).join('');
+          }
+        } else if (warningsSec) {
+          warningsSec.style.display = 'none';
+        }
+
+        // Populate Examples List
+        const examplesList = document.getElementById('art-examples-list');
+        const examplesSec = document.getElementById('art-section-examples');
+        if (article.examples && article.examples.length > 0) {
+          if (examplesSec) examplesSec.style.display = 'block';
+          if (examplesList) {
+            examplesList.innerHTML = article.examples.map(ex => `
+              <div class="article-callout" style="background: rgba(245, 158, 11, 0.05); border-color: rgba(245, 158, 11, 0.25); border-left: 4px solid var(--color-warning); margin: 0;">
+                <div class="callout-title" style="color: var(--color-warning);"><i data-lucide="help-circle" style="width: 1rem; height: 1rem;"></i> Real Case Scenario</div>
+                <div class="callout-body" style="font-style: italic;">"${ex}"</div>
+              </div>
+            `).join('');
+          }
+        } else if (examplesSec) {
+          examplesSec.style.display = 'none';
+        }
+
+        // Populate Prevention Tips List
+        const preventionList = document.getElementById('art-prevention-list');
+        const preventionSec = document.getElementById('art-section-prevention');
+        if (article.preventionTips && article.preventionTips.length > 0) {
+          if (preventionSec) preventionSec.style.display = 'block';
+          if (preventionList) {
+            preventionList.innerHTML = article.preventionTips.map(tip => `
+              <div class="article-callout article-callout-tip" style="margin: 0;">
+                <div class="callout-title"><i data-lucide="check-circle" style="width: 1rem; height: 1rem;"></i> Safety Action Step</div>
+                <div class="callout-body" style="font-weight: 500;">${tip}</div>
+              </div>
+            `).join('');
+          }
+        } else if (preventionSec) {
+          preventionSec.style.display = 'none';
+        }
+
+        // Populate Reporting Guidance
+        const repBox = document.getElementById('art-reporting-guidance');
+        if (repBox) {
+          repBox.innerHTML = `<i data-lucide="landmark" style="width: 1.1rem; height: 1.1rem; color: var(--color-indigo); margin-right: 0.5rem; display: inline-block;"></i> ${article.reportingGuidance || 'Report any suspicious activity or cyber crime incident immediately to NCCIA / FIA Cyber Crime Wing via helpline 1799.'}`;
+        }
+
+        // Update Draft FIA Report Button Link
+        const fiaBtn = document.getElementById('art-fia-report-btn');
+        if (fiaBtn) {
+          fiaBtn.setAttribute('href', `tools.html?scamId=${article.id}&tab=fia`);
+        }
+
+        // Generate Table of Contents
+        generateAndRenderTOC(article.overview);
+
+        // Render Prev / Next Articles
+        renderPrevNextArticle(article.id);
+
+        // Render Related Articles
+        renderRelatedArticles(article);
+
+        // Update Schema.org JSON-LD
+        updateArticleSchema(article);
+
+        if (window.lucide) window.lucide.createIcons();
+      };
+
+      // Show Homepage View
+      window.showHomeView = function(pushState = true) {
+        const homeView = document.getElementById('learn-home-view');
+        const articleView = document.getElementById('learn-article-view');
+        if (homeView) homeView.classList.remove('hidden');
+        if (articleView) articleView.classList.add('hidden');
+
+        document.title = "Pakistan Cyber Crime & Scam Protection Guides | SafePK Learn";
+
+        const descMeta = document.getElementById('meta-description');
+        if (descMeta) descMeta.setAttribute('content', 'Detailed cybersecurity guides for Pakistan: how to recover hacked WhatsApp accounts, stop Easypaisa & JazzCash fake payment scams, defend bank accounts from OTP theft, and report cybercrime to NCCIA 1799.');
+
+        const canonicalLink = document.getElementById('meta-canonical');
+        if (canonicalLink) canonicalLink.setAttribute('href', 'https://safepk.net/pages/learn.html');
+
+        const ogTitle = document.getElementById('og-title');
+        if (ogTitle) ogTitle.setAttribute('content', 'Pakistan Cyber Crime & Scam Protection Guides | SafePK');
+
+        const ogDesc = document.getElementById('og-description');
+        if (ogDesc) ogDesc.setAttribute('content', 'Step-by-step guides on recovering from bank hacking, WhatsApp takeover, Easypaisa/JazzCash fraud, and filing NCCIA complaints in Pakistan.');
+
+        const ogUrl = document.getElementById('og-url');
+        if (ogUrl) ogUrl.setAttribute('content', 'https://safepk.net/pages/learn.html');
+
+        if (pushState) {
+          try {
+            const url = new URL(window.location.href);
+            url.searchParams.delete('article');
+            url.searchParams.delete('id');
+            url.searchParams.delete('scam');
+            url.searchParams.delete('slug');
+            window.history.pushState({}, '', url);
+          } catch (e) {
+            console.warn('History API reset prevented:', e);
+          }
+        }
+
+        renderLearnGrid();
+      };
+
+      // Generate Table of Contents
+      function generateAndRenderTOC(overviewHtml) {
+        const tocContainer = document.getElementById('toc-links-container');
+        if (!tocContainer) return;
+
+        const tocItems = window.generateArticleTOC(overviewHtml);
+
+        // Always add default sections
+        tocItems.unshift({ id: 'art-overview-box', text: 'Threat Overview' });
+        tocItems.push({ id: 'art-section-warnings', text: 'Warning Signs' });
+        tocItems.push({ id: 'art-section-examples', text: 'Case Scenarios' });
+        tocItems.push({ id: 'art-section-prevention', text: 'Prevention Blueprint' });
+
+        tocContainer.innerHTML = tocItems.map(item => `
+          <li class="toc-link-item">
+            <a href="javascript:void(0)" onclick="window.scrollToSection('${item.id}')">${item.text}</a>
+          </li>
+        `).join('');
+      }
+
+      // Scroll to specific section ID smoothly
+      window.scrollToSection = function(id) {
+        const target = document.getElementById(id);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      };
+
+      // Prev / Next Navigation render
+      function renderPrevNextArticle(currentId) {
+        const prevCard = document.getElementById('art-prev-card');
+        const nextCard = document.getElementById('art-next-card');
+        const prevTitle = document.getElementById('art-prev-title');
+        const nextTitle = document.getElementById('art-next-title');
+
+        if (typeof learningTopics === 'undefined') return;
+
+        const idx = learningTopics.findIndex(t => t.id === currentId);
+        if (idx === -1) return;
+
+        const prevTopic = learningTopics[idx - 1];
+        const nextTopic = learningTopics[idx + 1];
+
+        if (prevTopic && prevCard && prevTitle) {
+          prevCard.style.display = 'flex';
+          prevTitle.textContent = prevTopic.title;
+          prevCard.onclick = () => window.showDedicatedArticle(prevTopic.id);
+        } else if (prevCard) {
+          prevCard.style.display = 'none';
+        }
+
+        if (nextTopic && nextCard && nextTitle) {
+          nextCard.style.display = 'flex';
+          nextTitle.textContent = nextTopic.title;
+          nextCard.onclick = () => window.showDedicatedArticle(nextTopic.id);
+        } else if (nextCard) {
+          nextCard.style.display = 'none';
+        }
+      }
+
+      // Related Articles render
+      function renderRelatedArticles(currentArticle) {
+        const grid = document.getElementById('related-articles-grid');
+        if (!grid || typeof learningTopics === 'undefined') return;
+
+        const related = learningTopics.filter(t => t.id !== currentArticle.id && (t.category === currentArticle.category || window.getArticleDifficulty(t) === window.getArticleDifficulty(currentArticle))).slice(0, 3);
+
+        grid.innerHTML = related.map(t => {
+          const cfg = window.getCategoryConfig(t.category);
+          return `
+            <div onclick="window.showDedicatedArticle('${t.id}')" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.1rem; cursor: pointer; display: flex; flex-direction: column; gap: 0.6rem; transition: all 0.2s ease;" onmouseover="this.style.borderColor='${cfg.accent}'; this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='translateY(0)'">
+              <span style="font-size: 0.65rem; font-family: var(--font-mono); font-weight: 700; color: ${cfg.accent}; text-transform: uppercase;">${t.category}</span>
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.3;">${t.title}</h4>
+              <span style="font-size: 0.75rem; color: var(--color-primary); font-weight: 600; margin-top: auto; display: inline-flex; align-items: center; gap: 0.25rem;">
+                Read Article →
+              </span>
+            </div>
+          `;
+        }).join('');
+
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      // Copy Article Link to Clipboard
+      window.copyArticleLink = function() {
+        const articleId = currentLoadedArticleId || (new URLSearchParams(window.location.search)).get('article');
+        const urlToCopy = articleId ? `https://safepk.net/learn/${articleId}` : window.location.href;
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(urlToCopy).then(() => {
+            showCopyFeedback('art-btn-copylink');
+          }).catch(() => {
+            fallbackCopyText(urlToCopy, 'art-btn-copylink');
+          });
+        } else {
+          fallbackCopyText(urlToCopy, 'art-btn-copylink');
+        }
+      };
+
+      function showCopyFeedback(btnId) {
+        const btn = document.getElementById(btnId);
+        if (!btn) return;
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = `<i data-lucide="check" style="width: 0.9rem; height: 0.9rem; color: #10b981;"></i><span style="color: #10b981; font-weight: 600;">Link Copied!</span>`;
+        if (window.lucide) window.lucide.createIcons();
+        setTimeout(() => {
+          btn.innerHTML = originalHtml;
+          if (window.lucide) window.lucide.createIcons();
+        }, 2200);
+      }
+
+      function fallbackCopyText(text, btnId) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-9999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          showCopyFeedback(btnId);
+        } catch (err) {
+          console.error('Fallback copy failed:', err);
+        }
+        document.body.removeChild(textArea);
+      }
+
+      // Print Article
+      window.printArticle = function() {
+        window.print();
+      };
+
+      // Update Schema.org JSON-LD
+      function updateArticleSchema(article) {
+        const schemaEl = document.getElementById('jsonld-schema');
+        if (!schemaEl) return;
+
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = article.overview || '';
+        const desc = (tempDiv.textContent || '').substring(0, 160);
+
+        const schema = {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": article.title,
+          "description": desc,
+          "url": `https://safepk.net/learn/${article.id}`,
+          "datePublished": "2026-01-01",
+          "dateModified": "2026-07-26",
+          "author": {
+            "@type": "Organization",
+            "name": "SafePK Team"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "SafePK",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg"
+            }
+          }
+        };
+
+        schemaEl.textContent = JSON.stringify(schema, null, 2);
+      }
+
+      // Event Listeners Initialization
+      document.addEventListener('DOMContentLoaded', () => {
+        // Reading Progress Indicator Scroll Listener
+        window.addEventListener('scroll', () => {
+          const progressBar = document.getElementById('reading-progress-bar');
+          if (!progressBar) return;
+
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+          progressBar.style.width = `${scrollPercent}%`;
+        });
+
+        // History API popstate listener (Back / Forward buttons)
+        window.addEventListener('popstate', (e) => {
+          const urlParams = new URLSearchParams(window.location.search);
+          let articleQuery = urlParams.get('article') || urlParams.get('id') || urlParams.get('scam') || urlParams.get('slug');
+          
+          if (!articleQuery) {
+            const pathname = window.location.pathname;
+            const match = pathname.match(/\/(?:learn|learn\.html)\/([a-z0-9-]+)/i);
+            if (match && match[1]) {
+              articleQuery = match[1];
+            }
+          }
+
+          if (articleQuery) {
+            window.showDedicatedArticle(articleQuery, false);
+          } else {
+            window.showHomeView(false);
+          }
+        });
+
+        // Initial Load Route Check
+        const urlParams = new URLSearchParams(window.location.search);
+        let initialArticle = urlParams.get('article') || urlParams.get('id') || urlParams.get('scam') || urlParams.get('slug');
+
+        if (!initialArticle) {
+          const pathname = window.location.pathname;
+          const match = pathname.match(/\/(?:learn|learn\.html)\/([a-z0-9-]+)/i);
+          if (match && match[1]) {
+            initialArticle = match[1];
+          }
+        }
+
+        if (initialArticle) {
+          window.showDedicatedArticle(initialArticle, false);
+        } else {
+          renderLearnGrid();
+        }
+      });
+    </script>
+  </body>
+</html>
