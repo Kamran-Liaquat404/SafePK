@@ -1,120 +1,184 @@
-# SafePK v5.0.0
+🛡️ SafePK
 
-SafePK is a modern, browser-based cybersecurity awareness platform built for Pakistan. It helps users learn how to recognize online scams, protect personal accounts, and access verified safety resources through a simple and practical experience.
+<div align="center">🇵🇰 Pakistan's Cybersecurity Awareness Platform
 
-The project is designed as a lightweight web application focused on digital safety education, fraud prevention, and public awareness.
+Learn • Protect • Report
 
----
+A modern browser-based cybersecurity awareness platform designed to help people across Pakistan stay safe online.
 
-## Overview
+🌐 Website: https://www.safepk.net
 
-SafePK combines educational content, interactive tools, and a curated directory of trusted resources into one platform. The goal is to make cyber safety understandable for everyday users, especially those who may not have a technical background.
+📧 Email: infosafepk@proton.me
 
-This version is structured as a static web app with multiple pages for learning, tools, directory access, and support information.
+</div>---
 
----
+📖 About SafePK
 
-## What the Project Includes
+SafePK is a modern browser-based cybersecurity awareness platform built specifically for Pakistan. It provides practical educational content, browser-based security tools, and trusted cybersecurity resources to help individuals recognize online scams, protect digital accounts, and improve digital safety.
 
-### 1. Learn Section
-A dedicated learning area that explains common online threats such as:
-- phishing scams
-- WhatsApp hijacking and verification code fraud
-- fake prize and lottery scams
-- fake job and online earning traps
-
-### 2. Interactive Safety Tools
-The tools page provides browser-based utilities such as:
-- password strength evaluation
-- privacy and security diagnostics
-- incident report building for cyber complaints
-- simple cryptographic cipher tools
-- quiz-based awareness checks
-
-### 3. Cyber Directory
-A searchable directory of official and verified contacts including:
-- FIA Cyber Crime resources
-- PTA-related support channels
-- banking and wallet fraud helplines
-- safety organizations and public awareness portals
-
-### 4. Support and Awareness Pages
-Additional pages cover:
-- about SafePK
-- privacy policy
-- terms of use
-- disclaimer
-- help center
-- cyber assistance disclaimer
+The platform is designed to make cybersecurity simple, accessible, and understandable for everyone, regardless of their technical background.
 
 ---
 
-## Tech Stack
+🎯 Mission
 
-SafePK is built using:
-- HTML5 for page structure
-- CSS for styling and responsive design
-- JavaScript for interactivity and content rendering
-- Vite for local development and build support
-- Node.js build script for static export to the dist folder
+To improve cybersecurity awareness in Pakistan by providing reliable educational resources, practical guidance, and trusted information that empowers users to make safer decisions online.
 
 ---
 
-## Project Structure
+🌍 Vision
 
-- index.html – landing page
-- pages/ – educational and informational pages
-- css/ – styling files
-- js/ – scripts for data, learning content, directory logic, theme handling, and app behavior
-- assets/ – images, icons, and static media
-- manifest.json – PWA manifest
-- sw.js – service worker for caching and offline support behavior
-- vite.config.js – Vite configuration
-- build.js – static build script
+To become one of Pakistan's most trusted cybersecurity awareness platforms by promoting digital literacy, scam prevention, and responsible internet usage.
 
 ---
 
-## Build for Production
+✨ Key Features
 
-To generate a production-ready static build:
+📚 Learn
 
-```bash
-npm run build
-```
+Comprehensive cybersecurity awareness articles covering topics such as:
 
-The build output is generated in the dist folder.
-
----
-
-## Purpose and Vision
-
-SafePK aims to promote cybersecurity awareness in Pakistan by making digital safety education simple, actionable, and accessible to everyday users.
-
-Its vision is to help people recognize fraud, avoid common scams, and feel more confident using digital services safely.
-
----
-
-## Disclaimer
-
-SafePK is an educational awareness platform. It does not provide real-time cyber protection, legal enforcement, or emergency response services.
-
-Users should always verify information through official government, banking, or telecom channels when dealing with real incidents.
+- 🎣 Phishing Attacks
+- 📱 WhatsApp Hijacking
+- 🔐 OTP & Verification Code Fraud
+- 🏦 Online Banking Scams
+- 💳 Easypaisa & JazzCash Fraud
+- 💼 Fake Jobs & Investment Scams
+- 🌐 Social Media Security
+- 🛡️ Privacy Protection
+- ⚠️ Digital Threat Awareness
+- 🔍 Cyber Hygiene
 
 ---
 
-## License
+🛠️ Security Tools
 
-© 2026 SafePK. All rights reserved.
+Browser-based utilities including:
 
-This project and its content are protected. Unauthorized copying, redistribution, or commercial use is strictly prohibited.
+- 🔑 Password Generator
+- 🛡️ Privacy & Security Auditor
+- 📋 Cyber Hygiene Diagnostics
+- 📝 Incident Report Builder
 
 ---
 
-## Contact
+🏛️ Cyber Directory
 
-For inquiries or collaboration:
+A searchable directory containing trusted organizations and official resources including:
 
-infosafepk@proton.me
+- 🇵🇰 NCCIA
+- 📡 Pakistan Telecommunication Authority (PTA)
+- 🏦 State Bank of Pakistan (SBP)
+- 🆔 NADRA
+- 🤝 Benazir Income Support Programme (BISP)
+- 💳 Pakistani Banks
+- 📲 Digital Wallet Support
+- 🌐 Verified Cybersecurity Resources
 
-Website:
-https://www.safepk.net
+---
+
+📄 Information Pages
+
+- ℹ️ About SafePK
+- 🔒 Privacy Policy
+- 📜 Terms & Conditions
+- ⚖️ Disclaimer
+- ❓ Help Center
+
+---
+
+💻 Technology Stack
+
+SafePK is built using modern web technologies:
+
+- 🌐 HTML5
+- 🎨 CSS3
+- ⚡ Vanilla JavaScript (ES6+)
+- 📱 Progressive Web App (PWA)
+
+---
+
+📂 Project Structure
+
+SafePK/
+│
+├── index.html
+├── pages/
+├── css/
+├── js/
+├── assets/
+├── manifest.json
+└── sw.js
+
+---
+
+🚀 Project Highlights
+
+- ✅ Browser-Based Platform
+- ✅ Mobile Responsive
+- ✅ Progressive Web App (PWA)
+- ✅ Lightweight Static Architecture
+- ✅ Fast Loading Experience
+- ✅ Educational Cybersecurity Content
+- ✅ Interactive Security Tools
+- ✅ Official Resource Directory
+- ✅ Privacy-Focused Design
+
+---
+
+👨‍💼 Founder & CEO
+
+Kamran Liaquat
+
+Founder & CEO of SafePK
+
+Passionate about improving cybersecurity awareness and digital safety across Pakistan through accessible education and practical security resources.
+
+---
+
+🤝 Contributing
+
+At this time, SafePK is maintained by its development team.
+
+Suggestions, feedback, and responsible security recommendations are always welcome.
+
+---
+
+⚠️ Disclaimer
+
+SafePK is an educational cybersecurity awareness platform.
+
+It does not provide:
+
+- Real-time cyber protection
+- Government investigation services
+- Legal advice
+- Emergency response services
+
+Always verify important information through the relevant official government authority, financial institution, or telecommunications provider before taking action.
+
+---
+
+📜 License
+
+© 2026 SafePK. All Rights Reserved.
+
+Unauthorized copying, redistribution, modification, or commercial use of this project or its content is prohibited without prior written permission.
+
+---
+
+📬 Contact
+
+📧 Email: infosafepk@proton.me
+
+🌐 Website: https://www.safepk.net
+
+---
+
+<div align="center">🛡️ Learn • Protect • Stay Safe
+
+🇵🇰 Building a Safer Digital Pakistan
+
+Developed with ❤️ by SafePK
+
+</div>
