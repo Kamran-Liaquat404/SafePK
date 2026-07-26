@@ -2,7 +2,7 @@
 
 <div align="center">🇵🇰 Pakistan's Cybersecurity Awareness Platform
 
-Learn • Protect • Report
+Learn • Detect • Report
 
 A modern browser-based cybersecurity awareness platform designed to help people across Pakistan stay safe online.
 
