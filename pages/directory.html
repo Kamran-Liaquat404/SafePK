@@ -1,0 +1,536 @@
+<!doctype html>
+<!-- 
+  DEVELOPER NOTE (Roman Urdu):
+  =========================================
+  Yeh SafePK ka "Directory" Page hai (directory.html).
+  Is page me verified commercial banks, national safety systems, aur cell networks ke contact directory lines hain.
+  
+  Developer Guide:
+  - Is page ka data dynamically `/js/directory.js` file se render hota hai.
+  - Agar aapko bank ya agency list update karni ho, to aap `/js/directory.js` array ko edit karenge, automatic integration ho jayegi.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+    </script>
+    <title>Pakistan Cyber Crime Helplines & Bank Card Block Numbers Directory | SafePK</title>
+    <meta name="description" content="Verified directory of official helplines in Pakistan: NCCIA 1799, PTA shortcode 9000, Easypaisa 3737, JazzCash 4444, SBP, and all commercial bank card block numbers." />
+    <meta name="keywords" content="nccia helpline 1799, bank card block numbers pakistan, easypaisa helpline 3737, jazzcash fraud helpline 4444, pta shortcode 9000, nccia cyber crime contact, sbp helpline pakistan, bank helpline numbers pakistan" />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="geo.region" content="PK" />
+    <meta name="geo.placename" content="Pakistan" />
+    <link rel="canonical" href="https://safepk.net/pages/directory.html" />
+    
+    <!-- Open Graph / Facebook meta systems -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pakistan Cyber Crime Helplines & Bank Card Block Numbers Directory | SafePK" />
+    <meta property="og:description" content="Quick access to official helplines, bank block numbers, PTA DIRBS, Easypaisa/JazzCash fraud helplines, and NCCIA cyber crime 1799 in Pakistan." />
+    <meta property="og:url" content="https://safepk.net/pages/directory.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+    <meta property="og:site_name" content="SafePK Cyber Safety" />
+    <meta property="og:locale" content="en_PK" />
+    
+    <!-- Twitter cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pakistan Cyber Crime Helplines & Bank Card Block Numbers | SafePK" />
+    <meta name="twitter:description" content="Verified database of active hotlines, bank card block numbers, and NCCIA helpline 1799 in Pakistan." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+
+    <!-- Structured Data JSON-LD ContactPage schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Pakistan Cybersecurity & Banking Helpline Directory",
+      "url": "https://safepk.net/pages/directory.html",
+      "description": "A curated directory of official government helplines, telecom assistance centers, and commercial bank blocking hotlines for digital protection in Pakistan.",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "National Cyber Crime Investigation Agency (NCCIA)",
+            "telephone": "1799"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "PTA Consumer Helpline",
+            "telephone": "9000"
+          }
+        ]
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="manifest" href="../manifest.json" />
+    <meta name="theme-color" content="#58a6ff" />
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6562313486377298"
+    crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- Header with nav anchors -->
+    <header>
+      <div class="container navbar-container">
+        <a href="../index.html" class="logo-block">
+          <img src="../assets/images/safepk_cyber_logo_1782237163960.jpg" alt="SafePK Logo" class="logo-img" referrerPolicy="no-referrer" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+        
+        <nav class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="learn.html" class="nav-link">Learn</a>
+          <a href="report.html" class="nav-link">Report</a>
+          <a href="tools.html" class="nav-link">Tools</a>
+          <a href="directory.html" class="nav-link active">Directory</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main dynamic body content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Hero Title Section -->
+        <div class="sec-title-container animate-fade-in" style="text-align: center; max-width: 760px; margin: 0 auto 1.75rem;">
+          <h1 class="sec-title" style="margin-bottom: 0.5rem;">
+            Official Directory
+          </h1>
+          <p class="sec-desc">
+         Official organizations, banks, helplines, and trusted resources in Pakistan.
+          </p>
+        </div>
+
+        <!-- Google AdSense Banner -->
+        <div style="margin: 1.5rem 0; text-align: center;">
+          <!-- SafePK Responsive Banner -->
+          <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-6562313486377298"
+          data-ad-slot="5135420914"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+
+
+
+        <!-- Directory lists wrapper -->
+        <div class="items-grid animate-fade-in" id="directory-grid">
+          <!-- JS injected cards -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer block -->
+    <footer>
+      <div class="container">
+        <div class="footer-columns">
+          <div class="footer-col">
+            <span class="footer-col-title">Join Our Community</span>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; max-width: 220px; margin-top: 0.25rem;">
+              <a href="https://whatsapp.com/channel/0029Vb883mn2P59bKiesEp3v" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link-whatsapp">
+                <img src="/assets/icons/whatsapp.png" alt="WhatsApp" style="width: 1.15rem; height: 1.15rem; border-radius: 4px;" referrerPolicy="no-referrer" />
+                <span>WhatsApp Channel</span>
+              </a>
+              <a href="https://www.facebook.com/share/1HMUFnf3dx/" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link-facebook">
+                <img src="../assets/icons/whatsapp.png" alt="Facebook" style="width: 1.15rem; height: 1.15rem; border-radius: 4px;" referrerPolicy="no-referrer" />
+                <span>Facebook Page</span>
+              </a>
+            </div>
+          </div>
+          
+          <div class="footer-col">
+            <span class="footer-col-title">Resources</span>
+            <div class="footer-links">
+              <a href="learn.html" class="footer-link">Scam Guides</a>
+              <a href="tools.html" class="footer-link">Safety Tools</a>
+              <a href="directory.html" class="footer-link">Cyber Directory</a>
+              <a href="report.html" class="footer-link">Report Builder</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <span class="footer-col-title">Legal & Info</span>
+            <div class="footer-links">
+              <a href="about.html" class="footer-link">About SafePK</a>
+              <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+              <a href="terms-of-use.html" class="footer-link">Terms & Conditions</a>
+              <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom-bar">
+          <span class="footer-copyright">
+            &copy; 2026 SafePK. All rights reserved.
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script assets inclusions -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/learn.js"></script>
+    <script src="../js/directory.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+      // Initialize systems
+      if (typeof initTheme !== 'undefined') initTheme();
+      
+      // Copy helpline helper function
+      window.copyHelpline = function(phone) {
+        if (!phone) return;
+        navigator.clipboard.writeText(phone).then(() => {
+          if (window.showToast) {
+            window.showToast(`Helpline ${phone} copied to clipboard!`, 'success');
+          }
+        }).catch(() => {
+          if (window.showToast) {
+            window.showToast(`Helpline: ${phone}`, 'info');
+          }
+        });
+      };
+
+      let activeCategoryFilter = 'all';
+
+      function getItemCategory(item) {
+        const wallets = [
+          "easypaisa","jazzcash","nayapay","sadapay","upaisa","keenu",
+          "finja","konnect","alfa","paymax","oneload","careempay","yappakistan"
+        ];
+        const operators = [
+          "jazz","telenor","zong","ufone"
+        ];
+        const agencies = [
+          "nccia","fia","pta","nadra","sbp","bisp"
+        ];
+
+        if (agencies.includes(item.id)) return 'agencies';
+        if (wallets.includes(item.id)) return 'wallets';
+        if (operators.includes(item.id)) return 'telecom';
+        return 'banks';
+      }
+
+      function getLogoHtml(item) {
+        const id = item.id;
+        const abbr = item.abbreviation || item.name;
+
+        const brandStyles = {
+          nccia: { bg: 'linear-gradient(135deg, #0f172a, #1e293b)', color: '#38bdf8', text: 'NCCIA', border: 'rgba(56,189,248,0.3)' },
+          fia: { bg: 'linear-gradient(135deg, #7f1d1d, #450a0a)', color: '#fca5a5', text: 'FIA', border: 'rgba(239,68,68,0.3)' },
+          pta: { bg: 'linear-gradient(135deg, #0369a1, #0c4a6e)', color: '#7dd3fc', text: 'PTA', border: 'rgba(56,189,248,0.3)' },
+          nadra: { bg: 'linear-gradient(135deg, #047857, #064e3b)', color: '#6ee7b7', text: 'NADRA', border: 'rgba(52,211,153,0.3)' },
+          sbp: { bg: 'linear-gradient(135deg, #0284c7, #0369a1)', color: '#e0f2fe', text: 'SBP', border: 'rgba(56,189,248,0.3)' },
+          bisp: { bg: 'linear-gradient(135deg, #15803d, #14532d)', color: '#86efac', text: 'BISP', border: 'rgba(74,222,128,0.3)' },
+
+          easypaisa: { bg: 'linear-gradient(135deg, #00a859, #006636)', color: '#ffffff', text: 'EP', border: 'rgba(0,168,89,0.4)' },
+          jazzcash: { bg: 'linear-gradient(135deg, #e21b23, #18181b)', color: '#ffffff', text: 'JC', border: 'rgba(226,27,35,0.4)' },
+          nayapay: { bg: 'linear-gradient(135deg, #7a35c5, #4c1d95)', color: '#ffffff', text: 'NP', border: 'rgba(122,53,197,0.4)' },
+          sadapay: { bg: 'linear-gradient(135deg, #ff6666, #dc2626)', color: '#ffffff', text: 'SP', border: 'rgba(255,102,102,0.4)' },
+          upaisa: { bg: 'linear-gradient(135deg, #f37021, #c2410c)', color: '#ffffff', text: 'UP', border: 'rgba(243,112,33,0.4)' },
+          finja: { bg: 'linear-gradient(135deg, #2563eb, #1e40af)', color: '#ffffff', text: 'FINJA', border: 'rgba(37,99,235,0.4)' },
+          keenu: { bg: 'linear-gradient(135deg, #009688, #004d40)', color: '#ffffff', text: 'KN', border: 'rgba(0,150,136,0.4)' },
+          careempay: { bg: 'linear-gradient(135deg, #00eb7f, #009952)', color: '#000000', text: 'CP', border: 'rgba(0,235,127,0.4)' },
+          konnect: { bg: 'linear-gradient(135deg, #00835d, #004d36)', color: '#ffffff', text: 'KNC', border: 'rgba(0,131,93,0.4)' },
+          alfa: { bg: 'linear-gradient(135deg, #d9232a, #991b1e)', color: '#ffffff', text: 'ALFA', border: 'rgba(217,35,42,0.4)' },
+          yappakistan: { bg: 'linear-gradient(135deg, #1f2937, #111827)', color: '#f3f4f6', text: 'YAP', border: 'rgba(156,163,175,0.3)' },
+
+          hbl: { bg: 'linear-gradient(135deg, #00835d, #004d36)', color: '#ffffff', text: 'HBL', border: 'rgba(0,131,93,0.4)' },
+          meezan: { bg: 'linear-gradient(135deg, #00736c, #00423e)', color: '#ffffff', text: 'MEEZAN', border: 'rgba(0,115,108,0.4)' },
+          ubl: { bg: 'linear-gradient(135deg, #0050a0, #002d5a)', color: '#ffffff', text: 'UBL', border: 'rgba(0,80,160,0.4)' },
+          abl: { bg: 'linear-gradient(135deg, #004b87, #002b4e)', color: '#ffffff', text: 'ABL', border: 'rgba(0,75,135,0.4)' },
+          bankalfalah: { bg: 'linear-gradient(135deg, #d9232a, #801012)', color: '#ffffff', text: 'ALFALAH', border: 'rgba(217,35,42,0.4)' },
+          mcb: { bg: 'linear-gradient(135deg, #f26522, #002f6c)', color: '#ffffff', text: 'MCB', border: 'rgba(242,101,34,0.4)' },
+          nbp: { bg: 'linear-gradient(135deg, #006738, #003a1f)', color: '#ffffff', text: 'NBP', border: 'rgba(0,103,56,0.4)' },
+          faysal: { bg: 'linear-gradient(135deg, #005c8a, #003550)', color: '#ffffff', text: 'FAYSAL', border: 'rgba(0,92,138,0.4)' },
+          askari: { bg: 'linear-gradient(135deg, #003366, #001f3f)', color: '#ffffff', text: 'ASKARI', border: 'rgba(0,51,102,0.4)' },
+          soneri: { bg: 'linear-gradient(135deg, #f37023, #9a3412)', color: '#ffffff', text: 'SONERI', border: 'rgba(243,112,35,0.4)' },
+          jsbank: { bg: 'linear-gradient(135deg, #004990, #002750)', color: '#ffffff', text: 'JS', border: 'rgba(0,73,144,0.4)' },
+          silkbank: { bg: 'linear-gradient(135deg, #8c0032, #4a001b)', color: '#ffffff', text: 'SILK', border: 'rgba(140,0,50,0.4)' },
+          mcbislamic: { bg: 'linear-gradient(135deg, #00736c, #003835)', color: '#ffffff', text: 'MCB-I', border: 'rgba(0,115,108,0.4)' },
+          bok: { bg: 'linear-gradient(135deg, #00835d, #003e2c)', color: '#ffffff', text: 'BOK', border: 'rgba(0,131,93,0.4)' },
+          sindhbank: { bg: 'linear-gradient(135deg, #003366, #001c38)', color: '#ffffff', text: 'SINDH', border: 'rgba(0,51,102,0.4)' },
+          scb: { bg: 'linear-gradient(135deg, #0072ce, #003f73)', color: '#ffffff', text: 'SCB', border: 'rgba(0,114,206,0.4)' },
+          bankalhabib: { bg: 'linear-gradient(135deg, #006838, #003d21)', color: '#ffffff', text: 'ALHABIB', border: 'rgba(0,104,56,0.4)' },
+          habibmetro: { bg: 'linear-gradient(135deg, #00508a, #002d4f)', color: '#ffffff', text: 'H-METRO', border: 'rgba(0,80,138,0.4)' },
+          bop: { bg: 'linear-gradient(135deg, #006838, #c41230)', color: '#ffffff', text: 'BOP', border: 'rgba(0,104,56,0.4)' },
+          dib: { bg: 'linear-gradient(135deg, #00623d, #003420)', color: '#ffffff', text: 'DIB', border: 'rgba(0,98,61,0.4)' },
+          bankislami: { bg: 'linear-gradient(135deg, #006838, #00381e)', color: '#ffffff', text: 'ISLAMI', border: 'rgba(0,104,56,0.4)' },
+          samba: { bg: 'linear-gradient(135deg, #003260, #001830)', color: '#ffffff', text: 'SAMBA', border: 'rgba(0,50,96,0.4)' }
+        };
+
+        const style = brandStyles[id] || {
+          bg: 'linear-gradient(135deg, #1e293b, #0f172a)',
+          color: '#38bdf8',
+          text: (abbr || id).substring(0, 6).toUpperCase(),
+          border: 'rgba(56,189,248,0.3)'
+        };
+
+        return `
+          <div class="directory-card-logo-wrapper">
+            <img
+              src="../assets/icons/${id}.png"
+              alt="${item.name}"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+              class="directory-card-logo-img"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            >
+            <div
+              class="directory-card-logo-fallback"
+              style="display:none; background:${style.bg}; border: 1px solid ${style.border}; color:${style.color};"
+            >
+              <span class="directory-logo-text">${style.text}</span>
+            </div>
+          </div>
+        `;
+      }
+
+      // Render official cybersecurity and regulatory organizations directory
+      function renderDirectory(query = '', category = activeCategoryFilter) {
+        const grid = document.getElementById('directory-grid');
+        const countLabel = document.getElementById('directory-count-label');
+        if (!grid || typeof pakistanDirectory === 'undefined') return;
+        
+        let filteredDirectory = pakistanDirectory;
+
+        if (category && category !== 'all') {
+          filteredDirectory = filteredDirectory.filter(item => getItemCategory(item) === category);
+        }
+
+        if (query) {
+          const keywords = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+          filteredDirectory = filteredDirectory.filter(item => {
+            const searchField = [
+              item.name,
+              item.abbreviation,
+              item.description,
+              item.website,
+              item.phone,
+              item.email,
+              (item.points || []).join(' ')
+            ].join(' ').toLowerCase();
+            return keywords.every(kw => searchField.includes(kw));
+          });
+        }
+
+        if (countLabel) {
+          if (filteredDirectory.length === pakistanDirectory.length) {
+            countLabel.textContent = `Showing all ${pakistanDirectory.length} verified hotlines & organizations`;
+          } else {
+            countLabel.textContent = `Showing ${filteredDirectory.length} matching organization${filteredDirectory.length === 1 ? '' : 's'}`;
+          }
+        }
+        
+        if (filteredDirectory.length === 0) {
+          grid.innerHTML = `
+            <div class="no-results animate-fade-in" style="grid-column: 1/-1; text-align: center; padding: 3.5rem 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; margin-top: 1rem;">
+              <div style="display: inline-flex; width: 3.5rem; height: 3.5rem; background: rgba(239, 68, 68, 0.08); color: var(--color-danger); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                <i data-lucide="search-x" class="w-7 h-7"></i>
+              </div>
+              <h4 style="font-weight: 800; color: var(--text-primary); margin: 0 0 0.35rem 0; font-size: 1.15rem;">No Directory Matches Found</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); max-width: 360px; margin: 0 auto 1.25rem; line-height: 1.5;">We couldn't find any verified organization matching your criteria. Try searching a bank name, wallet, or regulator.</p>
+              <button type="button" onclick="window.resetDirectoryFilters()" class="btn btn-secondary" style="font-size: 0.8rem; font-weight: 600; padding: 0.45rem 1rem; border-radius: 20px; cursor: pointer;">
+                Reset Search & Filters
+              </button>
+            </div>
+          `;
+          if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+          }
+          return;
+        }
+        
+        grid.innerHTML = filteredDirectory.map(item => {
+          const category = getItemCategory(item);
+          const isBankOrWallet = category === 'banks' || category === 'wallets';
+
+          let contactInfo = '';
+          if (!isBankOrWallet) {
+            if (item.phone) {
+              contactInfo += `
+                <div class="directory-contact-row">
+                  <div class="directory-contact-left">
+                    <i data-lucide="phone-call" class="directory-contact-icon" style="color: var(--color-primary);"></i>
+                    <span class="directory-contact-label">Helpline:</span>
+                    <a href="tel:${item.phone}" class="directory-helpline-num">${item.phone}</a>
+                  </div>
+                  <button type="button" onclick="window.copyHelpline('${item.phone}')" class="directory-copy-btn" title="Copy Helpline Number">
+                    <i data-lucide="copy" style="width: 11px; height: 11px;"></i>
+                    <span>Copy</span>
+                  </button>
+                </div>
+              `;
+            }
+            if (item.email) {
+              contactInfo += `
+                <div class="directory-contact-row">
+                  <div class="directory-contact-left">
+                    <i data-lucide="mail" class="directory-contact-icon"></i>
+                    <span class="directory-contact-label">Email:</span>
+                    <a href="mailto:${item.email}" class="directory-email-link">${item.email}</a>
+                  </div>
+                </div>
+              `;
+            }
+          }
+
+          if (item.website && item.website !== '#') {
+            contactInfo += `
+              <div class="directory-contact-row">
+                <div class="directory-contact-left">
+                  <i data-lucide="globe" class="directory-contact-icon" style="color: var(--color-success);"></i>
+                  <span class="directory-contact-label">Website:</span>
+                  <a href="${item.website}" target="_blank" rel="noopener noreferrer" class="directory-portal-link" style="word-break: break-all;">
+                    ${item.website.replace(/^https?:\/\//, '').replace(/\/$/, '')} <i data-lucide="external-link" style="width: 10px; height: 10px;"></i>
+                  </a>
+                </div>
+              </div>
+            `;
+          }
+
+          if (item.complaintPortal) {
+            contactInfo += `
+              <div class="directory-contact-row">
+                <div class="directory-contact-left">
+                  <i data-lucide="shield-alert" class="directory-contact-icon" style="color: var(--color-warning);"></i>
+                  <span class="directory-contact-label">Portal:</span>
+                  <a href="${item.complaintPortal}" target="_blank" rel="noopener noreferrer" class="directory-portal-link">
+                    Complaint Portal <i data-lucide="external-link" style="width: 10px; height: 10px;"></i>
+                  </a>
+                </div>
+              </div>
+            `;
+          }
+          
+          let pointsHtml = '';
+          if (item.points && item.points.length > 0) {
+            pointsHtml = `
+              <div class="directory-points-box">
+                <span class="directory-points-title">Security Directives</span>
+                <ul class="directory-points-list">
+                  ${item.points.map(pt => `
+                    <li class="directory-point-item">
+                      <i data-lucide="check-circle-2" class="directory-point-icon"></i>
+                      <span>${pt}</span>
+                    </li>
+                  `).join('')}
+                </ul>
+              </div>
+            `;
+          }
+
+          let actionBtn = '';
+          if (item.website && item.website !== '#') {
+            actionBtn = `
+              <a href="${item.website}" target="_blank" rel="noopener noreferrer" class="directory-visit-btn">
+                <span>Visit Official Website</span>
+                <i data-lucide="external-link" style="width: 12px; height: 12px;"></i>
+              </a>
+            `;
+          }
+          
+          return `
+            <div class="directory-card animate-fade-in">
+              <div class="directory-card-top">
+                ${getLogoHtml(item)}
+                <div class="directory-card-meta">
+                  <div class="directory-card-title-row">
+                    <h3 class="directory-card-title">${item.name}</h3>
+                  </div>
+                </div>
+              </div>
+
+              <p class="directory-card-desc">${item.description}</p>
+
+              <div class="directory-contacts-container">
+                ${contactInfo}
+              </div>
+
+              ${pointsHtml}
+
+              <div class="directory-card-footer">
+                ${actionBtn}
+              </div>
+            </div>
+          `;
+        }).join('');
+        
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      }
+
+      window.resetDirectoryFilters = function() {
+        const dirSearchInput = document.getElementById('directory-search-input');
+        const dirSearchClear = document.getElementById('directory-search-clear');
+        if (dirSearchInput) dirSearchInput.value = '';
+        if (dirSearchClear) dirSearchClear.style.display = 'none';
+        
+        activeCategoryFilter = 'all';
+        document.querySelectorAll('.directory-filter-pill').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.category === 'all');
+        });
+        renderDirectory('', 'all');
+      };
+
+      // Real-time Search & Category Logic for Directory Page
+      document.addEventListener('DOMContentLoaded', () => {
+        const dirSearchInput = document.getElementById('directory-search-input');
+        const dirSearchClear = document.getElementById('directory-search-clear');
+        const categoryRail = document.getElementById('directory-category-rail');
+        
+        if (dirSearchInput) {
+          const runSearch = () => {
+            const query = dirSearchInput.value;
+            renderDirectory(query, activeCategoryFilter);
+            if (dirSearchClear) {
+              dirSearchClear.style.display = query ? 'flex' : 'none';
+            }
+          };
+          
+          dirSearchInput.addEventListener('input', runSearch);
+          
+          if (dirSearchClear) {
+            dirSearchClear.addEventListener('click', () => {
+              dirSearchInput.value = '';
+              runSearch();
+              dirSearchInput.focus();
+            });
+          }
+        }
+
+        if (categoryRail) {
+          categoryRail.addEventListener('click', (e) => {
+            const btn = e.target.closest('.directory-filter-pill');
+            if (!btn) return;
+            
+            const cat = btn.dataset.category;
+            activeCategoryFilter = cat;
+
+            document.querySelectorAll('.directory-filter-pill').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+
+            const query = dirSearchInput ? dirSearchInput.value : '';
+            renderDirectory(query, activeCategoryFilter);
+          });
+        }
+      });
+
+      renderDirectory();
+    </script>
+  </body>
+</html>
