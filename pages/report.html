@@ -1,0 +1,724 @@
+<!doctype html>
+<!-- 
+  DEVELOPER NOTE (SafePK):
+  =========================================
+  Yeh SafePK ka "Report Builder" Page hai (report.html).
+  Is page par users online scams, bank fraud, cyber harassment, aur financial crimes ke liye 
+  structured complaint statement (Arzi) generate kar sakte hain.
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+  <script>
+    var __DEFINES__ = window.__DEFINES__ || {};
+    window.__DEFINES__ = __DEFINES__;
+    if ('serviceWorker' in navigator) {
+      const isDev = window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1';
+      if (isDev) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          let unregistered = false;
+          for (const registration of registrations) {
+            registration.unregister();
+            unregistered = true;
+          }
+          if (unregistered) {
+            console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+            if (window.caches) {
+              caches.keys().then((names) => {
+                return Promise.all(names.map(name => caches.delete(name)));
+              }).then(() => {
+                window.location.reload();
+              });
+            } else {
+              window.location.reload();
+            }
+          }
+        });
+      }
+    }
+  </script>
+  <title>Cyber Crime Complaint Report Builder | NCCIA & Bank Fraud Arzi Generator | SafePK</title>
+  <meta name="description"
+    content="Draft a professional cyber crime complaint arzi for NCCIA 1799, bank fraud, Easypaisa/JazzCash scam, and online harassment in Pakistan. Free, offline, and instant." />
+  <meta name="keywords"
+    content="cyber crime complaint arzi, nccia complaint builder, nccia cybercrime report pakistan, bank fraud complaint application, easypaisa scam report arzi, jazzcash fraud complaint, online scam report format, online harassment complaint format pakistan" />
+  <meta name="author" content="SafePK" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="geo.region" content="PK" />
+  <meta name="geo.placename" content="Pakistan" />
+  <link rel="canonical" href="https://safepk.net/pages/report.html" />
+
+  <!-- Open Graph / Facebook meta systems -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cyber Crime Complaint Report Builder | NCCIA & Bank Fraud Arzi Generator" />
+  <meta property="og:description"
+    content="Draft a structured, professional cybercrime complaint statement for online scams, bank fraud, or harassment in Pakistan. 100% private & instant." />
+  <meta property="og:url" content="https://safepk.net/pages/report.html" />
+  <meta property="og:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+  <meta property="og:site_name" content="SafePK Cyber Safety" />
+  <meta property="og:locale" content="en_PK" />
+
+  <!-- Twitter cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cyber Crime Complaint Report Builder | SafePK" />
+  <meta name="twitter:description"
+    content="Draft a structured cybercrime complaint arzi for NCCIA and bank fraud in Pakistan." />
+  <meta name="twitter:image" content="https://safepk.net/assets/images/safepk_cyber_logo_1782237163960.jpg" />
+
+  <!-- Structured Data JSON-LD WebApplication schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SafePK Incident Report Builder",
+      "url": "https://safepk.net/pages/report.html",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "All",
+      "description": "An offline-first browser tool to generate structured cyber incident complaint statements for law enforcement and financial regulators.",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "PKR"
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="manifest" href="../manifest.json" />
+  <meta name="theme-color" content="#58a6ff" />
+  <style>
+    .report-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 992px) {
+      .report-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .report-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .report-card-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .report-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+
+    .steps-banner {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .steps-banner {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.5rem;
+    }
+
+    .step-num {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--color-primary);
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .step-text-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 0.15rem;
+    }
+
+    .step-text-desc {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.35;
+    }
+
+    .input-with-icon {
+      position: relative;
+    }
+
+    .input-with-icon i {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      width: 1rem;
+      height: 1rem;
+      pointer-events: none;
+    }
+
+    .input-with-icon input,
+    .input-with-icon select {
+      padding-left: 2.35rem !important;
+    }
+
+    .form-group-label-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.35rem;
+    }
+
+    .form-label-hint {
+      font-size: 0.72rem;
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    .submission-guide-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .submission-guide-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .guide-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 0.85rem;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .guide-card:hover {
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+    }
+
+    .sample-btn {
+      background: rgba(167, 139, 250, 0.12);
+      color: #c4b5fd;
+      border: 1px solid rgba(167, 139, 250, 0.3);
+      padding: 0.3rem 0.65rem;
+      border-radius: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s;
+    }
+
+    .sample-btn:hover {
+      background: rgba(167, 139, 250, 0.25);
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top sticky navigation Header controls -->
+  <header>
+    <div class="container navbar-container">
+      <a href="../index.html" class="logo-block">
+        <img src="../assets/images/safepk_cyber_logo_1782237163960.jpg" alt="SafePK Logo" class="logo-img" referrerpolicy="no-referrer" />
+        <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="learn.html" class="nav-link">Learn</a>
+        <a href="report.html" class="nav-link active">Report</a>
+        <a href="tools.html" class="nav-link">Tools</a>
+        <a href="directory.html" class="nav-link">Directory</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main dynamic body content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Hero Title Section -->
+      <div class="sec-title-container animate-fade-in" style="margin-bottom: 1.5rem;">
+        <h1 class="sec-title">Cyber Report Builder</h1>
+        <p class="sec-desc" style="max-width: 680px; margin: 0 auto;">
+          Create a Clear, structured report for scams, fraud and cyber incidents.
+        </p>
+      </div>
+
+      <!-- 3-Step Simple Guide Banner -->
+      <div class="steps-banner animate-fade-in">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-text-title">Fill Simple Form</div>
+            <div class="step-text-desc">Enter details about what happened and who was involved.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-text-title">Auto-Generate Report</div>
+            <div class="step-text-desc">Our tool formats your incident into an official complaint text.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-text-title">Copy or Save PDF</div>
+            <div class="step-text-desc">Submit directly to NCCIA, Bank Helpline, or PTA.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Report Builder Main Grid -->
+      <div class="report-grid animate-fade-in">
+        <!-- Left: Builder Form -->
+        <div class="report-card">
+          <div class="report-card-title">
+            <span style="display: flex; align-items: center; gap: 0.5rem;">
+              <i data-lucide="edit-3" class="text-primary w-5 h-5"></i> Step 1: Incident Details
+            </span>
+            <button type="button" class="sample-btn" onclick="window.fillSampleData()" title="Click to autofill sample data to test">
+              <i data-lucide="sparkles" style="width: 12px; height: 12px;"></i> Try Sample Data
+            </button>
+          </div>
+          <p class="report-card-desc">Enter your information below. Everything stays private on your phone/browser.</p>
+
+          <!-- Privacy Notice -->
+          <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 0.5rem; padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.8rem; line-height: 1.4; color: var(--text-secondary); display: flex; align-items: center; gap: 0.6rem;">
+            <i data-lucide="shield-check" style="width: 1.25rem; height: 1.25rem; color: var(--color-success); flex-shrink: 0;"></i>
+            <span><strong>100% Private & Safe:</strong> SafePK never stores or sends your personal data to any server.</span>
+          </div>
+
+          <form id="fia-builder-form">
+            <div class="form-group">
+              <div class="form-group-label-flex">
+                <label for="fia-fullname" class="form-label">Full Name</label>
+                <span class="form-label-hint">Aapka Poora Naam</span>
+              </div>
+              <div class="input-with-icon">
+                <i data-lucide="user"></i>
+                <input type="text" id="fia-fullname" class="form-control" placeholder="E.g. Muhammad Ahmad" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-group-label-flex">
+                <label for="fia-phone" class="form-label">Contact Phone Number</label>
+                <span class="form-label-hint">Aapka Mobile Number</span>
+              </div>
+              <div class="input-with-icon">
+                <i data-lucide="phone"></i>
+                <input type="tel" id="fia-phone" class="form-control" placeholder="E.g. 0334567890" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-group-label-flex">
+                <label for="fia-scam-type" class="form-label">Incident Type / Category</label>
+                <span class="form-label-hint">Scam Ki Qisam</span>
+              </div>
+              <div class="input-with-icon">
+                <i data-lucide="alert-triangle"></i>
+                <select id="fia-scam-type" class="form-control" required style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                  <!-- Populated dynamically -->
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-group-label-flex">
+                <label for="fia-offender" class="form-label">Scammer / Offender Info</label>
+                <span class="form-label-hint">Scammer Ka Number / Profile Link</span>
+              </div>
+              <div class="input-with-icon">
+                <i data-lucide="user-x"></i>
+                <input type="text" id="fia-offender" class="form-control" placeholder="E.g. Call from 0334567890 or FB page link" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-group-label-flex">
+                <label for="fia-timeline" class="form-label">Date & Time of Incident</label>
+                <span class="form-label-hint">Scam Kab Hua?</span>
+              </div>
+              <div class="input-with-icon">
+                <i data-lucide="calendar"></i>
+                <input type="text" id="fia-timeline" class="form-control" placeholder="E.g. Today at 2:30 PM (24th July 2026)" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-group-label-flex">
+                <label for="fia-narrative" class="form-label">What Happened? (Detailed Story)</label>
+                <span class="form-label-hint">Mukammal Tafseel</span>
+              </div>
+              <textarea id="fia-narrative" class="form-control" rows="4" placeholder="Explain clearly what happened. E.g. I received a phone call claiming to be from my bank asking for an OTP code. After sharing it, Rs. 25,000 was deducted from my account." required style="font-size: 0.82rem; line-height: 1.5; resize: vertical; padding: 0.75rem;"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.85rem; margin-top: 0.5rem; font-weight: 700; font-size: 0.95rem; gap: 0.5rem;">
+              <i data-lucide="file-text" class="w-5 h-5"></i> Generate Complaint Report
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Compiled Preview & Export -->
+        <div class="report-card" style="display: flex; flex-direction: column;">
+          <div class="report-card-title">
+            <span style="display: flex; align-items: center; gap: 0.5rem;">
+              <i data-lucide="file-check" class="text-success w-5 h-5" style="color: var(--color-success);"></i> Step 2: Generated Report
+            </span>
+            <span id="report-status-badge" class="badge" style="background: rgba(16, 185, 129, 0.1); color: var(--color-success); border: 1px solid rgba(16, 185, 129, 0.3); font-size: 0.7rem;">
+              Ready to Copy
+            </span>
+          </div>
+          <p class="report-card-desc">Your structured complaint statement will appear here. You can edit the text directly before copying.</p>
+
+          <div style="flex: 1; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="position: relative; flex: 1;">
+              <textarea id="fia-draft-pre" class="draft-preview" style="width: 100%; min-height: 380px; font-family: var(--font-mono); font-size: 0.78rem; line-height: 1.6; padding: 1.25rem; border-radius: 0.65rem; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); resize: vertical; outline: none; transition: border-color 0.2s;" placeholder="Click 'Generate Complaint Report' on the left to compile your statement here.">Your compiled complaint report will display here after you fill out the form on the left.</textarea>
+              <div style="position: absolute; right: 0.85rem; top: 0.85rem; pointer-events: none; opacity: 0.4; font-size: 0.65rem; font-family: var(--font-mono); text-transform: uppercase;">Editable Area</div>
+            </div>
+
+            <div style="margin-top: 1.25rem;">
+              <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.35rem;">
+                <i data-lucide="download" class="w-4 h-4 text-primary"></i> Step 3: Export Actions
+              </div>
+              <div class="report-actions-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                <button type="button" onclick="window.copyArziDraft()" class="btn btn-primary" style="justify-content: center; gap: 0.4rem; font-weight: 700;">
+                  <i data-lucide="copy" class="w-4 h-4"></i> Copy Report
+                </button>
+                <button type="button" onclick="window.printArziDraft()" class="btn btn-secondary" style="justify-content: center; border-color: rgba(16, 185, 129, 0.4); color: var(--color-success); gap: 0.4rem; font-weight: 700;">
+                  <i data-lucide="file-down" class="w-4 h-4"></i> Save / Print PDF
+                </button>
+                <button type="button" onclick="window.toggleEditReport()" class="btn btn-secondary" id="btn-toggle-edit" style="justify-content: center; gap: 0.4rem;">
+                  <i data-lucide="edit-2" class="w-4 h-4"></i> Edit Directly
+                </button>
+                <button type="button" onclick="window.clearReportForm()" class="btn btn-secondary" style="justify-content: center; border-color: rgba(248, 113, 113, 0.3); color: var(--color-danger); gap: 0.4rem;">
+                  <i data-lucide="trash-2" class="w-4 h-4"></i> Clear All
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submission Guidance Section -->
+      <div style="margin-top: 3rem;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.25rem;">
+            Where Should You Submit This Report?
+          </h2>
+          <p style="font-size: 0.85rem; color: var(--text-secondary);">
+            Once copied, paste your report to the appropriate official complaint channel below:
+          </p>
+        </div>
+
+        <div class="submission-guide-grid">
+          <!-- Guide Item 1 -->
+          <div class="guide-card">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem;">
+                <div style="width: 2.25rem; height: 2.25rem; border-radius: 8px; background: rgba(56, 189, 248, 0.12); display: flex; align-items: center; justify-content: center; color: var(--color-primary);">
+                  <i data-lucide="building-2" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 style="font-size: 0.95rem; font-weight: 700;">NCCIA</h3>
+                  <span style="font-size: 0.72rem; color: var(--color-primary);">National Cyber Crime Wing</span>
+                </div>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 1rem;">
+                For online fraud, hacking, financial theft, blackmail, or harassment. Submit online or call their official helpline.
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <a href="https://complaint.nccia.gov.pk" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.4rem 0.75rem; flex: 1; justify-content: center; gap: 0.25rem;">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i> NCCIA Portal
+              </a>
+              <a href="tel:1799" class="btn btn-primary" style="font-size: 0.75rem; padding: 0.4rem 0.75rem; justify-content: center; gap: 0.25rem;">
+                <i data-lucide="phone-call" class="w-3.5 h-3.5"></i> Call 1799
+              </a>
+            </div>
+          </div>
+
+          <!-- Guide Item 2 -->
+          <div class="guide-card">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem;">
+                <div style="width: 2.25rem; height: 2.25rem; border-radius: 8px; background: rgba(16, 185, 129, 0.12); display: flex; align-items: center; justify-content: center; color: var(--color-success);">
+                  <i data-lucide="landmark" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 style="font-size: 0.95rem; font-weight: 700;">Bank / Wallet Helpline</h3>
+                  <span style="font-size: 0.72rem; color: var(--color-success);">Immediate Account Action</span>
+                </div>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 1rem;">
+                If unauthorized money was deducted, call your bank helpline immediately to block your card/account and lodge a dispute.
+              </p>
+            </div>
+            <a href="directory.html" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.4rem 0.75rem; justify-content: center; gap: 0.25rem;">
+              <i data-lucide="search" class="w-3.5 h-3.5"></i> Find Bank Helplines
+            </a>
+          </div>
+
+          <!-- Guide Item 3 -->
+          <div class="guide-card">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem;">
+                <div style="width: 2.25rem; height: 2.25rem; border-radius: 8px; background: rgba(245, 158, 11, 0.12); display: flex; align-items: center; justify-content: center; color: var(--color-warning);">
+                  <i data-lucide="radio" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 style="font-size: 0.95rem; font-weight: 700;">PTA Telecom Complaints</h3>
+                  <span style="font-size: 0.72rem; color: var(--color-warning);">Fake Calls & SMS Spam</span>
+                </div>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 1rem;">
+                To block fraudulent SIM numbers, fake lottery SMS, or spam calls, report to PTA via SMS shortcode 9000.
+              </p>
+            </div>
+              <a href="https://complaint.pta.gov.pk/userlogin.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.4rem 0.75rem; justify-content: center; gap: 0.25rem;">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i> PTA Portal (9000)
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer block -->
+  <footer>
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-col">
+          <span class="footer-col-title">Join Our Community</span>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; max-width: 220px; margin-top: 0.25rem;">
+            <a href="https://whatsapp.com/channel/0029Vb883mn2P59bKiesEp3v" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link-whatsapp">
+              <img src="../assets/icons/whatsapp.png" alt="WhatsApp" style="width: 1.15rem; height: 1.15rem; border-radius: 4px;" referrerpolicy="no-referrer" />
+              <span>WhatsApp Channel</span>
+            </a>
+            <a href="https://www.facebook.com/share/1HMUFnf3dx/" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link-facebook">
+              <img src="../assets/icons/facebook.png" alt="Facebook" style="width: 1.15rem; height: 1.15rem; border-radius: 4px;" referrerpolicy="no-referrer" />
+              <span>Facebook Page</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Resources</span>
+          <div class="footer-links">
+            <a href="learn.html" class="footer-link">Scam Guides</a>
+            <a href="tools.html" class="footer-link">Safety Tools</a>
+            <a href="directory.html" class="footer-link">Cyber Directory</a>
+            <a href="report.html" class="footer-link">Report Builder</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Legal & Info</span>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About SafePK</a>
+            <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="terms-of-use.html" class="footer-link">Terms & Conditions</a>
+            <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span class="footer-copyright">
+          &copy; 2026 SafePK. All rights reserved.
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script loading indices -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../js/learn.js"></script>
+  <script src="../js/directory.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/script.js"></script>
+  <script>
+    // Initialize systems
+    if (typeof initTheme !== 'undefined') initTheme();
+
+    // Populate Scam Types
+    document.addEventListener('DOMContentLoaded', () => {
+      const select = document.getElementById('fia-scam-type');
+      if (select && typeof learningTopics !== 'undefined' && Array.isArray(learningTopics)) {
+        select.innerHTML = learningTopics.map(topic => 
+          `<option value="${topic.id}">${topic.title}</option>`
+        ).join('');
+      } else if (select) {
+        select.innerHTML = `
+          <option value="financial_fraud">Bank Fraud & Unauthorized Transfer</option>
+          <option value="otp_scam">OTP / Banking Credential Theft</option>
+          <option value="whatsapp_hack">WhatsApp / Social Media Account Takeover</option>
+          <option value="online_shopping">Fake Social Media Shop / E-Commerce Scam</option>
+          <option value="job_scam">Fake Remote Job / Work From Home Fraud</option>
+          <option value="harassment">Cyber Blackmail & Online Harassment</option>
+          <option value="lottery_scam">Fake Cash Prize / Lottery Scam</option>
+          <option value="other">Other Cyber Fraud / Scam</option>
+        `;
+      }
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    });
+
+    // Autofill sample data helper for testing
+    window.fillSampleData = function () {
+      const name = document.getElementById('fia-fullname');
+      const phone = document.getElementById('fia-phone');
+      const scamSelect = document.getElementById('fia-scam-type');
+      const offender = document.getElementById('fia-offender');
+      const timeline = document.getElementById('fia-timeline');
+      const narrative = document.getElementById('fia-narrative');
+
+      if (name) name.value = "Muhammad Ahmad";
+      if (phone) phone.value = "0334567890";
+      if (scamSelect && scamSelect.options.length > 0) scamSelect.selectedIndex = 0;
+      if (offender) offender.value = "Call from 0334567890 / Fake Bank Officer";
+      if (timeline) timeline.value = "24th July 2026, at 2:30 PM";
+      if (narrative) narrative.value = "I received a phone call from 0334567890 claiming to be an official from Bank Helpline. The caller told me my ATM card was being blocked and asked for my OTP code to verify my identity. After I provided the OTP, an unauthorized transaction of Rs. 45,000 was deducted from my account.";
+
+      const form = document.getElementById('fia-builder-form');
+      if (form) {
+        form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+      }
+
+      if (window.showToast) {
+        window.showToast("Sample incident data populated & compiled successfully!", "success");
+      }
+    };
+
+    // Helper to copy compiled statement draft
+    window.copyArziDraft = function () {
+      const pre = document.getElementById('fia-draft-pre');
+      if (!pre) return;
+      const text = pre.value || pre.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        if (window.showToast) {
+          window.showToast("Incident statement copied to clipboard successfully!", "success");
+        } else {
+          alert("Incident Statement Draft Copied to Clipboard!");
+        }
+      }).catch(err => {
+        console.error("Failed to copy statement:", err);
+        if (window.showToast) {
+          window.showToast("Could not copy statement. Please select the text and copy manually.", "danger");
+        }
+      });
+    };
+
+    // Helper to print compiled statement draft (Download as PDF)
+    window.printArziDraft = function () {
+      const pre = document.getElementById('fia-draft-pre');
+      if (!pre) return;
+      const text = pre.value || pre.textContent;
+      const printWindow = window.open('', '_blank');
+      if (!printWindow) {
+        if (window.showToast) {
+          window.showToast("Popup blocker blocked download! Please allow popups for this site.", "warning");
+        } else {
+          alert("Popup blocker blocked the print action! Please allow popups to save/download the PDF.");
+        }
+        return;
+      }
+      printWindow.document.write('<html><head><title>Print Complaint Statement - SafePK</title>');
+      printWindow.document.write('<style>body{font-family:"Courier New", Courier, monospace, "Noto Nastaliq Urdu", sans-serif;white-space:pre-wrap;padding:3rem;line-height:1.6;font-size:14px;color:#000;max-width:800px;margin:0 auto;} h1{text-align:center;font-size:18px;margin-bottom:2rem;} .no-print-btn{display:block;margin:2rem auto;padding:0.75rem 1.5rem;background:#0052cc;color:#fff;border:none;border-radius:4px;font-weight:700;cursor:pointer;} @media print{.no-print-btn{display:none;}}</style>');
+      printWindow.document.write('</head><body>');
+      printWindow.document.write('<button class="no-print-btn" onclick="window.print()">Click to Save / Print PDF</button>');
+      printWindow.document.write('<div style="border: 1px solid #ccc; padding: 2rem; border-radius: 8px; background: #fff;">');
+      printWindow.document.write(text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+      printWindow.document.write('</div>');
+      printWindow.document.write('</body></html>');
+      printWindow.document.close();
+    };
+
+    // Helper to toggle focus on the draft textarea
+    window.toggleEditReport = function () {
+      const textarea = document.getElementById('fia-draft-pre');
+      if (!textarea) return;
+      textarea.focus();
+      const val = textarea.value;
+      textarea.value = '';
+      textarea.value = val;
+      textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+
+    // Helper to clear the builder form and reset preview
+    window.clearReportForm = function () {
+      const form = document.getElementById('fia-builder-form');
+      if (form) {
+        form.reset();
+      }
+      const textarea = document.getElementById('fia-draft-pre');
+      if (textarea) {
+        textarea.value = `Your compiled complaint report will display here after you submit the form on the left.`;
+      }
+      if (window.showToast) {
+        window.showToast("Form and draft cleared successfully. Ready for a new entry.", "info");
+      } else {
+        alert("Form cleared! You can now compose a new statement.");
+      }
+    };
+  </script>
+</body>
+
+</html>
