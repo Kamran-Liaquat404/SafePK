@@ -1,2 +1,0 @@
-# Cloudflare Pages redirects and SPA rewrites
-/learn/* /pages/learn.html 200
