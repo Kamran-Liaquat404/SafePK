@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+      if ('serviceWorker' in navigator) {
+        const isDev = window.location.hostname === 'localhost' ||
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('.run.app');
+        if (isDev) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            let unregistered = false;
+            for (const registration of registrations) {
+              registration.unregister();
+              unregistered = true;
+            }
+            if (unregistered) {
+              console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+              if (window.caches) {
+                caches.keys().then((names) => {
+                  return Promise.all(names.map(name => caches.delete(name)));
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                window.location.reload();
+              }
+            }
+          });
+        }
+      }
+    </script>
+
+    <!-- Primary Technical SEO & Canonical Metadata -->
+    <title>Feedback &amp; Reviews — Community Ratings &amp; Experiences | SafePK</title>
+    <meta name="description" content="Read verified community reviews and submit your feedback on SafePK's cybersecurity awareness guides, reporting tools, and digital safety assistance in Pakistan." />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/pages/reviews.html" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/png" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="apple-touch-icon" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Feedback &amp; Reviews — Community Ratings &amp; Experiences | SafePK" />
+    <meta property="og:description" content="Read verified community reviews and submit your feedback on SafePK's cybersecurity awareness guides, reporting tools, and digital safety assistance in Pakistan." />
+    <meta property="og:url" content="https://safepk.net/pages/reviews.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+
+    <!-- Twitter / X Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Feedback &amp; Reviews — Community Ratings &amp; Experiences | SafePK" />
+    <meta name="twitter:description" content="Read verified community reviews and submit your feedback on SafePK's cybersecurity awareness guides, reporting tools, and digital safety assistance in Pakistan." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Feedback & Reviews | SafePK",
+      "url": "https://safepk.net/pages/reviews.html",
+      "description": "Read verified community reviews and submit your feedback on SafePK's cybersecurity awareness guides, reporting tools, and digital safety assistance in Pakistan.",
+      "isPartOf": {
+        "@id": "https://safepk.net/#website"
+      }
+    }
+    </script>
+
+    <!-- Stylesheets & Web App Manifest -->
+    <link rel="stylesheet" href="../css/style.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="stylesheet" href="../css/responsive.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="manifest" href="../manifest.json" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <meta name="theme-color" content="#2563EB" />
+  </head>
+  <body>
+    <!-- Top Nav Header -->
+    <header>
+      <div class="container navbar-container">
+        <a href="../index.html" class="logo-block">
+          <img src="../assets/images/safepk-logo.png" alt="SafePK Logo" class="logo-img" width="32" height="32" decoding="async" fetchpriority="high" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-link nav-dropdown-trigger" aria-expanded="false">
+              <span>Audience</span>
+              <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="../individual.html" class="nav-dropdown-item">
+                <span>Individuals</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../family.html" class="nav-dropdown-item">
+                <span>Families</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../organizations.html" class="nav-dropdown-item">
+                <span>Organizations</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../freelancers.html" class="nav-dropdown-item">
+                <span>Freelancers &amp; Businesses</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+          <a href="learn.html" class="nav-link">Articles</a>
+          <a href="tools.html" class="nav-link">Report Generator</a>
+          <a href="directory.html" class="nav-link">Directory</a>
+          <a href="help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- 1. Page Introduction -->
+        <section class="page-hero animate-fade-in">
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem;">
+            <div>
+              <h1 class="page-hero-title">Feedback &amp; Reviews</h1>
+              <p class="page-hero-subtitle">
+                Community ratings and experiences with SafePK's cybersecurity awareness guides, tools, and assistance.
+              </p>
+            </div>
+            <a href="#submit-feedback" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.6rem 1.25rem;">
+              <i data-lucide="star" class="w-4 h-4"></i> Write a Review
+            </a>
+          </div>
+        </section>
+
+        <!-- Optional Backend Status Banner -->
+        <div
+          id="reviews-backend-status"
+          class="help-security-notice"
+          style="display: none; border-left-color: var(--color-warning); margin-bottom: 2rem;"
+          role="status"
+        ></div>
+
+        <!-- 2. Overall Rating Summary & 3. Rating Distribution -->
+        <section aria-labelledby="rating-summary-heading" class="animate-fade-in" style="margin-bottom: 3.25rem;">
+          <div class="ui-card" style="padding: 2rem 2.25rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">
+              <div>
+                <h2 id="rating-summary-heading" style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin: 0;"> <!-- Section ki main sub-heading (H2) -->
+                  Overall Rating &amp; Distribution
+                </h2>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.15rem 0 0 0;">
+                  Calculated strictly from approved community ratings in Google Sheets.
+                </p>
+              </div>
+            </div>
+
+            <div class="reviews-summary-grid">
+              <!-- Section 2: Overall Rating Summary -->
+              <div class="rating-overview-box" aria-live="polite">
+                <div id="reviews-avg-number" class="rating-big-number">&mdash;</div>
+                <div id="reviews-avg-stars" class="rating-stars-fractional" role="img" aria-label="Average rating stars">
+                  <!-- Populated dynamically with fractional stars by js/reviews.js -->
+                </div>
+                <div id="reviews-total-count" style="font-size: 0.88rem; font-weight: 600; color: var(--text-secondary); margin-top: 0.15rem;">
+                  Loading ratings...
+                </div>
+              </div>
+
+              <!-- Section 3: Rating Distribution (5 stars down to 1 star) -->
+              <div class="rating-distribution-list" aria-label="Rating distribution by star count">
+                <!-- 5 Stars -->
+                <div class="rating-dist-row">
+                  <span class="rating-dist-label">
+                    5 <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </span>
+                  <div class="rating-dist-bar-track" role="progressbar" aria-label="5-star ratings percentage" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="dist-bar-wrap-5">
+                    <div class="rating-dist-bar-fill" id="dist-bar-5"></div>
+                  </div>
+                  <span class="rating-dist-count" id="dist-count-5">0</span>
+                </div>
+
+                <!-- 4 Stars -->
+                <div class="rating-dist-row">
+                  <span class="rating-dist-label">
+                    4 <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </span>
+                  <div class="rating-dist-bar-track" role="progressbar" aria-label="4-star ratings percentage" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="dist-bar-wrap-4">
+                    <div class="rating-dist-bar-fill" id="dist-bar-4"></div>
+                  </div>
+                  <span class="rating-dist-count" id="dist-count-4">0</span>
+                </div>
+
+                <!-- 3 Stars -->
+                <div class="rating-dist-row">
+                  <span class="rating-dist-label">
+                    3 <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </span>
+                  <div class="rating-dist-bar-track" role="progressbar" aria-label="3-star ratings percentage" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="dist-bar-wrap-3">
+                    <div class="rating-dist-bar-fill" id="dist-bar-3"></div>
+                  </div>
+                  <span class="rating-dist-count" id="dist-count-3">0</span>
+                </div>
+
+                <!-- 2 Stars -->
+                <div class="rating-dist-row">
+                  <span class="rating-dist-label">
+                    2 <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </span>
+                  <div class="rating-dist-bar-track" role="progressbar" aria-label="2-star ratings percentage" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="dist-bar-wrap-2">
+                    <div class="rating-dist-bar-fill" id="dist-bar-2"></div>
+                  </div>
+                  <span class="rating-dist-count" id="dist-count-2">0</span>
+                </div>
+
+                <!-- 1 Star -->
+                <div class="rating-dist-row">
+                  <span class="rating-dist-label">
+                    1 <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </span>
+                  <div class="rating-dist-bar-track" role="progressbar" aria-label="1-star ratings percentage" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="dist-bar-wrap-1">
+                    <div class="rating-dist-bar-fill" id="dist-bar-1"></div>
+                  </div>
+                  <span class="rating-dist-count" id="dist-count-1">0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Approved Customer Reviews -->
+        <section aria-labelledby="approved-reviews-heading" class="animate-fade-in" style="margin-bottom: 3.5rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.35rem;">
+            <div>
+              <h2 id="approved-reviews-heading" style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin: 0;"> <!-- Section ki main sub-heading (H2) -->
+                Approved Community Reviews
+              </h2>
+              <p style="font-size: 0.86rem; color: var(--text-secondary); margin: 0.2rem 0 0 0;">
+                Public feedback verified by SafePK. Reviewer email addresses are kept strictly private.
+              </p>
+            </div>
+          </div>
+
+          <div id="approved-reviews-container" class="reviews-cards-grid" aria-live="polite">
+            <div class="reviews-empty-state" style="grid-column: 1 / -1;">
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
+                Loading approved reviews...
+              </p>
+            </div>
+          </div>
+
+          <!-- Pagination / Load More -->
+          <div id="reviews-pagination-wrap" style="display: none; justify-content: center; margin-top: 1.75rem;">
+            <button type="button" id="reviews-load-more-btn" class="btn btn-secondary" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">
+              Show More Reviews
+            </button>
+          </div>
+        </section>
+
+        <!-- 5. Submit Feedback Form -->
+        <section id="submit-feedback" aria-labelledby="submit-feedback-heading" class="animate-fade-in" style="margin-bottom: 4rem; scroll-margin-top: 90px;">
+          <div class="ui-card" style="padding: 2.25rem;">
+            <div style="max-width: 760px; margin-bottom: 1.35rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div class="card-icon-box" style="width: 2.5rem; height: 2.5rem;">
+                  <i data-lucide="message-square-plus" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h2 id="submit-feedback-heading" style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin: 0;"> <!-- Section ki main sub-heading (H2) -->
+                    Submit Feedback
+                  </h2>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.15rem 0 0 0;">
+                    Share your rating and feedback. Your email address will never be displayed publicly.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Status / Confirmation Notice -->
+            <div
+              id="feedback-form-message"
+              style="display: none; align-items: flex-start; gap: 0.75rem; padding: 0.95rem 1.15rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); margin-bottom: 1.35rem;"
+              role="alert"
+            ></div>
+
+            <!-- Feedback Form (Dedicated Feedback & Reviews Google Sheet / Apps Script) -->
+            <!-- Columns: Review ID, Date, Time, Name, Email, Rating, Review Details, Visibility -->
+            <form
+              id="safepk-feedback-form"
+              data-script-url="https://script.google.com/macros/s/AKfycbwqFcgYWoq8ufAjX4azAkFoJeWdQ9zsvQ9fO7CrcHXp819q5Vz8IFinF-yfy0J2fOcW/exec"
+              novalidate
+            >
+              <!-- Anti-spam honeypot (hidden from human visitors) -->
+              <div style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;" aria-hidden="true">
+                <label for="feedback-website-hp">Website</label> <!-- Form input ya checkbox ka clickable label -->
+                <input type="text" id="feedback-website-hp" name="website_url_hp" tabindex="-1" autocomplete="off" /> <!-- User input field ya checkbox control -->
+              </div>
+
+              <div class="help-form-grid">
+                <!-- Field 1: Name -->
+                <div class="form-group">
+                  <label for="feedback-name" class="form-label">Name <span style="color: var(--color-danger);">*</span></label> <!-- Form input ya checkbox ka clickable label -->
+                  <input
+                    type="text"
+                    id="feedback-name"
+                    name="Name"
+                    class="form-control"
+                    placeholder="Enter your name"
+                    maxlength="80"
+                    required
+                    autocomplete="name"
+                  />
+                </div>
+
+                <!-- Field 2: Email -->
+                <div class="form-group">
+                  <label for="feedback-email" class="form-label"> <!-- Form input ya checkbox ka clickable label -->
+                    Email <span style="color: var(--color-danger);">*</span>
+                    <span style="font-weight: 400; color: var(--text-muted); font-size: 0.75rem;">(Kept private)</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="feedback-email"
+                    name="Email"
+                    class="form-control"
+                    placeholder="you@example.com"
+                    maxlength="120"
+                    required
+                    autocomplete="email"
+                  />
+                </div>
+              </div>
+
+              <!-- Field 3: Rating (1 to 5 Stars) -->
+              <div class="form-group">
+                <label id="feedback-rating-label" class="form-label" style="margin-bottom: 0.25rem;"> <!-- Form input ya checkbox ka clickable label -->
+                  Rating <span style="color: var(--color-danger);">*</span>
+                </label>
+                <input type="hidden" id="feedback-rating-input" name="Rating" value="" required /> <!-- User input field ya checkbox control -->
+                <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.85rem;">
+                  <div
+                    class="star-rating-selector"
+                    role="radiogroup"
+                    aria-labelledby="feedback-rating-label"
+                  >
+                    <button
+                      type="button"
+                      class="star-selector-btn"
+                      data-rating-value="1"
+                      role="radio"
+                      aria-checked="false"
+                      aria-label="Rate 1 out of 5 stars"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </button>
+                    <button
+                      type="button"
+                      class="star-selector-btn"
+                      data-rating-value="2"
+                      role="radio"
+                      aria-checked="false"
+                      aria-label="Rate 2 out of 5 stars"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </button>
+                    <button
+                      type="button"
+                      class="star-selector-btn"
+                      data-rating-value="3"
+                      role="radio"
+                      aria-checked="false"
+                      aria-label="Rate 3 out of 5 stars"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </button>
+                    <button
+                      type="button"
+                      class="star-selector-btn"
+                      data-rating-value="4"
+                      role="radio"
+                      aria-checked="false"
+                      aria-label="Rate 4 out of 5 stars"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </button>
+                    <button
+                      type="button"
+                      class="star-selector-btn"
+                      data-rating-value="5"
+                      role="radio"
+                      aria-checked="false"
+                      aria-label="Rate 5 out of 5 stars"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </button>
+                  </div>
+                  <span id="feedback-rating-text" style="font-size: 0.84rem; color: var(--text-muted);">
+                    Select a rating (1 to 5 stars)
+                  </span>
+                </div>
+              </div>
+
+              <!-- Field 4: Review Details -->
+              <div class="form-group">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem;">
+                  <label for="feedback-details" class="form-label" style="margin-bottom: 0;"> <!-- Form input ya checkbox ka clickable label -->
+                    Review Details <span style="color: var(--color-danger);">*</span>
+                  </label>
+                  <span id="feedback-char-count" style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">
+                    0 / 1000
+                  </span>
+                </div>
+                <textarea
+                  id="feedback-details"
+                  name="Review Details"
+                  class="form-control"
+                  rows="4"
+                  maxlength="1000"
+                  placeholder="Share how SafePK's guides, tools, or assistance helped you..."
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Submit Actions -->
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                <span style="font-size: 0.78rem; color: var(--text-muted);">
+                  Please do not include passwords, OTPs, CNIC numbers, or private credentials.
+                </span>
+                <button type="submit" id="feedback-submit-btn" class="btn btn-primary" style="padding: 0.65rem 1.5rem;">
+                  <i data-lucide="send" class="w-4 h-4"></i> Submit Feedback
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Minimal Centered Footer -->
+    <footer>
+      <div class="container footer-minimal-wrap">
+        <nav class="footer-minimal-nav" aria-label="Footer Main Links">
+          <a href="about.html" class="footer-minimal-link">About</a>
+          <a href="reviews.html" class="footer-minimal-link">Feedback &amp; Reviews</a>
+          <a href="../sponsor.html" class="footer-minimal-link">Sponsor</a>
+                  <a href="contact.html" class="footer-minimal-link">Contact</a>
+</nav>
+
+        <nav class="footer-minimal-legal" aria-label="Legal Policies">
+          <a href="privacy-policy.html" class="footer-minimal-legal-link">Privacy Policy</a>
+          <a href="terms-of-use.html" class="footer-minimal-legal-link">Terms of Use</a>
+          <a href="disclaimer.html" class="footer-minimal-legal-link">Disclaimer</a>
+        </nav>
+
+        <div class="footer-contact-row notranslate" translate="no"> <!-- Official email aur Pro Share button ka container -->
+          <a href="mailto:infosafepk@proton.me" class="footer-email-pill" title="Official SafePK Email: infosafepk@proton.me">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>infosafepk@proton.me</span>
+          </a>
+        </div>
+
+        <p class="footer-minimal-copy">&copy; SafePK &mdash; All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Script assets inclusions -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/reviews.js"></script>
+
+    <script>
+      if (typeof initTheme !== 'undefined') initTheme();
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    </script>
+  </body>
+</html>

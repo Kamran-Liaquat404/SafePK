@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+      if ('serviceWorker' in navigator) {
+        const isDev = window.location.hostname === 'localhost' ||
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('.run.app');
+        if (isDev) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            let unregistered = false;
+            for (const registration of registrations) {
+              registration.unregister();
+              unregistered = true;
+            }
+            if (unregistered) {
+              console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+              if (window.caches) {
+                caches.keys().then((names) => {
+                  return Promise.all(names.map(name => caches.delete(name)));
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                window.location.reload();
+              }
+            }
+          });
+        }
+      }
+    </script>
+
+    <!-- Primary Technical SEO & Canonical Metadata -->
+    <title>About SafePK — Independent Cybersecurity Initiative</title>
+    <meta name="description" content="Learn about SafePK, an independent cybersecurity awareness and educational project dedicated to helping internet users in Pakistan stay safe online." />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/pages/about.html" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/png" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="apple-touch-icon" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="About SafePK — Independent Cybersecurity Initiative" />
+    <meta property="og:description" content="Learn about SafePK, an independent cybersecurity awareness and educational project dedicated to helping internet users in Pakistan stay safe online." />
+    <meta property="og:url" content="https://safepk.net/pages/about.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+
+    <!-- Twitter / X Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="About SafePK — Independent Cybersecurity Initiative" />
+    <meta name="twitter:description" content="Learn about SafePK, an independent cybersecurity awareness and educational project dedicated to helping internet users in Pakistan stay safe online." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About SafePK — Independent Cybersecurity Initiative",
+      "url": "https://safepk.net/pages/about.html",
+      "description": "Learn about SafePK, an independent cybersecurity awareness and educational project dedicated to helping internet users in Pakistan stay safe online.",
+      "isPartOf": {
+        "@id": "https://safepk.net/#website"
+      },
+      "mainEntity": {
+        "@id": "https://safepk.net/#organization"
+      }
+    }
+    </script>
+
+    <!-- Stylesheets & Web App Manifest -->
+    <link rel="stylesheet" href="../css/style.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="stylesheet" href="../css/responsive.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="manifest" href="../manifest.json" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <meta name="theme-color" content="#2563EB" />
+  </head>
+  <body>
+    <!-- Top Nav controls -->
+    <header>
+      <div class="container navbar-container">
+        <a href="../index.html" class="logo-block">
+          <img src="../assets/images/safepk-logo.png" alt="SafePK Logo" class="logo-img" width="32" height="32" decoding="async" fetchpriority="high" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-link nav-dropdown-trigger" aria-expanded="false">
+              <span>Audience</span>
+              <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="../individual.html" class="nav-dropdown-item">
+                <span>Individuals</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../family.html" class="nav-dropdown-item">
+                <span>Families</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../organizations.html" class="nav-dropdown-item">
+                <span>Organizations</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../freelancers.html" class="nav-dropdown-item">
+                <span>Freelancers &amp; Businesses</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+          <a href="learn.html" class="nav-link">Articles</a>
+          <a href="tools.html" class="nav-link">Report Generator</a>
+          <a href="directory.html" class="nav-link">Directory</a>
+          <a href="help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main dynamic body content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Global Clean Hero Section -->
+        <section class="page-hero animate-fade-in">
+          <h1 class="page-hero-title">About SafePK</h1>
+          <p class="page-hero-subtitle">
+            An independent initiative focused on cybersecurity awareness and digital safety in Pakistan.
+          </p>
+        </section>
+
+        <!-- Main Narrative & Content Grid -->
+        <div class="animate-fade-in" style="display: flex; flex-direction: column; gap: 2.5rem; margin-bottom: 4rem;">
+
+          <!-- Block 1: What is SafePK? -->
+          <div class="ui-card" style="padding: 2rem 2.25rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <div class="card-icon-box" style="width: 2.5rem; height: 2.5rem;">
+                <i data-lucide="shield" class="w-5 h-5"></i>
+              </div>
+              <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin: 0;">What is SafePK?</h2> <!-- Section ki main sub-heading (H2) -->
+            </div>
+            <div style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 0.85rem;">
+              <p style="margin: 0;">
+                SafePK is an independent cybersecurity awareness and education project focused on helping people better understand online security, digital threats, privacy, scams, account security, and responsible use of the internet.
+              </p>
+            </div>
+          </div>
+
+          <!-- Block 2: Independence -->
+          <div class="ui-card" style="padding: 2rem 2.25rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <div class="card-icon-box-success" style="width: 2.5rem; height: 2.5rem;">
+                <i data-lucide="check-circle" class="w-5 h-5"></i>
+              </div>
+              <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin: 0;">Independence</h2> <!-- Section ki main sub-heading (H2) -->
+            </div>
+            <div style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 0.85rem;">
+              <p style="margin: 0;">
+                SafePK is an independent project and is not a government organization, government department, bank, financial institution, telecom company, or official representative of any Pakistani institution.
+              </p>
+              <p style="margin: 0;">
+                SafePK does not represent or speak on behalf of the Government of Pakistan, banks, financial institutions, telecom companies, or other organizations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Block 3: Founder & Mission -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            <!-- Founder -->
+            <div class="ui-card" style="padding: 2rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem;">
+                <div class="card-icon-box">
+                  <i data-lucide="user" class="w-4 h-4"></i>
+                </div>
+                <h2 style="font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin: 0;">Founder</h2> <!-- Section ki main sub-heading (H2) -->
+              </div>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">
+                SafePK was founded by <a href="../kamran-liaquat.html" style="font-weight: 600; color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px;">Kamran Liaquat</a> as an independent initiative dedicated to public cybersecurity awareness and digital safety education.
+              </p>
+            </div>
+
+            <!-- Mission -->
+            <div class="ui-card" style="padding: 2rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem;">
+                <div class="card-icon-box-success">
+                  <i data-lucide="compass" class="w-4 h-4"></i>
+                </div>
+                <h2 style="font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin: 0;">Mission</h2> <!-- Section ki main sub-heading (H2) -->
+              </div>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">
+                SafePK aims to make cybersecurity awareness easier to understand and more accessible for everyday internet users, empowering individuals, families, freelancers, and small organizations to navigate the internet safely.
+              </p>
+            </div>
+          </div>
+
+          <!-- Block 4: What SafePK Provides -->
+          <div class="ui-card" style="padding: 2rem 2.25rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <div class="card-icon-box-warning" style="width: 2.5rem; height: 2.5rem;">
+                <i data-lucide="layers" class="w-5 h-5"></i>
+              </div>
+              <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin: 0;">What SafePK Provides</h2> <!-- Section ki main sub-heading (H2) -->
+            </div>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+              SafePK provides free, accessible resources designed to help everyday users recognize online threats and protect their digital accounts:
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+              <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.15rem;">
+                <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.3rem 0;">Cybersecurity Awareness &amp; Educational Content</h3>
+                <p style="font-size: 0.84rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Clear articles and explanations of common digital scams, phishing, and social engineering.</p>
+              </div>
+              <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.15rem;">
+                <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.3rem 0;">Security Guides &amp; Resources</h3>
+                <p style="font-size: 0.84rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Practical digital safety checklists and client-side tools for password security and readiness quizzes.</p>
+              </div>
+              <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.15rem;">
+                <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.3rem 0;">Official Organization Directories</h3>
+                <p style="font-size: 0.84rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">A reference directory of official helplines and contact information for public awareness.</p>
+              </div>
+              <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.15rem;">
+                <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.3rem 0;">Reporting Guidance &amp; Public Awareness</h3>
+                <p style="font-size: 0.84rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Step-by-step incident statement drafting and guidance on how to report cyber incidents to official channels.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Block 5: Independence & Affiliation Disclaimer -->
+          <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem 2rem;">
+            <h2 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;"> <!-- Section ki main sub-heading (H2) -->
+              <i data-lucide="info" class="w-4 h-4 text-primary"></i> Independence &amp; Affiliation Disclaimer
+            </h2>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; margin: 0 0 0.65rem 0;">
+              SafePK is an independent cybersecurity awareness project. It is not affiliated with, endorsed by, or officially connected to the Government of Pakistan, any government department, bank, financial institution, telecom company, or other organization unless explicitly stated.
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
+              Listing an organization or providing links to its official website does not imply a partnership, affiliation, endorsement, or official relationship with SafePK.
+            </p>
+          </div>
+
+          <!-- Official Contact & Domain Card -->
+          <div class="ui-card" style="padding: 1.85rem 2.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem;">
+            <div style="max-width: 640px;"> <!-- Left text container -->
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.45rem;"> <!-- Heading row -->
+                <i data-lucide="mail" class="w-4 h-4 text-primary"></i>
+                <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 0;">Official Contact &amp; Domain</h2> <!-- Section sub-heading -->
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0; line-height: 1.6;"> <!-- Contact details paragraph -->
+                Official Website: <strong>safepk.net</strong> &bull; Official Email: <a href="mailto:infosafepk@proton.me" style="color: var(--color-primary); font-weight: 700; text-decoration: underline;">infosafepk@proton.me</a> <!-- Official email link -->
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;"> <!-- Action buttons wrapper -->
+              <a href="mailto:infosafepk@proton.me" class="footer-email-pill"> <!-- Direct mailto pill -->
+                <i data-lucide="mail" class="w-4 h-4"></i> <!-- Mail icon -->
+                <span>infosafepk@proton.me</span> <!-- Email text -->
+              </a>
+            </div>
+          </div>
+
+          <!-- Block 6: Voluntary Support Section -->
+          <div class="ui-card" style="padding: 2.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+            <div style="max-width: 680px;">
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                <i data-lucide="heart" class="w-4 h-4 text-primary"></i>
+                <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin: 0;">Support SafePK</h2> <!-- Section ki main sub-heading (H2) -->
+              </div>
+              <p style="font-size: 0.925rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">
+                SafePK is built to provide accessible cybersecurity awareness and digital-safety resources to the public. Voluntary contributions help support the maintenance, development, and continued improvement of the platform.
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+              <a href="reviews.html" class="btn btn-secondary" style="font-size: 0.875rem; padding: 0.65rem 1.25rem;">
+                <i data-lucide="star" class="w-4 h-4" style="color: var(--color-warning);"></i> Feedback &amp; Reviews
+              </a>
+              <a href="../donate.html" class="btn btn-primary" style="font-size: 0.875rem; padding: 0.65rem 1.4rem;">
+                Support SafePK
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Minimal GitHub-Inspired Centered Footer -->
+    <footer>
+      <div class="container footer-minimal-wrap">
+        <nav class="footer-minimal-nav" aria-label="Footer Main Links">
+          <a href="about.html" class="footer-minimal-link">About</a>
+          <a href="reviews.html" class="footer-minimal-link">Feedback &amp; Reviews</a>
+          <a href="../sponsor.html" class="footer-minimal-link">Sponsor</a>
+                  <a href="contact.html" class="footer-minimal-link">Contact</a>
+</nav>
+
+        <nav class="footer-minimal-legal" aria-label="Legal Policies">
+          <a href="privacy-policy.html" class="footer-minimal-legal-link">Privacy Policy</a>
+          <a href="terms-of-use.html" class="footer-minimal-legal-link">Terms of Use</a>
+          <a href="disclaimer.html" class="footer-minimal-legal-link">Disclaimer</a>
+        </nav>
+
+        <div class="footer-contact-row notranslate" translate="no"> <!-- Official email aur Pro Share button ka container -->
+          <a href="mailto:infosafepk@proton.me" class="footer-email-pill" title="Official SafePK Email: infosafepk@proton.me">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>infosafepk@proton.me</span>
+          </a>
+        </div>
+
+        <p class="footer-minimal-copy">&copy; SafePK &mdash; All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Script loading triggers -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/theme.js"></script>
+
+    <script>
+      if (typeof initTheme !== 'undefined') initTheme();
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
+  </body>
+</html>

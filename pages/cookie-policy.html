@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+      if ('serviceWorker' in navigator) {
+        const isDev = window.location.hostname === 'localhost' ||
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('.run.app');
+        if (isDev) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            let unregistered = false;
+            for (const registration of registrations) {
+              registration.unregister();
+              unregistered = true;
+            }
+            if (unregistered) {
+              console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+              if (window.caches) {
+                caches.keys().then((names) => {
+                  return Promise.all(names.map(name => caches.delete(name)));
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                window.location.reload();
+              }
+            }
+          });
+        }
+      }
+    </script>
+
+    <!-- Primary Technical SEO & Canonical Metadata -->
+    <title>Cookie Policy — Browser Storage Practices | SafePK</title>
+    <meta name="description" content="Learn how SafePK uses local browser storage solely for theme preferences without third-party tracking cookies or behavioral profiling." />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/pages/cookie-policy.html" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/png" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="apple-touch-icon" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cookie Policy — Browser Storage Practices | SafePK" />
+    <meta property="og:description" content="Learn how SafePK uses local browser storage solely for theme preferences without third-party tracking cookies or behavioral profiling." />
+    <meta property="og:url" content="https://safepk.net/pages/cookie-policy.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+
+    <!-- Twitter / X Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cookie Policy — Browser Storage Practices | SafePK" />
+    <meta name="twitter:description" content="Learn how SafePK uses local browser storage solely for theme preferences without third-party tracking cookies or behavioral profiling." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Cookie Policy — Browser Storage Practices | SafePK",
+      "url": "https://safepk.net/pages/cookie-policy.html",
+      "description": "Learn how SafePK uses local browser storage solely for theme preferences without third-party tracking cookies or behavioral profiling.",
+      "isPartOf": {
+        "@id": "https://safepk.net/#website"
+      }
+    }
+    </script>
+
+    <!-- Stylesheets & Web App Manifest -->
+    <link rel="stylesheet" href="../css/style.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="stylesheet" href="../css/responsive.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="manifest" href="../manifest.json" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <meta name="theme-color" content="#2563EB" />
+  </head>
+  <body>
+    <!-- Nav controls -->
+    <header>
+      <div class="container navbar-container">
+        <a href="../index.html" class="logo-block">
+          <img src="../assets/images/safepk-logo.png" alt="SafePK Logo" class="logo-img" width="32" height="32" decoding="async" fetchpriority="high" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-link nav-dropdown-trigger" aria-expanded="false">
+              <span>Audience</span>
+              <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="../individual.html" class="nav-dropdown-item">
+                <span>Individuals</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../family.html" class="nav-dropdown-item">
+                <span>Families</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../organizations.html" class="nav-dropdown-item">
+                <span>Organizations</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../freelancers.html" class="nav-dropdown-item">
+                <span>Freelancers &amp; Businesses</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+          <a href="learn.html" class="nav-link">Articles</a>
+          <a href="tools.html" class="nav-link">Report Generator</a>
+          <a href="directory.html" class="nav-link">Directory</a>
+          <a href="help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Global Clean Hero Section -->
+        <section class="page-hero animate-fade-in">
+          <h1 class="page-hero-title">Cookie Policy</h1>
+          <p class="page-hero-subtitle">
+            Information about cookies and similar technologies used on our website.
+          </p>
+        </section>
+
+        <div class="legal-wrapper animate-fade-in">
+          <div class="legal-body text-secondary">
+            <p>
+              This Cookie Policy outlines how SafePK ensures a clean, privacy-first browsing session without tracking or third-party advertising cookies.
+            </p>
+
+            <h3>1. What are Cookies?</h3>
+            <p>
+              Cookies are small data blocks stored on your computing device by web servers to track navigation sessions or login state across visits.
+            </p>
+
+            <h3>2. Our Zero tracking Cookies commitment</h3>
+            <p>
+              SafePK **does not use cookies**.
+            </p>
+            <ul>
+              <li>We do not load Google Analytics, Facebook Pixel, or external marketing cookies.</li> <!-- List ka individual point (item) -->
+              <li>Safar-o-shooq k ley hum kisi b shakhs ko track nahi karte.</li> <!-- List ka individual point (item) -->
+            </ul>
+
+            <h3>3. Local Storage Preferences Caching</h3>
+            <p>
+              Instead of cookies, we use HTML5 **LocalStorage** to cache your preferred application styling (whether dark mode or light mode). This remains purely local inside your own sandboxed browser cache.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Minimal GitHub-Inspired Centered Footer -->
+    <footer>
+      <div class="container footer-minimal-wrap">
+        <nav class="footer-minimal-nav" aria-label="Footer Main Links">
+          <a href="about.html" class="footer-minimal-link">About</a>
+          <a href="../sponsor.html" class="footer-minimal-link">Sponsor</a>
+                  <a href="reviews.html" class="footer-minimal-link">Feedback &amp; Reviews</a>
+          <a href="contact.html" class="footer-minimal-link">Contact</a>
+</nav>
+
+        <nav class="footer-minimal-legal" aria-label="Legal Policies">
+          <a href="privacy-policy.html" class="footer-minimal-legal-link">Privacy Policy</a>
+          <a href="terms-of-use.html" class="footer-minimal-legal-link">Terms of Use</a>
+          <a href="disclaimer.html" class="footer-minimal-legal-link">Disclaimer</a>
+        </nav>
+
+        <div class="footer-contact-row notranslate" translate="no"> <!-- Official email aur Pro Share button ka container -->
+          <a href="mailto:infosafepk@proton.me" class="footer-email-pill" title="Official SafePK Email: infosafepk@proton.me">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>infosafepk@proton.me</span>
+          </a>
+        </div>
+
+        <p class="footer-minimal-copy">&copy; SafePK &mdash; All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Script assets inclusions -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/script.js"></script>
+
+    <script>
+      // Initialize systems
+      if (typeof initTheme !== 'undefined') initTheme();
+
+      // Render icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    </script>
+  </body>
+</html>

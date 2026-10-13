@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+      if ('serviceWorker' in navigator) {
+        const isDev = window.location.hostname === 'localhost' ||
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('.run.app');
+        if (isDev) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            let unregistered = false;
+            for (const registration of registrations) {
+              registration.unregister();
+              unregistered = true;
+            }
+            if (unregistered) {
+              console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+              if (window.caches) {
+                caches.keys().then((names) => {
+                  return Promise.all(names.map(name => caches.delete(name)));
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                window.location.reload();
+              }
+            }
+          });
+        }
+      }
+    </script>
+
+    <!-- Primary Technical SEO & Canonical Metadata -->
+    <title>Privacy Policy — Local Browser Processing | SafePK</title>
+    <meta name="description" content="Read the SafePK Privacy Policy to understand how our platform protects user privacy with client-side processing and zero personal data collection." />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/pages/privacy-policy.html" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/png" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="apple-touch-icon" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Privacy Policy — Local Browser Processing | SafePK" />
+    <meta property="og:description" content="Read the SafePK Privacy Policy to understand how our platform protects user privacy with client-side processing and zero personal data collection." />
+    <meta property="og:url" content="https://safepk.net/pages/privacy-policy.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+
+    <!-- Twitter / X Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Privacy Policy — Local Browser Processing | SafePK" />
+    <meta name="twitter:description" content="Read the SafePK Privacy Policy to understand how our platform protects user privacy with client-side processing and zero personal data collection." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Privacy Policy — Local Browser Processing | SafePK",
+      "url": "https://safepk.net/pages/privacy-policy.html",
+      "description": "Read the SafePK Privacy Policy to understand how our platform protects user privacy with client-side processing and zero personal data collection.",
+      "isPartOf": {
+        "@id": "https://safepk.net/#website"
+      }
+    }
+    </script>
+
+    <!-- Stylesheets & Web App Manifest -->
+    <link rel="stylesheet" href="../css/style.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="stylesheet" href="../css/responsive.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="manifest" href="../manifest.json" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <meta name="theme-color" content="#2563EB" />
+  </head>
+  <body>
+    <!-- Header with nav anchors -->
+    <header>
+      <div class="container navbar-container">
+        <a href="../index.html" class="logo-block">
+          <img src="../assets/images/safepk-logo.png" alt="SafePK Logo" class="logo-img" width="32" height="32" decoding="async" fetchpriority="high" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-link nav-dropdown-trigger" aria-expanded="false">
+              <span>Audience</span>
+              <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="../individual.html" class="nav-dropdown-item">
+                <span>Individuals</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../family.html" class="nav-dropdown-item">
+                <span>Families</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../organizations.html" class="nav-dropdown-item">
+                <span>Organizations</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../freelancers.html" class="nav-dropdown-item">
+                <span>Freelancers &amp; Businesses</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+          <a href="learn.html" class="nav-link">Articles</a>
+          <a href="tools.html" class="nav-link">Report Generator</a>
+          <a href="directory.html" class="nav-link">Directory</a>
+          <a href="help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main dynamic body content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Global Clean Hero Section -->
+        <section class="page-hero animate-fade-in">
+          <h1 class="page-hero-title">Privacy at SafePK</h1>
+          <p class="page-hero-subtitle">
+            How we handle information and respect your privacy.
+          </p>
+        </section>
+
+        <div class="legal-wrapper animate-fade-in">
+          <div class="legal-body text-secondary">
+            <p>
+              At SafePK ("we," "our," or "platform"), we hold your digital privacy in the highest regard. SafePK is a public, non-commercial cyber safety awareness platform dedicated to educating Pakistani citizens about online security, scams, and digital laws. This Privacy Policy details our strict data practices to ensure your trust is completely protected.
+            </p>
+
+            <blockquote style="border-left: 3px solid var(--color-primary); padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: var(--text-primary);">
+              <strong>Urdu Summary:</strong> SafePK aap ki privacy ka mukammal ehtram karta hai. Hum aap ka koi bhi zaati data (personal information) jama (collect) ya sell nahi karte, aur na hi kisi ke sath share karte hain.
+            </blockquote>
+
+            <h3>1. Complete Local Execution (Browser-Only Protection)</h3>
+            <p>
+              To ensure absolute privacy, all our interactive digital safety tools (such as the Incident Report Generator and Security Checklists) are engineered to run **100% locally on your own browser**.
+            </p>
+            <ul>
+              <li><strong>Zero Server Storage:</strong> Your entries, analyzed links, passwords, and form drafts are processed client-side. No data is sent to external servers or databases.</li> <!-- List ka individual point (item) -->
+              <li><strong>Secure Sandbox:</strong> Your inputs never leave your device. Humara system aap ke browser ke andar hi kaam karta hai taake aap ka sensitive data mehfooz rahe.</li> <!-- List ka individual point (item) -->
+            </ul>
+
+            <h3>2. Strict "No-Collection" Policy</h3>
+            <p>
+              SafePK operates under a strict zero-data-collection mandate:
+            </p>
+            <ul>
+              <li>We do not collect, store, sell, or share any personal information of our visitors.</li> <!-- List ka individual point (item) -->
+              <li>We do not build user tracking profiles, and we do not use commercial tracking cookies.</li> <!-- List ka individual point (item) -->
+            </ul>
+
+            <h3>3. Absolute Safety Guarantees & Credentials Protection</h3>
+            <div class="legal-warning-box">
+              <div class="legal-warning-title">
+                <i data-lucide="shield-alert" class="w-4 h-4"></i> Critical Safety Rule
+              </div>
+              <p class="legal-warning-text" style="color: var(--text-primary) !important;">
+                <strong>SafePK will NEVER ask you for sensitive credentials.</strong> We will never ask you for, and you must never input on our site:
+              </p>
+            </div>
+            <ul>
+              <li>Passwords to your social media, email, or digital accounts.</li> <!-- List ka individual point (item) -->
+              <li>One-Time Passwords (OTP) or mobile verification codes.</li> <!-- List ka individual point (item) -->
+              <li>Credit/debit card numbers, PINs, bank account numbers, or mobile wallet (Easypaisa/JazzCash) credentials.</li> <!-- List ka individual point (item) -->
+              <li>Direct access to your private accounts.</li> <!-- List ka individual point (item) -->
+            </ul>
+            <p>
+              <em>SafePK aap se kabhi bhi aap ka password, OTP code, banking details ya kisi account ka access nahi mangega. Agar koi SafePK ke naam par yeh details mange to woh scammer hai.</em>
+            </p>
+
+            <h3>4. Use of Contact Information</h3>
+            <p>
+              If you proactively reach out to us via our official email (<a href="mailto:infosafepk@proton.me">infosafepk@proton.me</a>):
+            </p>
+            <ul>
+              <li>Any contact information (such as your name or email address) provided by you will <strong>only be used to communicate with you</strong> to address your query or feedback.</li> <!-- List ka individual point (item) -->
+              <li>This information is kept strictly confidential and will never be shared with third parties or used for any marketing purposes.</li> <!-- List ka individual point (item) -->
+            </ul>
+
+            <h3>5. Third-Party Services and External Outlinks</h3>
+            <p>
+              Our platform contains hyperlinks to official regulatory, legal, and educational websites (such as the National Cyber Crime Investigation Agency (NCCIA), Pakistan Telecommunication Authority (PTA), State Bank of Pakistan (SBP), etc.) as well as optional support donation portals.
+            </p>
+            <ul>
+              <li>These external websites operate under their own independent terms and privacy policies.</li> <!-- List ka individual point (item) -->
+              <li>SafePK does not control third-party services and holds no liability for their data practices.</li> <!-- List ka individual point (item) -->
+              <li>We strongly encourage users to review the privacy policies of third-party websites before submitting any personal details to them.</li> <!-- List ka individual point (item) -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Minimal GitHub-Inspired Centered Footer -->
+    <footer>
+      <div class="container footer-minimal-wrap">
+        <nav class="footer-minimal-nav" aria-label="Footer Main Links">
+          <a href="about.html" class="footer-minimal-link">About</a>
+          <a href="../sponsor.html" class="footer-minimal-link">Sponsor</a>
+                  <a href="reviews.html" class="footer-minimal-link">Feedback &amp; Reviews</a>
+          <a href="contact.html" class="footer-minimal-link">Contact</a>
+</nav>
+
+        <nav class="footer-minimal-legal" aria-label="Legal Policies">
+          <a href="privacy-policy.html" class="footer-minimal-legal-link">Privacy Policy</a>
+          <a href="terms-of-use.html" class="footer-minimal-legal-link">Terms of Use</a>
+          <a href="disclaimer.html" class="footer-minimal-legal-link">Disclaimer</a>
+        </nav>
+
+        <div class="footer-contact-row notranslate" translate="no"> <!-- Official email aur Pro Share button ka container -->
+          <a href="mailto:infosafepk@proton.me" class="footer-email-pill" title="Official SafePK Email: infosafepk@proton.me">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>infosafepk@proton.me</span>
+          </a>
+        </div>
+
+        <p class="footer-minimal-copy">&copy; SafePK &mdash; All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Universal modals for search bar dropdown -->
+
+    <!-- Script assets inclusions -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/script.js"></script>
+
+    <script>
+      // Initialize systems
+      if (typeof initTheme !== 'undefined') initTheme();
+
+      // Render icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    </script>
+  </body>
+</html>

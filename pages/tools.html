@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+      if ('serviceWorker' in navigator) {
+        const isDev = window.location.hostname === 'localhost' ||
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('.run.app');
+        if (isDev) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            let unregistered = false;
+            for (const registration of registrations) {
+              registration.unregister();
+              unregistered = true;
+            }
+            if (unregistered) {
+              console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+              if (window.caches) {
+                caches.keys().then((names) => {
+                  return Promise.all(names.map(name => caches.delete(name)));
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                window.location.reload();
+              }
+            }
+          });
+        }
+      }
+    </script>
+
+    <!-- Primary Technical SEO & Canonical Metadata -->
+    <title>Cybercrime Incident Report Generator | SafePK</title>
+    <meta name="description" content="Draft a clear, structured cybercrime complaint statement in your browser for submission to NCCIA, PTA, or bank fraud desks in Pakistan." />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/pages/tools.html" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/png" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="apple-touch-icon" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cybercrime Incident Report Generator | SafePK" />
+    <meta property="og:description" content="Draft a clear, structured cybercrime complaint statement in your browser for submission to NCCIA, PTA, or bank fraud desks in Pakistan." />
+    <meta property="og:url" content="https://safepk.net/pages/tools.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+
+    <!-- Twitter / X Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cybercrime Incident Report Generator | SafePK" />
+    <meta name="twitter:description" content="Draft a clear, structured cybercrime complaint statement in your browser for submission to NCCIA, PTA, or bank fraud desks in Pakistan." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SafePK Cybercrime Incident Report Generator",
+      "url": "https://safepk.net/pages/tools.html",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Processed locally in browser.",
+      "description": "A client-side incident report builder for drafting structured cybercrime complaint statements for NCCIA, PTA, and commercial banks in Pakistan.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "PKR"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SafePK",
+        "url": "https://safepk.net/"
+      }
+    }
+    </script>
+
+    <!-- Stylesheets & Web App Manifest -->
+    <link rel="stylesheet" href="../css/style.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="stylesheet" href="../css/responsive.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="manifest" href="../manifest.json" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <meta name="theme-color" content="#2563EB" />
+  </head>
+  <body>
+    <!-- Navigation bar controls -->
+    <header>
+      <div class="container navbar-container">
+        <a href="../index.html" class="logo-block">
+          <img src="../assets/images/safepk-logo.png" alt="SafePK Logo" class="logo-img" width="32" height="32" decoding="async" fetchpriority="high" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-link nav-dropdown-trigger" aria-expanded="false">
+              <span>Audience</span>
+              <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="../individual.html" class="nav-dropdown-item">
+                <span>Individuals</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../family.html" class="nav-dropdown-item">
+                <span>Families</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../organizations.html" class="nav-dropdown-item">
+                <span>Organizations</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../freelancers.html" class="nav-dropdown-item">
+                <span>Freelancers &amp; Businesses</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+          <a href="learn.html" class="nav-link">Articles</a>
+          <a href="tools.html" class="nav-link active">Report Generator</a>
+          <a href="directory.html" class="nav-link">Directory</a>
+          <a href="help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="main-content">
+      <div class="container animate-fade-in">
+        <!-- Global Clean Hero Section -->
+        <section class="page-hero">
+          <h1 class="page-hero-title">Incident Report Generator</h1>
+          <p class="page-hero-subtitle">
+            Prepare a clear, structured cybercrime complaint statement ready to copy or save as PDF.
+          </p>
+        </section>
+
+        <!-- REPORT GENERATOR -->
+        <div class="tool-panel" id="panel-fia">
+          <div class="fia-grid">
+            <!-- Left: Builder form -->
+            <div class="tool-card">
+              <h2 class="tool-card-title"> <!-- Section ki main sub-heading (H2) -->
+                <i data-lucide="file-text" class="text-primary w-5 h-5"></i> Incident Details
+              </h2>
+              <p class="tool-card-desc">Enter the incident information below to generate a structured statement for official reporting channels.</p>
+
+              <form id="fia-builder-form">
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="fia-fullname" class="form-label">Complainant Full Name</label> <!-- Form input ya checkbox ka clickable label -->
+                    <input type="text" id="fia-fullname" class="form-control" placeholder="e.g. Muhammad Ahmad" required /> <!-- User input field ya checkbox control -->
+                  </div>
+                  <div class="form-group">
+                    <label for="fia-phone" class="form-label">Contact Mobile Number</label> <!-- Form input ya checkbox ka clickable label -->
+                    <input type="tel" id="fia-phone" class="form-control" placeholder="e.g. 0300-1234567" required /> <!-- User input field ya checkbox control -->
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="fia-scam-type" class="form-label">Nature of Cyber Incident</label> <!-- Form input ya checkbox ka clickable label -->
+                  <select id="fia-scam-type" class="form-control" required style="padding-top: 0.55rem; padding-bottom: 0.55rem;"> <!-- Form selection ya text input control -->
+                    <!-- Dynamically populated -->
+                  </select>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="fia-offender" class="form-label">Suspect Phone / Link / Account ID</label> <!-- Form input ya checkbox ka clickable label -->
+                    <input type="text" id="fia-offender" class="form-control" placeholder="e.g. 0309-XXXXXXX or profile URL" required /> <!-- User input field ya checkbox control -->
+                  </div>
+                  <div class="form-group">
+                    <label for="fia-timeline" class="form-label">Date &amp; Time of Incident</label> <!-- Form input ya checkbox ka clickable label -->
+                    <input type="text" id="fia-timeline" class="form-control" placeholder="e.g. 14 May, around 2:30 PM" required /> <!-- User input field ya checkbox control -->
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="fia-narrative" class="form-label">Incident Summary (What happened?)</label> <!-- Form input ya checkbox ka clickable label -->
+                  <textarea id="fia-narrative" class="form-control" rows="5" placeholder="Describe the sequence of events clearly, including any transaction IDs, amounts, or messages received..." required style="font-size: 0.85rem; line-height: 1.55; resize: vertical; padding: 0.75rem;"></textarea> <!-- Form selection ya text input control -->
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.75rem 1rem; margin-top: 0.5rem; font-weight: 600;">
+                  <i data-lucide="check-circle" class="w-4 h-4"></i> Generate Incident Report
+                </button>
+              </form>
+            </div>
+
+            <!-- Right: Compiled preview & export actions -->
+            <div class="tool-card" style="display: flex; flex-direction: column;">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.4rem;">
+                <h2 class="tool-card-title" style="margin-bottom: 0;"> <!-- Section ki main sub-heading (H2) -->
+                  <i data-lucide="file-check" class="text-success w-5 h-5" style="color: var(--color-success);"></i> Compiled Report Preview
+                </h2>
+                <span style="font-size: 0.7rem; font-family: var(--font-mono); color: var(--text-muted); background: var(--bg-tertiary); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">Editable</span>
+              </div>
+              <p class="tool-card-desc">Review or edit the generated statement directly below before copying or saving as a PDF.</p>
+
+              <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="flex: 1; display: flex; flex-direction: column;">
+                  <textarea id="fia-draft-pre" class="draft-preview" style="flex: 1;" placeholder="Complete the form on the left and click 'Generate Incident Report' to view your formatted statement here.">Complete the form on the left and click "Generate Incident Report" to view your formatted statement here.</textarea> <!-- Form selection ya text input control -->
+                </div>
+
+                <div class="report-actions-grid">
+                  <button type="button" onclick="window.copyArziDraft()" class="btn btn-primary">
+                    <i data-lucide="copy" class="w-4 h-4"></i> Copy Report
+                  </button>
+                  <button type="button" onclick="window.printArziDraft()" class="btn btn-secondary">
+                    <i data-lucide="printer" class="w-4 h-4"></i> Save / Print PDF
+                  </button>
+                  <button type="button" onclick="window.toggleEditReport()" class="btn btn-secondary" id="btn-toggle-edit">
+                    <i data-lucide="edit-2" class="w-4 h-4"></i> Edit Text
+                  </button>
+                  <button type="button" onclick="window.clearReportForm()" class="btn btn-secondary" style="color: var(--color-danger);">
+                    <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Reset Form
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Report Generator Disclaimer & Local Processing Notice (Bottom of Page) -->
+        <div class="animate-fade-in" style="margin-top: 2.25rem; padding: 1.25rem 1.4rem; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-lg); font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6; display: flex; align-items: flex-start; gap: 0.75rem;">
+          <i data-lucide="shield" class="w-4 h-4 text-primary" style="flex-shrink: 0; margin-top: 0.2rem; color: var(--color-primary);"></i>
+          <div>
+            <strong style="color: var(--text-primary);">Disclaimer &amp; Local Browser Processing:</strong> Your report is compiled strictly on your device. SafePK does not collect, transmit, or store the information entered in this form, and generating this statement does not automatically file an official complaint with any authority.
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Minimal GitHub-Inspired Centered Footer -->
+    <footer>
+      <div class="container footer-minimal-wrap">
+        <nav class="footer-minimal-nav" aria-label="Footer Main Links">
+          <a href="about.html" class="footer-minimal-link">About</a>
+          <a href="../sponsor.html" class="footer-minimal-link">Sponsor</a>
+                  <a href="reviews.html" class="footer-minimal-link">Feedback &amp; Reviews</a>
+          <a href="contact.html" class="footer-minimal-link">Contact</a>
+</nav>
+
+        <nav class="footer-minimal-legal" aria-label="Legal Policies">
+          <a href="privacy-policy.html" class="footer-minimal-legal-link">Privacy Policy</a>
+          <a href="terms-of-use.html" class="footer-minimal-legal-link">Terms of Use</a>
+          <a href="disclaimer.html" class="footer-minimal-legal-link">Disclaimer</a>
+        </nav>
+
+        <div class="footer-contact-row notranslate" translate="no"> <!-- Official email aur Pro Share button ka container -->
+          <a href="mailto:infosafepk@proton.me" class="footer-email-pill" title="Official SafePK Email: infosafepk@proton.me">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>infosafepk@proton.me</span>
+          </a>
+        </div>
+
+        <p class="footer-minimal-copy">&copy; SafePK &mdash; All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Script loading indices -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/learn.js"></script>
+    <script src="../js/directory.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/script.js"></script>
+
+    <script>
+      if (typeof initTheme !== 'undefined') initTheme();
+      if (typeof initSecurityTools !== 'undefined') initSecurityTools();
+
+      // Helper to copy compiled statement draft
+      window.copyArziDraft = function() {
+        const pre = document.getElementById('fia-draft-pre');
+        if (!pre) return;
+        const text = pre.value || pre.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          if (window.showToast) {
+            window.showToast("Incident report copied to clipboard.", "success");
+          }
+        }).catch(err => {
+          console.error("Failed to copy statement:", err);
+          if (window.showToast) {
+            window.showToast("Could not copy automatically. Please select the text and copy manually.", "danger");
+          }
+        });
+      };
+
+      // Helper to print compiled statement draft (Save / Print as PDF)
+      window.printArziDraft = function() {
+        const pre = document.getElementById('fia-draft-pre');
+        if (!pre) return;
+        const text = pre.value || pre.textContent;
+        const iframe = document.createElement('iframe'); /* Naya HTML element 'iframe' dynamically banaya ja raha hai */
+        iframe.style.position = 'fixed';
+        iframe.style.right = '0';
+        iframe.style.bottom = '0';
+        iframe.style.width = '0';
+        iframe.style.height = '0';
+        iframe.style.border = '0';
+        document.body.appendChild(iframe);
+
+        const doc = iframe.contentWindow.document;
+        doc.open();
+        doc.write('<html><head><title>Incident Report Statement - SafePK</title>');
+        doc.write('<style>body{font-family:"Courier New", Courier, monospace;white-space:pre-wrap;padding:2.5rem;line-height:1.6;font-size:13px;color:#111;max-width:780px;margin:0 auto;} .report-box{border:1px solid #ccc;padding:2rem;border-radius:6px;background:#fff;}</style>');
+        doc.write('</head><body>');
+        doc.write('<div class="report-box">');
+        doc.write(text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+        doc.write('</div>');
+        doc.write('</body></html>');
+        doc.close();
+
+        iframe.contentWindow.focus();
+        iframe.contentWindow.print();
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+        }, 1500);
+      };
+
+      // Helper to focus on the draft textarea for editing
+      window.toggleEditReport = function() {
+        const textarea = document.getElementById('fia-draft-pre');
+        if (!textarea) return;
+        textarea.focus();
+        const val = textarea.value;
+        textarea.value = '';
+        textarea.value = val;
+        textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      };
+
+      // Helper to clear the builder form and reset preview
+      window.clearReportForm = function() {
+        const form = document.getElementById('fia-builder-form');
+        if (form) {
+          form.reset();
+        }
+        const textarea = document.getElementById('fia-draft-pre');
+        if (textarea) {
+          textarea.value = 'Complete the form on the left and click "Generate Incident Report" to view your formatted statement here.';
+        }
+        if (window.showToast) {
+          window.showToast("Form reset.", "info");
+        }
+      };
+    </script>
+  </body>
+</html>

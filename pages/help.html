@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+      if ('serviceWorker' in navigator) {
+        const isDev = window.location.hostname === 'localhost' ||
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('.run.app');
+        if (isDev) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            let unregistered = false;
+            for (const registration of registrations) {
+              registration.unregister();
+              unregistered = true;
+            }
+            if (unregistered) {
+              console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+              if (window.caches) {
+                caches.keys().then((names) => {
+                  return Promise.all(names.map(name => caches.delete(name)));
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                window.location.reload();
+              }
+            }
+          });
+        }
+      }
+    </script>
+
+    <!-- Primary Technical SEO & Canonical Metadata -->
+    <title>Help Center — Cybersecurity Assistance &amp; Guidance | SafePK</title>
+    <meta name="description" content="Get structured cybersecurity guidance, digital safety assistance, awareness support, and personal help requests for individuals, families, freelancers, and organizations in Pakistan." />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/pages/help.html" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/png" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="apple-touch-icon" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Help Center — Cybersecurity Assistance &amp; Guidance | SafePK" />
+    <meta property="og:description" content="Get structured cybersecurity guidance, digital safety assistance, awareness support, and personal help requests for individuals, families, freelancers, and organizations in Pakistan." />
+    <meta property="og:url" content="https://safepk.net/pages/help.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+
+    <!-- Twitter / X Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Help Center — Cybersecurity Assistance &amp; Guidance | SafePK" />
+    <meta name="twitter:description" content="Get structured cybersecurity guidance, digital safety assistance, awareness support, and personal help requests for individuals, families, freelancers, and organizations in Pakistan." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Help Center — Cybersecurity Assistance & Guidance | SafePK",
+      "url": "https://safepk.net/pages/help.html",
+      "description": "Get structured cybersecurity guidance, digital safety assistance, awareness support, and personal help requests for individuals, families, freelancers, and organizations in Pakistan.",
+      "isPartOf": {
+        "@id": "https://safepk.net/#website"
+      }
+    }
+    </script>
+
+    <!-- Stylesheets & Web App Manifest -->
+    <link rel="stylesheet" href="../css/style.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="stylesheet" href="../css/responsive.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="manifest" href="../manifest.json" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <meta name="theme-color" content="#2563EB" />
+  </head>
+  <body>
+    <!-- Top Nav Header -->
+    <header>
+      <div class="container navbar-container">
+        <a href="../index.html" class="logo-block">
+          <img src="../assets/images/safepk-logo.png" alt="SafePK Logo" class="logo-img" width="32" height="32" decoding="async" fetchpriority="high" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-link nav-dropdown-trigger" aria-expanded="false">
+              <span>Audience</span>
+              <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="../individual.html" class="nav-dropdown-item">
+                <span>Individuals</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../family.html" class="nav-dropdown-item">
+                <span>Families</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../organizations.html" class="nav-dropdown-item">
+                <span>Organizations</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../freelancers.html" class="nav-dropdown-item">
+                <span>Freelancers &amp; Businesses</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+          <a href="learn.html" class="nav-link">Articles</a>
+          <a href="tools.html" class="nav-link">Report Generator</a>
+          <a href="directory.html" class="nav-link">Directory</a>
+          <a href="help.html" class="nav-link active">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- 1. Help Center Introduction -->
+        <section class="page-hero animate-fade-in">
+          <h1 class="page-hero-title">Help Center</h1>
+          <p class="page-hero-subtitle">
+            Cybersecurity guidance, digital safety support, and security awareness for Pakistan.
+          </p>
+        </section>
+
+        <!-- 2 & 3. SafePK Assistance / Audience & Service Categories -->
+        <section class="animate-fade-in" style="margin-bottom: 3.5rem;">
+          <div style="margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.45rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.35rem 0;"> <!-- Section ki main sub-heading (H2) -->
+              Assistance Categories
+            </h2>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">
+              Choose a category to request guidance or view security guides.
+            </p>
+          </div>
+
+          <div class="grid-cols-3" style="gap: 1.5rem;">
+            <!-- Category 1: Individuals -->
+            <div class="ui-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem;">
+                  <div class="card-icon-box">
+                    <i data-lucide="user-check" class="w-5 h-5"></i>
+                  </div>
+                  <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 0;">
+                    Individuals
+                  </h3>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 0.85rem;">
+                  Personal digital safety and account protection.
+                </p>
+                <ul style="padding-left: 1.15rem; font-size: 0.83rem; color: var(--text-secondary); line-height: 1.7; margin: 0 0 1.25rem 0;">
+                  <li>Account &amp; password security</li> <!-- List ka individual point (item) -->
+                  <li>Two-factor authentication (2FA)</li> <!-- List ka individual point (item) -->
+                  <li>Privacy settings</li> <!-- List ka individual point (item) -->
+                  <li>Scam &amp; phishing protection</li> <!-- List ka individual point (item) -->
+                </ul>
+              </div>
+              <div style="border-top: 1px solid var(--border-color); padding-top: 0.9rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;">
+                <button type="button" onclick="selectHelpCategory('Individual', 'Account Security Guidance')" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.42rem 0.85rem;">
+                  Request Help
+                </button>
+                <a href="../individual.html" style="font-size: 0.8rem; font-weight: 600; color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.25rem;">
+                  Guides <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Category 2: Families -->
+            <div class="ui-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem;">
+                  <div class="card-icon-box">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                  </div>
+                  <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 0;">
+                    Families
+                  </h3>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 0.85rem;">
+                  Online safety for households, parents, and children.
+                </p>
+                <ul style="padding-left: 1.15rem; font-size: 0.83rem; color: var(--text-secondary); line-height: 1.7; margin: 0 0 1.25rem 0;">
+                  <li>Parental controls &amp; child safety</li> <!-- List ka individual point (item) -->
+                  <li>Home network &amp; device security</li> <!-- List ka individual point (item) -->
+                  <li>Safe browsing habits</li> <!-- List ka individual point (item) -->
+                  <li>Family privacy protection</li> <!-- List ka individual point (item) -->
+                </ul>
+              </div>
+              <div style="border-top: 1px solid var(--border-color); padding-top: 0.9rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;">
+                <button type="button" onclick="selectHelpCategory('Family', 'Family Digital Safety')" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.42rem 0.85rem;">
+                  Request Help
+                </button>
+                <a href="../family.html" style="font-size: 0.8rem; font-weight: 600; color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.25rem;">
+                  Guides <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Category 3: Freelancers -->
+            <div class="ui-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem;">
+                  <div class="card-icon-box">
+                    <i data-lucide="laptop" class="w-5 h-5"></i>
+                  </div>
+                  <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 0;">
+                    Freelancers
+                  </h3>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 0.85rem;">
+                  Workspace and account security for remote professionals.
+                </p>
+                <ul style="padding-left: 1.15rem; font-size: 0.83rem; color: var(--text-secondary); line-height: 1.7; margin: 0 0 1.25rem 0;">
+                  <li>Marketplace &amp; payment safety</li> <!-- List ka individual point (item) -->
+                  <li>Email &amp; workspace hardening</li> <!-- List ka individual point (item) -->
+                  <li>Client data protection</li> <!-- List ka individual point (item) -->
+                  <li>Fake job &amp; phishing prevention</li> <!-- List ka individual point (item) -->
+                </ul>
+              </div>
+              <div style="border-top: 1px solid var(--border-color); padding-top: 0.9rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;">
+                <button type="button" onclick="selectHelpCategory('Freelancer', 'Freelancer Security')" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.42rem 0.85rem;">
+                  Request Help
+                </button>
+                <a href="../freelancers.html" style="font-size: 0.8rem; font-weight: 600; color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.25rem;">
+                  Guides <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Category 4: Organizations -->
+            <div class="ui-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem;">
+                  <div class="card-icon-box">
+                    <i data-lucide="building-2" class="w-5 h-5"></i>
+                  </div>
+                  <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 0;">
+                    Organizations
+                  </h3>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 0.85rem;">
+                  Security training and awareness for teams and institutions.
+                </p>
+                <ul style="padding-left: 1.15rem; font-size: 0.83rem; color: var(--text-secondary); line-height: 1.7; margin: 0 0 1.25rem 0;">
+                  <li>Staff security training</li> <!-- List ka individual point (item) -->
+                  <li>Phishing defense workshops</li> <!-- List ka individual point (item) -->
+                  <li>Access &amp; policy basics</li> <!-- List ka individual point (item) -->
+                  <li>Awareness resources</li> <!-- List ka individual point (item) -->
+                </ul>
+              </div>
+              <div style="border-top: 1px solid var(--border-color); padding-top: 0.9rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;">
+                <button type="button" onclick="selectHelpCategory('Organization', 'Organization Security Awareness')" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.42rem 0.85rem;">
+                  Request Help
+                </button>
+                <a href="../organizations.html" style="font-size: 0.8rem; font-weight: 600; color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.25rem;">
+                  Guides <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Category 5: Public / Community -->
+            <div class="ui-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem;">
+                  <div class="card-icon-box">
+                    <i data-lucide="globe" class="w-5 h-5"></i>
+                  </div>
+                  <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 0;">
+                    Public / Community
+                  </h3>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 0.85rem;">
+                  Public seminars and cyber awareness outreach.
+                </p>
+                <ul style="padding-left: 1.15rem; font-size: 0.83rem; color: var(--text-secondary); line-height: 1.7; margin: 0 0 1.25rem 0;">
+                  <li>Community workshops</li> <!-- List ka individual point (item) -->
+                  <li>Fraud &amp; scam alerts</li> <!-- List ka individual point (item) -->
+                  <li>Digital literacy sessions</li> <!-- List ka individual point (item) -->
+                  <li>Educational materials</li> <!-- List ka individual point (item) -->
+                </ul>
+              </div>
+              <div style="border-top: 1px solid var(--border-color); padding-top: 0.9rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;">
+                <button type="button" onclick="selectHelpCategory('Public / Community', 'Awareness Campaign')" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.42rem 0.85rem;">
+                  Request Help
+                </button>
+                <a href="learn.html" style="font-size: 0.8rem; font-weight: 600; color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.25rem;">
+                  Articles <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Category 6: Mobile / Device Security -->
+            <div class="ui-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem;">
+                  <div class="card-icon-box">
+                    <i data-lucide="smartphone" class="w-5 h-5"></i>
+                  </div>
+                  <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 0;">
+                    Mobile &amp; Devices
+                  </h3>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 0.85rem;">
+                  Smartphone hardening, permissions, and device safety.
+                </p>
+                <ul style="padding-left: 1.15rem; font-size: 0.83rem; color: var(--text-secondary); line-height: 1.7; margin: 0 0 1.25rem 0;">
+                  <li>Phone security setup</li> <!-- List ka individual point (item) -->
+                  <li>SIM &amp; WhatsApp protection</li> <!-- List ka individual point (item) -->
+                  <li>App permission review</li> <!-- List ka individual point (item) -->
+                  <li>Lost device precautions</li> <!-- List ka individual point (item) -->
+                </ul>
+              </div>
+              <div style="border-top: 1px solid var(--border-color); padding-top: 0.9rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;">
+                <button type="button" onclick="selectHelpCategory('Mobile & Device', 'Mobile Security Setup')" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.42rem 0.85rem;">
+                  Request Help
+                </button>
+                <a href="tools.html" style="font-size: 0.8rem; font-weight: 600; color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.25rem;">
+                  Report Tool <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4 & 5. Help Request Form -->
+        <section id="personal-help-request" class="animate-fade-in" style="margin-bottom: 3.5rem; scroll-margin-top: 90px;">
+          <div class="ui-card" style="padding: 2.25rem;">
+            <div style="max-width: 760px; margin-bottom: 1.25rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div class="card-icon-box" style="width: 2.5rem; height: 2.5rem;">
+                  <i data-lucide="shield-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin: 0;"> <!-- Section ki main sub-heading (H2) -->
+                    Submit a Help Request
+                  </h2>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.15rem 0 0 0;">
+                    Fill out the form below for cybersecurity guidance or support. Do not share passwords or OTPs.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Help Request Form (Connected to SafePK Google Sheet / Apps Script automation) -->
+            <!-- Schema: ID No,Date,Time,Name,Email,Whatsapp No,Category,Service,Details -->
+            <form
+              id="safepk-help-form"
+              data-script-url="https://script.google.com/macros/s/AKfycbz5Xcidz3AU2Yzfh8YDel6_UrzA-SNTKkgpN_7y6oRdxnXTqwOrnV4YkxjpPz_FnYQyFA/exec"
+              novalidate
+            >
+              <!-- Hidden automatic fields populated by Google Sheet / Apps Script automation & submission handler -->
+              <input type="hidden" id="help-id-no" name="ID No" value="" /> <!-- User input field ya checkbox control -->
+              <input type="hidden" id="help-date" name="Date" value="" /> <!-- User input field ya checkbox control -->
+              <input type="hidden" id="help-time" name="Time" value="" /> <!-- User input field ya checkbox control -->
+
+              <div class="help-form-grid">
+                <!-- Field 1: Name -->
+                <div class="form-group">
+                  <label for="help-name" class="form-label">Name <span style="color: var(--color-danger);">*</span></label> <!-- Form input ya checkbox ka clickable label -->
+                  <input
+                    type="text"
+                    id="help-name"
+                    name="Name"
+                    class="form-control"
+                    placeholder="Enter your full name"
+                    required
+                    autocomplete="name"
+                  />
+                </div>
+
+                <!-- Field 2: Email -->
+                <div class="form-group">
+                  <label for="help-email" class="form-label">Email <span style="color: var(--color-danger);">*</span></label> <!-- Form input ya checkbox ka clickable label -->
+                  <input
+                    type="email"
+                    id="help-email"
+                    name="Email"
+                    class="form-control"
+                    placeholder="you@example.com"
+                    required
+                    autocomplete="email"
+                  />
+                </div>
+              </div>
+
+              <div class="help-form-grid">
+                <!-- Field 3: WhatsApp No. (Optional) -->
+                <div class="form-group">
+                  <label for="help-whatsapp" class="form-label"> <!-- Form input ya checkbox ka clickable label -->
+                    WhatsApp No. <span style="font-weight: 400; color: var(--text-muted);">(Optional)</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="help-whatsapp"
+                    name="Whatsapp No"
+                    class="form-control"
+                    placeholder="e.g., +92 300 0000000"
+                    autocomplete="tel"
+                  />
+                </div>
+
+                <!-- Field 4: Category -->
+                <div class="form-group">
+                  <label for="help-category" class="form-label">Category <span style="color: var(--color-danger);">*</span></label> <!-- Form input ya checkbox ka clickable label -->
+                  <select id="help-category" name="Category" class="form-control" required> <!-- Form selection ya text input control -->
+                    <option value="" disabled selected>Select a category</option> <!-- Form selection ya text input control -->
+                    <option value="Individual">Individual</option> <!-- Form selection ya text input control -->
+                    <option value="Family">Family</option> <!-- Form selection ya text input control -->
+                    <option value="Freelancer">Freelancer</option> <!-- Form selection ya text input control -->
+                    <option value="Organization">Organization</option> <!-- Form selection ya text input control -->
+                    <option value="Public / Community">Public / Community</option> <!-- Form selection ya text input control -->
+                    <option value="Mobile &amp; Device">Mobile &amp; Device</option> <!-- Form selection ya text input control -->
+                    <option value="Awareness Campaign">Awareness Campaign</option> <!-- Form selection ya text input control -->
+                    <option value="Other">Other</option> <!-- Form selection ya text input control -->
+                  </select>
+                </div>
+              </div>
+
+              <!-- Field 5: Service -->
+              <div class="form-group">
+                <label for="help-service" class="form-label">Service <span style="color: var(--color-danger);">*</span></label> <!-- Form input ya checkbox ka clickable label -->
+                <select id="help-service" name="Service" class="form-control" required> <!-- Form selection ya text input control -->
+                  <option value="" disabled selected>Select a service</option> <!-- Form selection ya text input control -->
+                  <option value="Security Checkup">Security Checkup</option> <!-- Form selection ya text input control -->
+                  <option value="Account Security Guidance">Account Security Guidance</option> <!-- Form selection ya text input control -->
+                  <option value="2FA Setup Guidance">2FA Setup Guidance</option> <!-- Form selection ya text input control -->
+                  <option value="Privacy &amp; Security Guidance">Privacy &amp; Security Guidance</option> <!-- Form selection ya text input control -->
+                  <option value="Scam / Phishing Guidance">Scam / Phishing Guidance</option> <!-- Form selection ya text input control -->
+                  <option value="Mobile Security Setup">Mobile Security Setup</option> <!-- Form selection ya text input control -->
+                  <option value="Family Digital Safety">Family Digital Safety</option> <!-- Form selection ya text input control -->
+                  <option value="Freelancer Security">Freelancer Security</option> <!-- Form selection ya text input control -->
+                  <option value="Organization Security Awareness">Organization Security Awareness</option> <!-- Form selection ya text input control -->
+                  <option value="Awareness Campaign">Awareness Campaign</option> <!-- Form selection ya text input control -->
+                  <option value="Security Awareness Session">Security Awareness Session</option> <!-- Form selection ya text input control -->
+                  <option value="Other">Other</option> <!-- Form selection ya text input control -->
+                </select>
+              </div>
+
+              <!-- Field 6: Details -->
+              <div class="form-group">
+                <label for="help-details" class="form-label">Details <span style="color: var(--color-danger);">*</span></label> <!-- Form input ya checkbox ka clickable label -->
+                <textarea
+                  id="help-details"
+                  name="Details"
+                  class="form-control"
+                  rows="4"
+                  placeholder="Briefly describe the cybersecurity guidance, awareness session, or assistance you need..."
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Submit Actions -->
+              <div style="display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                <button type="submit" id="help-submit-btn" class="btn btn-primary" style="padding: 0.65rem 1.5rem;">
+                  <i data-lucide="send" class="w-4 h-4"></i> Submit Help Request
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- 6. Support / Donation Section -->
+        <section id="support-safepk" class="animate-fade-in" style="margin-bottom: 4rem;">
+          <div class="ui-card" style="padding: 1.75rem 2rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+              <div style="max-width: 640px;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.4rem;">
+                  <div class="card-icon-box" style="width: 2.25rem; height: 2.25rem;">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                  </div>
+                  <h2 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin: 0;"> <!-- Section ki main sub-heading (H2) -->
+                    Support SafePK
+                  </h2>
+                </div>
+                <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                  Help sustain free cybersecurity guides, tools, and public digital safety awareness across Pakistan.
+                </p>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="mailto:infosafepk@proton.me" class="footer-email-pill" title="Official SafePK Email: infosafepk@proton.me"> <!-- Official email pill button -->
+                  <i data-lucide="mail" class="w-4 h-4"></i> <span>infosafepk@proton.me</span> <!-- Mail icon aur official email -->
+                </a>
+                <a href="../donate.html" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.55rem 1.15rem;">
+                  <i data-lucide="heart" class="w-4 h-4"></i> Donate
+                </a>
+                <a href="../sponsor.html" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.55rem 1.15rem;">
+                  Sponsor
+                </a>
+                <a href="reviews.html" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.55rem 1.15rem;">
+                  <i data-lucide="star" class="w-4 h-4" style="color: var(--color-warning);"></i> Feedback &amp; Reviews
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Minimal Centered Footer -->
+    <footer>
+      <div class="container footer-minimal-wrap">
+        <nav class="footer-minimal-nav" aria-label="Footer Main Links">
+          <a href="about.html" class="footer-minimal-link">About</a>
+          <a href="reviews.html" class="footer-minimal-link">Feedback &amp; Reviews</a>
+          <a href="../sponsor.html" class="footer-minimal-link">Sponsor</a>
+                  <a href="contact.html" class="footer-minimal-link">Contact</a>
+</nav>
+
+        <nav class="footer-minimal-legal" aria-label="Legal Policies">
+          <a href="privacy-policy.html" class="footer-minimal-legal-link">Privacy Policy</a>
+          <a href="terms-of-use.html" class="footer-minimal-legal-link">Terms of Use</a>
+          <a href="disclaimer.html" class="footer-minimal-legal-link">Disclaimer</a>
+        </nav>
+
+        <div class="footer-contact-row notranslate" translate="no"> <!-- Official email aur Pro Share button ka container -->
+          <a href="mailto:infosafepk@proton.me" class="footer-email-pill" title="Official SafePK Email: infosafepk@proton.me">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>infosafepk@proton.me</span>
+          </a>
+        </div>
+
+        <p class="footer-minimal-copy">&copy; SafePK &mdash; All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Script assets inclusions -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/script.js"></script>
+
+    <script>
+      if (typeof initTheme !== 'undefined') initTheme();
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      // =========================================================================
+      // SafePK Help Center — Category/Service Sync & Google Sheet / Email Handler
+      // Data Structure: ID No,Date,Time,Name,Email,Whatsapp No,Category,Service,Details
+      // =========================================================================
+      const ALL_HELP_SERVICES = [
+        'Security Checkup',
+        'Account Security Guidance',
+        '2FA Setup Guidance',
+        'Privacy & Security Guidance',
+        'Scam / Phishing Guidance',
+        'Mobile Security Setup',
+        'Family Digital Safety',
+        'Freelancer Security',
+        'Organization Security Awareness',
+        'Awareness Campaign',
+        'Security Awareness Session',
+        'Other'
+      ];
+
+      const CATEGORY_SERVICE_MAP = {
+        'Individual': [
+          'Security Checkup',
+          'Account Security Guidance',
+          '2FA Setup Guidance',
+          'Privacy & Security Guidance',
+          'Scam / Phishing Guidance',
+          'Mobile Security Setup',
+          'Other'
+        ],
+        'Family': [
+          'Family Digital Safety',
+          'Privacy & Security Guidance',
+          'Account Security Guidance',
+          'Mobile Security Setup',
+          'Scam / Phishing Guidance',
+          'Security Checkup',
+          'Other'
+        ],
+        'Freelancer': [
+          'Freelancer Security',
+          'Account Security Guidance',
+          '2FA Setup Guidance',
+          'Privacy & Security Guidance',
+          'Scam / Phishing Guidance',
+          'Security Checkup',
+          'Other'
+        ],
+        'Organization': [
+          'Organization Security Awareness',
+          'Awareness Campaign',
+          'Security Awareness Session',
+          'Scam / Phishing Guidance',
+          'Account Security Guidance',
+          'Security Checkup',
+          'Other'
+        ],
+        'Public / Community': [
+          'Awareness Campaign',
+          'Security Awareness Session',
+          'Scam / Phishing Guidance',
+          'Privacy & Security Guidance',
+          'Other'
+        ],
+        'Mobile & Device': [
+          'Mobile Security Setup',
+          'Privacy & Security Guidance',
+          'Account Security Guidance',
+          '2FA Setup Guidance',
+          'Security Checkup',
+          'Other'
+        ],
+        'Awareness Campaign': [
+          'Awareness Campaign',
+          'Security Awareness Session',
+          'Organization Security Awareness',
+          'Scam / Phishing Guidance',
+          'Other'
+        ],
+        'Other': ALL_HELP_SERVICES
+      };
+
+      const categorySelect = document.getElementById('help-category');
+      const serviceSelect = document.getElementById('help-service');
+
+      function updateServiceOptionsForCategory(categoryVal, preferredService) {
+        if (!serviceSelect) return;
+        const previousVal = preferredService || serviceSelect.value;
+        const allowedServices = CATEGORY_SERVICE_MAP[categoryVal] || ALL_HELP_SERVICES;
+
+        serviceSelect.innerHTML = '<option value="" disabled>Select a service</option>';
+        allowedServices.forEach((srv) => {
+          const opt = document.createElement('option'); /* Naya HTML element 'opt' dynamically banaya ja raha hai */
+          opt.value = srv;
+          opt.textContent = srv;
+          serviceSelect.appendChild(opt);
+        });
+
+        if (previousVal && allowedServices.includes(previousVal)) {
+          serviceSelect.value = previousVal;
+        } else {
+          serviceSelect.selectedIndex = 0;
+        }
+      }
+
+      if (categorySelect) {
+        categorySelect.addEventListener('change', function () {
+          updateServiceOptionsForCategory(this.value);
+        });
+      }
+
+      // Helper for audience cards to pre-select Category & Service and scroll to form
+      window.selectHelpCategory = function (categoryVal, serviceVal) {
+        if (categorySelect) {
+          categorySelect.value = categoryVal;
+          updateServiceOptionsForCategory(categoryVal, serviceVal);
+        }
+        const formSection = document.getElementById('personal-help-request');
+        if (formSection) {
+          formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        const nameInput = document.getElementById('help-name');
+        if (nameInput) {
+          setTimeout(() => nameInput.focus({ preventScroll: true }), 450);
+        }
+      };
+
+      // Generate next automatic Request ID starting cleanly from SPK-0001, SPK-0002, SPK-0003
+      function generateNextRequestId() {
+        let seq = 1;
+        try {
+          // One-time reset of previous counters so sequence starts fresh from SPK-0001
+          if (!localStorage.getItem('safepk_seq_v3_reset')) {
+            localStorage.removeItem('safepk_help_req_seq');
+            localStorage.removeItem('safepk_help_req_seq_v2');
+            localStorage.setItem('safepk_seq_v3_reset', '1');
+          }
+          const stored = parseInt(localStorage.getItem('safepk_help_req_seq_v3') || '0', 10);
+          if (!isNaN(stored) && stored >= 0) {
+            seq = stored + 1;
+          }
+          localStorage.setItem('safepk_help_req_seq_v3', String(seq));
+        } catch (e) {
+          seq = 1;
+        }
+        return 'SPK-' + String(seq).padStart(4, '0');
+      }
+
+      // Generate automatic Date and Time strings
+      function getAutomaticDateTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const dateStr = `${year}-${month}-${day}`;
+
+        const timeStr = now.toLocaleTimeString('en-US', {
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true
+        });
+
+        return { dateStr, timeStr };
+      }
+
+      const helpForm = document.getElementById('safepk-help-form');
+      if (helpForm) {
+        helpForm.addEventListener('submit', async function (e) {
+          e.preventDefault();
+
+          const nameVal = (document.getElementById('help-name')?.value || '').trim();
+          const emailVal = (document.getElementById('help-email')?.value || '').trim();
+          const whatsappVal = (document.getElementById('help-whatsapp')?.value || '').trim();
+          const categoryVal = (document.getElementById('help-category')?.value || '').trim();
+          const serviceVal = (document.getElementById('help-service')?.value || '').trim();
+          const detailsVal = (document.getElementById('help-details')?.value || '').trim();
+
+          if (!nameVal || !emailVal || !categoryVal || !serviceVal || !detailsVal) {
+            if (window.showToast) {
+              window.showToast('Please complete all required fields before submitting.', 'warning');
+            }
+            return; /* Function ko yahin safely roka ja raha hai */
+          }
+
+          // Automatic ID No., Date, and Time generation
+          let requestId = generateNextRequestId();
+          const { dateStr, timeStr } = getAutomaticDateTime();
+
+          const idInput = document.getElementById('help-id-no');
+          const dateInput = document.getElementById('help-date');
+          const timeInput = document.getElementById('help-time');
+          if (idInput) idInput.value = requestId;
+          if (dateInput) dateInput.value = dateStr;
+          if (timeInput) timeInput.value = timeStr;
+
+          const submitBtn = document.getElementById('help-submit-btn');
+          const origBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Submitting...';
+          }
+
+          // Exact data structure for Google Sheet (ID No,Date,Time,Name,Email,Whatsapp No,Category,Service,Details)
+          // Strictly saves to Google Sheet only (NO email notifications sent)
+          const structuredRecord = {
+            // Exact Sheet Header Keys
+            'ID No': requestId,
+            'ID No.': requestId,
+            'Date': dateStr,
+            'Time': timeStr,
+            'Name': nameVal,
+            'Email': emailVal,
+            'Whatsapp No': whatsappVal || 'N/A',
+            'WhatsApp No.': whatsappVal || 'N/A',
+            'Category': categoryVal,
+            'Service': serviceVal,
+            'Details': detailsVal,
+            // Common camelCase / lowercase Apps Script parameter aliases
+            'id': requestId,
+            'idNo': requestId,
+            'date': dateStr,
+            'time': timeStr,
+            'name': nameVal,
+            'email': emailVal,
+            'whatsapp': whatsappVal || 'N/A',
+            'whatsappNo': whatsappVal || 'N/A',
+            'phone': whatsappVal || 'N/A',
+            'category': categoryVal,
+            'service': serviceVal,
+            'details': detailsVal,
+            'message': detailsVal
+          };
+
+          // Submit strictly via POST body to Google Apps Script Web App URL (Google Sheet only)
+          const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5Xcidz3AU2Yzfh8YDel6_UrzA-SNTKkgpN_7y6oRdxnXTqwOrnV4YkxjpPz_FnYQyFA/exec';
+          const scriptUrl = (
+            window.SAFEPK_HELP_SCRIPT_URL ||
+            localStorage.getItem('SAFEPK_HELP_SCRIPT_URL') ||
+            helpForm.getAttribute('data-script-url') ||
+            DEFAULT_SCRIPT_URL
+          ).trim();
+
+          if (scriptUrl && scriptUrl.startsWith('http')) {
+            try {
+              await fetch(scriptUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                  'Content-Type': 'text/plain;charset=UTF-8'
+                },
+                body: JSON.stringify(structuredRecord)
+              });
+            } catch (err) {
+              console.warn('[SafePK] Apps Script endpoint submission notice:', err);
+            }
+          }
+
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = origBtnHtml;
+            if (window.lucide) window.lucide.createIcons();
+          }
+
+          if (window.showToast) {
+            window.showToast(`Help request ${requestId} submitted successfully.`, 'success');
+          }
+
+          helpForm.reset();
+          updateServiceOptionsForCategory('');
+        });
+      }
+    </script>
+  </body>
+</html>

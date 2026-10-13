@@ -1,0 +1,1116 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+      if ('serviceWorker' in navigator) {
+        const isDev = window.location.hostname === 'localhost' ||
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('.run.app');
+        if (isDev) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            let unregistered = false;
+            for (const registration of registrations) {
+              registration.unregister();
+              unregistered = true;
+            }
+            if (unregistered) {
+              console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+              if (window.caches) {
+                caches.keys().then((names) => {
+                  return Promise.all(names.map(name => caches.delete(name)));
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                window.location.reload();
+              }
+            }
+          });
+        }
+      }
+    </script>
+
+    <!-- Primary Technical SEO & Canonical Metadata -->
+    <title>Cybersecurity Articles & Online Scam Guides | SafePK</title>
+    <meta name="description" content="Explore educational articles on online scams in Pakistan, including WhatsApp account safety, mobile wallet protection, fake links, and account recovery steps." />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/pages/learn.html" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/png" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="apple-touch-icon" href="../assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cybersecurity Articles & Online Scam Guides | SafePK" />
+    <meta property="og:description" content="Explore educational articles on online scams in Pakistan, including WhatsApp account safety, mobile wallet protection, fake links, and account recovery steps." />
+    <meta property="og:url" content="https://safepk.net/pages/learn.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+
+    <!-- Twitter / X Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cybersecurity Articles & Online Scam Guides | SafePK" />
+    <meta name="twitter:description" content="Explore educational articles on online scams in Pakistan, including WhatsApp account safety, mobile wallet protection, fake links, and account recovery steps." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Cybersecurity Articles & Online Scam Guides | SafePK",
+      "url": "https://safepk.net/pages/learn.html",
+      "description": "Explore educational articles on online scams in Pakistan, including WhatsApp account safety, mobile wallet protection, fake links, and account recovery steps.",
+      "isPartOf": {
+        "@id": "https://safepk.net/#website"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Article",
+              "headline": "Phishing Scams (Fake Links)",
+              "description": "Fake links imitate trusted bank websites, government portals, courier services, or social media login pages to collect your passwords, banking details, and personal information through SMS, WhatsApp, or email.",
+              "articleSection": "Urgent Alerts",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/phishing-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Article",
+              "headline": "WhatsApp Verification Code Scams",
+              "description": "Impersonators may pose as WhatsApp support, a group administrator, a delivery rider, or a known friend to request your 6-digit SMS verification code and access your WhatsApp account.",
+              "articleSection": "Social Media",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/whatsapp-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Article",
+              "headline": "Fake Prize Scams (BISP / Jeeto Pakistan)",
+              "description": "Unsolicited calls or SMS messages claim you have won cash prizes through BISP, 8171, TV game shows, or lucky draws, and request advance registration fees or OTP codes.",
+              "articleSection": "Financial Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/fake-prize-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Article",
+              "headline": "Fake Job Scams (Online Earning Traps)",
+              "description": "Unverified online job offers on WhatsApp, Telegram, and social media pay a small initial reward to build trust before asking for larger deposits or account upgrades.",
+              "articleSection": "Financial Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/fake-job-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "Article",
+              "headline": "Easypaisa Scam (Fake SMS & Calls)",
+              "description": "Impersonators pose as mobile wallet support or send fake payment SMS messages from personal numbers to request OTPs, PINs, or false refunds.",
+              "articleSection": "Financial Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/easypaisa-fraud.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "Article",
+              "headline": "JazzCash Helpline & Verification Scams",
+              "description": "Callers pretend to be JazzCash customer support and claim your account needs urgent verification or unlocking, asking for your MPIN or OTP.",
+              "articleSection": "Financial Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/jazzcash-fraud.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@type": "Article",
+              "headline": "OTP (One-Time Password) Protection",
+              "description": "One-Time Passwords protect your bank accounts, mobile wallets, and online profiles. Learn how to recognize callers who impersonate staff to ask for your OTP.",
+              "articleSection": "Urgent Alerts",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/otp-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@type": "Article",
+              "headline": "Unauthorized SIM Replacement (SIM Swap)",
+              "description": "Understand how unauthorized SIM replacements happen, how to spot sudden mobile network loss, and how to protect your mobile number and banking OTPs.",
+              "articleSection": "Urgent Alerts",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/sim-swap-fraud.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@type": "Article",
+              "headline": "Fake Banking Verification Calls",
+              "description": "Learn how to spot callers using spoofed bank numbers to request your ATM PIN, CVV, OTP, or online banking login details.",
+              "articleSection": "Financial Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/fake-banking-calls.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@type": "Article",
+              "headline": "Facebook Fake Profiles & Marketplace Safety",
+              "description": "How to recognize cloned social media profiles asking friends for urgent money and unverified Marketplace listings requesting advance payments.",
+              "articleSection": "Social Media",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/facebook-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@type": "Article",
+              "headline": "Instagram Giveaway & Investment Safety",
+              "description": "How to spot fake giveaway links, impersonated brand sponsorship offers, and unverified investment pages on Instagram.",
+              "articleSection": "Social Media",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/instagram-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@type": "Article",
+              "headline": "TikTok Earning & Viral Video Safety",
+              "description": "Understand how misleading earning apps, unverified investment schemes, and fake gift links are promoted in short videos.",
+              "articleSection": "Social Media",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/tiktok-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+              "@type": "Article",
+              "headline": "Email Phishing & Business Email Verification",
+              "description": "How organizations and professionals in Pakistan can verify sender addresses, spot fake invoice emails, and protect login credentials.",
+              "articleSection": "Workplace Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/email-security.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+              "@type": "Article",
+              "headline": "Spotting Fake Shopping & Imitation Websites",
+              "description": "Learn how to check website domain names carefully and avoid imitation pages that copy popular Pakistani brands or public portals.",
+              "articleSection": "Digital Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/fake-websites.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+              "@type": "Article",
+              "headline": "QR Code Payment Safety",
+              "description": "Remember that scanning a QR code is used to send money, not receive a payment. Learn how to verify QR codes before entering your PIN.",
+              "articleSection": "Digital Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/qr-code-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "item": {
+              "@type": "Article",
+              "headline": "Public Wi-Fi Safety",
+              "description": "Why open Wi-Fi networks at cafes, airports, and shopping malls should not be used for banking, and how to stay safe using mobile data.",
+              "articleSection": "Network Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/public-wifi-risks.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "item": {
+              "@type": "Article",
+              "headline": "Protecting Your CNIC & Personal Identity",
+              "description": "How to safeguard your CNIC copies and check how many SIMs are registered under your name using PTA's official 668 service.",
+              "articleSection": "Digital Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/identity-theft.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 18,
+            "item": {
+              "@type": "Article",
+              "headline": "Safe Online Shopping Habits",
+              "description": "How to verify online stores on Facebook, Instagram, and WhatsApp before placing orders or making advance payments.",
+              "articleSection": "Online Shopping",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/online-shopping-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 19,
+            "item": {
+              "@type": "Article",
+              "headline": "AI Voice Impersonation Awareness",
+              "description": "Learn how AI voice tools can imitate a relative's voice in urgent phone calls and how a simple callback or family code word keeps you safe.",
+              "articleSection": "Urgent Alerts",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/ai-voice-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 20,
+            "item": {
+              "@type": "Article",
+              "headline": "Edited Photos, AI Media & Digital Privacy",
+              "description": "Modern editing tools and AI software can be used to create altered photos or misleading videos. Understanding how to spot manipulated media and protect your personal photos helps keep you and your family safe.",
+              "articleSection": "Digital Privacy",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/deepfake-awareness.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 21,
+            "item": {
+              "@type": "Article",
+              "headline": "Digital Respect & Handling Unwanted Online Contact",
+              "description": "Unwanted online contact involves using fake accounts, unkind messages, or unauthorized sharing of personal information. Learn how to protect your privacy and use official reporting channels.",
+              "articleSection": "Social Media",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/cyber-bullying.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 22,
+            "item": {
+              "@type": "Article",
+              "headline": "Protecting Personal Privacy & Handling Online Pressure",
+              "description": "Learn how to lock your social media privacy settings, avoid accepting unknown video calls, save evidence, and contact official support channels calmly.",
+              "articleSection": "Digital Privacy",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/online-blackmail.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 23,
+            "item": {
+              "@type": "Article",
+              "headline": "OLX & Marketplace Advance Payment Safety",
+              "description": "Why buyers should always inspect items in person at a safe public place and never send advance booking or delivery fees to unverified sellers.",
+              "articleSection": "Online Shopping",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/olx-advance-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 24,
+            "item": {
+              "@type": "Article",
+              "headline": "Online Task & Rating Job Offers",
+              "description": "How to recognize unverified WhatsApp and Telegram task groups that misuse well-known e-commerce names and ask for prepaid deposits.",
+              "articleSection": "Online Earning",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/daraz-task-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 25,
+            "item": {
+              "@type": "Article",
+              "headline": "Unverified Crypto & Mining Apps",
+              "description": "Learn the warning signs of unregistered apps and Telegram groups that promise guaranteed daily returns in exchange for deposits.",
+              "articleSection": "Online Investment",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/crypto-mining-apps.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 26,
+            "item": {
+              "@type": "Article",
+              "headline": "Verifying Hajj & Umrah Travel Packages",
+              "description": "How to check official Ministry of Religious Affairs registration before booking Hajj or Umrah packages and avoid unverified social media travel offers.",
+              "articleSection": "Travel Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/hajj-umrah-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 27,
+            "item": {
+              "@type": "Article",
+              "headline": "Unlicensed Instant Loan Apps & Data Privacy",
+              "description": "Unregistered instant loan apps often advertise quick cash with minimal paperwork, but request access to your phone's contacts and photos, followed by unfair hidden charges.",
+              "articleSection": "Financial Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/loan-app-extortion.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 28,
+            "item": {
+              "@type": "Article",
+              "headline": "Verifying Online Car Rental Bookings",
+              "description": "How to verify car rental businesses in person and avoid sending advance booking payments to unverified social media pages.",
+              "articleSection": "Travel Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/car-rental-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 29,
+            "item": {
+              "@type": "Article",
+              "headline": "Typing & Assignment Job Offer Safety",
+              "description": "Why legitimate employers never ask students or job seekers to pay registration, security, or membership fees before starting work.",
+              "articleSection": "Online Earning",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/academic-writing-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 30,
+            "item": {
+              "@type": "Article",
+              "headline": "Verifying Overseas Visa & Immigration Consultants",
+              "description": "How to verify overseas employment licenses on the official Bureau of Emigration portal and check visas directly on embassy websites.",
+              "articleSection": "Travel Safety",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/foreign-visa-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 31,
+            "item": {
+              "@type": "Article",
+              "headline": "Safe Charity & Zakat Donations Online",
+              "description": "How to ensure your Zakat, Sadqah, and relief donations reach verified charitable organizations through official bank accounts.",
+              "articleSection": "Social Media",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/charity-ramadan-scams.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 32,
+            "item": {
+              "@type": "Article",
+              "headline": "Online Friendship & Investment Safety",
+              "description": "How to recognize online acquaintances who gradually encourage you to deposit money into unverified trading or investment websites.",
+              "articleSection": "Social Media",
+              "image": "https://safepk.net/assets/images/safepk-logo.png",
+              "author": { "@type": "Organization", "name": "SafePK", "url": "https://safepk.net/" },
+              "publisher": { "@type": "Organization", "name": "SafePK", "logo": { "@type": "ImageObject", "url": "https://safepk.net/assets/images/safepk-logo.png" } },
+              "mainEntityOfPage": "https://safepk.net/learn/romance-crypto-scams.html"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Stylesheets & Web App Manifest -->
+    <link rel="stylesheet" href="../css/style.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="stylesheet" href="../css/responsive.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="manifest" href="../manifest.json" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <meta name="theme-color" content="#2563EB" />
+  </head>
+  <body>
+    <!-- Navigation bar controls -->
+    <header>
+      <div class="container navbar-container">
+        <a href="../index.html" class="logo-block">
+          <img src="../assets/images/safepk-logo.png" alt="SafePK Logo" class="logo-img" width="32" height="32" decoding="async" fetchpriority="high" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-link nav-dropdown-trigger" aria-expanded="false">
+              <span>Audience</span>
+              <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="../individual.html" class="nav-dropdown-item">
+                <span>Individuals</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../family.html" class="nav-dropdown-item">
+                <span>Families</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../organizations.html" class="nav-dropdown-item">
+                <span>Organizations</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="../freelancers.html" class="nav-dropdown-item">
+                <span>Freelancers &amp; Businesses</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+          <a href="learn.html" class="nav-link active">Articles</a>
+          <a href="tools.html" class="nav-link">Report Generator</a>
+          <a href="directory.html" class="nav-link">Directory</a>
+          <a href="help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Learning Center Container -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Global Clean Hero Section -->
+        <section class="page-hero animate-fade-in">
+          <h1 class="page-hero-title">Scam Awareness &amp; Guides</h1>
+          <p class="page-hero-subtitle">
+            Practical knowledge to help you recognize and avoid online scams in Pakistan.
+          </p>
+        </section>
+
+        <!-- All cyber threats and scam guides listed below -->
+
+        <!-- Loading indicator or dynamic grid cards wrapper -->
+        <div id="scams-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; margin-bottom: 4rem;">
+          <a href="../learn/phishing-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-1.png" alt="Phishing Links &amp; Fake Login Pages" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Account Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Phishing Links &amp; Fake Login Pages</h3> <!-- Article title -->
+              <p class="article-excerpt">Online scammers often create imitation websites that look like banks, government portals, courier companies, or social media login pages to collect passwords and personal details through SMS, WhatsApp, and email.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/whatsapp-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-2.png" alt="WhatsApp Verification Code Scams" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Social Media</span> <!-- Category badge -->
+              <h3 class="article-title">WhatsApp Verification Code Scams</h3> <!-- Article title -->
+              <p class="article-excerpt">Scammers may impersonate WhatsApp support, a group administrator, a bank representative, or a known friend to ask for your 6-digit SMS verification code and gain access to your WhatsApp account.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/fake-prize-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-3.png" alt="Fake Prize &amp; Welfare Grant Alerts (BISP / Lucky Draws)" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Fake Prize &amp; Welfare Grant Alerts (BISP / Lucky Draws)</h3> <!-- Article title -->
+              <p class="article-excerpt">Fraudulent callers and SMS senders claim that you have won a cash prize or government grant through BISP (8171), a television game show, or a telecom lucky draw, and ask for an advance processing fee or PIN.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/fake-job-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-4.png" alt="Online Job &amp; Task Earning Scams" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Online Earning</span> <!-- Category badge -->
+              <h3 class="article-title">Online Job &amp; Task Earning Scams</h3> <!-- Article title -->
+              <p class="article-excerpt">Deceptive job offers shared on WhatsApp, Telegram, and social media promise high daily income for simple online tasks. They often send a small initial payout to build trust before asking for larger deposits.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/easypaisa-fraud.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-5.png" alt="Easypaisa Fake SMS &amp; Refund Calls" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Easypaisa Fake SMS &amp; Refund Calls</h3> <!-- Article title -->
+              <p class="article-excerpt">Scammers may pose as Easypaisa support staff or send fake payment notifications from personal mobile numbers to trick users into sharing their PIN, OTP, or returning money that was never actually received.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/jazzcash-fraud.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-6.png" alt="JazzCash Impersonation &amp; PIN Scams" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Safety</span> <!-- Category badge -->
+              <h3 class="article-title">JazzCash Impersonation &amp; PIN Scams</h3> <!-- Article title -->
+              <p class="article-excerpt">Scammers pretend to be JazzCash customer service representatives and claim your wallet is blocked or requires an urgent update, attempting to obtain your MPIN, OTP, or payment approval.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/otp-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-7.png" alt="One-Time Password (OTP) Protection Guide" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Account Safety</span> <!-- Category badge -->
+              <h3 class="article-title">One-Time Password (OTP) Protection Guide</h3> <!-- Article title -->
+              <p class="article-excerpt">A One-Time Password (OTP) is a single-use security code that protects your bank transfers, mobile wallets, and personal accounts. Scammers use urgent stories to persuade users to read out this code.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/sim-swap-fraud.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-8.png" alt="SIM Replacement &amp; Mobile Network Safety" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Account Safety</span> <!-- Category badge -->
+              <h3 class="article-title">SIM Replacement &amp; Mobile Network Safety</h3> <!-- Article title -->
+              <p class="article-excerpt">Unauthorized SIM replacement happens when someone attempts to issue a duplicate SIM card for your mobile number so they can receive your banking alerts and verification codes.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/fake-banking-calls.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-9.png" alt="Fake Bank Verification Calls" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Fake Bank Verification Calls</h3> <!-- Article title -->
+              <p class="article-excerpt">Scammers often call pretending to represent commercial banks (such as HBL, Meezan Bank, UBL, Allied Bank, or Bank Alfalah) or the State Bank of Pakistan, asking for card details, PINs, or login codes.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/facebook-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-10.png" alt="Facebook Profile Impersonation &amp; Marketplace Safety" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Social Media</span> <!-- Category badge -->
+              <h3 class="article-title">Facebook Profile Impersonation &amp; Marketplace Safety</h3> <!-- Article title -->
+              <p class="article-excerpt">Scammers may copy a person’s profile photo and name on Facebook to request emergency money from their friends, or post unusually cheap items on Marketplace to collect advance payments.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/instagram-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-11.png" alt="Instagram Giveaway &amp; Sponsorship Scams" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Social Media</span> <!-- Category badge -->
+              <h3 class="article-title">Instagram Giveaway &amp; Sponsorship Scams</h3> <!-- Article title -->
+              <p class="article-excerpt">Users on Instagram are often targeted with fake smartphone giveaways, brand collaboration links, and unrealistic &quot;double your money&quot; investment offers designed to capture accounts or funds.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/tiktok-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-12.png" alt="TikTok Viral Earning &amp; Link Traps" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Social Media</span> <!-- Category badge -->
+              <h3 class="article-title">TikTok Viral Earning &amp; Link Traps</h3> <!-- Article title -->
+              <p class="article-excerpt">Short videos on social platforms often promote unverified earning apps, fake investment groups, or free gift links in the bio and comments to mislead viewers.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/email-security.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-13.png" alt="Business Email &amp; Invoice Verification Safety" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Workplace Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Business Email &amp; Invoice Verification Safety</h3> <!-- Article title -->
+              <p class="article-excerpt">Organizations and professionals can receive deceptive emails that imitate trusted vendors, banks, or company executives to redirect invoice payments or collect login credentials.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/fake-websites.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-14.png" alt="Imitation Shopping &amp; Official Portal Websites" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Online Shopping</span> <!-- Category badge -->
+              <h3 class="article-title">Imitation Shopping &amp; Official Portal Websites</h3> <!-- Article title -->
+              <p class="article-excerpt">Scammers sometimes create look-alike websites that copy the logos and design of popular clothing brands, online stores, or public service portals to collect advance payments or card details.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/qr-code-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-15.png" alt="QR Code Payment Safety" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Safety</span> <!-- Category badge -->
+              <h3 class="article-title">QR Code Payment Safety</h3> <!-- Article title -->
+              <p class="article-excerpt">Scammers may send a QR code on WhatsApp and claim that scanning it will credit a refund or prize into your account, whereas scanning and entering your PIN actually sends money out of your wallet.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/public-wifi-risks.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-16.png" alt="Public Wi-Fi Safety Guide" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Device &amp; Network Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Public Wi-Fi Safety Guide</h3> <!-- Article title -->
+              <p class="article-excerpt">Open Wi-Fi networks in cafes, airports, shopping malls, and public spaces are shared by many people. Unsecured networks or look-alike hotspots can expose your browsing session if proper precautions are not taken.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/identity-theft.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-17.png" alt="CNIC &amp; Personal Identity Protection" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Identity Protection</span> <!-- Category badge -->
+              <h3 class="article-title">CNIC &amp; Personal Identity Protection</h3> <!-- Article title -->
+              <p class="article-excerpt">Your CNIC number, issue date, and family details are sensitive personal identifiers. If shared carelessly on unverified pages, they can be misused for unauthorized registrations or impersonation.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/online-shopping-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-18.png" alt="Safe Online Shopping on Social Media" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Online Shopping</span> <!-- Category badge -->
+              <h3 class="article-title">Safe Online Shopping on Social Media</h3> <!-- Article title -->
+              <p class="article-excerpt">Many small businesses operate honestly online, but unverified social media pages sometimes advertise luxury electronics or branded goods at steep discounts to collect advance payments without delivering the order.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/ai-voice-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-19.png" alt="Fake Family Emergency &amp; Voice Impersonation Calls" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Family Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Fake Family Emergency &amp; Voice Impersonation Calls</h3> <!-- Article title -->
+              <p class="article-excerpt">Scammers sometimes call parents or relatives claiming that a family member is in a sudden medical or legal emergency—occasionally using audio clips to imitate their voice—and ask for an immediate money transfer.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/deepfake-awareness.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/individual/pictures/individual-20.png" alt="Edited Photos, AI Media &amp; Digital Privacy" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Digital Privacy</span> <!-- Category badge -->
+              <h3 class="article-title">Edited Photos, AI Media &amp; Digital Privacy</h3> <!-- Article title -->
+              <p class="article-excerpt">Modern editing tools and AI software can be used to create altered photos or misleading videos. Understanding how to recognize edited media and protect your personal photos helps keep you and your family safe.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/cyber-bullying.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/family/pictures/family-1.png" alt="Online Respect &amp; Dealing with Unwanted Contact" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Social Media</span> <!-- Category badge -->
+              <h3 class="article-title">Online Respect &amp; Dealing with Unwanted Contact</h3> <!-- Article title -->
+              <p class="article-excerpt">Unwanted online contact involves using fake accounts, impolite messages, or unauthorized sharing of personal information to bother students, professionals, or everyday internet users.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/online-blackmail.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/family/pictures/family-2.png" alt="Personal Privacy &amp; Handling Online Pressure" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Digital Privacy</span> <!-- Category badge -->
+              <h3 class="article-title">Personal Privacy &amp; Handling Online Pressure</h3> <!-- Article title -->
+              <p class="article-excerpt">Unverified online accounts sometimes attempt to misuse private conversations or edited images to pressure individuals into sending money. Knowing how to protect your privacy and respond calmly is essential.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/olx-advance-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/family/pictures/family-3.png" alt="Classified Ads &amp; Marketplace Advance Payment Scams" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Online Shopping</span> <!-- Category badge -->
+              <h3 class="article-title">Classified Ads &amp; Marketplace Advance Payment Scams</h3> <!-- Article title -->
+              <p class="article-excerpt">On classified platforms and social marketplaces, deceptive sellers post attractive listings for cars, bikes, or phones and ask buyers to send an advance booking token before seeing the item.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/daraz-task-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/family/pictures/family-4.png" alt="Fake E-Commerce Product Review &amp; Task Scams" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Online Earning</span> <!-- Category badge -->
+              <h3 class="article-title">Fake E-Commerce Product Review &amp; Task Scams</h3> <!-- Article title -->
+              <p class="article-excerpt">Scammers misuse the names of well-known e-commerce brands on WhatsApp and Telegram, offering paid tasks to boost product ratings. After a small initial reward, they ask participants to deposit larger sums.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/crypto-mining-apps.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/family/pictures/family-5.png" alt="Unverified Investment &amp; Mining App Scams" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Unverified Investment &amp; Mining App Scams</h3> <!-- Article title -->
+              <p class="article-excerpt">Unregistered mobile apps and Telegram groups often promote &quot;automated mining&quot; or high-yield investment plans promising fixed daily profits, only to close down once users deposit significant funds.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/hajj-umrah-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/family/pictures/family-6.png" alt="Verifying Hajj &amp; Umrah Travel Packages Safely" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Travel Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Verifying Hajj &amp; Umrah Travel Packages Safely</h3> <!-- Article title -->
+              <p class="article-excerpt">Some unverified social media pages advertise unusually cheap Hajj and Umrah packages online and request advance transfers without holding an official travel license.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/loan-app-extortion.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/family/pictures/family-7.png" alt="Unlicensed Instant Loan Apps &amp; Data Privacy" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Unlicensed Instant Loan Apps &amp; Data Privacy</h3> <!-- Article title -->
+              <p class="article-excerpt">Unregistered instant loan apps often advertise quick cash with minimal paperwork, but request access to your phone’s contacts and photos, followed by unfair hidden charges and aggressive collection calls.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/car-rental-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/family/pictures/family-8.png" alt="Online Vehicle Rental &amp; Booking Safety" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Travel Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Online Vehicle Rental &amp; Booking Safety</h3> <!-- Article title -->
+              <p class="article-excerpt">Unverified pages on social media sometimes post photos of rental cars or tour vehicles at low rates to collect advance booking deposits without owning any fleet.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/academic-writing-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/family/pictures/family-9.png" alt="Fake Typing, Data Entry &amp; Assignment Job Scams" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Online Earning</span> <!-- Category badge -->
+              <h3 class="article-title">Fake Typing, Data Entry &amp; Assignment Job Scams</h3> <!-- Article title -->
+              <p class="article-excerpt">Students and job seekers are frequently targeted on WhatsApp and Facebook with offers of home-based handwriting, typing, or data entry work that ask for an upfront registration or material fee.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/foreign-visa-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/family/pictures/family-10.png" alt="Overseas Visa &amp; Employment Verification Guide" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Travel Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Overseas Visa &amp; Employment Verification Guide</h3> <!-- Article title -->
+              <p class="article-excerpt">Unlicensed agents sometimes advertise &quot;guaranteed&quot; work visas or job permits for Gulf countries, Europe, the UK, or Canada on social media, collecting large advance fees for unverified documents.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/charity-ramadan-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/freelancers/pictures/freelancer-1.png" alt="Safe Charity &amp; Zakat Donation Practices" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Safe Charity &amp; Zakat Donation Practices</h3> <!-- Article title -->
+              <p class="article-excerpt">During Ramadan, religious occasions, or flood relief efforts, unverified social media pages may copy emotional photos from the internet to collect donations into personal wallet accounts.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="../learn/romance-crypto-scams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static learn article card link -->
+            <img src="../assets/freelancers/pictures/freelancer-2.png" alt="Online Friendship &amp; Fake Investment Traps" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Social Media</span> <!-- Category badge -->
+              <h3 class="article-title">Online Friendship &amp; Fake Investment Traps</h3> <!-- Article title -->
+              <p class="article-excerpt">Scammers on social media or messaging apps may spend weeks building a friendly connection to gain trust, and then gradually encourage the person to invest money into a fake trading or crypto website.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Minimal GitHub-Inspired Centered Footer -->
+    <footer>
+      <div class="container footer-minimal-wrap">
+        <nav class="footer-minimal-nav" aria-label="Footer Main Links">
+          <a href="about.html" class="footer-minimal-link">About</a>
+          <a href="reviews.html" class="footer-minimal-link">Feedback &amp; Reviews</a>
+          <a href="../sponsor.html" class="footer-minimal-link">Sponsor</a>
+          <a href="contact.html" class="footer-minimal-link">Contact</a>
+        </nav>
+
+        <nav class="footer-minimal-legal" aria-label="Legal Policies">
+          <a href="privacy-policy.html" class="footer-minimal-legal-link">Privacy Policy</a>
+          <a href="terms-of-use.html" class="footer-minimal-legal-link">Terms of Use</a>
+          <a href="disclaimer.html" class="footer-minimal-legal-link">Disclaimer</a>
+        </nav>
+
+        <div class="footer-contact-row notranslate" translate="no"> <!-- Official email aur Pro Share button ka container -->
+          <a href="mailto:infosafepk@proton.me" class="footer-email-pill" title="Official SafePK Email: infosafepk@proton.me">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>infosafepk@proton.me</span>
+          </a>
+        </div>
+
+        <p class="footer-minimal-copy">&copy; SafePK &mdash; All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Script loading indices -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+      if (typeof initTheme !== "undefined") initTheme();
+      if (typeof lucide !== "undefined") lucide.createIcons(); /* Lucide icons render kiye ja rahe hain */
+    </script>
+  </body>
+</html>
