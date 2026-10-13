@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+      if ('serviceWorker' in navigator) {
+        const isDev = window.location.hostname === 'localhost' ||
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('.run.app');
+        if (isDev) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            let unregistered = false;
+            for (const registration of registrations) {
+              registration.unregister();
+              unregistered = true;
+            }
+            if (unregistered) {
+              console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+              if (window.caches) {
+                caches.keys().then((names) => {
+                  return Promise.all(names.map(name => caches.delete(name)));
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                window.location.reload();
+              }
+            }
+          });
+        }
+      }
+    </script>
+
+    <!-- Primary Technical SEO & Canonical Metadata -->
+    <title>Cybersecurity for Individuals — Personal Safety | SafePK</title>
+    <meta name="description" content="Practical cybersecurity guides and a personal security checklist for individuals in Pakistan to protect mobile banking, WhatsApp, and personal accounts." />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/individual.html" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/png" href="assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="apple-touch-icon" href="assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cybersecurity for Individuals — Personal Safety | SafePK" />
+    <meta property="og:description" content="Practical cybersecurity guides and a personal security checklist for individuals in Pakistan to protect mobile banking, WhatsApp, and personal accounts." />
+    <meta property="og:url" content="https://safepk.net/individual.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+
+    <!-- Twitter / X Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cybersecurity for Individuals — Personal Safety | SafePK" />
+    <meta name="twitter:description" content="Practical cybersecurity guides and a personal security checklist for individuals in Pakistan to protect mobile banking, WhatsApp, and personal accounts." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Cybersecurity for Individuals — Personal Safety | SafePK",
+      "url": "https://safepk.net/individual.html",
+      "description": "Practical cybersecurity guides and a personal security checklist for individuals in Pakistan to protect mobile banking, WhatsApp, and personal accounts.",
+      "isPartOf": {
+        "@id": "https://safepk.net/#website"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Article",
+              "headline": "Mastering Personal Email Security: Protecting Google, Outlook, and Proton Accounts",
+              "description": "Your primary email is the central key to your online life. Learn simple, effective ways to secure your personal inbox.",
+              "articleSection": "Account Security",
+              "image": "https://safepk.net/assets/individual/pictures/individual-1.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/mastering-personal-email-security-protecting-google-outlook-and-proton-accounts.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Article",
+              "headline": "WhatsApp Safety Guide: Preventing Unauthorized Access and Protecting Verification Codes",
+              "description": "Step-by-step guidance on setting up two-step verification, reviewing linked web sessions, and keeping your WhatsApp account safe.",
+              "articleSection": "Messaging Privacy",
+              "image": "https://safepk.net/assets/individual/pictures/individual-2.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/whatsapp-safety-guide-preventing-unauthorized-access-and-protecting-verification-codes.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Article",
+              "headline": "Mobile Wallet Safety: Protecting Easypaisa, JazzCash, and Raast Accounts",
+              "description": "Keep your mobile wallet accounts safe from fake payment alerts, impersonation calls, and unauthorized account access.",
+              "articleSection": "Financial Safety",
+              "image": "https://safepk.net/assets/individual/pictures/individual-3.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/mobile-wallet-safety-protecting-easypaisa-jazzcash-and-raast-accounts.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Article",
+              "headline": "Password Safety Guide: Moving Beyond Weak Passwords and Browser Auto-Fill",
+              "description": "How to use trusted password managers to create and store unique, strong passwords for every account without memorizing them all.",
+              "articleSection": "Password Hygiene",
+              "image": "https://safepk.net/assets/individual/pictures/individual-4.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/password-safety-guide-moving-beyond-weak-passwords-and-browser-auto-fill.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "Article",
+              "headline": "SMS & Parcel Delivery Alerts: Spotting Unofficial Tracking Links and Messages",
+              "description": "Learn how to verify parcel delivery notifications and avoid entering personal or card details on unofficial tracking links.",
+              "articleSection": "Message Verification",
+              "image": "https://safepk.net/assets/individual/pictures/individual-5.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/sms-parcel-delivery-alerts-spotting-unofficial-tracking-links-and-messages.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "Article",
+              "headline": "Online Banking & Debit Card Safety: Virtual Cards and Safe Payment Habits",
+              "description": "Practical habits for protecting your debit and credit cards online, managing transaction limits, and using virtual cards.",
+              "articleSection": "Banking Protection",
+              "image": "https://safepk.net/assets/individual/pictures/individual-6.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/online-banking-debit-card-safety-virtual-cards-and-safe-payment-habits.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@type": "Article",
+              "headline": "Securing Android Smartphones: Safe App Installation and Permission Management",
+              "description": "Keep your Android phone safe by avoiding unofficial APK files, reviewing app permissions, and enabling built-in security checks.",
+              "articleSection": "Device Security",
+              "image": "https://safepk.net/assets/individual/pictures/individual-7.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/securing-android-smartphones-safe-app-installation-and-permission-management.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@type": "Article",
+              "headline": "Apple Device Safety: Securing iPhones, iPads, and iCloud Accounts",
+              "description": "Optimize your iOS security settings, manage Apple ID two-factor authentication, and turn on Stolen Device Protection.",
+              "articleSection": "Device Security",
+              "image": "https://safepk.net/assets/individual/pictures/individual-8.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/apple-device-safety-securing-iphones-ipads-and-icloud-accounts.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@type": "Article",
+              "headline": "Social Media Privacy: Protecting Facebook, Instagram, and TikTok Accounts",
+              "description": "Protect your personal social media profiles from impersonation, unauthorized logins, and unwanted tag spam.",
+              "articleSection": "Social Media Safety",
+              "image": "https://safepk.net/assets/individual/pictures/individual-9.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/social-media-privacy-protecting-facebook-instagram-and-tiktok-accounts.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@type": "Article",
+              "headline": "CNIC & Personal Identity Safety: Protecting Your Official Documents in Pakistan",
+              "description": "Understand how to protect your CNIC copies, verify SIMs registered in your name, and keep your personal identity details private.",
+              "articleSection": "Identity Protection",
+              "image": "https://safepk.net/assets/individual/pictures/individual-10.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/cnic-personal-identity-safety-protecting-your-official-documents-in-pakistan.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@type": "Article",
+              "headline": "Safe Online Shopping: Verifying Online Stores and Choosing Secure Payment Options",
+              "description": "How to evaluate online shopping pages, spot unrealistic discounts, avoid advance payment losses, and verify seller authenticity.",
+              "articleSection": "Online Shopping",
+              "image": "https://safepk.net/assets/individual/pictures/individual-11.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/safe-online-shopping-verifying-online-stores-and-choosing-secure-payment-options.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@type": "Article",
+              "headline": "Public Wi-Fi Safety: Using Mobile Hotspots and Encrypted Connections When Traveling",
+              "description": "Why open Wi-Fi networks in cafes, airports, and malls require caution, and how to use mobile data or encrypted connections safely.",
+              "articleSection": "Network Privacy",
+              "image": "https://safepk.net/assets/individual/pictures/individual-12.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/public-wi-fi-safety-using-mobile-hotspots-and-encrypted-connections-when-traveling.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+              "@type": "Article",
+              "headline": "Overseas Job & Visa Verification: Checking Official Recruitment Channels",
+              "description": "How to verify international job offers and overseas employment promoters before paying visa, medical, or processing fees.",
+              "articleSection": "Career & Travel Safety",
+              "image": "https://safepk.net/assets/individual/pictures/individual-13.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/overseas-job-visa-verification-checking-official-recruitment-channels.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+              "@type": "Article",
+              "headline": "Online Friendship & Trust Safety: Recognizing Misleading Profiles and Financial Requests",
+              "description": "Learn how to spot unverified online profiles, false overseas parcel fee requests, and misleading investment suggestions from online acquaintances.",
+              "articleSection": "Online Trust & Safety",
+              "image": "https://safepk.net/assets/individual/pictures/individual-14.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/online-friendship-trust-safety-recognizing-misleading-profiles-and-financial-requests.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+              "@type": "Article",
+              "headline": "Personal Cloud Storage Safety: Securing Google Drive, OneDrive, and Dropbox",
+              "description": "Keep your personal documents, tax records, and family photos safe in cloud storage with proper sharing and login controls.",
+              "articleSection": "Cloud Privacy",
+              "image": "https://safepk.net/assets/individual/pictures/individual-15.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/personal-cloud-storage-safety-securing-google-drive-onedrive-and-dropbox.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "item": {
+              "@type": "Article",
+              "headline": "Digital Respect & Personal Privacy: Handling Unwanted Contact in Pakistan",
+              "description": "A calm, practical guide on preserving evidence, locking down account privacy, and using official reporting channels when facing unwanted online contact.",
+              "articleSection": "Digital Well-being",
+              "image": "https://safepk.net/assets/individual/pictures/individual-16.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/digital-respect-personal-privacy-handling-unwanted-contact-in-pakistan.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "item": {
+              "@type": "Article",
+              "headline": "Unverified Investment Apps & Trading Groups: Protecting Your Savings Online",
+              "description": "Understand the warning signs of guaranteed-return investment groups, unverified trading apps, and social media profit schemes.",
+              "articleSection": "Financial Awareness",
+              "image": "https://safepk.net/assets/individual/pictures/individual-17.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/unverified-investment-apps-trading-groups-protecting-your-savings-online.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 18,
+            "item": {
+              "@type": "Article",
+              "headline": "ATM & Card Terminal Safety: Protecting Your Debit Card and PIN at Cash Machines",
+              "description": "Simple physical checks and safe habits to protect your card information and PIN whenever you use an ATM or payment machine.",
+              "articleSection": "Card & ATM Safety",
+              "image": "https://safepk.net/assets/individual/pictures/individual-18.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/atm-card-terminal-safety-protecting-your-debit-card-and-pin-at-cash-machines.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 19,
+            "item": {
+              "@type": "Article",
+              "headline": "Lost Smartphone Action Plan: Essential Steps for the First 60 Minutes",
+              "description": "A clear, step-by-step checklist to lock your screen remotely, suspend your SIM card, and secure your banking apps if your phone is misplaced.",
+              "articleSection": "Emergency Preparedness",
+              "image": "https://safepk.net/assets/individual/pictures/individual-19.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/lost-smartphone-action-plan-essential-steps-for-the-first-60-minutes.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 20,
+            "item": {
+              "@type": "Article",
+              "headline": "Official Cyber Incident Reporting in Pakistan: How to Prepare a Clear Statement",
+              "description": "How to organize transaction records, screenshots, and timeline details to submit a clear, effective complaint to official authorities.",
+              "articleSection": "Official Reporting",
+              "image": "https://safepk.net/assets/individual/pictures/individual-20.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/individual/official-cyber-incident-reporting-in-pakistan-how-to-prepare-a-clear-statement.html"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Stylesheets & Web App Manifest -->
+    <link rel="stylesheet" href="css/style.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="stylesheet" href="css/responsive.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="manifest" href="manifest.json" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <meta name="theme-color" content="#2563EB" />
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <header>
+      <div class="container navbar-container">
+        <a href="index.html" class="logo-block">
+          <img src="assets/images/safepk-logo.png" alt="SafePK Logo" class="logo-img" width="32" height="32" decoding="async" fetchpriority="high" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-link nav-dropdown-trigger" aria-expanded="false">
+              <span>Audience</span>
+              <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="individual.html" class="nav-dropdown-item">
+                <span>Individuals</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="family.html" class="nav-dropdown-item">
+                <span>Families</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="organizations.html" class="nav-dropdown-item">
+                <span>Organizations</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="freelancers.html" class="nav-dropdown-item">
+                <span>Freelancers &amp; Businesses</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+          <a href="pages/learn.html" class="nav-link">Articles</a>
+          <a href="pages/tools.html" class="nav-link">Report Generator</a>
+          <a href="pages/directory.html" class="nav-link">Directory</a>
+          <a href="pages/help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="container">
+        <!-- Back Link -->
+        <div style="margin-bottom: 1.5rem;">
+          <a href="index.html" style="text-decoration: none; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.35rem;">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+          </a>
+        </div>
+
+        <!-- Global Clean Hero Section -->
+        <section class="page-hero animate-fade-in">
+          <h1 class="page-hero-title">Digital Safety for Individuals</h1>
+          <p class="page-hero-subtitle">
+            Practical guidance to help you protect your accounts, devices, and personal information.
+          </p>
+          <div class="hero-buttons" style="margin-top: 1.35rem;">
+            <a href="pages/tools.html" class="btn btn-primary">
+              <i data-lucide="file-text" class="w-4 h-4"></i>
+              Report Generator
+            </a>
+            <a href="pages/directory.html" class="btn btn-secondary">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              Directory
+            </a>
+            <button type="button" id="checklist-toggle-btn" class="btn btn-secondary checklist-trigger-btn" aria-expanded="false" aria-controls="security-checklist">
+              <i data-lucide="check-square" class="w-4 h-4"></i>
+              <span>Individual Security Checklist</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 trigger-chevron"></i>
+            </button>
+          </div>
+        </section>
+
+        <!-- Individual Security Checklist Section (Closed by Default) -->
+        <section id="security-checklist" class="checklist-drawer-wrapper" aria-hidden="true" style="--checklist-accent: #2563EB;">
+          <div class="checklist-drawer-inner">
+            <div class="pro-checklist-card">
+              <div class="pro-checklist-header">
+                <div class="pro-checklist-title-wrap">
+                  <div class="pro-checklist-badge-pill">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Interactive Self-Assessment
+                  </div>
+                  <h2 class="pro-checklist-title"> <!-- Section ki main sub-heading (H2) -->
+                    <i data-lucide="shield-check" class="w-6 h-6" style="color: var(--color-primary);"></i>
+                    Individual Security Checklist
+                  </h2>
+                  <p class="pro-checklist-subtitle">
+                    Select the personal security practices you currently follow to calculate your real-time protection score and unlock tailored hardening steps.
+                  </p>
+                </div>
+                <div class="pro-checklist-controls">
+                  <div class="pro-score-box">
+                    <div class="pro-score-label">Protection Score</div>
+                    <div id="checklist-level-badge" class="pro-score-value">Low (0/8)</div>
+                  </div>
+                  <button type="button" id="checklist-close-btn" class="pro-checklist-close-btn" title="Close Checklist">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                    <span>Hide</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Animated Progress Bar -->
+              <div class="pro-progress-meta">
+                <span>Completion Progress</span>
+                <span id="checklist-progress-pct">0% Complete</span>
+              </div>
+              <div class="pro-progress-track">
+                <div id="checklist-progress-bar" class="pro-progress-fill"></div>
+              </div>
+
+              <!-- Checklist Items Grid -->
+              <div id="checklist-items-container" class="pro-checklist-grid">
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Enable Two-Step Verification (6-digit PIN) in WhatsApp Settings > Account to prevent unauthorized access." />
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">I have enabled Two-Step Verification (PIN) on my WhatsApp account.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Turn on 2-Factor Authentication (2FA) using an authenticator app on your primary email account." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">My primary email account is protected with Two-Factor Authentication (2FA).</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Use unique, separate passwords for your email, banking, and social media accounts rather than reusing one password." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">I use unique passwords for my email, banking, and social media accounts.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Set a SIM card PIN lock in your phone's security settings so your SIM cannot be misused if your phone is misplaced." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">I have set a SIM PIN lock on my mobile SIM card.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Never share OTP codes, bank PINs, or mobile wallet passcodes over phone calls, SMS, or WhatsApp messages." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">I never share OTP codes or mobile wallet PINs with anyone over calls or messages.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Avoid installing unofficial APK files shared via WhatsApp, Telegram, or third-party websites; use official app stores only." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">I only install mobile apps from official app stores (Google Play / Apple App Store).</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Periodically check 'Linked Devices' in WhatsApp and 'Active Sessions' in your email/social accounts to remove unrecognized logins." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">I regularly review active logged-in devices on WhatsApp, email, and social accounts.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Turn on Find My Device (Android) or Find My iPhone (iOS) and use a strong screen lock on your smartphone." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">My phone has a strong screen lock and remote Find My Device tracking enabled.</span>
+                </label>
+              </div>
+
+              <!-- Recommendations Box -->
+              <div id="checklist-recommendations" class="pro-rec-panel">
+                <div class="pro-rec-header">
+                  <div class="pro-rec-title">
+                    <i data-lucide="list-checks" class="w-4 h-4" style="color: var(--color-primary);"></i>
+                    Recommended Next Steps
+                  </div>
+                  <button type="button" id="checklist-reset-btn" class="pro-rec-reset-btn">Reset All</button>
+                </div>
+                <ul id="checklist-rec-list" class="pro-rec-list"></ul>
+                <p class="pro-rec-note">
+                  Note: This checklist provides a practical self-assessment of common digital safety habits and does not guarantee complete immunity from all cyber threats.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Articles Grid -->
+        <div id="articles-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
+          <a href="individual/mastering-personal-email-security-protecting-google-outlook-and-proton-accounts.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-1.png" alt="Mastering Personal Email Security: Protecting Google, Outlook, and Proton Accounts" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Account Security</span> <!-- Category badge -->
+              <h3 class="article-title">Mastering Personal Email Security: Protecting Google, Outlook, and Proton Accounts</h3> <!-- Article title -->
+              <p class="article-excerpt">Your primary email is the central key to your online life. Learn simple, effective ways to secure your personal inbox.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/whatsapp-safety-guide-preventing-unauthorized-access-and-protecting-verification-codes.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-2.png" alt="WhatsApp Safety Guide: Preventing Unauthorized Access and Protecting Verification Codes" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Messaging Privacy</span> <!-- Category badge -->
+              <h3 class="article-title">WhatsApp Safety Guide: Preventing Unauthorized Access and Protecting Verification Codes</h3> <!-- Article title -->
+              <p class="article-excerpt">Step-by-step guidance on setting up two-step verification, reviewing linked web sessions, and keeping your WhatsApp account safe.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/mobile-wallet-safety-protecting-easypaisa-jazzcash-and-raast-accounts.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-3.png" alt="Mobile Wallet Safety: Protecting Easypaisa, JazzCash, and Raast Accounts" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Mobile Wallet Safety: Protecting Easypaisa, JazzCash, and Raast Accounts</h3> <!-- Article title -->
+              <p class="article-excerpt">Keep your mobile wallet accounts safe from fake payment alerts, impersonation calls, and unauthorized account access.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/password-safety-guide-moving-beyond-weak-passwords-and-browser-auto-fill.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-4.png" alt="Password Safety Guide: Moving Beyond Weak Passwords and Browser Auto-Fill" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Password Hygiene</span> <!-- Category badge -->
+              <h3 class="article-title">Password Safety Guide: Moving Beyond Weak Passwords and Browser Auto-Fill</h3> <!-- Article title -->
+              <p class="article-excerpt">How to use trusted password managers to create and store unique, strong passwords for every account without memorizing them all.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/sms-parcel-delivery-alerts-spotting-unofficial-tracking-links-and-messages.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-5.png" alt="SMS & Parcel Delivery Alerts: Spotting Unofficial Tracking Links and Messages" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Message Verification</span> <!-- Category badge -->
+              <h3 class="article-title">SMS & Parcel Delivery Alerts: Spotting Unofficial Tracking Links and Messages</h3> <!-- Article title -->
+              <p class="article-excerpt">Learn how to verify parcel delivery notifications and avoid entering personal or card details on unofficial tracking links.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/online-banking-debit-card-safety-virtual-cards-and-safe-payment-habits.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-6.png" alt="Online Banking & Debit Card Safety: Virtual Cards and Safe Payment Habits" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Banking Protection</span> <!-- Category badge -->
+              <h3 class="article-title">Online Banking & Debit Card Safety: Virtual Cards and Safe Payment Habits</h3> <!-- Article title -->
+              <p class="article-excerpt">Practical habits for protecting your debit and credit cards online, managing transaction limits, and using virtual cards.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/securing-android-smartphones-safe-app-installation-and-permission-management.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-7.png" alt="Securing Android Smartphones: Safe App Installation and Permission Management" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Device Security</span> <!-- Category badge -->
+              <h3 class="article-title">Securing Android Smartphones: Safe App Installation and Permission Management</h3> <!-- Article title -->
+              <p class="article-excerpt">Keep your Android phone safe by avoiding unofficial APK files, reviewing app permissions, and enabling built-in security checks.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/apple-device-safety-securing-iphones-ipads-and-icloud-accounts.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-8.png" alt="Apple Device Safety: Securing iPhones, iPads, and iCloud Accounts" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Device Security</span> <!-- Category badge -->
+              <h3 class="article-title">Apple Device Safety: Securing iPhones, iPads, and iCloud Accounts</h3> <!-- Article title -->
+              <p class="article-excerpt">Optimize your iOS security settings, manage Apple ID two-factor authentication, and turn on Stolen Device Protection.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/social-media-privacy-protecting-facebook-instagram-and-tiktok-accounts.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-9.png" alt="Social Media Privacy: Protecting Facebook, Instagram, and TikTok Accounts" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Social Media Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Social Media Privacy: Protecting Facebook, Instagram, and TikTok Accounts</h3> <!-- Article title -->
+              <p class="article-excerpt">Protect your personal social media profiles from impersonation, unauthorized logins, and unwanted tag spam.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/cnic-personal-identity-safety-protecting-your-official-documents-in-pakistan.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-10.png" alt="CNIC & Personal Identity Safety: Protecting Your Official Documents in Pakistan" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Identity Protection</span> <!-- Category badge -->
+              <h3 class="article-title">CNIC & Personal Identity Safety: Protecting Your Official Documents in Pakistan</h3> <!-- Article title -->
+              <p class="article-excerpt">Understand how to protect your CNIC copies, verify SIMs registered in your name, and keep your personal identity details private.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/safe-online-shopping-verifying-online-stores-and-choosing-secure-payment-options.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-11.png" alt="Safe Online Shopping: Verifying Online Stores and Choosing Secure Payment Options" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Online Shopping</span> <!-- Category badge -->
+              <h3 class="article-title">Safe Online Shopping: Verifying Online Stores and Choosing Secure Payment Options</h3> <!-- Article title -->
+              <p class="article-excerpt">How to evaluate online shopping pages, spot unrealistic discounts, avoid advance payment losses, and verify seller authenticity.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/public-wi-fi-safety-using-mobile-hotspots-and-encrypted-connections-when-traveling.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-12.png" alt="Public Wi-Fi Safety: Using Mobile Hotspots and Encrypted Connections When Traveling" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Network Privacy</span> <!-- Category badge -->
+              <h3 class="article-title">Public Wi-Fi Safety: Using Mobile Hotspots and Encrypted Connections When Traveling</h3> <!-- Article title -->
+              <p class="article-excerpt">Why open Wi-Fi networks in cafes, airports, and malls require caution, and how to use mobile data or encrypted connections safely.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/overseas-job-visa-verification-checking-official-recruitment-channels.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-13.png" alt="Overseas Job & Visa Verification: Checking Official Recruitment Channels" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Career & Travel Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Overseas Job & Visa Verification: Checking Official Recruitment Channels</h3> <!-- Article title -->
+              <p class="article-excerpt">How to verify international job offers and overseas employment promoters before paying visa, medical, or processing fees.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/online-friendship-trust-safety-recognizing-misleading-profiles-and-financial-requests.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-14.png" alt="Online Friendship & Trust Safety: Recognizing Misleading Profiles and Financial Requests" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Online Trust & Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Online Friendship & Trust Safety: Recognizing Misleading Profiles and Financial Requests</h3> <!-- Article title -->
+              <p class="article-excerpt">Learn how to spot unverified online profiles, false overseas parcel fee requests, and misleading investment suggestions from online acquaintances.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/personal-cloud-storage-safety-securing-google-drive-onedrive-and-dropbox.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-15.png" alt="Personal Cloud Storage Safety: Securing Google Drive, OneDrive, and Dropbox" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Cloud Privacy</span> <!-- Category badge -->
+              <h3 class="article-title">Personal Cloud Storage Safety: Securing Google Drive, OneDrive, and Dropbox</h3> <!-- Article title -->
+              <p class="article-excerpt">Keep your personal documents, tax records, and family photos safe in cloud storage with proper sharing and login controls.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/digital-respect-personal-privacy-handling-unwanted-contact-in-pakistan.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-16.png" alt="Digital Respect & Personal Privacy: Handling Unwanted Contact in Pakistan" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Digital Well-being</span> <!-- Category badge -->
+              <h3 class="article-title">Digital Respect & Personal Privacy: Handling Unwanted Contact in Pakistan</h3> <!-- Article title -->
+              <p class="article-excerpt">A calm, practical guide on preserving evidence, locking down account privacy, and using official reporting channels when facing unwanted online contact.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/unverified-investment-apps-trading-groups-protecting-your-savings-online.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-17.png" alt="Unverified Investment Apps & Trading Groups: Protecting Your Savings Online" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Awareness</span> <!-- Category badge -->
+              <h3 class="article-title">Unverified Investment Apps & Trading Groups: Protecting Your Savings Online</h3> <!-- Article title -->
+              <p class="article-excerpt">Understand the warning signs of guaranteed-return investment groups, unverified trading apps, and social media profit schemes.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/atm-card-terminal-safety-protecting-your-debit-card-and-pin-at-cash-machines.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-18.png" alt="ATM & Card Terminal Safety: Protecting Your Debit Card and PIN at Cash Machines" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Card & ATM Safety</span> <!-- Category badge -->
+              <h3 class="article-title">ATM & Card Terminal Safety: Protecting Your Debit Card and PIN at Cash Machines</h3> <!-- Article title -->
+              <p class="article-excerpt">Simple physical checks and safe habits to protect your card information and PIN whenever you use an ATM or payment machine.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/lost-smartphone-action-plan-essential-steps-for-the-first-60-minutes.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-19.png" alt="Lost Smartphone Action Plan: Essential Steps for the First 60 Minutes" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Emergency Preparedness</span> <!-- Category badge -->
+              <h3 class="article-title">Lost Smartphone Action Plan: Essential Steps for the First 60 Minutes</h3> <!-- Article title -->
+              <p class="article-excerpt">A clear, step-by-step checklist to lock your screen remotely, suspend your SIM card, and secure your banking apps if your phone is misplaced.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="individual/official-cyber-incident-reporting-in-pakistan-how-to-prepare-a-clear-statement.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/individual/pictures/individual-20.png" alt="Official Cyber Incident Reporting in Pakistan: How to Prepare a Clear Statement" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Official Reporting</span> <!-- Category badge -->
+              <h3 class="article-title">Official Cyber Incident Reporting in Pakistan: How to Prepare a Clear Statement</h3> <!-- Article title -->
+              <p class="article-excerpt">How to organize transaction records, screenshots, and timeline details to submit a clear, effective complaint to official authorities.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Minimal GitHub-Inspired Centered Footer -->
+    <footer>
+      <div class="container footer-minimal-wrap">
+        <nav class="footer-minimal-nav" aria-label="Footer Main Links">
+          <a href="pages/about.html" class="footer-minimal-link">About</a>
+          <a href="sponsor.html" class="footer-minimal-link">Sponsor</a>
+                  <a href="pages/reviews.html" class="footer-minimal-link">Feedback &amp; Reviews</a>
+          <a href="pages/contact.html" class="footer-minimal-link">Contact</a>
+</nav>
+
+        <nav class="footer-minimal-legal" aria-label="Legal Policies">
+          <a href="pages/privacy-policy.html" class="footer-minimal-legal-link">Privacy Policy</a>
+          <a href="pages/terms-of-use.html" class="footer-minimal-legal-link">Terms of Use</a>
+          <a href="pages/disclaimer.html" class="footer-minimal-legal-link">Disclaimer</a>
+        </nav>
+
+        <div class="footer-contact-row notranslate" translate="no"> <!-- Official email aur Pro Share button ka container -->
+          <a href="mailto:infosafepk@proton.me" class="footer-email-pill" title="Official SafePK Email: infosafepk@proton.me">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>infosafepk@proton.me</span>
+          </a>
+        </div>
+
+        <p class="footer-minimal-copy">&copy; SafePK &mdash; All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/theme.js"></script>
+
+    <script>
+      if (typeof initTheme !== undefined) initTheme();
+      if (typeof lucide !== undefined) lucide.createIcons(); /* Lucide icons initialize kiye ja rahe hain */
+
+      function initAudienceChecklist() {
+        const drawer = document.getElementById('security-checklist');
+        const toggleBtn = document.getElementById('checklist-toggle-btn');
+        const closeBtn = document.getElementById('checklist-close-btn');
+        const resetBtn = document.getElementById('checklist-reset-btn');
+        const checkboxes = Array.from(document.querySelectorAll('.sec-check-item'));
+        const badge = document.getElementById('checklist-level-badge');
+        const bar = document.getElementById('checklist-progress-bar');
+        const pctLabel = document.getElementById('checklist-progress-pct');
+        const recList = document.getElementById('checklist-rec-list');
+        if (!checkboxes.length || !badge || !bar || !recList) return;
+
+        function setChecklistOpen(open) {
+          if (!drawer || !toggleBtn) return;
+          drawer.classList.toggle('is-open', open);
+          drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+          toggleBtn.classList.toggle('is-active', open);
+          toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if (open) {
+            setTimeout(() => {
+              drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 80);
+          }
+        }
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isOpen = drawer && drawer.classList.contains('is-open');
+            setChecklistOpen(!isOpen);
+          });
+        }
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => setChecklistOpen(false));
+        }
+
+        function updateScore() {
+          const total = checkboxes.length;
+          const checked = checkboxes.filter(c => c.checked).length;
+          const missing = checkboxes.filter(c => !c.checked).map(c => c.getAttribute('data-rec'));
+          const pct = Math.round((checked / total) * 100);
+
+          checkboxes.forEach(cb => {
+            const card = cb.closest('.pro-check-card');
+            if (card) card.classList.toggle('is-checked', cb.checked);
+          });
+
+          let level = 'Low';
+          let color = 'var(--color-danger)';
+          if (checked >= 7) {
+            level = 'Strong';
+            color = 'var(--color-success)';
+          } else if (checked >= 5) {
+            level = 'Good';
+            color = 'var(--color-primary)';
+          } else if (checked >= 3) {
+            level = 'Moderate';
+            color = 'var(--color-warning)';
+          }
+
+          badge.textContent = `${level} (${checked}/${total})`;
+          badge.style.color = color;
+          bar.style.width = `${pct}%`;
+          bar.style.backgroundColor = color;
+          if (pctLabel) pctLabel.textContent = `${pct}% Complete`;
+
+          if (missing.length === 0) {
+            recList.innerHTML = '<li style="color: var(--color-success); font-weight: 600;">All listed practices are checked. Continue reviewing your accounts and devices regularly.</li>';
+          } else {
+            recList.innerHTML = missing.slice(0, 4).map(r => `<li>${r}</li>`).join('');
+          }
+        }
+
+        if (resetBtn) {
+          resetBtn.addEventListener('click', () => {
+            checkboxes.forEach(cb => { cb.checked = false; });
+            updateScore();
+          });
+        }
+
+        checkboxes.forEach(cb => cb.addEventListener('change', updateScore));
+        updateScore();
+      }
+      initAudienceChecklist();
+    </script>
+  </body>
+</html>

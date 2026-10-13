@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+      if ('serviceWorker' in navigator) {
+        const isDev = window.location.hostname === 'localhost' ||
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('.run.app');
+        if (isDev) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            let unregistered = false;
+            for (const registration of registrations) {
+              registration.unregister();
+              unregistered = true;
+            }
+            if (unregistered) {
+              console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+              if (window.caches) {
+                caches.keys().then((names) => {
+                  return Promise.all(names.map(name => caches.delete(name)));
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                window.location.reload();
+              }
+            }
+          });
+        }
+      }
+    </script>
+
+    <!-- Primary Technical SEO & Canonical Metadata -->
+    <title>Cybersecurity for Freelancers & Small Businesses | SafePK</title>
+    <meta name="description" content="Secure freelance accounts, client payments, business emails, and remote workspaces in Pakistan with dedicated security guides and a readiness checklist." />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/freelancers.html" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/png" href="assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="apple-touch-icon" href="assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cybersecurity for Freelancers & Small Businesses | SafePK" />
+    <meta property="og:description" content="Secure freelance accounts, client payments, business emails, and remote workspaces in Pakistan with dedicated security guides and a readiness checklist." />
+    <meta property="og:url" content="https://safepk.net/freelancers.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+
+    <!-- Twitter / X Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cybersecurity for Freelancers & Small Businesses | SafePK" />
+    <meta name="twitter:description" content="Secure freelance accounts, client payments, business emails, and remote workspaces in Pakistan with dedicated security guides and a readiness checklist." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Cybersecurity for Freelancers & Small Businesses | SafePK",
+      "url": "https://safepk.net/freelancers.html",
+      "description": "Secure freelance accounts, client payments, business emails, and remote workspaces in Pakistan with dedicated security guides and a readiness checklist.",
+      "isPartOf": {
+        "@id": "https://safepk.net/#website"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Article",
+              "headline": "Securing Upwork, Fiverr, and Freelance Marketplace Accounts",
+              "description": "Protect your freelance reputation and client pipeline with strong account authentication and official platform communication habits.",
+              "articleSection": "Platform Protection",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-1.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#1"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Article",
+              "headline": "Protecting Payoneer, Wise, and International Freelance Payment Accounts",
+              "description": "Safeguard your cross-border earnings and international payout accounts with strong login controls and careful email verification.",
+              "articleSection": "Financial Safety",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-2.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#2"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Article",
+              "headline": "Domain Name & DNS Safety: Protecting Your Portfolio and Business Website",
+              "description": "How to lock your domain registrar account, enable WHOIS privacy, and prevent unauthorized domain transfers or DNS changes.",
+              "articleSection": "Web Infrastructure",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-3.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#3"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Article",
+              "headline": "Reviewing New Client Project Files Safely: Handling ZIP Archives and Attachments",
+              "description": "How independent professionals can safely inspect unfamiliar client project attachments and avoid running disguised executable files.",
+              "articleSection": "File & Device Safety",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-4.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#4"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "Article",
+              "headline": "Invoice & Payment Verification: Protecting Client Billing and Bank Details",
+              "description": "Ensure clients always pay the right account by using verified invoicing platforms and confirming any bank detail updates by voice call.",
+              "articleSection": "Billing Integrity",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-5.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#5"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "Article",
+              "headline": "Organizing Client Workspaces: Keeping Multiple Client Projects Separated",
+              "description": "Create clean technical boundaries between different clients to prevent accidental file mix-ups and protect project confidentiality.",
+              "articleSection": "Client Confidentiality",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-6.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#6"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@type": "Article",
+              "headline": "Workstation Hygiene: Separating Business Projects from Personal Browsing",
+              "description": "Why keeping your freelance work environment separate from casual browsing and unofficial downloads protects your livelihood.",
+              "articleSection": "Workstation Safety",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-7.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#7"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@type": "Article",
+              "headline": "Secure Server & Website Access: Best Practices for SSH, SFTP, and Control Panels",
+              "description": "Essential practices for web developers and technical freelancers managing client cloud servers, cPanel accounts, and databases.",
+              "articleSection": "Server Management",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-8.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#8"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@type": "Article",
+              "headline": "Safe Password & API Key Sharing with Clients: Moving Beyond Plaintext Chats",
+              "description": "How to request and share website logins, API keys, and access tokens professionally without pasting passwords into chat threads.",
+              "articleSection": "Credential Management",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-9.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#9"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@type": "Article",
+              "headline": "WordPress & E-Commerce Maintenance Checklist for Freelance Web Professionals",
+              "description": "A practical security checklist for freelancers building and maintaining client WordPress, WooCommerce, and Shopify websites.",
+              "articleSection": "Website Security",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-10.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#10"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@type": "Article",
+              "headline": "Preventing Payment Disputes: Clear Contracts, Milestones, and Delivery Records",
+              "description": "Protect your service business from payment misunderstandings and chargebacks with clear scope agreements and milestone approvals.",
+              "articleSection": "Business Protection",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-11.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#11"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@type": "Article",
+              "headline": "Reliable Backups for Source Code, Design Files, and Client Deliverables",
+              "description": "Never lose a week of client work to hardware issues: setting up automated cloud sync and external drive backups for your projects.",
+              "articleSection": "Business Continuity",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-12.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#12"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+              "@type": "Article",
+              "headline": "Working Safely from Coworking Spaces and Cafes: A Guide for Remote Workers",
+              "description": "Practical habits for protecting client data and account sessions when working from shared coworking networks or coffee shops.",
+              "articleSection": "Remote Work Safety",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-13.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#13"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+              "@type": "Article",
+              "headline": "Spotting Fake Copyright Notices and Unofficial Domain Renewal Emails",
+              "description": "How website owners and creators can recognize deceptive copyright claim emails that try to prompt unsafe downloads or link clicks.",
+              "articleSection": "Email Verification",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-14.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#14"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+              "@type": "Article",
+              "headline": "Custom Domain Email Setup: Configuring SPF, DKIM, and DMARC for Your Business",
+              "description": "Ensure your client proposals reach the inbox and prevent others from sending spoofed emails under your custom business domain.",
+              "articleSection": "Email Deliverability",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-15.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#15"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "item": {
+              "@type": "Article",
+              "headline": "Collaborating with Subcontractors Safely: Delegating Access Without Sharing Master Logins",
+              "description": "How growing freelancers and boutique agencies can delegate tasks to team members while keeping client master accounts secure.",
+              "articleSection": "Team Operations",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-16.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#16"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "item": {
+              "@type": "Article",
+              "headline": "Protecting Your Digital Products, Portfolio Work, and Creative Templates",
+              "description": "Practical ways to protect your portfolio samples, design templates, online courses, and custom software deliverables.",
+              "articleSection": "Intellectual Property",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-17.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#17"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 18,
+            "item": {
+              "@type": "Article",
+              "headline": "Responsible Use of AI Tools in Freelance Work: Protecting Client Confidentiality",
+              "description": "How to use AI writing and coding assistants productively without exposing confidential client documents, personal data, or API keys.",
+              "articleSection": "AI Best Practices",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-18.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#18"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 19,
+            "item": {
+              "@type": "Article",
+              "headline": "Protecting Your Tax Filings, PRC Certificates, and Business Banking Records",
+              "description": "How Pakistani freelancers can spot fake FBR or bank verification emails and keep their tax portals and financial statements secure.",
+              "articleSection": "Financial Privacy",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-19.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#19"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 20,
+            "item": {
+              "@type": "Article",
+              "headline": "Freelance Business Continuity Plan: Recovering Quickly from Device or Account Issues",
+              "description": "A calm, practical preparedness plan to keep your freelance business running smoothly even if a laptop fails or an account is locked.",
+              "articleSection": "Business Continuity",
+              "image": "https://safepk.net/assets/freelancers/pictures/freelancer-20.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/freelancers.html#20"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Stylesheets & Web App Manifest -->
+    <link rel="stylesheet" href="css/style.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="stylesheet" href="css/responsive.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="manifest" href="manifest.json" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <meta name="theme-color" content="#2563EB" />
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <header>
+      <div class="container navbar-container">
+        <a href="index.html" class="logo-block">
+          <img src="assets/images/safepk-logo.png" alt="SafePK Logo" class="logo-img" width="32" height="32" decoding="async" fetchpriority="high" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-link nav-dropdown-trigger" aria-expanded="false">
+              <span>Audience</span>
+              <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="individual.html" class="nav-dropdown-item">
+                <span>Individuals</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="family.html" class="nav-dropdown-item">
+                <span>Families</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="organizations.html" class="nav-dropdown-item">
+                <span>Organizations</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="freelancers.html" class="nav-dropdown-item">
+                <span>Freelancers &amp; Businesses</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+          <a href="pages/learn.html" class="nav-link">Articles</a>
+          <a href="pages/tools.html" class="nav-link">Report Generator</a>
+          <a href="pages/directory.html" class="nav-link">Directory</a>
+          <a href="pages/help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="container">
+        <!-- Back Link -->
+        <div style="margin-bottom: 1.5rem;">
+          <a href="index.html" style="text-decoration: none; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.35rem;">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+          </a>
+        </div>
+
+        <!-- Global Clean Hero Section -->
+        <section class="page-hero animate-fade-in">
+          <h1 class="page-hero-title">Digital Safety for Freelancers</h1>
+          <p class="page-hero-subtitle">
+            Practical cybersecurity guidance for protecting your work, clients, accounts, and digital identity.
+          </p>
+          <div class="hero-buttons" style="margin-top: 1.35rem;">
+            <a href="pages/tools.html" class="btn btn-primary">
+              <i data-lucide="file-text" class="w-4 h-4"></i>
+              Report Generator
+            </a>
+            <a href="pages/directory.html" class="btn btn-secondary">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              Directory
+            </a>
+            <button type="button" id="checklist-toggle-btn" class="btn btn-secondary checklist-trigger-btn" aria-expanded="false" aria-controls="security-checklist">
+              <i data-lucide="check-square" class="w-4 h-4"></i>
+              <span>Freelancer Security Checklist</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 trigger-chevron"></i>
+            </button>
+          </div>
+        </section>
+
+        <!-- Freelancer Security Checklist Section (Closed by Default) -->
+        <section id="security-checklist" class="checklist-drawer-wrapper" aria-hidden="true" style="--checklist-accent: #2563EB;">
+          <div class="checklist-drawer-inner">
+            <div class="pro-checklist-card">
+              <div class="pro-checklist-header">
+                <div class="pro-checklist-title-wrap">
+                  <div class="pro-checklist-badge-pill">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Business &amp; Freelance Assessment
+                  </div>
+                  <h2 class="pro-checklist-title"> <!-- Section ki main sub-heading (H2) -->
+                    <i data-lucide="shield-check" class="w-6 h-6" style="color: var(--color-primary);"></i>
+                    Freelancer Security Checklist
+                  </h2>
+                  <p class="pro-checklist-subtitle">
+                    Select the freelance and business security practices you currently follow to calculate your protection score and see tailored hardening steps.
+                  </p>
+                </div>
+                <div class="pro-checklist-controls">
+                  <div class="pro-score-box">
+                    <div class="pro-score-label">Protection Score</div>
+                    <div id="checklist-level-badge" class="pro-score-value">Low (0/8)</div>
+                  </div>
+                  <button type="button" id="checklist-close-btn" class="pro-checklist-close-btn" title="Close Checklist">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                    <span>Hide</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Animated Progress Bar -->
+              <div class="pro-progress-meta">
+                <span>Workspace Completion Progress</span>
+                <span id="checklist-progress-pct">0% Complete</span>
+              </div>
+              <div class="pro-progress-track">
+                <div id="checklist-progress-bar" class="pro-progress-fill"></div>
+              </div>
+
+              <!-- Checklist Items Grid -->
+              <div id="checklist-items-container" class="pro-checklist-grid">
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Enable app-based Two-Factor Authentication (2FA) on Upwork, Fiverr, LinkedIn, and all freelance marketplace accounts." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Two-Factor Authentication (2FA) is active on my freelance marketplace profiles.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Secure Payoneer, Wise, and business bank accounts with unique passwords and two-factor authentication." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">My payment gateways (Payoneer, Wise, bank accounts) use unique passwords and 2FA.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Inspect client attachment file extensions carefully and avoid running unknown .exe, .scr, or .bat files disguised as project briefs." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">I verify client ZIP/PDF attachments and never run executable files from unknown prospects.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Keep client contracts and payments inside official platform escrow or verified invoicing channels rather than unverified chats." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">I keep client payments and contracts on verified platforms or signed invoices.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Use a password manager or encrypted secret-sharing links rather than sending client credentials in plaintext chat messages." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">I never store or share client passwords and API keys in plaintext chat messages.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Keep your work laptop secure by installing software only from official, licensed publishers rather than unofficial downloads." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">I only install official, licensed software on my primary work computer.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Maintain automated cloud or external drive backups of active client deliverables and source files." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">My active client projects and work files are backed up to cloud or external storage.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Use a personal mobile hotspot or trusted VPN when working from public cafes or shared coworking Wi-Fi networks." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">I use a personal hotspot or VPN when working on public or coworking Wi-Fi.</span>
+                </label>
+              </div>
+
+              <!-- Recommendations Box -->
+              <div id="checklist-recommendations" class="pro-rec-panel">
+                <div class="pro-rec-header">
+                  <div class="pro-rec-title">
+                    <i data-lucide="list-checks" class="w-4 h-4" style="color: var(--color-primary);"></i>
+                    Recommended Next Steps
+                  </div>
+                  <button type="button" id="checklist-reset-btn" class="pro-rec-reset-btn">Reset All</button>
+                </div>
+                <ul id="checklist-rec-list" class="pro-rec-list"></ul>
+                <p class="pro-rec-note">
+                  Note: This checklist provides a practical self-assessment of common freelance and small-business security habits and does not guarantee complete immunity from all cyber threats.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Articles Grid -->
+        <div id="articles-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
+          <a href="freelancers/securing-upwork-fiverr-and-freelance-marketplace-accounts.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-1.png" alt="Securing Upwork, Fiverr, and Freelance Marketplace Accounts" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Platform Protection</span> <!-- Category badge -->
+              <h3 class="article-title">Securing Upwork, Fiverr, and Freelance Marketplace Accounts</h3> <!-- Article title -->
+              <p class="article-excerpt">Protect your freelance reputation and client pipeline with strong account authentication and official platform communication habits.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/protecting-payoneer-wise-and-international-freelance-payment-accounts.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-2.png" alt="Protecting Payoneer, Wise, and International Freelance Payment Accounts" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Protecting Payoneer, Wise, and International Freelance Payment Accounts</h3> <!-- Article title -->
+              <p class="article-excerpt">Safeguard your cross-border earnings and international payout accounts with strong login controls and careful email verification.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/domain-name-dns-safety-protecting-your-portfolio-and-business-website.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-3.png" alt="Domain Name &amp; DNS Safety: Protecting Your Portfolio and Business Website" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Web Infrastructure</span> <!-- Category badge -->
+              <h3 class="article-title">Domain Name &amp; DNS Safety: Protecting Your Portfolio and Business Website</h3> <!-- Article title -->
+              <p class="article-excerpt">How to lock your domain registrar account, enable WHOIS privacy, and prevent unauthorized domain transfers or DNS changes.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/reviewing-new-client-project-files-safely-handling-zip-archives-and-attachments.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-4.png" alt="Reviewing New Client Project Files Safely: Handling ZIP Archives and Attachments" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">File &amp; Device Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Reviewing New Client Project Files Safely: Handling ZIP Archives and Attachments</h3> <!-- Article title -->
+              <p class="article-excerpt">How independent professionals can safely inspect unfamiliar client project attachments and avoid running disguised executable files.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/invoice-payment-verification-protecting-client-billing-and-bank-details.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-5.png" alt="Invoice &amp; Payment Verification: Protecting Client Billing and Bank Details" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Billing Integrity</span> <!-- Category badge -->
+              <h3 class="article-title">Invoice &amp; Payment Verification: Protecting Client Billing and Bank Details</h3> <!-- Article title -->
+              <p class="article-excerpt">Ensure clients always pay the right account by using verified invoicing platforms and confirming any bank detail updates by voice call.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/organizing-client-workspaces-keeping-multiple-client-projects-separated.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-6.png" alt="Organizing Client Workspaces: Keeping Multiple Client Projects Separated" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Client Confidentiality</span> <!-- Category badge -->
+              <h3 class="article-title">Organizing Client Workspaces: Keeping Multiple Client Projects Separated</h3> <!-- Article title -->
+              <p class="article-excerpt">Create clean technical boundaries between different clients to prevent accidental file mix-ups and protect project confidentiality.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/workstation-hygiene-separating-business-projects-from-personal-browsing.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-7.png" alt="Workstation Hygiene: Separating Business Projects from Personal Browsing" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Workstation Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Workstation Hygiene: Separating Business Projects from Personal Browsing</h3> <!-- Article title -->
+              <p class="article-excerpt">Why keeping your freelance work environment separate from casual browsing and unofficial downloads protects your livelihood.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/secure-server-website-access-best-practices-for-ssh-sftp-and-control-panels.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-8.png" alt="Secure Server &amp; Website Access: Best Practices for SSH, SFTP, and Control Panels" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Server Management</span> <!-- Category badge -->
+              <h3 class="article-title">Secure Server &amp; Website Access: Best Practices for SSH, SFTP, and Control Panels</h3> <!-- Article title -->
+              <p class="article-excerpt">Essential practices for web developers and technical freelancers managing client cloud servers, cPanel accounts, and databases.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/safe-password-api-key-sharing-with-clients-moving-beyond-plaintext-chats.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-9.png" alt="Safe Password &amp; API Key Sharing with Clients: Moving Beyond Plaintext Chats" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Credential Management</span> <!-- Category badge -->
+              <h3 class="article-title">Safe Password &amp; API Key Sharing with Clients: Moving Beyond Plaintext Chats</h3> <!-- Article title -->
+              <p class="article-excerpt">How to request and share website logins, API keys, and access tokens professionally without pasting passwords into chat threads.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/wordpress-e-commerce-maintenance-checklist-for-freelance-web-professionals.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-10.png" alt="WordPress &amp; E-Commerce Maintenance Checklist for Freelance Web Professionals" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Website Security</span> <!-- Category badge -->
+              <h3 class="article-title">WordPress &amp; E-Commerce Maintenance Checklist for Freelance Web Professionals</h3> <!-- Article title -->
+              <p class="article-excerpt">A practical security checklist for freelancers building and maintaining client WordPress, WooCommerce, and Shopify websites.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/preventing-payment-disputes-clear-contracts-milestones-and-delivery-records.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-11.png" alt="Preventing Payment Disputes: Clear Contracts, Milestones, and Delivery Records" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Business Protection</span> <!-- Category badge -->
+              <h3 class="article-title">Preventing Payment Disputes: Clear Contracts, Milestones, and Delivery Records</h3> <!-- Article title -->
+              <p class="article-excerpt">Protect your service business from payment misunderstandings and chargebacks with clear scope agreements and milestone approvals.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/reliable-backups-for-source-code-design-files-and-client-deliverables.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-12.png" alt="Reliable Backups for Source Code, Design Files, and Client Deliverables" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Business Continuity</span> <!-- Category badge -->
+              <h3 class="article-title">Reliable Backups for Source Code, Design Files, and Client Deliverables</h3> <!-- Article title -->
+              <p class="article-excerpt">Never lose a week of client work to hardware issues: setting up automated cloud sync and external drive backups for your projects.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/working-safely-from-coworking-spaces-and-cafes-a-guide-for-remote-workers.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-13.png" alt="Working Safely from Coworking Spaces and Cafes: A Guide for Remote Workers" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Remote Work Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Working Safely from Coworking Spaces and Cafes: A Guide for Remote Workers</h3> <!-- Article title -->
+              <p class="article-excerpt">Practical habits for protecting client data and account sessions when working from shared coworking networks or coffee shops.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/spotting-fake-copyright-notices-and-unofficial-domain-renewal-emails.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-14.png" alt="Spotting Fake Copyright Notices and Unofficial Domain Renewal Emails" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Email Verification</span> <!-- Category badge -->
+              <h3 class="article-title">Spotting Fake Copyright Notices and Unofficial Domain Renewal Emails</h3> <!-- Article title -->
+              <p class="article-excerpt">How website owners and creators can recognize deceptive copyright claim emails that try to prompt unsafe downloads or link clicks.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/custom-domain-email-setup-configuring-spf-dkim-and-dmarc-for-your-business.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-15.png" alt="Custom Domain Email Setup: Configuring SPF, DKIM, and DMARC for Your Business" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Email Deliverability</span> <!-- Category badge -->
+              <h3 class="article-title">Custom Domain Email Setup: Configuring SPF, DKIM, and DMARC for Your Business</h3> <!-- Article title -->
+              <p class="article-excerpt">Ensure your client proposals reach the inbox and prevent others from sending spoofed emails under your custom business domain.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/collaborating-with-subcontractors-safely-delegating-access-without-sharing-master-logins.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-16.png" alt="Collaborating with Subcontractors Safely: Delegating Access Without Sharing Master Logins" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Team Operations</span> <!-- Category badge -->
+              <h3 class="article-title">Collaborating with Subcontractors Safely: Delegating Access Without Sharing Master Logins</h3> <!-- Article title -->
+              <p class="article-excerpt">How growing freelancers and boutique agencies can delegate tasks to team members while keeping client master accounts secure.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/protecting-your-digital-products-portfolio-work-and-creative-templates.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-17.png" alt="Protecting Your Digital Products, Portfolio Work, and Creative Templates" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Intellectual Property</span> <!-- Category badge -->
+              <h3 class="article-title">Protecting Your Digital Products, Portfolio Work, and Creative Templates</h3> <!-- Article title -->
+              <p class="article-excerpt">Practical ways to protect your portfolio samples, design templates, online courses, and custom software deliverables.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/responsible-use-of-ai-tools-in-freelance-work-protecting-client-confidentiality.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-18.png" alt="Responsible Use of AI Tools in Freelance Work: Protecting Client Confidentiality" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">AI Best Practices</span> <!-- Category badge -->
+              <h3 class="article-title">Responsible Use of AI Tools in Freelance Work: Protecting Client Confidentiality</h3> <!-- Article title -->
+              <p class="article-excerpt">How to use AI writing and coding assistants productively without exposing confidential client documents, personal data, or API keys.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/protecting-your-tax-filings-prc-certificates-and-business-banking-records.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-19.png" alt="Protecting Your Tax Filings, PRC Certificates, and Business Banking Records" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Privacy</span> <!-- Category badge -->
+              <h3 class="article-title">Protecting Your Tax Filings, PRC Certificates, and Business Banking Records</h3> <!-- Article title -->
+              <p class="article-excerpt">How Pakistani freelancers can spot fake FBR or bank verification emails and keep their tax portals and financial statements secure.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="freelancers/freelance-business-continuity-plan-recovering-quickly-from-device-or-account-issues.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/freelancers/pictures/freelancer-20.png" alt="Freelance Business Continuity Plan: Recovering Quickly from Device or Account Issues" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Business Continuity</span> <!-- Category badge -->
+              <h3 class="article-title">Freelance Business Continuity Plan: Recovering Quickly from Device or Account Issues</h3> <!-- Article title -->
+              <p class="article-excerpt">A calm, practical preparedness plan to keep your freelance business running smoothly even if a laptop fails or an account is locked.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Minimal GitHub-Inspired Centered Footer -->
+    <footer>
+      <div class="container footer-minimal-wrap">
+        <nav class="footer-minimal-nav" aria-label="Footer Main Links">
+          <a href="pages/about.html" class="footer-minimal-link">About</a>
+          <a href="sponsor.html" class="footer-minimal-link">Sponsor</a>
+                  <a href="pages/reviews.html" class="footer-minimal-link">Feedback &amp; Reviews</a>
+          <a href="pages/contact.html" class="footer-minimal-link">Contact</a>
+</nav>
+
+        <nav class="footer-minimal-legal" aria-label="Legal Policies">
+          <a href="pages/privacy-policy.html" class="footer-minimal-legal-link">Privacy Policy</a>
+          <a href="pages/terms-of-use.html" class="footer-minimal-legal-link">Terms of Use</a>
+          <a href="pages/disclaimer.html" class="footer-minimal-legal-link">Disclaimer</a>
+        </nav>
+
+        <div class="footer-contact-row notranslate" translate="no"> <!-- Official email aur Pro Share button ka container -->
+          <a href="mailto:infosafepk@proton.me" class="footer-email-pill" title="Official SafePK Email: infosafepk@proton.me">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>infosafepk@proton.me</span>
+          </a>
+        </div>
+
+        <p class="footer-minimal-copy">&copy; SafePK &mdash; All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/theme.js"></script>
+
+    <script>
+      if (typeof initTheme !== undefined) initTheme();
+      if (typeof lucide !== undefined) lucide.createIcons(); /* Lucide icons initialize kiye ja rahe hain */
+
+      function initAudienceChecklist() {
+        const drawer = document.getElementById('security-checklist');
+        const toggleBtn = document.getElementById('checklist-toggle-btn');
+        const closeBtn = document.getElementById('checklist-close-btn');
+        const resetBtn = document.getElementById('checklist-reset-btn');
+        const checkboxes = Array.from(document.querySelectorAll('.sec-check-item'));
+        const badge = document.getElementById('checklist-level-badge');
+        const bar = document.getElementById('checklist-progress-bar');
+        const pctLabel = document.getElementById('checklist-progress-pct');
+        const recList = document.getElementById('checklist-rec-list');
+        if (!checkboxes.length || !badge || !bar || !recList) return;
+
+        function setChecklistOpen(open) {
+          if (!drawer || !toggleBtn) return;
+          drawer.classList.toggle('is-open', open);
+          drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+          toggleBtn.classList.toggle('is-active', open);
+          toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if (open) {
+            setTimeout(() => {
+              drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 80);
+          }
+        }
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isOpen = drawer && drawer.classList.contains('is-open');
+            setChecklistOpen(!isOpen);
+          });
+        }
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => setChecklistOpen(false));
+        }
+
+        function updateScore() {
+          const total = checkboxes.length;
+          const checked = checkboxes.filter(c => c.checked).length;
+          const missing = checkboxes.filter(c => !c.checked).map(c => c.getAttribute('data-rec'));
+          const pct = Math.round((checked / total) * 100);
+
+          checkboxes.forEach(cb => {
+            const card = cb.closest('.pro-check-card');
+            if (card) card.classList.toggle('is-checked', cb.checked);
+          });
+
+          let level = 'Low';
+          let color = 'var(--color-danger)';
+          if (checked >= 7) {
+            level = 'Strong';
+            color = 'var(--color-success)';
+          } else if (checked >= 5) {
+            level = 'Good';
+            color = 'var(--color-primary)';
+          } else if (checked >= 3) {
+            level = 'Moderate';
+            color = 'var(--color-warning)';
+          }
+
+          badge.textContent = `${level} (${checked}/${total})`;
+          badge.style.color = color;
+          bar.style.width = `${pct}%`;
+          bar.style.backgroundColor = color;
+          if (pctLabel) pctLabel.textContent = `${pct}% Complete`;
+
+          if (missing.length === 0) {
+            recList.innerHTML = '<li style="color: var(--color-success); font-weight: 600;">All listed freelance security practices are checked. Continue reviewing your client accounts and backups regularly.</li>';
+          } else {
+            recList.innerHTML = missing.slice(0, 4).map(r => `<li>${r}</li>`).join('');
+          }
+        }
+
+        if (resetBtn) {
+          resetBtn.addEventListener('click', () => {
+            checkboxes.forEach(cb => { cb.checked = false; });
+            updateScore();
+          });
+        }
+
+        checkboxes.forEach(cb => cb.addEventListener('change', updateScore));
+        updateScore();
+      }
+      initAudienceChecklist();
+    </script>
+  </body>
+</html>

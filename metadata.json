@@ -1,0 +1,6 @@
+{
+  "name": "SafePK",
+  "description": "Independent cybersecurity awareness platform in Pakistan. Learn to identify online scams, secure accounts, draft incident reports, and find official helplines.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

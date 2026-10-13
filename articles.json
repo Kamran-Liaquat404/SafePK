@@ -1,0 +1,285 @@
+[
+  {
+    "id": 1,
+    "title": "Fake Bank Verification Calls: Recognizing Spoofed Numbers and PIN Requests",
+    "category": "Financial Safety",
+    "readTime": "5 min read",
+    "image": "assets/mainpage/articles/article-1.png",
+    "summary": "Scammers sometimes imitate official bank helplines and claim your debit card or account is restricted in order to ask for your OTP or card details.",
+    "explanation": "Fake bank verification calls happen when callers pose as customer service representatives or verification officers from commercial banks in Pakistan (such as HBL, UBL, Meezan Bank, MCB, or Allied Bank). Using internet calling tools, they can make their incoming phone number look similar to a bank's official helpline. Under the excuse of completing biometric verification, cancelling a suspicious transfer, or updating your account, they ask you to share confidential banking codes.",
+    "howItWorks": "1. The caller obtains your name and mobile number from public directories or social media.\n2. Using caller ID spoofing, the caller places a phone call that looks like an official bank number.\n3. The caller speaks urgently, claiming an unauthorized transaction has been initiated from your account or that your card is about to be blocked.\n4. To 'verify' your account, they trigger a login or password reset on their end, which causes your bank to send a genuine One-Time Password (OTP) to your phone.\n5. The caller asks you to read out the 6-digit OTP or share your 4-digit ATM PIN over the phone.\n6. If the code is shared, the caller uses it to access the account or approve a transfer.",
+    "warningSigns": [
+      "The caller claims that your bank account or ATM card will be blocked within minutes unless you share a code immediately.",
+      "The caller asks for your One-Time Password (OTP), ATM PIN, the 3-digit CVV number on the back of your card, or your online banking password.",
+      "The caller asks you to dial unfamiliar codes on your mobile keypad during the call.",
+      "The caller discourages you from hanging up and calling the bank back on its official helpline."
+    ],
+    "whatToDo": [
+      "End the call politely: Do not share any personal or banking details over an unexpected phone call.",
+      "Call your bank directly: Find the official helpline number printed on the back of your debit card and dial it yourself.",
+      "Inform your bank's support team: Report the caller's phone number and the time of the call to your bank.",
+      "If you shared any details: Ask your bank to temporarily block your debit card and online banking right away.",
+      "Report to PTA: Forward the caller's number and details via SMS to 9000 (PTA's official spam reporting service)."
+    ],
+    "preventionSteps": [
+      "Remember the golden rule: Official banks never ask for your card PIN, password, or SMS OTP over a phone call.",
+      "Do not rely only on Caller ID: Incoming numbers can be imitated; always verify by calling the official helpline yourself.",
+      "Set reasonable daily transfer limits inside your mobile banking app.",
+      "Keep SMS and email alerts active so you are notified of every account activity."
+    ],
+    "practicalAdvice": "Whenever an unexpected caller creates panic about your money, pause and take a moment. Genuine banks handle account or biometric updates through their official mobile app or by inviting you to visit your nearest branch in person."
+  },
+  {
+    "id": 2,
+    "title": "WhatsApp Account Safety: Protecting Your 6-Digit Verification Code",
+    "category": "Account Safety",
+    "readTime": "5 min read",
+    "image": "assets/mainpage/articles/article-2.png",
+    "summary": "Scammers may pose as support staff or use a friend's compromised account to ask for your 6-digit WhatsApp verification code.",
+    "explanation": "WhatsApp verification scams are common across Pakistan. Someone attempts to sign in to WhatsApp using your mobile number on another phone, which causes WhatsApp to send a 6-digit verification code to your phone via SMS. The person then messages you—often pretending to be a friend or a support representative—and asks you to forward that 6-digit code. If shared, they gain access to your WhatsApp and may message your contacts asking for money.",
+    "howItWorks": "1. Someone enters your mobile number into WhatsApp on another device.\n2. WhatsApp sends a genuine 6-digit verification code via SMS to your phone.\n3. At the same time, you receive a message saying: 'Hello, I accidentally sent my verification code to your number, please forward those 6 digits to me.'\n4. If you send the 6 digits, your WhatsApp account moves to their device.\n5. They may then message your family and friends asking for urgent financial help via Easypaisa or JazzCash.",
+    "warningSigns": [
+      "Receiving a WhatsApp verification code via SMS when you did not try to log in.",
+      "A friend or unknown number messaging you to ask for a 6-digit SMS code.",
+      "Calls or messages from unknown numbers claiming to be from the 'WhatsApp Verification Team'.",
+      "A notification stating that your phone number is no longer registered with WhatsApp on your phone."
+    ],
+    "whatToDo": [
+      "Sign back in immediately: Open WhatsApp on your phone, enter your mobile number, and verify with a fresh 6-digit SMS code.",
+      "Signing in on your phone automatically disconnects the other device.",
+      "Inform your contacts: Call or send a regular SMS to family members and friends to let them know not to send money to anyone messaging from your account.",
+      "Enable Two-Step Verification as soon as your account is restored."
+    ],
+    "preventionSteps": [
+      "Turn on Two-Step Verification: In WhatsApp, go to Settings > Account > Two-Step Verification and set a 6-digit PIN and backup email.",
+      "Never share verification codes: Treat every 6-digit SMS code as private, just like your ATM PIN.",
+      "Check Linked Devices regularly: Go to WhatsApp > Settings > Linked Devices and log out of any unfamiliar sessions."
+    ],
+    "practicalAdvice": "If a friend or relative messages you on WhatsApp asking for money or a verification code, call them directly on their mobile number first. A quick phone call will confirm whether it is really them."
+  },
+  {
+    "id": 3,
+    "title": "BISP & Welfare Grant SMS Safety: Recognizing Official 8171 Messages",
+    "category": "Financial Safety",
+    "readTime": "5 min read",
+    "image": "assets/mainpage/articles/article-3.png",
+    "summary": "Unverified SMS messages claiming cash approvals under BISP (8171) or lucky draws often ask for advance fees or PIN codes.",
+    "explanation": "Scammers sometimes misuse the names of public welfare programs such as the Benazir Income Support Program (BISP) to mislead citizens. People receive text messages from personal mobile numbers claiming that their CNIC has been approved for a cash grant of Rs. 25,000 or more. To receive the amount, the message asks them to call a private number where the caller asks for an advance 'registration fee' or mobile wallet PIN.",
+    "howItWorks": "1. Unverified SMS messages are sent from ordinary 11-digit mobile numbers.\n2. The message claims: 'Congratulations, your BISP grant of Rs. 25,000 has been approved. Contact this number to receive your payment.'\n3. When the recipient calls, the speaker pretends to be a verification officer.\n4. The caller claims that a small processing fee or mobile balance transfer is required to release the payment.\n5. Once the money is sent, the caller switches off their phone.",
+    "warningSigns": [
+      "The SMS arrives from a regular 11-digit mobile number (such as 03XX-XXXXXXX) instead of the official 8171 shortcode.",
+      "The caller asks for an advance fee, tax payment, or mobile balance to release a grant.",
+      "The caller asks for your Easypaisa or JazzCash PIN or OTP code.",
+      "Claims that you have won a grant or lucky draw that you never applied for."
+    ],
+    "whatToDo": [
+      "Check your status only via 8171: Send your 13-digit CNIC number via SMS to 8171 or check the official portal at bisp.gov.pk.",
+      "Never send advance fees or share PIN codes to receive a grant.",
+      "Report the number to PTA: Forward the sender's phone number and message text via SMS to 9000.",
+      "Visit your nearest official BISP Tehsil Office if you need help with registration."
+    ],
+    "preventionSteps": [
+      "Share this information with elderly relatives and household staff so they know how to spot fake messages.",
+      "Remember that official government welfare grants are completely free and never require advance fees.",
+      "Only trust messages coming from the official 8171 shortcode."
+    ],
+    "practicalAdvice": "In Pakistan, official BISP messages are sent only from shortcode 8171. Any message about BISP arriving from a regular 11-digit mobile number is not genuine."
+  },
+  {
+    "id": 4,
+    "title": "Parcel Delivery & Courier SMS Scams: Checking Links Safely",
+    "category": "Online Shopping",
+    "readTime": "5 min read",
+    "image": "assets/mainpage/articles/article-4.png",
+    "summary": "Unverified SMS messages claiming an undelivered parcel from Pakistan Post or a courier service may ask you to click a link and enter card details.",
+    "explanation": "Delivery link scams involve text messages claiming that a parcel from Pakistan Post, TCS, or an international courier cannot be delivered due to an incomplete address. The link opens a look-alike webpage that asks you to update your address and pay a small 'redelivery fee' (such as Rs. 50 to Rs. 150) by entering your debit or credit card details.",
+    "howItWorks": "1. You receive an SMS stating that a parcel is on hold due to an incomplete address, along with a website link.\n2. The link opens a page that copies the logo and colors of a courier company.\n3. The page asks for your name, address, and a small payment using your 16-digit card number, expiry date, and CVV.\n4. If card details and the bank OTP are entered on the fake page, an unauthorized payment may be processed.",
+    "warningSigns": [
+      "Website links ending in unusual extensions like .top, .xyz, or .shop instead of official domains like pakpost.gov.pk or tcsexpress.com.",
+      "Delivery alerts for parcels you never ordered.",
+      "A webpage asking for your debit card number and CVV to pay a small address update fee.",
+      "Urgent messages claiming the parcel will be returned within a few hours."
+    ],
+    "whatToDo": [
+      "Do not click links inside unexpected parcel delivery SMS messages.",
+      "To check a real order, open the official courier website directly in your browser and enter your tracking number.",
+      "If you entered card details on an unverified page: Contact your bank helpline immediately to block and replace your card.",
+      "Forward the suspicious SMS and sender number to PTA at 9000."
+    ],
+    "preventionSteps": [
+      "Always check the exact website address before entering any payment information.",
+      "Keep reasonable daily online shopping limits set inside your mobile banking app.",
+      "Read the full text of any bank OTP message to see the merchant name and amount before using it."
+    ],
+    "practicalAdvice": "Pakistan Post and trusted courier services do not send unverified web links asking for debit card details to update a delivery address. Always track your parcels directly on the courier's official website."
+  },
+  {
+    "id": 5,
+    "title": "Online Marketplace Safety: Avoiding Advance Payment Traps",
+    "category": "Online Shopping",
+    "readTime": "5 min read",
+    "image": "assets/mainpage/articles/article-5.png",
+    "summary": "Learn how to buy and sell safely on classified platforms and social media marketplaces without falling for advance token fees or fake transfer screenshots.",
+    "explanation": "Online marketplaces are convenient for buying and selling phones, vehicles, and household items, but unverified buyers or sellers sometimes misuse them. Deceptive sellers may list items far below market price and ask for an advance 'booking token' or delivery charge before meeting. Similarly, deceptive buyers may send an edited screenshot of a bank transfer and ask you to hand over the item before the money actually arrives in your account.",
+    "howItWorks": "When Buying:\n1. An item is listed at a price much lower than normal market value.\n2. The seller claims to be in another city or asks for a small advance token via Easypaisa or JazzCash to reserve the item.\n3. Once the advance payment is sent, the seller stops responding.\n\nWhen Selling:\n1. A buyer agrees to purchase your item quickly and sends a screenshot of a bank transfer receipt.\n2. You may also receive a fake confirmation SMS from a regular mobile number.\n3. The buyer sends a rider to pick up the item before you check your actual bank app balance.",
+    "warningSigns": [
+      "Items listed at prices far below normal market rates.",
+      "Sellers refusing to meet in person in a safe public place to show the item.",
+      "Requests for advance booking tokens, delivery fees, or customs charges before you see the product.",
+      "Payment confirmation SMS messages arriving from regular 11-digit mobile numbers instead of official bank shortcodes."
+    ],
+    "whatToDo": [
+      "Always check your live account balance inside your official banking or wallet app—never rely solely on a screenshot or SMS.",
+      "Only hand over an item after confirming the money is available in your account.",
+      "For buyers: Inspect the item in person before making any payment.",
+      "If you experience fraud: Save all chat logs, phone numbers, and transaction receipts, and report to NCCIA (1799)."
+    ],
+    "preventionSteps": [
+      "Meet buyers and sellers during daylight hours in safe, well-lit public places such as shopping malls or bank lobbies.",
+      "Never pay advance booking tokens or delivery fees to unknown individual sellers.",
+      "Review the seller's profile history and ratings before arranging a meeting."
+    ],
+    "practicalAdvice": "Payment screenshots can be easily edited on a phone. The only reliable way to confirm a payment is to open your official banking or mobile wallet app and verify your updated balance."
+  },
+  {
+    "id": 6,
+    "title": "Unverified Investment & Earning Apps: How to Spot Financial Traps",
+    "category": "Financial Safety",
+    "readTime": "6 min read",
+    "image": "assets/mainpage/articles/article-6.png",
+    "summary": "Unregistered mobile apps and Telegram groups often promise fixed daily profits for simple tasks or deposits, then block withdrawals later on.",
+    "explanation": "Unverified investment and task-earning schemes promote apps or websites that promise guaranteed daily returns (such as 3% to 10% per day) for depositing money or completing simple clicks. To build confidence, they often allow new users to withdraw a small profit in the first few days. Once users deposit larger savings and invite friends, the platform blocks withdrawals and closes down.",
+    "howItWorks": "1. Users are invited via WhatsApp, Telegram, or social media ads promising easy daily income.\n2. The platform asks for an initial deposit via mobile wallets or USDT to activate an account or 'VIP level'.\n3. The app dashboard shows rising daily profit numbers, and a small initial withdrawal is processed to build trust.\n4. Encouraged by the first payout, users deposit larger amounts.\n5. When users try to withdraw their main balance, the app demands extra 'verification fees' or stops working altogether.",
+    "warningSigns": [
+      "Promises of guaranteed fixed daily or weekly profits with 'zero risk'.",
+      "Heavy emphasis on inviting friends and family to earn referral commissions.",
+      "Deposits collected into personal mobile wallets or unrelated bank accounts instead of a licensed company account.",
+      "Apps distributed through unofficial APK links rather than official app stores.",
+      "The company is not licensed by the Securities and Exchange Commission of Pakistan (SECP)."
+    ],
+    "whatToDo": [
+      "Stop sending money immediately: Do not pay additional 'withdrawal fees' or 'tax charges' to unlock a frozen balance.",
+      "Save all evidence: Keep copies of transaction IDs, bank receipts, wallet numbers, and group chat screenshots.",
+      "Report to SECP and NCCIA: Submit details of unregistered investment schemes to SECP (Jamapunji) and NCCIA (1799).",
+      "Inform friends or relatives you invited so they do not deposit funds."
+    ],
+    "preventionSteps": [
+      "Check the SECP Jamapunji portal to confirm whether a financial or investment company is legally registered in Pakistan.",
+      "Be cautious of any platform promising high daily returns for simple online tasks.",
+      "Never install unverified investment apps from unknown links."
+    ],
+    "practicalAdvice": "Legitimate investments never guarantee high fixed daily returns, and genuine employers never ask you to deposit money to unlock tasks. Always verify investment companies with SECP before sending funds."
+  },
+  {
+    "id": 7,
+    "title": "SIM Replacement Safety: Protecting Your Mobile Number and OTPs",
+    "category": "Account Safety",
+    "readTime": "5 min read",
+    "image": "assets/mainpage/articles/article-7.png",
+    "summary": "Learn how to recognize unauthorized SIM replacement attempts and keep your mobile number and banking alerts protected.",
+    "explanation": "Your mobile number receives verification codes (OTPs) for your bank accounts, mobile wallets, and messaging apps. If someone attempts to issue an unauthorized replacement SIM for your number, your phone SIM will lose network signal and your incoming SMS alerts could be redirected. Knowing the warning signs helps you act quickly to protect your accounts.",
+    "howItWorks": "1. Scammers try to collect personal CNIC details or trick users into approving a SIM change.\n2. If an unauthorized replacement SIM is activated, your existing SIM card disconnects from the mobile network.\n3. Your phone suddenly shows 'No Service' or 'Emergency Calls Only' even in areas with normal signal.\n4. The other party then attempts to use incoming SMS codes to reset account passwords.",
+    "warningSigns": [
+      "Your mobile phone suddenly shows 'No Service' for an extended period in an area where you normally have full signal.",
+      "You receive an unexpected SMS or call from your mobile network about a SIM replacement request you did not make.",
+      "You stop receiving expected SMS notifications or calls despite having active balance.",
+      "Family members tell you they are unable to reach your number."
+    ],
+    "whatToDo": [
+      "Check your SIM status right away: If your SIM loses signal unexpectedly while others nearby on the same network have coverage, do not ignore it.",
+      "Call your mobile operator helpline from another phone to verify your SIM status.",
+      "Ask the operator to immediately block any unauthorized SIM replacement.",
+      "Contact your bank and mobile wallet helplines to temporarily pause mobile banking until your SIM is secured."
+    ],
+    "preventionSteps": [
+      "Mark CNIC photocopies safely: Whenever you give a CNIC photocopy for official work, write the specific purpose and date across the copy.",
+      "Check registered SIMs: Send your 13-digit CNIC number via SMS to PTA shortcode 668 to check how many SIMs are registered in your name.",
+      "Use Authenticator Apps: Enable app-based Two-Factor Authentication (such as Google Authenticator) on your email and social accounts."
+    ],
+    "practicalAdvice": "If your phone unexpectedly displays 'No Service' for an extended time in a normal coverage area, call your mobile network helpline from a family member's phone right away to verify that your SIM is safe."
+  },
+  {
+    "id": 8,
+    "title": "Safe App Downloads: Why You Should Avoid Unverified APK Files",
+    "category": "Device Safety",
+    "readTime": "5 min read",
+    "image": "assets/mainpage/articles/article-8.png",
+    "summary": "Installing unverified APK files shared on WhatsApp or unknown websites can expose your SMS messages, photos, and personal accounts.",
+    "explanation": "Android smartphones allow users to install apps from official app stores, or manually via '.apk' files downloaded from links. Scammers often share unverified APK files in WhatsApp groups or social media comments disguised as 'Free Internet Data Apps', 'Welfare Grant Checkers', or 'Modified Chat Apps'. When installed, these unsafe apps ask for permission to read your SMS messages and screen activity, which can expose your private OTP codes.",
+    "howItWorks": "1. A message is shared in a chat group offering a 'Free 50GB Internet App' or 'Special Earning App' via a download link.\n2. Clicking the link downloads an unverified APK file to the phone.\n3. During installation, the user is asked to allow 'Install from Unknown Sources'.\n4. Once opened, the app asks for permission to read SMS messages, contacts, and notifications.\n5. If granted, the unsafe app can read incoming verification codes and personal data in the background.",
+    "warningSigns": [
+      "Apps shared as direct file downloads (.apk) over WhatsApp, Telegram, or unfamiliar websites instead of Google Play Store.",
+      "A simple utility or game asking for permission to read your SMS messages, contacts, or Accessibility settings.",
+      "Your phone battery draining unusually fast, overheating, or using mobile data in the background.",
+      "Unfamiliar pop-up windows asking you to re-enter your banking or social media passwords."
+    ],
+    "whatToDo": [
+      "Uninstall the unfamiliar app: Open Android Settings > Apps, find any app you do not recognize or installed from an external link, and uninstall it.",
+      "Review app permissions: Go to Settings > Privacy > Permission Manager and remove SMS, Contacts, and Accessibility access from unfamiliar apps.",
+      "Run a security scan: Open Google Play Store > Profile > Play Protect and tap 'Scan'.",
+      "Update your passwords from a trusted device if you suspect your account details were exposed."
+    ],
+    "preventionSteps": [
+      "Keep 'Install Unknown Apps' turned off for your web browser and messaging apps.",
+      "Keep Google Play Protect enabled at all times.",
+      "Use only the official versions of WhatsApp and banking apps downloaded from Google Play Store or Apple App Store."
+    ],
+    "practicalAdvice": "Official telecom operators, banks, and government programs never distribute their apps as loose APK files in WhatsApp forwards. Always download apps exclusively from the official Google Play Store or Apple App Store."
+  },
+  {
+    "id": 9,
+    "title": "Fake Family Emergency Calls: Verifying Urgent Requests Calmly",
+    "category": "Family Safety",
+    "readTime": "5 min read",
+    "image": "assets/mainpage/articles/article-9.png",
+    "summary": "Scammers sometimes call parents claiming a family member is in a sudden medical or legal emergency and ask for an immediate money transfer.",
+    "explanation": "Fake family emergency calls rely on creating sudden worry so that parents or relatives send money before checking the facts. A caller dials from an unknown number claiming that a son, daughter, or sibling has been in an accident or urgent situation—sometimes playing a brief audio clip to sound like them—and asks for an immediate transfer via Easypaisa, JazzCash, or bank transfer.",
+    "howItWorks": "1. The caller phones a parent or elder family member and speaks in a rushed, urgent tone.\n2. The caller claims to be a doctor, official, or bystander, saying a family member needs urgent medical or legal fee assistance.\n3. The caller asks for Rs. 20,000 to Rs. 50,000 to be sent immediately to a personal mobile wallet number.\n4. The caller tries to keep the parent on the phone so they do not hang up and call their child directly.",
+    "warningSigns": [
+      "The caller insists you stay on the line and discourages you from calling your family member directly.",
+      "Requests to send emergency funds to a personal Easypaisa or JazzCash number.",
+      "The caller cannot answer simple personal questions about your family member.",
+      "High pressure to send money within a few minutes."
+    ],
+    "whatToDo": [
+      "Stay calm and do not send money right away: Take a breath and verify the situation first.",
+      "Call your family member directly: Hang up or use another phone in the house to call your relative's actual phone number, school, or workplace.",
+      "Ask a verification question that only your real family member would know.",
+      "Report the caller's number and wallet details to NCCIA (1799) and PTA (9000)."
+    ],
+    "preventionSteps": [
+      "Agree on a private 'Family Safe Word' with your children and close relatives to confirm genuine emergencies.",
+      "Keep personal phone numbers and daily routines visible only to trusted friends on social media.",
+      "Discuss this type of scam politely with elderly parents so they know to verify before sending money."
+    ],
+    "practicalAdvice": "Hospitals and official institutions in Pakistan do not call families from personal numbers demanding instant mobile wallet transfers. Always hang up and call your loved one directly to confirm they are safe."
+  },
+  {
+    "id": 10,
+    "title": "Public Wi-Fi Safety: Staying Protected in Cafes, Malls, and Airports",
+    "category": "Network Safety",
+    "readTime": "5 min read",
+    "image": "assets/mainpage/articles/article-10.png",
+    "summary": "Learn simple habits to keep your accounts and banking sessions safe when using shared Wi-Fi networks in public places.",
+    "explanation": "Open public Wi-Fi networks in cafes, shopping malls, hotels, and airports are convenient, but because they are shared by many people, they are less secure than your home connection. Occasionally, someone may also set up a look-alike hotspot with a similar name (such as 'Free_Cafe_WiFi') to observe unencrypted browsing or show fake login pages.",
+    "howItWorks": "1. A public hotspot is left open without a password, or a look-alike hotspot is created with a familiar venue name.\n2. Phones with 'Auto-Connect' enabled may join the open network automatically.\n3. If a user visits an unencrypted website or enters passwords on a pop-up portal page, their session details may be exposed.",
+    "warningSigns": [
+      "Multiple Wi-Fi networks appearing with nearly identical names in the same place.",
+      "Your browser showing a 'Connection is Not Private' security warning on familiar websites.",
+      "A public Wi-Fi login page asking for your personal email password or social media login.",
+      "A hotspot asking you to download or install an unknown file to access the internet."
+    ],
+    "whatToDo": [
+      "Disconnect from the Wi-Fi network immediately if you see browser security warnings.",
+      "Open your Wi-Fi settings and tap 'Forget Network' so your phone does not reconnect automatically.",
+      "Switch to your personal 4G/5G mobile data whenever you need to check your bank or mobile wallet.",
+      "Change your password from a trusted network if you entered it on an unfamiliar pop-up page."
+    ],
+    "preventionSteps": [
+      "Use your personal mobile data (4G/5G) for all banking, shopping, and confidential logins when outside your home.",
+      "Turn off 'Auto-Join' for open Wi-Fi networks in your phone settings.",
+      "Check for 'https://' and the lock icon in your browser address bar before signing in to any website."
+    ],
+    "practicalAdvice": "Whenever you need to use your banking app or mobile wallet outside your home, turn off Wi-Fi and use your own 4G/5G mobile data. It takes only a second and keeps your financial transactions much safer."
+  }
+]

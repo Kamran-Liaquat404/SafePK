@@ -1,0 +1,875 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+      if ('serviceWorker' in navigator) {
+        const isDev = window.location.hostname === 'localhost' ||
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('.run.app');
+        if (isDev) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            let unregistered = false;
+            for (const registration of registrations) {
+              registration.unregister();
+              unregistered = true;
+            }
+            if (unregistered) {
+              console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+              if (window.caches) {
+                caches.keys().then((names) => {
+                  return Promise.all(names.map(name => caches.delete(name)));
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                window.location.reload();
+              }
+            }
+          });
+        }
+      }
+    </script>
+
+    <!-- Primary Technical SEO & Canonical Metadata -->
+    <title>SafePK — Cybersecurity Awareness & Scam Prevention Platform</title>
+    <meta name="description" content="Independent cybersecurity awareness platform in Pakistan. Learn to identify online scams, secure accounts, draft incident reports, and find official helplines." />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/png" href="assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="apple-touch-icon" href="assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SafePK — Cybersecurity Awareness & Scam Prevention Platform" />
+    <meta property="og:description" content="Independent cybersecurity awareness platform in Pakistan. Learn to identify online scams, secure accounts, draft incident reports, and find official helplines." />
+    <meta property="og:url" content="https://safepk.net/" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+
+    <!-- Twitter / X Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SafePK — Cybersecurity Awareness & Scam Prevention Platform" />
+    <meta name="twitter:description" content="Independent cybersecurity awareness platform in Pakistan. Learn to identify online scams, secure accounts, draft incident reports, and find official helplines." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://safepk.net/#organization",
+      "name": "SafePK",
+      "url": "https://safepk.net/",
+      "email": "infosafepk@proton.me",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://safepk.net/assets/images/safepk-logo.png"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "infosafepk@proton.me",
+        "contactType": "customer support",
+        "url": "https://safepk.net/pages/contact.html"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Kamran Liaquat",
+        "url": "https://safepk.net/kamran-liaquat.html"
+      },
+      "description": "Independent cybersecurity awareness and education project focused on helping internet users in Pakistan understand online security, recognize scams, and protect their accounts."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://safepk.net/#website",
+      "name": "SafePK",
+      "url": "https://safepk.net/",
+      "description": "Independent cybersecurity awareness platform in Pakistan. Learn to identify online scams, secure accounts, draft incident reports, and find official helplines.",
+      "publisher": {
+        "@id": "https://safepk.net/#organization"
+      },
+      "inLanguage": "en-PK"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://safepk.net/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is SafePK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SafePK is an independent cybersecurity awareness and education project focused on helping everyday internet users in Pakistan understand online security, recognize scams, protect their accounts, and use the internet safely."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is SafePK an independent project?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SafePK is a completely independent educational project. It is not owned, operated, or funded by any government agency, bank, financial institution, or telecom company."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who founded SafePK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SafePK was founded by Kamran Liaquat as an independent cybersecurity awareness initiative."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is SafePK affiliated with the Pakistani government, banks, or other institutions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. SafePK is not a Pakistani government department, government website, bank, financial institution, telecom company, or official representative of any institution. SafePK does not claim any official partnership or affiliation unless explicitly and verifiably stated. Listing an organization or its official contact details on SafePK is strictly for public awareness and does not imply affiliation or endorsement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does SafePK do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SafePK provides free cybersecurity awareness guides, educational articles on common online scams, audience security checklists, an incident report generator for drafting complaint statements, and a directory of official helplines and reporting channels."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Stylesheets & Web App Manifest -->
+    <link rel="stylesheet" href="css/style.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="stylesheet" href="css/responsive.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="manifest" href="manifest.json" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <meta name="theme-color" content="#2563EB" />
+  </head>
+  <body>
+    <!-- Top sticky navigation Header controls -->
+    <header>
+      <div class="container navbar-container">
+        <a href="index.html" class="logo-block">
+          <img src="assets/images/safepk-logo.png" alt="SafePK Logo" class="logo-img" width="32" height="32" decoding="async" fetchpriority="high" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link active">Home</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-link nav-dropdown-trigger" aria-expanded="false">
+              <span>Audience</span>
+              <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="individual.html" class="nav-dropdown-item">
+                <span>Individuals</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="family.html" class="nav-dropdown-item">
+                <span>Families</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="organizations.html" class="nav-dropdown-item">
+                <span>Organizations</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="freelancers.html" class="nav-dropdown-item">
+                <span>Freelancers &amp; Businesses</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+          <a href="pages/learn.html" class="nav-link">Articles</a>
+          <a href="pages/tools.html" class="nav-link">Report Generator</a>
+          <a href="pages/directory.html" class="nav-link">Directory</a>
+          <a href="pages/help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+<!-- Main dynamic landing section wrapper -->
+<main class="main-content">
+  <div class="container">
+    <div class="hero-wrapper animate-fade-in" style="position: relative; z-index: 10;">
+
+      <h1 class="hero-title">
+        A Safer Digital Pakistan
+      </h1>
+
+      <p class="hero-desc">
+        Trusted cybersecurity awareness and information for everyone.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="pages/learn.html" class="btn btn-primary">
+          <i data-lucide="book-open" class="w-4 h-4"></i>
+          Start Learning
+        </a>
+
+        <a href="pages/tools.html" class="btn btn-secondary">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+          Report Generator
+        </a>
+
+        <a href="pages/directory.html" class="btn btn-secondary">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          Directory
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Cybersecurity Tips -->
+    <section class="tips-section animate-fade-in" style="margin-top: 2.5rem; margin-bottom: 3.5rem;">
+      <div class="sec-title-container" style="text-align: left; margin-bottom: 1.5rem;">
+        <h2 class="sec-title" style="font-size: 1.5rem; margin-bottom: 0.35rem;">Essential Security Tips</h2> <!-- Section ki main sub-heading (H2) -->
+        <p class="sec-desc" style="margin: 0; font-size: 0.875rem;">High-impact digital habits to protect your smartphones, banking accounts, and private conversations.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <!-- Tip 1 -->
+        <div class="ui-card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
+          <div class="card-icon-box">
+            <i data-lucide="key-round" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.45rem;">Keep Verification Codes Private</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Your WhatsApp codes, banking OTPs, and mobile wallet PINs are strictly confidential. Legitimate bank representatives and support staff will never request them.</p>
+          </div>
+        </div>
+
+        <!-- Tip 2 -->
+        <div class="ui-card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
+          <div class="card-icon-box is-success">
+            <i data-lucide="phone-off" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.45rem;">Verify Sudden Bank Inquiries</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Scammers often falsify official caller IDs. If an urgent caller claims your account is locked and asks for card numbers or passwords, hang up and dial the bank directly.</p>
+          </div>
+        </div>
+
+        <!-- Tip 3 -->
+        <div class="ui-card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
+          <div class="card-icon-box">
+            <i data-lucide="lock" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.45rem;">Enable Two-Step Verification</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Turn on Two-Step Verification (PIN) on WhatsApp, Google, and your main email. This stops unauthorized logins even if someone manages to duplicate your SIM card.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Audience Sections (Individuals, Families, Organizations, Freelancers & Businesses) -->
+    <section id="who-we-help" class="audience-section animate-fade-in" style="margin-bottom: 4rem;">
+      <div class="sec-title-container" style="text-align: left; margin-bottom: 1.5rem;">
+        <h2 class="sec-title" style="font-size: 1.5rem; margin-bottom: 0.35rem;">Who We Help</h2> <!-- Section ki main sub-heading (H2) -->
+        <p class="sec-desc" style="margin: 0; font-size: 0.875rem;">Dedicated cybersecurity awareness and digital safety resources tailored for four main audiences.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+        <!-- Audience 1: Individuals -->
+        <a href="individual.html" id="audience-individuals" class="audience-nav-card ui-card ui-card-interactive" style="display: flex; flex-direction: column; justify-content: space-between; scroll-margin-top: 90px;">
+          <div>
+            <div class="card-icon-box" style="margin-bottom: 1.15rem;">
+              <i data-lucide="user" class="w-5 h-5"></i>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem;">Individuals</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin: 0 0 0.9rem 0;">Cybersecurity awareness and assistance for everyday internet users.</p>
+            <ul style="margin: 0; padding-left: 1.15rem; font-size: 0.8rem; color: var(--text-secondary); line-height: 1.65;">
+              <li>Account security &amp; password security</li> <!-- List ka individual point (item) -->
+              <li>Scam awareness &amp; online privacy</li> <!-- List ka individual point (item) -->
+              <li>Cybercrime reporting guidance</li> <!-- List ka individual point (item) -->
+              <li>Account recovery guidance &amp; basic digital safety</li> <!-- List ka individual point (item) -->
+            </ul>
+          </div>
+          <div style="margin-top: 1.35rem; padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 0.825rem; font-weight: 600; color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.35rem;">
+              Explore Individuals <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Audience 2: Families -->
+        <a href="family.html" id="audience-families" class="audience-nav-card ui-card ui-card-interactive" style="display: flex; flex-direction: column; justify-content: space-between; scroll-margin-top: 90px;">
+          <div>
+            <div class="card-icon-box is-success" style="margin-bottom: 1.15rem;">
+              <i data-lucide="users" class="w-5 h-5"></i>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem;">Families</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin: 0 0 0.9rem 0;">Cybersecurity awareness for families and safer internet use.</p>
+            <ul style="margin: 0; padding-left: 1.15rem; font-size: 0.8rem; color: var(--text-secondary); line-height: 1.65;">
+              <li>Children's online safety</li> <!-- List ka individual point (item) -->
+              <li>Family account security &amp; privacy</li> <!-- List ka individual point (item) -->
+              <li>Scam awareness &amp; social media safety</li> <!-- List ka individual point (item) -->
+              <li>Device &amp; account protection</li> <!-- List ka individual point (item) -->
+            </ul>
+          </div>
+          <div style="margin-top: 1.35rem; padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 0.825rem; font-weight: 600; color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.35rem;">
+              Explore Families <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Audience 3: Organizations -->
+        <a href="organizations.html" id="audience-organizations" class="audience-nav-card ui-card ui-card-interactive" style="display: flex; flex-direction: column; justify-content: space-between; scroll-margin-top: 90px;">
+          <div>
+            <div class="card-icon-box" style="margin-bottom: 1.15rem;">
+              <i data-lucide="building" class="w-5 h-5"></i>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem;">Organizations</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin: 0 0 0.9rem 0;">Cybersecurity awareness and assistance for organizations.</p>
+            <ul style="margin: 0; padding-left: 1.15rem; font-size: 0.8rem; color: var(--text-secondary); line-height: 1.65;">
+              <li>Employee cybersecurity awareness</li> <!-- List ka individual point (item) -->
+              <li>Cybersecurity awareness campaigns</li> <!-- List ka individual point (item) -->
+              <li>Cybercrime assistance &amp; incident guidance</li> <!-- List ka individual point (item) -->
+              <li>Security awareness resources</li> <!-- List ka individual point (item) -->
+            </ul>
+          </div>
+          <div style="margin-top: 1.35rem; padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 0.825rem; font-weight: 600; color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.35rem;">
+              Explore Organizations <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Audience 4: Freelancers & Businesses -->
+        <a href="freelancers.html" id="audience-freelancers" class="audience-nav-card ui-card ui-card-interactive" style="display: flex; flex-direction: column; justify-content: space-between; scroll-margin-top: 90px;">
+          <div>
+            <div class="card-icon-box" style="margin-bottom: 1.15rem;">
+              <i data-lucide="briefcase" class="w-5 h-5"></i>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem;">Freelancers &amp; Businesses</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin: 0 0 0.9rem 0;">Cybersecurity awareness and assistance for freelancers, small businesses, and business owners.</p>
+            <ul style="margin: 0; padding-left: 1.15rem; font-size: 0.8rem; color: var(--text-secondary); line-height: 1.65;">
+              <li>Business account &amp; email security</li> <!-- List ka individual point (item) -->
+              <li>Social media security &amp; fraud awareness</li> <!-- List ka individual point (item) -->
+              <li>Account recovery &amp; reporting assistance</li> <!-- List ka individual point (item) -->
+              <li>Security awareness guidance</li> <!-- List ka individual point (item) -->
+            </ul>
+          </div>
+          <div style="margin-top: 1.35rem; padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 0.825rem; font-weight: 600; color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.35rem;">
+              Explore Freelancers <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Professional Cybersecurity Articles Section -->
+    <section id="cybersecurity-articles" class="animate-fade-in" style="margin-bottom: 4rem;">
+      <div class="sec-title-container" style="text-align: left; margin-bottom: 1.75rem;">
+        <h2 class="sec-title" style="font-size: 1.5rem; margin: 0 0 0.4rem 0;">Cybersecurity Articles</h2> <!-- Section ki main sub-heading (H2) -->
+        <p class="sec-desc" style="margin: 0; font-size: 0.875rem;">Practical educational guides on common online scams in Pakistan, explaining how they work, key warning signs, and verified recovery steps.</p>
+      </div>
+
+      <!-- Dynamic articles grid loaded from articles.json -->
+      <div id="main-articles-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem;">
+        <!-- Rendered by JavaScript from articles.json -->
+      </div>
+    </section>
+
+    <!-- Cybersecurity Tools Section -->
+    <section id="safety-tools" style="margin-bottom: 4rem;" class="animate-fade-in">
+      <div class="sec-title-container" style="text-align: left; margin-bottom: 1.75rem;">
+        <h2 class="sec-title" style="font-size: 1.5rem; margin: 0 0 0.4rem 0;">Reporting &amp; Official Directory</h2> <!-- Section ki main sub-heading (H2) -->
+        <p class="sec-desc" style="margin: 0; font-size: 0.875rem;">Prepare a structured cybercrime complaint statement in your browser or access verified official helplines and reporting channels.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <!-- Incident Report Generator -->
+        <a href="pages/tools.html" class="ui-card ui-card-interactive" style="display: block;">
+          <div class="card-icon-box" style="margin-bottom: 1rem;">
+            <i data-lucide="file-text" class="w-5 h-5"></i>
+          </div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">Report Generator</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin: 0 0 1.25rem 0;">Generate structured, formal complaint statements ready to submit to NCCIA, PTA, or commercial banks.</p>
+          <span style="font-size: 0.825rem; font-weight: 600; color: var(--color-primary); display: flex; align-items: center; gap: 0.25rem;">Open Report Generator <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </a>
+
+        <!-- Official Directory -->
+        <a href="pages/directory.html" class="ui-card ui-card-interactive" style="display: block;">
+          <div class="card-icon-box" style="margin-bottom: 1rem;">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+          </div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">Official Directory</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin: 0 0 1.25rem 0;">Verified direct helplines, emergency shortcodes, and contact lines for Pakistani regulators and banks.</p>
+          <span style="font-size: 0.825rem; font-weight: 600; color: var(--color-primary); display: flex; align-items: center; gap: 0.25rem;">View Directory <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Compact About SafePK Card (Above FAQ) -->
+    <section class="animate-fade-in" style="margin-bottom: 2.75rem;">
+      <div class="ui-card" style="padding: 1.5rem 1.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem; max-width: 900px; margin: 0 auto;">
+        <div style="max-width: 660px;">
+          <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.35rem 0;">About SafePK</h2> <!-- Section ki main sub-heading (H2) -->
+          <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">
+            SafePK is an independent cybersecurity awareness and education project founded by Kamran Liaquat. The project focuses on making cybersecurity, digital safety, privacy, scams, account security, and responsible internet use easier to understand.
+          </p>
+        </div>
+        <div>
+          <a href="kamran-liaquat.html" style="font-size: 0.85rem; font-weight: 600; color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.35rem; text-decoration: none; white-space: nowrap;">
+            Meet the Founder &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Questions & Answers Section (Exactly 5 Questions About SafePK) -->
+    <section id="faq" style="margin-bottom: 3.5rem;" class="animate-fade-in">
+      <div class="sec-title-container" style="text-align: left; margin-bottom: 1.25rem; max-width: 840px; margin-left: auto; margin-right: auto;">
+        <h2 class="sec-title" style="font-size: 1.4rem; margin: 0 0 0.3rem 0;">Frequently Asked Questions</h2>
+        <p class="sec-desc" style="margin: 0; font-size: 0.85rem;">Quick answers about SafePK, its independence, and its educational mission.</p>
+      </div>
+
+      <div class="qa-grid">
+        <!-- Q1 -->
+        <details class="qa-card">
+          <summary class="qa-header">
+            <span class="qa-header-left">
+              <span class="qa-num">01</span>
+              <span>What is SafePK?</span>
+            </span>
+            <span class="qa-icon-wrap" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </summary>
+          <div class="qa-body-wrap">
+            <div class="qa-body">
+              SafePK is an independent cybersecurity awareness platform helping internet users in Pakistan recognize online scams and secure their accounts.
+            </div>
+          </div>
+        </details>
+
+        <!-- Q2 -->
+        <details class="qa-card">
+          <summary class="qa-header">
+            <span class="qa-header-left">
+              <span class="qa-num">02</span>
+              <span>Is SafePK an independent project?</span>
+            </span>
+            <span class="qa-icon-wrap" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </summary>
+          <div class="qa-body-wrap">
+            <div class="qa-body">
+              Yes. SafePK is 100% independent and is not owned, operated, or funded by any government agency, bank, or telecom company.
+            </div>
+          </div>
+        </details>
+
+        <!-- Q3 -->
+        <details class="qa-card">
+          <summary class="qa-header">
+            <span class="qa-header-left">
+              <span class="qa-num">03</span>
+              <span>Who founded SafePK?</span>
+            </span>
+            <span class="qa-icon-wrap" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </summary>
+          <div class="qa-body-wrap">
+            <div class="qa-body">
+              SafePK was founded by <a href="kamran-liaquat.html" style="color: var(--color-primary); font-weight: 600; text-decoration: none;">Kamran Liaquat</a> as an independent public cybersecurity awareness initiative.
+            </div>
+          </div>
+        </details>
+
+        <!-- Q4 -->
+        <details class="qa-card">
+          <summary class="qa-header">
+            <span class="qa-header-left">
+              <span class="qa-num">04</span>
+              <span>Is SafePK affiliated with any government department or bank?</span>
+            </span>
+            <span class="qa-icon-wrap" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </summary>
+          <div class="qa-body-wrap">
+            <div class="qa-body">
+              No. SafePK has no official affiliation with any government department, bank, or institution; official helplines are listed strictly for public awareness.
+            </div>
+          </div>
+        </details>
+
+        <!-- Q5 -->
+        <details class="qa-card">
+          <summary class="qa-header">
+            <span class="qa-header-left">
+              <span class="qa-num">05</span>
+              <span>What does SafePK do?</span>
+            </span>
+            <span class="qa-icon-wrap" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </summary>
+          <div class="qa-body-wrap">
+            <div class="qa-body">
+              SafePK provides free scam-prevention guides, security checklists, an incident report generator, and a verified directory of official helplines.
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Support SafePK Voluntary Donation Section -->
+    <section class="animate-fade-in" style="margin-top: 3.5rem; margin-bottom: 1rem;">
+      <div class="ui-card" style="padding: 2.25rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+        <div style="max-width: 620px;">
+          <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.35rem 0;">Support SafePK</h2> <!-- Section ki main sub-heading (H2) -->
+          <p style="font-size: 0.925rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+            Help us keep cybersecurity awareness and digital-safety resources accessible to everyone.
+          </p>
+        </div>
+        <div>
+          <a href="donate.html" class="btn btn-primary" style="font-size: 0.875rem; padding: 0.65rem 1.35rem;">
+            <i data-lucide="heart" class="w-4 h-4"></i> Support SafePK
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+    <!-- Minimal Centered Footer -->
+    <footer>
+      <div class="container footer-minimal-wrap">
+        <nav class="footer-minimal-nav" aria-label="Footer Main Links">
+          <a href="pages/about.html" class="footer-minimal-link">About</a>
+          <a href="pages/reviews.html" class="footer-minimal-link">Feedback &amp; Reviews</a>
+          <a href="sponsor.html" class="footer-minimal-link">Sponsor</a>
+                  <a href="pages/contact.html" class="footer-minimal-link">Contact</a>
+</nav>
+
+        <nav class="footer-minimal-legal" aria-label="Legal Policies">
+          <a href="pages/privacy-policy.html" class="footer-minimal-legal-link">Privacy Policy</a>
+          <a href="pages/terms-of-use.html" class="footer-minimal-legal-link">Terms of Use</a>
+          <a href="pages/disclaimer.html" class="footer-minimal-legal-link">Disclaimer</a>
+        </nav>
+
+        <div class="footer-contact-row notranslate" translate="no"> <!-- Official email aur Pro Share button ka container -->
+          <a href="mailto:infosafepk@proton.me" class="footer-email-pill" title="Official SafePK Email: infosafepk@proton.me">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>infosafepk@proton.me</span>
+          </a>
+        </div>
+
+        <p class="footer-minimal-copy">&copy; SafePK &mdash; All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Universal portal modal overlay element -->
+    <div id="univ-modal" class="modal-overlay">
+      <div class="modal-window">
+        <div class="modal-header">
+          <div class="modal-header-title">
+            <span id="univ-modal-icon" class="text-primary"></span>
+            <h3 id="univ-modal-title"></h3>
+          </div>
+          <button class="modal-close-btn" onclick="window.closeUnivModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="univ-modal-body"></div>
+        <div class="modal-footer" id="univ-modal-footer"></div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/learn.js"></script>
+    <script src="js/directory.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+      // Initialize systems
+      if (typeof initTheme !== 'undefined') initTheme();
+
+      // Render icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      // Main Articles Dynamic Loader from articles.json
+      let mainArticlesData = [];
+
+      async function loadMainArticles() {
+        try {
+          if (window.location.protocol === 'file:' && Array.isArray(window.mainArticlesFallback) && window.mainArticlesFallback.length > 0) {
+            mainArticlesData = window.mainArticlesFallback;
+            renderMainArticles(mainArticlesData);
+            return;
+          }
+          const res = await fetch('articles.json');
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          mainArticlesData = await res.json();
+          renderMainArticles(mainArticlesData);
+        } catch (err) {
+          if (Array.isArray(window.mainArticlesFallback) && window.mainArticlesFallback.length > 0) {
+            mainArticlesData = window.mainArticlesFallback;
+            renderMainArticles(mainArticlesData);
+            return;
+          }
+          console.error('[SafePK] Failed to load articles.json:', err);
+          const grid = document.getElementById('main-articles-grid');
+          if (grid) {
+            grid.innerHTML = '<p style="color: var(--text-secondary); grid-column: 1/-1; text-align: center;">Unable to load articles right now. Please refresh the page.</p>';
+          }
+        }
+      }
+
+      function renderMainArticles(articles) {
+        const grid = document.getElementById('main-articles-grid');
+        if (!grid) return;
+
+        grid.innerHTML = articles.map(art => `
+          <div class="main-article-card ui-card ui-card-interactive" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; cursor: pointer;" onclick="openMainArticleModal(${art.id})">
+            <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: var(--bg-tertiary); overflow: hidden;">
+              <img src="${art.image}" alt="${art.title}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              <div style="position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 0.2rem 0.55rem; border-radius: var(--radius-xs); font-size: 0.65rem; font-family: var(--font-mono); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+                ${art.category}
+              </div>
+            </div>
+            <div style="padding: 1.25rem; display: flex; flex-direction: column; flex: 1;">
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); line-height: 1.4; margin-bottom: 0.5rem;">${art.title}</h3>
+              <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 1.25rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">${art.summary}</p>
+              <div style="margin-top: auto; display: flex; align-items: center; justify-content: space-between; padding-top: 0.75rem; border-top: 1px solid var(--border-color);">
+                <span style="font-size: 0.75rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.35rem;">
+                  <i data-lucide="clock" class="w-3.5 h-3.5"></i> ${art.readTime}
+                </span>
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--color-primary); display: flex; align-items: center; gap: 0.25rem;">
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      }
+
+      window.openMainArticleModal = (id) => {
+        const art = mainArticlesData.find(a => a.id === id);
+        if (!art) return;
+
+        const modal = document.getElementById('univ-modal');
+        const modalIcon = document.getElementById('univ-modal-icon');
+        const modalTitle = document.getElementById('univ-modal-title');
+        const modalBody = document.getElementById('univ-modal-body');
+        const modalFooter = document.getElementById('univ-modal-footer');
+
+        if (!modal || !modalBody) return;
+
+        modalIcon.innerHTML = `<i data-lucide="book-open" class="w-6 h-6"></i>`;
+        modalTitle.textContent = art.title;
+
+        modalBody.innerHTML = `
+          <div style="margin-bottom: 1.5rem; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color);">
+            <img src="${art.image}" alt="${art.title}" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;" />
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <span style="font-size: 0.7rem; font-family: var(--font-mono); font-weight: 700; text-transform: uppercase; color: var(--color-primary); background: rgba(var(--color-primary-rgb), 0.1); padding: 0.25rem 0.5rem; border-radius: var(--radius-xs);">${art.category}</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.25rem;"><i data-lucide="clock" class="w-3.5 h-3.5"></i> ${art.readTime}</span>
+          </div>
+
+          <!-- Section 1: Clear Explanation -->
+          <div class="modal-body-section" style="margin-bottom: 1.5rem;">
+            <div class="modal-section-title text-primary" style="display: flex; align-items: center; gap: 0.4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary);">
+              <i data-lucide="info" class="w-4 h-4"></i> Clear Explanation
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">${art.explanation}</p>
+          </div>
+
+          <!-- Section 2: How the Scam / Threat Works -->
+          <div class="modal-body-section" style="margin-bottom: 1.5rem;">
+            <div class="modal-section-title text-indigo" style="display: flex; align-items: center; gap: 0.4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-indigo);">
+              <i data-lucide="git-branch" class="w-4 h-4"></i> How the Scam Operates Step-by-Step
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; white-space: pre-line; background: var(--bg-tertiary); padding: 1rem; border-radius: var(--radius-md); border-left: 3px solid var(--color-indigo);">${art.howItWorks}</div>
+          </div>
+
+          <!-- Section 3: Warning Signs -->
+          <div class="modal-body-section" style="margin-bottom: 1.5rem;">
+            <div class="modal-section-title text-danger" style="display: flex; align-items: center; gap: 0.4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-danger);">
+              <i data-lucide="alert-triangle" class="w-4 h-4"></i> Critical Warning Signs
+            </div>
+            <div class="modal-list-group">
+              ${art.warningSigns.map(sign => `
+                <div class="modal-list-item modal-list-danger" style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.75rem; background: rgba(239, 68, 68, 0.05); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">
+                  <i data-lucide="alert-circle" class="w-4 h-4 text-danger" style="flex-shrink: 0; margin-top: 0.2rem;"></i>
+                  <span style="font-size: 0.82rem; color: var(--text-primary); line-height: 1.4;">${sign}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Section 4: What Users Should Do -->
+          <div class="modal-body-section" style="margin-bottom: 1.5rem;">
+            <div class="modal-section-title text-warning" style="display: flex; align-items: center; gap: 0.4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-warning);">
+              <i data-lucide="life-buoy" class="w-4 h-4"></i> What You Should Do If Targeted
+            </div>
+            <div class="modal-list-group">
+              ${art.whatToDo.map(step => `
+                <div class="modal-list-item modal-list-warning" style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.75rem; background: rgba(245, 158, 11, 0.05); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-warning" style="flex-shrink: 0; margin-top: 0.2rem;"></i>
+                  <span style="font-size: 0.82rem; color: var(--text-primary); line-height: 1.4;">${step}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Section 5: Prevention Steps -->
+          <div class="modal-body-section" style="margin-bottom: 1.5rem;">
+            <div class="modal-section-title text-success" style="display: flex; align-items: center; gap: 0.4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-success);">
+              <i data-lucide="shield" class="w-4 h-4"></i> Long-Term Prevention Steps
+            </div>
+            <div class="modal-list-group">
+              ${art.preventionSteps.map(step => `
+                <div class="modal-list-item modal-list-success" style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.75rem; background: rgba(16, 185, 129, 0.05); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-success" style="flex-shrink: 0; margin-top: 0.2rem;"></i>
+                  <span style="font-size: 0.82rem; color: var(--text-primary); line-height: 1.4;">${step}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Section 6: Practical Advice -->
+          <div class="modal-body-section" style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">
+            <div class="modal-section-title text-primary" style="display: flex; align-items: center; gap: 0.4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary);">
+              <i data-lucide="lightbulb" class="w-4 h-4"></i> Practical Advice &amp; Key Takeaway
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; font-style: italic; background: rgba(var(--color-primary-rgb), 0.06); padding: 1rem; border-radius: var(--radius-md); border-left: 3px solid var(--color-primary); margin: 0;">${art.practicalAdvice}</p>
+          </div>
+        `;
+
+        modalFooter.innerHTML = `
+          <button class="btn btn-secondary" onclick="window.closeUnivModal()">Close</button><a href="pages/tools.html?tab=fia" class="btn btn-primary" style="font-size: 0.75rem;">
+            <i data-lucide="file-text" class="w-4 h-4"></i> Draft Incident Statement
+          </a>
+        `;
+
+        modal.classList.add('show');
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      };
+
+      // Load main articles on page load
+      loadMainArticles();
+
+      // Pro Animated Single-Open Q&A Accordion Controller
+      (function initProQaAccordion() {
+        const cards = Array.from(document.querySelectorAll('.qa-grid .qa-card'));
+        if (!cards.length) return;
+
+        function closeCard(card) {
+          const wrap = card.querySelector('.qa-body-wrap');
+          if (!wrap || !card.hasAttribute('open')) return;
+          card.classList.remove('is-open');
+          const startHeight = wrap.scrollHeight;
+          wrap.style.height = startHeight + 'px';
+          wrap.style.opacity = '1';
+          wrap.offsetHeight; // force reflow
+          wrap.style.height = '0px';
+          wrap.style.opacity = '0';
+          setTimeout(() => {
+            if (!card.classList.contains('is-open')) {
+              card.removeAttribute('open');
+              wrap.style.height = '';
+              wrap.style.opacity = '';
+            }
+          }, 260);
+        }
+
+        function openCard(card) {
+          const wrap = card.querySelector('.qa-body-wrap');
+          if (!wrap) return;
+          card.setAttribute('open', '');
+          card.classList.add('is-open');
+          wrap.style.height = '0px';
+          wrap.style.opacity = '0';
+          wrap.offsetHeight; // force reflow
+          const targetHeight = wrap.scrollHeight;
+          wrap.style.height = targetHeight + 'px';
+          wrap.style.opacity = '1';
+          setTimeout(() => {
+            if (card.classList.contains('is-open')) {
+              wrap.style.height = 'auto';
+            }
+          }, 260);
+        }
+
+        cards.forEach((card) => {
+          // Ensure none are auto-open on initial load
+          card.removeAttribute('open');
+          card.classList.remove('is-open');
+
+          const summary = card.querySelector('.qa-header');
+          if (!summary) return;
+
+          summary.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isCurrentlyOpen = card.classList.contains('is-open') || card.hasAttribute('open');
+
+            // Close all other open cards first
+            cards.forEach((other) => {
+              if (other !== card && (other.classList.contains('is-open') || other.hasAttribute('open'))) {
+                closeCard(other);
+              }
+            });
+
+            if (isCurrentlyOpen) {
+              closeCard(card);
+            } else {
+              openCard(card);
+            }
+          });
+        });
+      })();
+
+      // Dynamically load statistics metrics on window load
+      window.addEventListener('load', () => {
+        try {
+          if (document.getElementById('stat-guides')) {
+            document.getElementById('stat-guides').textContent = '112'; /* Total 112 static awareness articles across all sections */
+          }
+          if (typeof pakistanDirectory !== 'undefined' && document.getElementById('stat-directory')) {
+            document.getElementById('stat-directory').textContent = pakistanDirectory.length;
+          }
+        } catch (err) {
+          console.warn('[SafePK] Dynamic statistics loading skipped:', err);
+        }
+      });
+    </script>
+  </body>
+</html>

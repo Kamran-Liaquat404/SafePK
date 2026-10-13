@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+      if ('serviceWorker' in navigator) {
+        const isDev = window.location.hostname === 'localhost' ||
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('.run.app');
+        if (isDev) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            let unregistered = false;
+            for (const registration of registrations) {
+              registration.unregister();
+              unregistered = true;
+            }
+            if (unregistered) {
+              console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+              if (window.caches) {
+                caches.keys().then((names) => {
+                  return Promise.all(names.map(name => caches.delete(name)));
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                window.location.reload();
+              }
+            }
+          });
+        }
+      }
+    </script>
+
+    <!-- Primary Technical SEO & Canonical Metadata -->
+    <title>Cybersecurity for Families — Household Digital Safety | SafePK</title>
+    <meta name="description" content="Protect children, elderly parents, and shared home devices in Pakistan with family cybersecurity guides, scam defense tips, and a household checklist." />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/family.html" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/png" href="assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="apple-touch-icon" href="assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cybersecurity for Families — Household Digital Safety | SafePK" />
+    <meta property="og:description" content="Protect children, elderly parents, and shared home devices in Pakistan with family cybersecurity guides, scam defense tips, and a household checklist." />
+    <meta property="og:url" content="https://safepk.net/family.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+
+    <!-- Twitter / X Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cybersecurity for Families — Household Digital Safety | SafePK" />
+    <meta name="twitter:description" content="Protect children, elderly parents, and shared home devices in Pakistan with family cybersecurity guides, scam defense tips, and a household checklist." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Cybersecurity for Families — Household Digital Safety | SafePK",
+      "url": "https://safepk.net/family.html",
+      "description": "Protect children, elderly parents, and shared home devices in Pakistan with family cybersecurity guides, scam defense tips, and a household checklist.",
+      "isPartOf": {
+        "@id": "https://safepk.net/#website"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Article",
+              "headline": "Child Online Safety: Setting Up Google Family Link and Apple Family Sharing",
+              "description": "How to establish age-appropriate digital boundaries, screen time schedules, and safe web filters while maintaining open family trust.",
+              "articleSection": "Parental Guidance",
+              "image": "https://safepk.net/assets/family/pictures/family-1.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#1"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Article",
+              "headline": "Supporting Senior Family Members: Simple Habits to Avoid Unverified Calls and Messages",
+              "description": "Equipping senior family members with easy, reassuring habits to spot urgent phone requests and verify financial calls calmly.",
+              "articleSection": "Senior Family Care",
+              "image": "https://safepk.net/assets/family/pictures/family-2.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#2"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Article",
+              "headline": "Managing Shared Family Tablets and Computers Safely at Home",
+              "description": "Safe setup of shared living room iPads, family laptops, and Android tablets used by multiple family members across generations.",
+              "articleSection": "Household Devices",
+              "image": "https://safepk.net/assets/family/pictures/family-3.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#3"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Article",
+              "headline": "Kids Gaming Safety: Protecting Roblox, PUBG, and Minecraft Accounts",
+              "description": "Helpful tips for managing in-game purchases, avoiding unofficial reward links, and configuring safe chat settings in popular games.",
+              "articleSection": "Youth Gaming Safety",
+              "image": "https://safepk.net/assets/family/pictures/family-4.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#4"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "Article",
+              "headline": "The Family Verification Code Word: Verifying Urgent Emergency Calls Calmly",
+              "description": "How a simple, shared family code word helps relatives immediately verify urgent phone calls and avoid false emergency requests.",
+              "articleSection": "Family Communication",
+              "image": "https://safepk.net/assets/family/pictures/family-5.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#5"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "Article",
+              "headline": "Home Wi-Fi Router Safety: Strong Passwords, Guest Networks, and Easy Updates",
+              "description": "Turn your home internet router into a reliable foundation that protects every family smartphone, laptop, and smart TV.",
+              "articleSection": "Home Wi-Fi Safety",
+              "image": "https://safepk.net/assets/family/pictures/family-6.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#6"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@type": "Article",
+              "headline": "Guiding Teen Social Media Use: Instagram, Snapchat, and TikTok Privacy Settings",
+              "description": "A supportive, collaborative guide to helping teenagers review their privacy settings, manage followers, and share thoughtfully.",
+              "articleSection": "Teen Digital Safety",
+              "image": "https://safepk.net/assets/family/pictures/family-7.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#7"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@type": "Article",
+              "headline": "Camera & Microphone Privacy for Online Classes and Work Calls at Home",
+              "description": "Practical habits to protect household privacy during online school classes, video calls, and screen sharing sessions.",
+              "articleSection": "Household Privacy",
+              "image": "https://safepk.net/assets/family/pictures/family-8.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#8"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@type": "Article",
+              "headline": "Organizing Family Digital Records: Setting Up Legacy Contacts and Emergency Access",
+              "description": "Organizing essential household accounts, cloud photo libraries, and emergency recovery contacts so trusted family members are always prepared.",
+              "articleSection": "Family Preparedness",
+              "image": "https://safepk.net/assets/family/pictures/family-9.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#9"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@type": "Article",
+              "headline": "School Portals & Learning Apps: Protecting Student Accounts and Privacy",
+              "description": "How to review privacy settings and use strong password habits for school portals, homework apps, and online learning platforms.",
+              "articleSection": "Education Safety",
+              "image": "https://safepk.net/assets/family/pictures/family-10.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#10"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@type": "Article",
+              "headline": "Backing Up Family Photos and Videos: Protecting Precious Memories Safely",
+              "description": "How to follow the simple 3-2-1 backup method so decades of family photographs and home videos stay safe even if a phone or laptop breaks.",
+              "articleSection": "Photo & Data Backup",
+              "image": "https://safepk.net/assets/family/pictures/family-11.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#11"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@type": "Article",
+              "headline": "Handling Urgent Fake Emergency Calls: A Calm Verification Guide for Parents",
+              "description": "How parents can recognize staged emergency phone calls claiming a relative is in trouble, and how to verify their safety immediately.",
+              "articleSection": "Family Safety",
+              "image": "https://safepk.net/assets/family/pictures/family-12.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#12"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+              "@type": "Article",
+              "headline": "Smart Home Device Safety: Securing Smart TVs, Home Cameras, and Voice Assistants",
+              "description": "Simple steps to secure smart TVs, indoor Wi-Fi cameras, and voice assistants with strong passwords and network separation.",
+              "articleSection": "Smart Home Safety",
+              "image": "https://safepk.net/assets/family/pictures/family-13.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#13"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+              "@type": "Article",
+              "headline": "Teaching Kids Media Literacy: Spotting Edited Photos, AI Videos, and False Claims",
+              "description": "Engaging family habits to help young people evaluate altered images, AI-generated videos, and sensational online rumors.",
+              "articleSection": "Digital Literacy",
+              "image": "https://safepk.net/assets/family/pictures/family-14.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#14"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+              "@type": "Article",
+              "headline": "Family Location Privacy: Sharing Travel and Holiday Photos Safely",
+              "description": "Why waiting until you return home to post vacation photos keeps your household safer, and how to turn off automatic camera location tags.",
+              "articleSection": "Location Privacy",
+              "image": "https://safepk.net/assets/family/pictures/family-15.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#15"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "item": {
+              "@type": "Article",
+              "headline": "Setting Up New Tech Gifts: A Safety Checklist for Consoles, Watches, and Tablets",
+              "description": "A helpful pre-gifting checklist for updating software, configuring parental controls, and securing new tablets or game consoles for kids.",
+              "articleSection": "Device Setup",
+              "image": "https://safepk.net/assets/family/pictures/family-16.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#16"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "item": {
+              "@type": "Article",
+              "headline": "Supporting Youth Through Unkind Online Behavior: A Constructive Family Guide",
+              "description": "How parents can listen supportively, save helpful records, use platform blocking tools, and work with schools when kids face unkind behavior online.",
+              "articleSection": "Youth Well-being",
+              "image": "https://safepk.net/assets/family/pictures/family-17.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#17"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 18,
+            "item": {
+              "@type": "Article",
+              "headline": "Preparing Old Phones and Laptops for Resale: Wiping Personal Data Safely",
+              "description": "How to properly back up and factory-reset older family smartphones, tablets, and laptops before selling, trading in, or passing them on.",
+              "articleSection": "Data Privacy",
+              "image": "https://safepk.net/assets/family/pictures/family-18.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#18"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 19,
+            "item": {
+              "@type": "Article",
+              "headline": "Family Financial Literacy: Teaching Teens About Digital Payments and Safe Earning",
+              "description": "Helping teenagers understand mobile wallets, in-app spending, and why they should never let strangers use their bank or wallet accounts.",
+              "articleSection": "Financial Literacy",
+              "image": "https://safepk.net/assets/family/pictures/family-19.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#19"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 20,
+            "item": {
+              "@type": "Article",
+              "headline": "Creating a Household Digital Safety Plan: A Simple Guide for Every Family Member",
+              "description": "A practical, easy-to-follow household checklist so every family member knows who to call if a phone is lost or an account needs recovery.",
+              "articleSection": "Family Preparedness",
+              "image": "https://safepk.net/assets/family/pictures/family-20.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/family.html#20"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Stylesheets & Web App Manifest -->
+    <link rel="stylesheet" href="css/style.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="stylesheet" href="css/responsive.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="manifest" href="manifest.json" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <meta name="theme-color" content="#2563EB" />
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <header>
+      <div class="container navbar-container">
+        <a href="index.html" class="logo-block">
+          <img src="assets/images/safepk-logo.png" alt="SafePK Logo" class="logo-img" width="32" height="32" decoding="async" fetchpriority="high" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-link nav-dropdown-trigger" aria-expanded="false">
+              <span>Audience</span>
+              <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="individual.html" class="nav-dropdown-item">
+                <span>Individuals</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="family.html" class="nav-dropdown-item">
+                <span>Families</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="organizations.html" class="nav-dropdown-item">
+                <span>Organizations</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="freelancers.html" class="nav-dropdown-item">
+                <span>Freelancers &amp; Businesses</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+          <a href="pages/learn.html" class="nav-link">Articles</a>
+          <a href="pages/tools.html" class="nav-link">Report Generator</a>
+          <a href="pages/directory.html" class="nav-link">Directory</a>
+          <a href="pages/help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="container">
+        <!-- Back Link -->
+        <div style="margin-bottom: 1.5rem;">
+          <a href="index.html" style="text-decoration: none; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.35rem;">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+          </a>
+        </div>
+
+        <!-- Global Clean Hero Section -->
+        <section class="page-hero animate-fade-in">
+          <h1 class="page-hero-title">Digital Safety for Families</h1>
+          <p class="page-hero-subtitle">
+            Simple cybersecurity guidance to help keep your family safer online.
+          </p>
+          <div class="hero-buttons" style="margin-top: 1.35rem;">
+            <a href="pages/tools.html" class="btn btn-primary">
+              <i data-lucide="file-text" class="w-4 h-4"></i>
+              Report Generator
+            </a>
+            <a href="pages/directory.html" class="btn btn-secondary">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              Directory
+            </a>
+            <button type="button" id="checklist-toggle-btn" class="btn btn-secondary checklist-trigger-btn" aria-expanded="false" aria-controls="security-checklist">
+              <i data-lucide="check-square" class="w-4 h-4"></i>
+              <span>Family Security Checklist</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 trigger-chevron"></i>
+            </button>
+          </div>
+        </section>
+
+        <!-- Family Security Checklist Section (Closed by Default) -->
+        <section id="security-checklist" class="checklist-drawer-wrapper" aria-hidden="true" style="--checklist-accent: #059669;">
+          <div class="checklist-drawer-inner">
+            <div class="pro-checklist-card">
+              <div class="pro-checklist-header">
+                <div class="pro-checklist-title-wrap">
+                  <div class="pro-checklist-badge-pill">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Household Self-Assessment
+                  </div>
+                  <h2 class="pro-checklist-title"> <!-- Section ki main sub-heading (H2) -->
+                    <i data-lucide="shield-check" class="w-6 h-6" style="color: #059669;"></i>
+                    Family Security Checklist
+                  </h2>
+                  <p class="pro-checklist-subtitle">
+                    Select the household safety practices your family currently follows to calculate your relative protection score and unlock practical recommendations.
+                  </p>
+                </div>
+                <div class="pro-checklist-controls">
+                  <div class="pro-score-box">
+                    <div class="pro-score-label">Protection Score</div>
+                    <div id="checklist-level-badge" class="pro-score-value">Low (0/8)</div>
+                  </div>
+                  <button type="button" id="checklist-close-btn" class="pro-checklist-close-btn" title="Close Checklist">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                    <span>Hide</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Animated Progress Bar -->
+              <div class="pro-progress-meta">
+                <span>Household Completion Progress</span>
+                <span id="checklist-progress-pct">0% Complete</span>
+              </div>
+              <div class="pro-progress-track">
+                <div id="checklist-progress-bar" class="pro-progress-fill"></div>
+              </div>
+
+              <!-- Checklist Items Grid -->
+              <div id="checklist-items-container" class="pro-checklist-grid">
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Set up parental controls (such as Google Family Link or Apple Screen Time) on children's phones and tablets." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Parental controls and app approval limits are active on children's devices.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Agree on a private family safe word to verify urgent emergency or money-request calls before sending funds." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Our family has a private verbal safe word to verify urgent emergency calls.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Remind elderly parents and family members never to share bank PINs, OTP codes, or account details over phone calls." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Elderly family members know never to share OTPs or bank PINs with callers.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Change the default administrator password on your home Wi-Fi router and use strong WPA2/WPA3 encryption." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Our home Wi-Fi router uses a strong password and updated admin credentials.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Enable Two-Step Verification (PIN) on WhatsApp for all parents and family members in the household." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Two-Step Verification is enabled on WhatsApp for all household members.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Remove saved debit/credit cards from children's gaming accounts and require password verification for in-app purchases." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Payment cards are not saved on shared family tablets or kids' gaming accounts.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Set youth social media profiles to private and turn off live location sharing on apps like Instagram and Snapchat." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Children and teens keep social media profiles private with location sharing off.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Maintain an offline or encrypted backup of important family photos and household documents." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Important family photos and documents are backed up securely.</span>
+                </label>
+              </div>
+
+              <!-- Recommendations Box -->
+              <div id="checklist-recommendations" class="pro-rec-panel">
+                <div class="pro-rec-header">
+                  <div class="pro-rec-title">
+                    <i data-lucide="list-checks" class="w-4 h-4" style="color: #059669;"></i>
+                    Recommended Next Steps
+                  </div>
+                  <button type="button" id="checklist-reset-btn" class="pro-rec-reset-btn">Reset All</button>
+                </div>
+                <ul id="checklist-rec-list" class="pro-rec-list"></ul>
+                <p class="pro-rec-note">
+                  Note: This checklist provides a practical self-assessment of common household digital safety habits and does not guarantee complete immunity from all cyber threats.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Articles Grid -->
+        <div id="articles-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
+          <a href="family/child-online-safety-setting-up-google-family-link-and-apple-family-sharing.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-1.png" alt="Child Online Safety: Setting Up Google Family Link and Apple Family Sharing" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Parental Guidance</span> <!-- Category badge -->
+              <h3 class="article-title">Child Online Safety: Setting Up Google Family Link and Apple Family Sharing</h3> <!-- Article title -->
+              <p class="article-excerpt">How to establish age-appropriate digital boundaries, screen time schedules, and safe web filters while maintaining open family trust.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/supporting-senior-family-members-simple-habits-to-avoid-unverified-calls-and-messages.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-2.png" alt="Supporting Senior Family Members: Simple Habits to Avoid Unverified Calls and Messages" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Senior Family Care</span> <!-- Category badge -->
+              <h3 class="article-title">Supporting Senior Family Members: Simple Habits to Avoid Unverified Calls and Messages</h3> <!-- Article title -->
+              <p class="article-excerpt">Equipping senior family members with easy, reassuring habits to spot urgent phone requests and verify financial calls calmly.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/managing-shared-family-tablets-and-computers-safely-at-home.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-3.png" alt="Managing Shared Family Tablets and Computers Safely at Home" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Household Devices</span> <!-- Category badge -->
+              <h3 class="article-title">Managing Shared Family Tablets and Computers Safely at Home</h3> <!-- Article title -->
+              <p class="article-excerpt">Safe setup of shared living room iPads, family laptops, and Android tablets used by multiple family members across generations.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/kids-gaming-safety-protecting-roblox-pubg-and-minecraft-accounts.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-4.png" alt="Kids Gaming Safety: Protecting Roblox, PUBG, and Minecraft Accounts" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Youth Gaming Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Kids Gaming Safety: Protecting Roblox, PUBG, and Minecraft Accounts</h3> <!-- Article title -->
+              <p class="article-excerpt">Helpful tips for managing in-game purchases, avoiding unofficial reward links, and configuring safe chat settings in popular games.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/the-family-verification-code-word-verifying-urgent-emergency-calls-calmly.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-5.png" alt="The Family Verification Code Word: Verifying Urgent Emergency Calls Calmly" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Family Communication</span> <!-- Category badge -->
+              <h3 class="article-title">The Family Verification Code Word: Verifying Urgent Emergency Calls Calmly</h3> <!-- Article title -->
+              <p class="article-excerpt">How a simple, shared family code word helps relatives immediately verify urgent phone calls and avoid false emergency requests.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/home-wi-fi-router-safety-strong-passwords-guest-networks-and-easy-updates.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-6.png" alt="Home Wi-Fi Router Safety: Strong Passwords, Guest Networks, and Easy Updates" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Home Wi-Fi Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Home Wi-Fi Router Safety: Strong Passwords, Guest Networks, and Easy Updates</h3> <!-- Article title -->
+              <p class="article-excerpt">Turn your home internet router into a reliable foundation that protects every family smartphone, laptop, and smart TV.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/guiding-teen-social-media-use-instagram-snapchat-and-tiktok-privacy-settings.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-7.png" alt="Guiding Teen Social Media Use: Instagram, Snapchat, and TikTok Privacy Settings" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Teen Digital Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Guiding Teen Social Media Use: Instagram, Snapchat, and TikTok Privacy Settings</h3> <!-- Article title -->
+              <p class="article-excerpt">A supportive, collaborative guide to helping teenagers review their privacy settings, manage followers, and share thoughtfully.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/camera-microphone-privacy-for-online-classes-and-work-calls-at-home.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-8.png" alt="Camera &amp; Microphone Privacy for Online Classes and Work Calls at Home" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Household Privacy</span> <!-- Category badge -->
+              <h3 class="article-title">Camera &amp; Microphone Privacy for Online Classes and Work Calls at Home</h3> <!-- Article title -->
+              <p class="article-excerpt">Practical habits to protect household privacy during online school classes, video calls, and screen sharing sessions.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/organizing-family-digital-records-setting-up-legacy-contacts-and-emergency-access.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-9.png" alt="Organizing Family Digital Records: Setting Up Legacy Contacts and Emergency Access" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Family Preparedness</span> <!-- Category badge -->
+              <h3 class="article-title">Organizing Family Digital Records: Setting Up Legacy Contacts and Emergency Access</h3> <!-- Article title -->
+              <p class="article-excerpt">Organizing essential household accounts, cloud photo libraries, and emergency recovery contacts so trusted family members are always prepared.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/school-portals-learning-apps-protecting-student-accounts-and-privacy.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-10.png" alt="School Portals &amp; Learning Apps: Protecting Student Accounts and Privacy" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Education Safety</span> <!-- Category badge -->
+              <h3 class="article-title">School Portals &amp; Learning Apps: Protecting Student Accounts and Privacy</h3> <!-- Article title -->
+              <p class="article-excerpt">How to review privacy settings and use strong password habits for school portals, homework apps, and online learning platforms.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/backing-up-family-photos-and-videos-protecting-precious-memories-safely.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-11.png" alt="Backing Up Family Photos and Videos: Protecting Precious Memories Safely" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Photo &amp; Data Backup</span> <!-- Category badge -->
+              <h3 class="article-title">Backing Up Family Photos and Videos: Protecting Precious Memories Safely</h3> <!-- Article title -->
+              <p class="article-excerpt">How to follow the simple 3-2-1 backup method so decades of family photographs and home videos stay safe even if a phone or laptop breaks.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/handling-urgent-fake-emergency-calls-a-calm-verification-guide-for-parents.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-12.png" alt="Handling Urgent Fake Emergency Calls: A Calm Verification Guide for Parents" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Family Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Handling Urgent Fake Emergency Calls: A Calm Verification Guide for Parents</h3> <!-- Article title -->
+              <p class="article-excerpt">How parents can recognize staged emergency phone calls claiming a relative is in trouble, and how to verify their safety immediately.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/smart-home-device-safety-securing-smart-tvs-home-cameras-and-voice-assistants.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-13.png" alt="Smart Home Device Safety: Securing Smart TVs, Home Cameras, and Voice Assistants" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Smart Home Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Smart Home Device Safety: Securing Smart TVs, Home Cameras, and Voice Assistants</h3> <!-- Article title -->
+              <p class="article-excerpt">Simple steps to secure smart TVs, indoor Wi-Fi cameras, and voice assistants with strong passwords and network separation.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/teaching-kids-media-literacy-spotting-edited-photos-ai-videos-and-false-claims.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-14.png" alt="Teaching Kids Media Literacy: Spotting Edited Photos, AI Videos, and False Claims" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Digital Literacy</span> <!-- Category badge -->
+              <h3 class="article-title">Teaching Kids Media Literacy: Spotting Edited Photos, AI Videos, and False Claims</h3> <!-- Article title -->
+              <p class="article-excerpt">Engaging family habits to help young people evaluate altered images, AI-generated videos, and sensational online rumors.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/family-location-privacy-sharing-travel-and-holiday-photos-safely.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-15.png" alt="Family Location Privacy: Sharing Travel and Holiday Photos Safely" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Location Privacy</span> <!-- Category badge -->
+              <h3 class="article-title">Family Location Privacy: Sharing Travel and Holiday Photos Safely</h3> <!-- Article title -->
+              <p class="article-excerpt">Why waiting until you return home to post vacation photos keeps your household safer, and how to turn off automatic camera location tags.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/setting-up-new-tech-gifts-a-safety-checklist-for-consoles-watches-and-tablets.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-16.png" alt="Setting Up New Tech Gifts: A Safety Checklist for Consoles, Watches, and Tablets" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Device Setup</span> <!-- Category badge -->
+              <h3 class="article-title">Setting Up New Tech Gifts: A Safety Checklist for Consoles, Watches, and Tablets</h3> <!-- Article title -->
+              <p class="article-excerpt">A helpful pre-gifting checklist for updating software, configuring parental controls, and securing new tablets or game consoles for kids.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/supporting-youth-through-unkind-online-behavior-a-constructive-family-guide.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-17.png" alt="Supporting Youth Through Unkind Online Behavior: A Constructive Family Guide" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Youth Well-being</span> <!-- Category badge -->
+              <h3 class="article-title">Supporting Youth Through Unkind Online Behavior: A Constructive Family Guide</h3> <!-- Article title -->
+              <p class="article-excerpt">How parents can listen supportively, save helpful records, use platform blocking tools, and work with schools when kids face unkind behavior online.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/preparing-old-phones-and-laptops-for-resale-wiping-personal-data-safely.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-18.png" alt="Preparing Old Phones and Laptops for Resale: Wiping Personal Data Safely" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Data Privacy</span> <!-- Category badge -->
+              <h3 class="article-title">Preparing Old Phones and Laptops for Resale: Wiping Personal Data Safely</h3> <!-- Article title -->
+              <p class="article-excerpt">How to properly back up and factory-reset older family smartphones, tablets, and laptops before selling, trading in, or passing them on.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/family-financial-literacy-teaching-teens-about-digital-payments-and-safe-earning.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-19.png" alt="Family Financial Literacy: Teaching Teens About Digital Payments and Safe Earning" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Literacy</span> <!-- Category badge -->
+              <h3 class="article-title">Family Financial Literacy: Teaching Teens About Digital Payments and Safe Earning</h3> <!-- Article title -->
+              <p class="article-excerpt">Helping teenagers understand mobile wallets, in-app spending, and why they should never let strangers use their bank or wallet accounts.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="family/creating-a-household-digital-safety-plan-a-simple-guide-for-every-family-member.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/family/pictures/family-20.png" alt="Creating a Household Digital Safety Plan: A Simple Guide for Every Family Member" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Family Preparedness</span> <!-- Category badge -->
+              <h3 class="article-title">Creating a Household Digital Safety Plan: A Simple Guide for Every Family Member</h3> <!-- Article title -->
+              <p class="article-excerpt">A practical, easy-to-follow household checklist so every family member knows who to call if a phone is lost or an account needs recovery.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Minimal GitHub-Inspired Centered Footer -->
+    <footer>
+      <div class="container footer-minimal-wrap">
+        <nav class="footer-minimal-nav" aria-label="Footer Main Links">
+          <a href="pages/about.html" class="footer-minimal-link">About</a>
+          <a href="sponsor.html" class="footer-minimal-link">Sponsor</a>
+                  <a href="pages/reviews.html" class="footer-minimal-link">Feedback &amp; Reviews</a>
+          <a href="pages/contact.html" class="footer-minimal-link">Contact</a>
+</nav>
+
+        <nav class="footer-minimal-legal" aria-label="Legal Policies">
+          <a href="pages/privacy-policy.html" class="footer-minimal-legal-link">Privacy Policy</a>
+          <a href="pages/terms-of-use.html" class="footer-minimal-legal-link">Terms of Use</a>
+          <a href="pages/disclaimer.html" class="footer-minimal-legal-link">Disclaimer</a>
+        </nav>
+
+        <div class="footer-contact-row notranslate" translate="no"> <!-- Official email aur Pro Share button ka container -->
+          <a href="mailto:infosafepk@proton.me" class="footer-email-pill" title="Official SafePK Email: infosafepk@proton.me">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>infosafepk@proton.me</span>
+          </a>
+        </div>
+
+        <p class="footer-minimal-copy">&copy; SafePK &mdash; All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/theme.js"></script>
+
+    <script>
+      if (typeof initTheme !== undefined) initTheme();
+      if (typeof lucide !== undefined) lucide.createIcons(); /* Lucide icons initialize kiye ja rahe hain */
+
+      function initAudienceChecklist() {
+        const drawer = document.getElementById('security-checklist');
+        const toggleBtn = document.getElementById('checklist-toggle-btn');
+        const closeBtn = document.getElementById('checklist-close-btn');
+        const resetBtn = document.getElementById('checklist-reset-btn');
+        const checkboxes = Array.from(document.querySelectorAll('.sec-check-item'));
+        const badge = document.getElementById('checklist-level-badge');
+        const bar = document.getElementById('checklist-progress-bar');
+        const pctLabel = document.getElementById('checklist-progress-pct');
+        const recList = document.getElementById('checklist-rec-list');
+        if (!checkboxes.length || !badge || !bar || !recList) return;
+
+        function setChecklistOpen(open) {
+          if (!drawer || !toggleBtn) return;
+          drawer.classList.toggle('is-open', open);
+          drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+          toggleBtn.classList.toggle('is-active', open);
+          toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if (open) {
+            setTimeout(() => {
+              drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 80);
+          }
+        }
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isOpen = drawer && drawer.classList.contains('is-open');
+            setChecklistOpen(!isOpen);
+          });
+        }
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => setChecklistOpen(false));
+        }
+
+        function updateScore() {
+          const total = checkboxes.length;
+          const checked = checkboxes.filter(c => c.checked).length;
+          const missing = checkboxes.filter(c => !c.checked).map(c => c.getAttribute('data-rec'));
+          const pct = Math.round((checked / total) * 100);
+
+          checkboxes.forEach(cb => {
+            const card = cb.closest('.pro-check-card');
+            if (card) card.classList.toggle('is-checked', cb.checked);
+          });
+
+          let level = 'Low';
+          let color = 'var(--color-danger)';
+          if (checked >= 7) {
+            level = 'Strong';
+            color = 'var(--color-success)';
+          } else if (checked >= 5) {
+            level = 'Good';
+            color = '#059669';
+          } else if (checked >= 3) {
+            level = 'Moderate';
+            color = 'var(--color-warning)';
+          }
+
+          badge.textContent = `${level} (${checked}/${total})`;
+          badge.style.color = color;
+          bar.style.width = `${pct}%`;
+          bar.style.backgroundColor = color;
+          if (pctLabel) pctLabel.textContent = `${pct}% Complete`;
+
+          if (missing.length === 0) {
+            recList.innerHTML = '<li style="color: var(--color-success); font-weight: 600;">All listed family safety practices are checked. Continue reviewing household settings regularly.</li>';
+          } else {
+            recList.innerHTML = missing.slice(0, 4).map(r => `<li>${r}</li>`).join('');
+          }
+        }
+
+        if (resetBtn) {
+          resetBtn.addEventListener('click', () => {
+            checkboxes.forEach(cb => { cb.checked = false; });
+            updateScore();
+          });
+        }
+
+        checkboxes.forEach(cb => cb.addEventListener('change', updateScore));
+        updateScore();
+      }
+      initAudienceChecklist();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Self-Healing Development Cache & Service Worker Clean Up -->
+
+    <script>
+      var __DEFINES__ = window.__DEFINES__ || {};
+      window.__DEFINES__ = __DEFINES__;
+      if ('serviceWorker' in navigator) {
+        const isDev = window.location.hostname === 'localhost' ||
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('.run.app');
+        if (isDev) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            let unregistered = false;
+            for (const registration of registrations) {
+              registration.unregister();
+              unregistered = true;
+            }
+            if (unregistered) {
+              console.log('[SafePK] Unregistered active service worker to clear dev cache.');
+              if (window.caches) {
+                caches.keys().then((names) => {
+                  return Promise.all(names.map(name => caches.delete(name)));
+                }).then(() => {
+                  window.location.reload();
+                });
+              } else {
+                window.location.reload();
+              }
+            }
+          });
+        }
+      }
+    </script>
+
+    <!-- Primary Technical SEO & Canonical Metadata -->
+    <title>Cybersecurity for Organizations — Workplace Defense | SafePK</title>
+    <meta name="description" content="Strengthen workplace security across Pakistani organizations with access control guidance, phishing defense, incident response tips, and a checklist." />
+    <meta name="author" content="SafePK" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://safepk.net/organizations.html" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/png" href="assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="apple-touch-icon" href="assets/images/safepk-logo.png" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cybersecurity for Organizations — Workplace Defense | SafePK" />
+    <meta property="og:description" content="Strengthen workplace security across Pakistani organizations with access control guidance, phishing defense, incident response tips, and a checklist." />
+    <meta property="og:url" content="https://safepk.net/organizations.html" />
+    <meta property="og:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+    <meta property="og:site_name" content="SafePK" />
+    <meta property="og:locale" content="en_PK" />
+
+    <!-- Twitter / X Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cybersecurity for Organizations — Workplace Defense | SafePK" />
+    <meta name="twitter:description" content="Strengthen workplace security across Pakistani organizations with access control guidance, phishing defense, incident response tips, and a checklist." />
+    <meta name="twitter:image" content="https://safepk.net/assets/images/safepk-logo.png" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Cybersecurity for Organizations — Workplace Defense | SafePK",
+      "url": "https://safepk.net/organizations.html",
+      "description": "Strengthen workplace security across Pakistani organizations with access control guidance, phishing defense, incident response tips, and a checklist.",
+      "isPartOf": {
+        "@id": "https://safepk.net/#website"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Article",
+              "headline": "Workplace Multi-Factor Authentication: Moving from SMS Codes to Modern Passkeys",
+              "description": "How organizations can strengthen staff logins by adopting authenticator apps, passkeys, and hardware security keys.",
+              "articleSection": "Access Management",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-1.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#1"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Article",
+              "headline": "Business Email & Invoice Verification: Preventing Unauthorized Payment Changes",
+              "description": "Protecting finance and procurement teams from spoofed supplier emails and unverified bank account change requests.",
+              "articleSection": "Financial Controls",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-2.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#2"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Article",
+              "headline": "Structured Employee Onboarding & Offboarding: Managing Workplace Account Access",
+              "description": "Standardizing account creation and timely access removal when staff join, change roles, or depart the organization.",
+              "articleSection": "HR & Identity Governance",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-3.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#3"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Article",
+              "headline": "Role-Based Access Control (RBAC): Applying Least-Privilege Principles Across Teams",
+              "description": "Ensuring employees only have access to the specific files and systems required for their daily responsibilities.",
+              "articleSection": "Identity & Governance",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-4.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#4"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "Article",
+              "headline": "Securing Workplace Laptops & Workstations: Modern Endpoint Management",
+              "description": "Keeping company laptops and desktops protected with full-disk encryption, automated updates, and endpoint monitoring.",
+              "articleSection": "Device Management",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-5.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#5"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "Article",
+              "headline": "Business Continuity & Backup Architecture: Designing Reliable 3-2-1 Data Backups",
+              "description": "Protecting organizational databases and operational records with automated, offline, and immutable backup systems.",
+              "articleSection": "Business Continuity",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-6.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#6"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@type": "Article",
+              "headline": "Building a Positive Security Culture: Constructive Staff Awareness Training",
+              "description": "How to run encouraging, practical cybersecurity awareness sessions that empower employees to spot and report suspicious messages.",
+              "articleSection": "Staff Awareness",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-7.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#7"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@type": "Article",
+              "headline": "Workplace Mobile Device Policies (BYOD): Securing Company Data on Personal Phones",
+              "description": "Balancing employee privacy with company data protection using containerized work profiles and clear mobile device guidelines.",
+              "articleSection": "Mobile Governance",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-8.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#8"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@type": "Article",
+              "headline": "Cloud Workspace Administration: Securing Google Workspace, Microsoft 365, and Cloud Hosting",
+              "description": "Best practices for reviewing cloud sharing defaults, administrator roles, and third-party app integrations across business cloud platforms.",
+              "articleSection": "Cloud Administration",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-9.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#9"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@type": "Article",
+              "headline": "Third-Party Vendor & Partner Security: Reviewing External Access and Data Handling",
+              "description": "Assessing data protection practices and access permissions across external software providers, agencies, and contractors.",
+              "articleSection": "Vendor Governance",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-10.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#10"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@type": "Article",
+              "headline": "Organizational Incident Response Plan: Structured Steps for the First 60 Minutes",
+              "description": "A calm, coordinated playbook for technical leads and management when an unexpected system issue or unauthorized access occurs.",
+              "articleSection": "Incident Management",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-11.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#11"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@type": "Article",
+              "headline": "Workplace Network Segmentation: Separating Guest, Office, and Production Systems",
+              "description": "Designing clean, segmented office networks where visitor Wi-Fi, staff computers, and core servers remain safely separated.",
+              "articleSection": "Network Architecture",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-12.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#12"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+              "@type": "Article",
+              "headline": "Securing Workplace Collaboration: Slack, Microsoft Teams, and Shared Document Drives",
+              "description": "Preventing accidental file oversharing and managing external guest access across company chat and document platforms.",
+              "articleSection": "Collaboration Safety",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-13.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#13"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+              "@type": "Article",
+              "headline": "Customer Data Protection: Safeguarding Sensitive Records and Financial Files",
+              "description": "Implementing practical safeguards to keep customer CNIC records, financial spreadsheets, and proprietary documents confidential.",
+              "articleSection": "Data Protection",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-14.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#14"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+              "@type": "Article",
+              "headline": "Secure Software Development Practices: Code Reviews and Dependency Management",
+              "description": "Integrating automated code checks, dependency updates, and secret scanning into your engineering team workflows.",
+              "articleSection": "Application Security",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-15.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#15"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "item": {
+              "@type": "Article",
+              "headline": "Office Physical Security: Visitor Management, ID Badges, and Clean Desk Habits",
+              "description": "Protecting office workspaces through visitor sign-in procedures, automatic screen locks, and secure handling of printed documents.",
+              "articleSection": "Workplace Security",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-16.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#16"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "item": {
+              "@type": "Article",
+              "headline": "Cybersecurity Governance in Pakistan: Aligning with National Best Practices",
+              "description": "A practical overview of aligning organizational data protection and security governance with Pakistani regulatory frameworks.",
+              "articleSection": "Compliance & Governance",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-17.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#17"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 18,
+            "item": {
+              "@type": "Article",
+              "headline": "Structured Software Update Management: Keeping Servers and Workstations Current",
+              "description": "Establishing reliable, predictable update schedules for operating systems, browsers, and network equipment across your organization.",
+              "articleSection": "System Maintenance",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-18.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#18"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 19,
+            "item": {
+              "@type": "Article",
+              "headline": "Transparent Stakeholder Communication During Technical Disruptions",
+              "description": "How leadership teams can communicate clearly, accurately, and responsibly with clients, partners, and staff during a service disruption.",
+              "articleSection": "Crisis Communication",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-19.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#19"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 20,
+            "item": {
+              "@type": "Article",
+              "headline": "Commissioning Independent Security Assessments: A Guide for Organizations",
+              "description": "How to scope, schedule, and review authorized third-party security assessments to identify and fix configuration gaps proactively.",
+              "articleSection": "Security Testing",
+              "image": "https://safepk.net/assets/organizations/pictures/organization-20.png",
+              "author": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "url": "https://safepk.net/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "SafePK",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://safepk.net/assets/images/safepk-logo.png"
+                }
+              },
+              "mainEntityOfPage": "https://safepk.net/organizations.html#20"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Stylesheets & Web App Manifest -->
+    <link rel="stylesheet" href="css/style.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="stylesheet" href="css/responsive.css" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <link rel="manifest" href="manifest.json" /> <!-- External stylesheet, favicon, manifest ya canonical URL link -->
+    <meta name="theme-color" content="#2563EB" />
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <header>
+      <div class="container navbar-container">
+        <a href="index.html" class="logo-block">
+          <img src="assets/images/safepk-logo.png" alt="SafePK Logo" class="logo-img" width="32" height="32" decoding="async" fetchpriority="high" />
+          <span>Safe<span style="color: var(--color-primary)">PK</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-link nav-dropdown-trigger" aria-expanded="false">
+              <span>Audience</span>
+              <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="individual.html" class="nav-dropdown-item">
+                <span>Individuals</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="family.html" class="nav-dropdown-item">
+                <span>Families</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="organizations.html" class="nav-dropdown-item">
+                <span>Organizations</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="freelancers.html" class="nav-dropdown-item">
+                <span>Freelancers &amp; Businesses</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+          <a href="pages/learn.html" class="nav-link">Articles</a>
+          <a href="pages/tools.html" class="nav-link">Report Generator</a>
+          <a href="pages/directory.html" class="nav-link">Directory</a>
+          <a href="pages/help.html" class="nav-link">Help Center</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="container">
+        <!-- Back Link -->
+        <div style="margin-bottom: 1.5rem;">
+          <a href="index.html" style="text-decoration: none; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.35rem;">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+          </a>
+        </div>
+
+        <!-- Global Clean Hero Section -->
+        <section class="page-hero animate-fade-in">
+          <h1 class="page-hero-title">Digital Safety for Organizations</h1>
+          <p class="page-hero-subtitle">
+            Cybersecurity awareness and practical guidance for protecting people, systems, and digital operations.
+          </p>
+          <div class="hero-buttons" style="margin-top: 1.35rem;">
+            <a href="pages/tools.html" class="btn btn-primary">
+              <i data-lucide="file-text" class="w-4 h-4"></i>
+              Report Generator
+            </a>
+            <a href="pages/directory.html" class="btn btn-secondary">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              Directory
+            </a>
+            <button type="button" id="checklist-toggle-btn" class="btn btn-secondary checklist-trigger-btn" aria-expanded="false" aria-controls="security-checklist">
+              <i data-lucide="check-square" class="w-4 h-4"></i>
+              <span>Organization Security Checklist</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 trigger-chevron"></i>
+            </button>
+          </div>
+        </section>
+
+        <!-- Organization Security Checklist Section (Closed by Default) -->
+        <section id="security-checklist" class="checklist-drawer-wrapper" aria-hidden="true" style="--checklist-accent: #2563EB;">
+          <div class="checklist-drawer-inner">
+            <div class="pro-checklist-card">
+              <div class="pro-checklist-header">
+                <div class="pro-checklist-title-wrap">
+                  <div class="pro-checklist-badge-pill">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Enterprise Posture Assessment
+                  </div>
+                  <h2 class="pro-checklist-title"> <!-- Section ki main sub-heading (H2) -->
+                    <i data-lucide="shield-check" class="w-6 h-6" style="color: var(--color-primary);"></i>
+                    Organization Security Checklist
+                  </h2>
+                  <p class="pro-checklist-subtitle">
+                    Select the core security practices your team currently follows to estimate your organizational security posture and unlock actionable recommendations.
+                  </p>
+                </div>
+                <div class="pro-checklist-controls">
+                  <div class="pro-score-box">
+                    <div class="pro-score-label">Posture Score</div>
+                    <div id="checklist-level-badge" class="pro-score-value">Low (0/8)</div>
+                  </div>
+                  <button type="button" id="checklist-close-btn" class="pro-checklist-close-btn" title="Close Checklist">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                    <span>Hide</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Animated Progress Bar -->
+              <div class="pro-progress-meta">
+                <span>Organizational Readiness Progress</span>
+                <span id="checklist-progress-pct">0% Complete</span>
+              </div>
+              <div class="pro-progress-track">
+                <div id="checklist-progress-bar" class="pro-progress-fill"></div>
+              </div>
+
+              <!-- Checklist Items Grid -->
+              <div id="checklist-items-container" class="pro-checklist-grid">
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Enforce Multi-Factor Authentication (MFA) across all staff email, cloud workspace, and admin accounts." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Multi-Factor Authentication (MFA) is enforced on all staff email and admin accounts.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Use a standardized offboarding checklist to immediately revoke account access when an employee or contractor leaves." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Departing staff and contractors have their account access revoked immediately.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Require out-of-band voice verification before approving changes to vendor bank accounts or large payment requests." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Changes to vendor payment details or wire transfers require secondary verification.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Maintain regular offline or immutable backups of critical organizational data and verify that backups can be restored." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Critical organizational data is backed up regularly to offline or isolated storage.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Limit administrative privileges strictly to personnel who require them for their daily operational roles." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Admin privileges are restricted to essential personnel (least-privilege access).</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Provide regular phishing and scam awareness guidance so employees recognize suspicious emails and links." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Staff receive regular awareness guidance on spotting phishing and social engineering.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Configure SPF, DKIM, and DMARC records on your organization's email domain to prevent email spoofing." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">Our organization domain has email authentication (SPF, DKIM, DMARC) configured.</span>
+                </label>
+                <label class="pro-check-card"> <!-- Form input ya checkbox ka clickable label -->
+                  <input type="checkbox" class="sec-check-item" data-rec="Establish a clear internal reporting contact and incident response checklist so staff know how to escalate security incidents." /> <!-- User input field ya checkbox control -->
+                  <span class="pro-check-box-ui"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="pro-check-text">We have a clear internal contact and procedure for reporting suspected incidents.</span>
+                </label>
+              </div>
+
+              <!-- Recommendations Box -->
+              <div id="checklist-recommendations" class="pro-rec-panel">
+                <div class="pro-rec-header">
+                  <div class="pro-rec-title">
+                    <i data-lucide="list-checks" class="w-4 h-4" style="color: var(--color-primary);"></i>
+                    Recommended Next Steps
+                  </div>
+                  <button type="button" id="checklist-reset-btn" class="pro-rec-reset-btn">Reset All</button>
+                </div>
+                <ul id="checklist-rec-list" class="pro-rec-list"></ul>
+                <p class="pro-rec-note">
+                  Note: This checklist provides a practical self-assessment of foundational organizational security practices and does not replace a formal technical audit or guarantee immunity from cyber threats.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Articles Grid -->
+        <div id="articles-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
+          <a href="organizations/workplace-multi-factor-authentication-moving-from-sms-codes-to-modern-passkeys.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-1.png" alt="Workplace Multi-Factor Authentication: Moving from SMS Codes to Modern Passkeys" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Access Management</span> <!-- Category badge -->
+              <h3 class="article-title">Workplace Multi-Factor Authentication: Moving from SMS Codes to Modern Passkeys</h3> <!-- Article title -->
+              <p class="article-excerpt">How organizations can strengthen staff logins by adopting authenticator apps, passkeys, and hardware security keys.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/business-email-invoice-verification-preventing-unauthorized-payment-changes.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-2.png" alt="Business Email &amp; Invoice Verification: Preventing Unauthorized Payment Changes" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Financial Controls</span> <!-- Category badge -->
+              <h3 class="article-title">Business Email &amp; Invoice Verification: Preventing Unauthorized Payment Changes</h3> <!-- Article title -->
+              <p class="article-excerpt">Protecting finance and procurement teams from spoofed supplier emails and unverified bank account change requests.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/structured-employee-onboarding-offboarding-managing-workplace-account-access.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-3.png" alt="Structured Employee Onboarding &amp; Offboarding: Managing Workplace Account Access" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">HR &amp; Identity Governance</span> <!-- Category badge -->
+              <h3 class="article-title">Structured Employee Onboarding &amp; Offboarding: Managing Workplace Account Access</h3> <!-- Article title -->
+              <p class="article-excerpt">Standardizing account creation and timely access removal when staff join, change roles, or depart the organization.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/role-based-access-control-rbac-applying-least-privilege-principles-across-teams.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-4.png" alt="Role-Based Access Control (RBAC): Applying Least-Privilege Principles Across Teams" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Identity &amp; Governance</span> <!-- Category badge -->
+              <h3 class="article-title">Role-Based Access Control (RBAC): Applying Least-Privilege Principles Across Teams</h3> <!-- Article title -->
+              <p class="article-excerpt">Ensuring employees only have access to the specific files and systems required for their daily responsibilities.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/securing-workplace-laptops-workstations-modern-endpoint-management.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-5.png" alt="Securing Workplace Laptops &amp; Workstations: Modern Endpoint Management" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Device Management</span> <!-- Category badge -->
+              <h3 class="article-title">Securing Workplace Laptops &amp; Workstations: Modern Endpoint Management</h3> <!-- Article title -->
+              <p class="article-excerpt">Keeping company laptops and desktops protected with full-disk encryption, automated updates, and endpoint monitoring.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/business-continuity-backup-architecture-designing-reliable-3-2-1-data-backups.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-6.png" alt="Business Continuity &amp; Backup Architecture: Designing Reliable 3-2-1 Data Backups" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Business Continuity</span> <!-- Category badge -->
+              <h3 class="article-title">Business Continuity &amp; Backup Architecture: Designing Reliable 3-2-1 Data Backups</h3> <!-- Article title -->
+              <p class="article-excerpt">Protecting organizational databases and operational records with automated, offline, and immutable backup systems.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/building-a-positive-security-culture-constructive-staff-awareness-training.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-7.png" alt="Building a Positive Security Culture: Constructive Staff Awareness Training" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Staff Awareness</span> <!-- Category badge -->
+              <h3 class="article-title">Building a Positive Security Culture: Constructive Staff Awareness Training</h3> <!-- Article title -->
+              <p class="article-excerpt">How to run encouraging, practical cybersecurity awareness sessions that empower employees to spot and report suspicious messages.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/workplace-mobile-device-policies-byod-securing-company-data-on-personal-phones.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-8.png" alt="Workplace Mobile Device Policies (BYOD): Securing Company Data on Personal Phones" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Mobile Governance</span> <!-- Category badge -->
+              <h3 class="article-title">Workplace Mobile Device Policies (BYOD): Securing Company Data on Personal Phones</h3> <!-- Article title -->
+              <p class="article-excerpt">Balancing employee privacy with company data protection using containerized work profiles and clear mobile device guidelines.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/cloud-workspace-administration-securing-google-workspace-microsoft-365-and-cloud-hosting.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-9.png" alt="Cloud Workspace Administration: Securing Google Workspace, Microsoft 365, and Cloud Hosting" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Cloud Administration</span> <!-- Category badge -->
+              <h3 class="article-title">Cloud Workspace Administration: Securing Google Workspace, Microsoft 365, and Cloud Hosting</h3> <!-- Article title -->
+              <p class="article-excerpt">Best practices for reviewing cloud sharing defaults, administrator roles, and third-party app integrations across business cloud platforms.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/third-party-vendor-partner-security-reviewing-external-access-and-data-handling.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-10.png" alt="Third-Party Vendor &amp; Partner Security: Reviewing External Access and Data Handling" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Vendor Governance</span> <!-- Category badge -->
+              <h3 class="article-title">Third-Party Vendor &amp; Partner Security: Reviewing External Access and Data Handling</h3> <!-- Article title -->
+              <p class="article-excerpt">Assessing data protection practices and access permissions across external software providers, agencies, and contractors.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/organizational-incident-response-plan-structured-steps-for-the-first-60-minutes.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-11.png" alt="Organizational Incident Response Plan: Structured Steps for the First 60 Minutes" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Incident Management</span> <!-- Category badge -->
+              <h3 class="article-title">Organizational Incident Response Plan: Structured Steps for the First 60 Minutes</h3> <!-- Article title -->
+              <p class="article-excerpt">A calm, coordinated playbook for technical leads and management when an unexpected system issue or unauthorized access occurs.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/workplace-network-segmentation-separating-guest-office-and-production-systems.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-12.png" alt="Workplace Network Segmentation: Separating Guest, Office, and Production Systems" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Network Architecture</span> <!-- Category badge -->
+              <h3 class="article-title">Workplace Network Segmentation: Separating Guest, Office, and Production Systems</h3> <!-- Article title -->
+              <p class="article-excerpt">Designing clean, segmented office networks where visitor Wi-Fi, staff computers, and core servers remain safely separated.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/securing-workplace-collaboration-slack-microsoft-teams-and-shared-document-drives.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-13.png" alt="Securing Workplace Collaboration: Slack, Microsoft Teams, and Shared Document Drives" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Collaboration Safety</span> <!-- Category badge -->
+              <h3 class="article-title">Securing Workplace Collaboration: Slack, Microsoft Teams, and Shared Document Drives</h3> <!-- Article title -->
+              <p class="article-excerpt">Preventing accidental file oversharing and managing external guest access across company chat and document platforms.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/customer-data-protection-safeguarding-sensitive-records-and-financial-files.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-14.png" alt="Customer Data Protection: Safeguarding Sensitive Records and Financial Files" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Data Protection</span> <!-- Category badge -->
+              <h3 class="article-title">Customer Data Protection: Safeguarding Sensitive Records and Financial Files</h3> <!-- Article title -->
+              <p class="article-excerpt">Implementing practical safeguards to keep customer CNIC records, financial spreadsheets, and proprietary documents confidential.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/secure-software-development-practices-code-reviews-and-dependency-management.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-15.png" alt="Secure Software Development Practices: Code Reviews and Dependency Management" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Application Security</span> <!-- Category badge -->
+              <h3 class="article-title">Secure Software Development Practices: Code Reviews and Dependency Management</h3> <!-- Article title -->
+              <p class="article-excerpt">Integrating automated code checks, dependency updates, and secret scanning into your engineering team workflows.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/office-physical-security-visitor-management-id-badges-and-clean-desk-habits.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-16.png" alt="Office Physical Security: Visitor Management, ID Badges, and Clean Desk Habits" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Workplace Security</span> <!-- Category badge -->
+              <h3 class="article-title">Office Physical Security: Visitor Management, ID Badges, and Clean Desk Habits</h3> <!-- Article title -->
+              <p class="article-excerpt">Protecting office workspaces through visitor sign-in procedures, automatic screen locks, and secure handling of printed documents.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/cybersecurity-governance-in-pakistan-aligning-with-national-best-practices.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-17.png" alt="Cybersecurity Governance in Pakistan: Aligning with National Best Practices" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Compliance &amp; Governance</span> <!-- Category badge -->
+              <h3 class="article-title">Cybersecurity Governance in Pakistan: Aligning with National Best Practices</h3> <!-- Article title -->
+              <p class="article-excerpt">A practical overview of aligning organizational data protection and security governance with Pakistani regulatory frameworks.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/structured-software-update-management-keeping-servers-and-workstations-current.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-18.png" alt="Structured Software Update Management: Keeping Servers and Workstations Current" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">System Maintenance</span> <!-- Category badge -->
+              <h3 class="article-title">Structured Software Update Management: Keeping Servers and Workstations Current</h3> <!-- Article title -->
+              <p class="article-excerpt">Establishing reliable, predictable update schedules for operating systems, browsers, and network equipment across your organization.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/transparent-stakeholder-communication-during-technical-disruptions.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-19.png" alt="Transparent Stakeholder Communication During Technical Disruptions" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Crisis Communication</span> <!-- Category badge -->
+              <h3 class="article-title">Transparent Stakeholder Communication During Technical Disruptions</h3> <!-- Article title -->
+              <p class="article-excerpt">How leadership teams can communicate clearly, accurately, and responsibly with clients, partners, and staff during a service disruption.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="organizations/commissioning-independent-security-assessments-a-guide-for-organizations.html" class="article-card" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;"> <!-- Static article card link -->
+            <img src="assets/organizations/pictures/organization-20.png" alt="Commissioning Independent Security Assessments: A Guide for Organizations" loading="lazy" /> <!-- Article thumbnail image -->
+            <div class="article-body"> <!-- Card body container -->
+              <span class="article-category">Security Testing</span> <!-- Category badge -->
+              <h3 class="article-title">Commissioning Independent Security Assessments: A Guide for Organizations</h3> <!-- Article title -->
+              <p class="article-excerpt">How to scope, schedule, and review authorized third-party security assessments to identify and fix configuration gaps proactively.</p> <!-- Article excerpt -->
+              <div class="article-footer"> <!-- Card footer -->
+                <span>6 min read</span> <!-- Read time -->
+                <span class="read-more-btn"> <!-- Read guide CTA -->
+                  Read Guide <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Minimal GitHub-Inspired Centered Footer -->
+    <footer>
+      <div class="container footer-minimal-wrap">
+        <nav class="footer-minimal-nav" aria-label="Footer Main Links">
+          <a href="pages/about.html" class="footer-minimal-link">About</a>
+          <a href="sponsor.html" class="footer-minimal-link">Sponsor</a>
+                  <a href="pages/reviews.html" class="footer-minimal-link">Feedback &amp; Reviews</a>
+          <a href="pages/contact.html" class="footer-minimal-link">Contact</a>
+</nav>
+
+        <nav class="footer-minimal-legal" aria-label="Legal Policies">
+          <a href="pages/privacy-policy.html" class="footer-minimal-legal-link">Privacy Policy</a>
+          <a href="pages/terms-of-use.html" class="footer-minimal-legal-link">Terms of Use</a>
+          <a href="pages/disclaimer.html" class="footer-minimal-legal-link">Disclaimer</a>
+        </nav>
+
+        <div class="footer-contact-row notranslate" translate="no"> <!-- Official email aur Pro Share button ka container -->
+          <a href="mailto:infosafepk@proton.me" class="footer-email-pill" title="Official SafePK Email: infosafepk@proton.me">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>infosafepk@proton.me</span>
+          </a>
+        </div>
+
+        <p class="footer-minimal-copy">&copy; SafePK &mdash; All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/theme.js"></script>
+
+    <script>
+      if (typeof initTheme !== undefined) initTheme();
+      if (typeof lucide !== undefined) lucide.createIcons(); /* Lucide icons initialize kiye ja rahe hain */
+
+      function initAudienceChecklist() {
+        const drawer = document.getElementById('security-checklist');
+        const toggleBtn = document.getElementById('checklist-toggle-btn');
+        const closeBtn = document.getElementById('checklist-close-btn');
+        const resetBtn = document.getElementById('checklist-reset-btn');
+        const checkboxes = Array.from(document.querySelectorAll('.sec-check-item'));
+        const badge = document.getElementById('checklist-level-badge');
+        const bar = document.getElementById('checklist-progress-bar');
+        const pctLabel = document.getElementById('checklist-progress-pct');
+        const recList = document.getElementById('checklist-rec-list');
+        if (!checkboxes.length || !badge || !bar || !recList) return;
+
+        function setChecklistOpen(open) {
+          if (!drawer || !toggleBtn) return;
+          drawer.classList.toggle('is-open', open);
+          drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+          toggleBtn.classList.toggle('is-active', open);
+          toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if (open) {
+            setTimeout(() => {
+              drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 80);
+          }
+        }
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isOpen = drawer && drawer.classList.contains('is-open');
+            setChecklistOpen(!isOpen);
+          });
+        }
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => setChecklistOpen(false));
+        }
+
+        function updateScore() {
+          const total = checkboxes.length;
+          const checked = checkboxes.filter(c => c.checked).length;
+          const missing = checkboxes.filter(c => !c.checked).map(c => c.getAttribute('data-rec'));
+          const pct = Math.round((checked / total) * 100);
+
+          checkboxes.forEach(cb => {
+            const card = cb.closest('.pro-check-card');
+            if (card) card.classList.toggle('is-checked', cb.checked);
+          });
+
+          let level = 'Low';
+          let color = 'var(--color-danger)';
+          if (checked >= 7) {
+            level = 'Strong';
+            color = 'var(--color-success)';
+          } else if (checked >= 5) {
+            level = 'Good';
+            color = 'var(--color-primary)';
+          } else if (checked >= 3) {
+            level = 'Moderate';
+            color = 'var(--color-warning)';
+          }
+
+          badge.textContent = `${level} (${checked}/${total})`;
+          badge.style.color = color;
+          bar.style.width = `${pct}%`;
+          bar.style.backgroundColor = color;
+          if (pctLabel) pctLabel.textContent = `${pct}% Complete`;
+
+          if (missing.length === 0) {
+            recList.innerHTML = '<li style="color: var(--color-success); font-weight: 600;">All listed organizational security practices are checked. Continue periodic reviews across your team.</li>';
+          } else {
+            recList.innerHTML = missing.slice(0, 4).map(r => `<li>${r}</li>`).join('');
+          }
+        }
+
+        if (resetBtn) {
+          resetBtn.addEventListener('click', () => {
+            checkboxes.forEach(cb => { cb.checked = false; });
+            updateScore();
+          });
+        }
+
+        checkboxes.forEach(cb => cb.addEventListener('change', updateScore));
+        updateScore();
+      }
+      initAudienceChecklist();
+    </script>
+  </body>
+</html>
