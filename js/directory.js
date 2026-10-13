@@ -10,7 +10,7 @@ const pakistanDirectory = [
   // =========================================================================
   {
     id: 'nccia',
-    name: 'National Cyber Crime Investigation Agency (NCCIA / FIA Cyber Crime)',
+    name: 'National Cyber Crime Investigation Agency (NCCIA)',
     category: 'agency',
     website: 'https://complaint.nccia.gov.pk/',
     email: 'helpdesk@nccia.gov.pk',
