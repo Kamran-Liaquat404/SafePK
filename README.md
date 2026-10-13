@@ -76,7 +76,7 @@ SafePK is crafted with a lightweight, browser-native philosophy. You do not need
 ### Method 1: Direct Local Use (Double-Click)
 1. Download or clone this repository:
    ```bash
-   git clone https://github.com/your-username/safepk.git
+   https://github.com/Kamran-Liaquat404/SafePK.git
    ```
 2. Open the downloaded folder and **double-click `index.html`**.
 3. That's it! The entire platform runs seamlessly in Chrome, Edge, Safari, Firefox, or Brave.
