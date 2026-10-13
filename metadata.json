@@ -1,6 +1,0 @@
-{
-  "name": "SafePK",
-  "description": "Pakistan Cyber Safety Awareness Platform. Learn about phishing, fraud prevention, safety tools, and official reporting templates.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
